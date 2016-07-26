@@ -1,4 +1,266 @@
 {% extends '_layout.html' %}
 
+{% macro features(count) %}
+  <ul>
+    {% for title in (
+      'Personnalisation du site Internet',
+      'Actualité santé en continu',
+      'Présentation des produits',
+      'Affichage promotionnel',
+      'Fiches conseils',
+      'Réservation d\'ordonnace',
+      'Base de données patients',
+      'Suivi de santé (carnet de vaccination, pharmacovigilence…)',
+      'Application mobile',
+      'Solution e-commerce intégrée') %}
+      <li{% if loop.index > count %} class="disabled"{% endif %}>{{ title }}</li>
+    {% endfor %}
+  </ul>
+  <ul class="links">
+    <li>
+      <a href="{{ url_for('register') }}">Je m'inscris</a>
+    </li>
+  </ul>
+{% endmacro %}
+
 {% block body %}
+  <section id="sales">
+    <h2>Comment développer vos ventes grâce à votre site Internet ?</h2>
+    <ul class="links">
+      <li>
+        <a href="{{ url_for('static', filename='documents/whitepaper.pdf') }}">
+          Télécharger le livre blanc
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>De nouveaux leviers de croissance avec votre pharmacie en ligne</h2>
+    <h3>À propos de Pharminfo.fr</h3>
+    <aside>Made by Kozea</aside>
+    <p>
+      Les premiers sites Internet Pharminfo.fr ont été créés en 2007 par la
+      société <strong>Kozea</strong> pour répondre à une demande spécifique des
+      pharmaciens : <strong>améliorer la relation avec les patients en
+      prolongeant la pharmacie sur le web</strong>.
+    </p>
+    <p>
+      À l'écoute de tous ses clients, Pharminfo.fr a su faire évoluer les sites
+      Internet à leur demande pour arriver à des plateformes digitales
+      performantes.
+    </p>
+    <p>
+      <strong>
+        Toutes les plateformes sont réalisées dans le respect des règles
+        juridiques et déontologiques que requiert l'univers officinal.
+      </strong>
+    </p>
+    <ul class="links">
+      <li>
+        <a href="{{ url_for('static', filename='documents/video.avi') }}">
+          Voir la vidéo du président
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="news">
+    <h2>Actualités</h2>
+    {# TODO #}
+  </section>
+
+  <section id="goals">
+    <h2>Les objectifs de Pharminfo.fr</h2>
+    <ul>
+      <li id="innovate"><strong>Innover</strong> en proposant des services web spécifiques</li>
+      <li id="simplify"><strong>Simplifier</strong> la rencontre entre le pharmacien et le patient</li>
+      <li id="connect"><strong>Connecter</strong> les patients à la pharmacie 7j/7 et 24h/24</li>
+      <li id="help"><strong>Aider</strong> à l’organisation administrative et logistique de l'officine</li>
+      <li id="save"><strong>Gagner</strong> plus de temps pour l'équipe officinale afin de mieux accompagner les patients au comptoir</li>
+      <li id="raise"><strong>Augmenter</strong> le chiffre d'affaires de la pharmacie</li>
+    </ul>
+  </section>
+
+  <section id="guarantees">
+    <h2>Les garanties Pharminfo.fr</h2>
+    <ul>
+      {# TODO #}
+      <li id=""></li>
+      <li id=""></li>
+      <li id="ars">Constitution du dossier ARS</li>
+      <li id=""></li>
+      <li id=""></li>
+      <li id=""></li>
+      <li id=""></li>
+      <li id=""></li>
+    </ul>
+  </section>
+
+  <section id="reasons">
+    <h2>6 bonnes raisons de choisir Pharminfo.fr</h2>
+    <p>
+      Déjà <strong>2300</strong> pharmacies ont fait confiance à Pharminfo.fr,
+      pourquoi pas vous ?
+    </p>
+    <ol>
+      {# TODO #}
+      <li id="develop">Développement de nouveaux services de proximité</li>
+      <li id="expertise">Expertise de services démontrée</li>
+      <li id="">Fidélisation de votre patientèle</li>
+      <li id="">Satisfaction et recommandation de nos clients</li>
+      <li id="">Accompagnement personnalisé</li>
+      <li id="">Coût maîtrisé</li>
+    </ol>
+  </section>
+
+  <section id="clients">
+    <h2>Témoignages</h2>
+    <ul id="testimonials">
+      {# TODO #}
+      {% for i in range(3) %}
+        <li>
+          <figure>
+            <blockquote>
+              {{ lipsum(1) }}
+            </blockquote>
+            <figcaption>Céline D, Docteur en Pharmacie</figcaption>
+          </figure>
+        </li>
+      {% endfor %}
+    </ul>
+    <ul>
+      <li id="interne"><strong>85%</strong> des patients apprécient que leur pharmacien aient un site Internet.</li>
+      <li id=""><strong>72%</strong> des patients seraient intéressés par la mise en place d'un service qui simplifie la réservation d'ordonnances.</li>
+      <li id=""><strong>73%</strong> des patients souhaitent la mise en place d'un comptoir uniquement dédié aux retraits des ordonnances réservées en ligne.</li>
+      <li id=""><strong>50%</strong> des patients souhaitent être livrés à leur domicile.</li>
+    </ul>
+    <p>Enquête réalisée par Pharminfo.fr au mois de juillet 2015 après de 1300 patients.</p>
+  </section>
+
+  <section id="offers">
+    <p>
+      Les solutions digitales de Pharminfo.fr vous permettront d'accélérer
+      votre performance, votre visibilité et vos ventes.
+    </p>
+    <p>
+      En utilisant un nouveau canal de communication, vous simplifiez la
+      gestion de votre <em>back-office</em> et améliorez votre présence au
+      comptoir.
+    </p>
+
+    <section id="ecoweb">
+      <h3>Ecoweb</h3>
+      <p>Visibilité</p>
+      <p class="price"><strong>9,90 €</strong> HT/mois</p>
+      {{ features(2) }}
+    </section>
+
+    <section id="flexiweb">
+      <h3>Flexiweb</h3>
+      <p>Informer</p>
+      <p class="price"><strong>29,90 €</strong> HT/mois</p>
+      {{ features(5) }}
+    </section>
+
+    <section id="flexiweb-plus">
+      <h3>Flexiweb Plus*</h3>
+      <p>Services +</p>
+      <p class="price"><strong>59,90 €</strong> HT/mois</p>
+      {{ features(9) }}
+    </section>
+
+    <section id="optiweb">
+      <h3>Optiweb**</h3>
+      <p>E-commerce</p>
+      <p class="price"><strong>94,90 €</strong> HT/mois</p>
+      {{ features(10) }}
+    </section>
+
+    <ul class="notes">
+      <li>
+        * 200 € HT de frais de mise en ligne.
+      </li>
+      <li>
+        ** 390 € HT de frais de mise en ligne. Ce prix comprend la constitution
+        du dossier ARS, la mise en ligne du site Internet, le coût de
+        l'interface de paiement et du TPE virtuel multi-banques. Commission de
+        paiement 0,9 % du panier HT.
+      </li>
+    </ul>
+  </section>
+
+  <section id="main-offer">
+    <h2>Laissez-vous tenter par l'offre Flexiweb plus</h2>
+    <p>
+      Proposez un service innonvant et gratuit à vos patients : la réservation
+      d'ordonnances en ligne ! Simple d'utilisation, vous recevrez les
+      ordonnances de vos patients en quelques clics.
+    </p>
+    <p>
+      Plus qu'une application mobile, un vrai service de proximité !
+    </p>
+    {# TODO #}
+    <ol>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li>Le pharmacien prévient le patient par mail ou SMS quand l'ordonnance est prête</li>
+      <li></li>
+    </ol>
+    <ul class="links">
+      <li>
+        <a href="http://applicationmobilepharminfo.fr/">
+          Voir la vidéo de présentation
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="customize">
+    <h2>Personnalisez votre site Internet</h2>
+    <p>
+      Pour un service sur mesure, nous vous proposons d'avoir une visibilité
+      unique et de vous démarquer encore plus de vos concurrents.
+    </p>
+    <dl>
+      <dt id="image">Personnalisation de l'image de la bannière</dt>
+      <dd>50 € HT</dd>
+      <dt id="colors">Personnalisation des couleurs</dt>
+      <dd>70 € HT</dd>
+      <dt id="logo">Création d'un logo</dt>
+      <dd>185 € HT</dd>
+      <dt id="theme">Création d'un thème complet personnalisé</dt>
+      <dd>450 € HT</dd>
+    </dl>
+  </section>
+
+  <section id="customize">
+    <h2>Contact</h2>
+    <dl>
+      <dt>Adresse</dt>
+      <dd>
+        <strong>Pharminfo.fr − Kozea</strong><br/>
+        107 boulevard de Stalingrad<br/>
+        69100 Villeurbanne
+      </dd>
+      <dt>Tél</dt>
+      <dd>04 27 11 83 96</dd>
+      <dt>Fax</dt>
+      <dd>04 27 11 83 98</dd>
+      <dt>Email</dt>
+      <dd><a href="mailto:contact@pharminfo.fr">contact@pharminfo.fr</a></dd>
+    </dl>
+    <form action="{{ url_for('contact') }}" method="POST">
+      <label for="email">Email</label>
+      <input id="email" name="email" placeholder="Votre adresse email" />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Votre message"></textarea>
+      <input type="submit" value="Valider" />
+    </form>
+    {# TODO #}
+    <p>
+      <a>Abonnez-vous à la newsletter</a>
+    </p>
+  </section>
 {% endblock body %}
