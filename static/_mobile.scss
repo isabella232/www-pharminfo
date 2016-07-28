@@ -1,0 +1,51 @@
+html {
+
+	body {
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+
+		section#sales {
+			background: url('images/pharminfo-presentation.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+			justify-content: center;
+
+			h2 {
+
+				&::before {
+					background: url('images/logo-white.svg');
+					background-repeat: no-repeat;
+					content:'';
+					display: block;
+					height: 66px;
+					margin: 0 auto;
+					width: 252px;
+				}
+
+				&::after{
+					@include bottom_stroke(20px, 15px);
+				}
+
+
+			}
+
+			ul {
+				list-style-type: none;
+
+				li a {
+					background-color: $white;
+					color: $grey-1;
+					text-decoration: none;
+					padding: 10px 20px;
+				}
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,10 @@
+@mixin bottom_stroke($height, $width) {
+
+	background-color: $green;
+	content:'';
+	display: block;
+	height: $height;
+	margin: 0 auto;
+	width: $width;
+
+}

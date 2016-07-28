@@ -1,2 +1,37 @@
+html body {
+  display: flex;
+  flex-direction: column;
+  margin: 0; }
+  html body section#sales {
+    background: url("images/pharminfo-presentation.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center; }
+    html body section#sales h2::before {
+      background: url("images/logo-white.svg");
+      background-repeat: no-repeat;
+      content: '';
+      display: block;
+      height: 66px;
+      margin: 0 auto;
+      width: 252px; }
+    html body section#sales h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 20px;
+      margin: 0 auto;
+      width: 15px; }
+    html body section#sales ul {
+      list-style-type: none; }
+      html body section#sales ul li a {
+        background-color: #FFFFFF;
+        color: #515151;
+        text-decoration: none;
+        padding: 10px 20px; }
 
 /*# sourceMappingURL=style.scss.css.map */
