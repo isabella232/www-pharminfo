@@ -1,8 +1,7 @@
 /* Mixin for title's strokes */
 @mixin bottom_stroke($width: 20px, $height: 2px, $margin-top: 20px)
-
   &::after
-    background-color: $green
+    background-color: $mainColor
     content: ''
     display: block
     height: $height
@@ -13,7 +12,6 @@
 @mixin h2_source_sans($margin-top: 20px, $color: $grey-1, $font-style: normal)
   @include bottom_stroke(20px, 2px, $margin-top)
   color: $color
-  font-family: 'Source Sans Pro', sans-serif
   font-size: $title
   font-style: $font-style
   font-weight: 300

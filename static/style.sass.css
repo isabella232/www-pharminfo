@@ -5,13 +5,14 @@
 /* Mixin for title's strokes */
 /* Mixin for h2 styles*/
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400);
-html ul {
+html ul, html ol {
   list-style-type: none;
   padding-left: 0; }
 
 html body {
   display: flex;
   flex-direction: column;
+  font-family: 'Source Sans Pro', sans-serif;
   margin: 0; }
   html body section#sales {
     background: url("images/pharminfo-presentation.jpg") no-repeat center;
@@ -23,7 +24,6 @@ html body {
     text-align: center; }
     html body section#sales h2 {
       color: #FFFFFF;
-      font-family: 'Source Sans Pro', sans-serif;
       font-size: 2.8em;
       font-weight: 400;
       margin: 0 10%; }
@@ -51,7 +51,6 @@ html body {
         padding: 10px 20px; }
   html body section#about h2 {
     color: #00a071;
-    font-family: 'Source Sans Pro', sans-serif;
     font-size: 2.25em;
     font-style: italic;
     font-weight: 300;
@@ -65,7 +64,6 @@ html body {
       width: 20px; }
   html body section#goals h2 {
     color: #515151;
-    font-family: 'Source Sans Pro', sans-serif;
     font-size: 2.25em;
     font-style: normal;
     font-weight: 300;
@@ -85,7 +83,6 @@ html body {
     html body section#goals ul li {
       align-self: center;
       box-sizing: border-box;
-      font-family: 'Source Sans Pro', sans-serif;
       font-size: 0.875em;
       font-weight: 300;
       margin-bottom: 40px;
@@ -113,8 +110,138 @@ html body {
       html body section#goals ul li strong {
         color: #00a071;
         display: block;
-        font-family: 'Source Sans Pro', sans-serif;
         font-size: 1.25em;
         font-weight: 300; }
+  html body section#guarantees h2 {
+    color: #515151;
+    font-size: 2.25em;
+    font-style: normal;
+    font-weight: 300;
+    text-align: center; }
+    html body section#guarantees h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin: 20px auto 0 auto;
+      width: 20px; }
+  html body section#guarantees ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 85%; }
+    html body section#guarantees ul li {
+      align-items: center;
+      border: solid 1px #e6e6e6;
+      box-sizing: border-box;
+      color: #515151;
+      display: flex;
+      flex-direction: column;
+      font-size: 0;
+      height: 65vw;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      width: 65vw; }
+      html body section#guarantees ul li::before {
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 60%;
+        width: 60%; }
+      html body section#guarantees ul li#cloud::before {
+        background: url("images/warranties/icon-cloud.svg"); }
+      html body section#guarantees ul li#payment::before {
+        background: url("images/warranties/icon-payment.svg"); }
+      html body section#guarantees ul li#ars::before {
+        background: url("images/warranties/icon-ars.svg"); }
+      html body section#guarantees ul li#security::before {
+        background: url("images/warranties/icon-security.svg"); }
+      html body section#guarantees ul li#order::before {
+        background: url("images/warranties/icon-order.svg"); }
+      html body section#guarantees ul li#sav::before {
+        background: url("images/warranties/icon-sav.svg"); }
+      html body section#guarantees ul li#seo::before {
+        background: url("images/warranties/icon-seo.svg"); }
+      html body section#guarantees ul li#responsive::before {
+        background: url("images/warranties/icon-responsive.svg"); }
+    html body section#guarantees ul li.active, html body section#guarantees ul li:hover {
+      background-color: #f5f5f5;
+      font-size: 0.875em; }
+      html body section#guarantees ul li.active::before, html body section#guarantees ul li:hover::before {
+        border: solid 3px #00a071;
+        margin-bottom: 20px; }
+  html body section#reasons h2 {
+    color: #515151;
+    font-size: 2.25em;
+    font-style: normal;
+    font-weight: 300;
+    text-align: center; }
+    html body section#reasons h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin: 20px auto 0 auto;
+      width: 20px; }
+  html body section#reasons p {
+    font-style: italic;
+    text-align: center; }
+  html body section#reasons ol {
+    counter-reset: reasons;
+    margin: 0 auto;
+    width: 90%; }
+    html body section#reasons ol li {
+      background-color: #e6e6e6;
+      background-image: url("images/warranties/icon-responsive.svg");
+      background-repeat: no-repeat;
+      background-size: 50px;
+      display: flex;
+      align-items: center;
+      counter-increment: reasons;
+      list-style-type: none;
+      min-height: 40px;
+      position: relative; }
+      html body section#reasons ol li::before {
+        border-style: solid;
+        content: '';
+        display: inline-block;
+        height: 0;
+        position: absolute;
+        top: calc(50% - 10px);
+        width: 0; }
+      html body section#reasons ol li::after {
+        border: solid 1px #d3d3d3;
+        border-radius: 50%;
+        color: #d3d3d3;
+        content: counter(reasons);
+        height: 20px;
+        text-align: center;
+        top: calc(50% - 10px);
+        position: absolute;
+        width: 20px; }
+    html body section#reasons ol li#develop, html body section#reasons ol li#loyal, html body section#reasons ol li#accompaniment {
+      background-position: right 10px center;
+      margin: 20px 30px 20px 0;
+      padding: 15px 75px 15px 20px;
+      text-align: right; }
+      html body section#reasons ol li#develop::before, html body section#reasons ol li#loyal::before, html body section#reasons ol li#accompaniment::before {
+        border-color: transparent transparent transparent #e6e6e6;
+        border-width: 10px 0 10px 7px;
+        right: -7px; }
+      html body section#reasons ol li#develop::after, html body section#reasons ol li#loyal::after, html body section#reasons ol li#accompaniment::after {
+        right: -35px; }
+    html body section#reasons ol li#expertise, html body section#reasons ol li#satisfaction, html body section#reasons ol li#cost {
+      background-position: 10px center;
+      margin: 20px 0 20px 30px;
+      padding: 15px 20px 15px 75px; }
+      html body section#reasons ol li#expertise::before, html body section#reasons ol li#satisfaction::before, html body section#reasons ol li#cost::before {
+        border-color: transparent #e6e6e6 transparent transparent;
+        border-width: 10px 7px 10px 0;
+        left: -7px; }
+      html body section#reasons ol li#expertise::after, html body section#reasons ol li#satisfaction::after, html body section#reasons ol li#cost::after {
+        left: -35px; }
 
 /*# sourceMappingURL=style.sass.css.map */

@@ -2,13 +2,14 @@
 
 html
 
-  ul
+  ul, ol
     list-style-type: none
     padding-left: 0
 
   body
     display: flex
     flex-direction: column
+    font-family: 'Source Sans Pro', sans-serif
     margin: 0
 
     section#sales
@@ -23,7 +24,6 @@ html
       h2
         @include bottom_stroke(28px, 4px, 30px)
         color: $white
-        font-family: 'Source Sans Pro', sans-serif
         font-size: $big-title
         font-weight: 400
         margin: 0 10%
@@ -48,14 +48,12 @@ html
 
     section#about
       h2
-        @include h2_source_sans(30px, $green, italic)
+        @include h2_source_sans(30px, $mainColor, italic)
       
     section#goals
-
       h2
         @include h2_source_sans
       
-
       ul
         display: flex
         flex-wrap: wrap
@@ -65,8 +63,7 @@ html
         li
           align-self: center
           box-sizing: border-box
-          font-family: 'Source Sans Pro', sans-serif
-          font-size: $basic
+          font-size: $basic-font-size
           font-weight: 300
           margin-bottom: 40px
           min-width: 33%
@@ -98,8 +95,156 @@ html
             background-size: 56px 56px
 
           strong
-            color: $green
+            color: $mainColor
             display: block
-            font-family: 'Source Sans Pro', sans-serif
+ 
             font-size: $subtitle
             font-weight: 300
+
+    section#guarantees
+      h2
+        @include h2_source_sans
+
+      ul
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        margin: 0 auto
+        width: 85%
+
+        li
+          align-items: center
+          border: solid 1px $grey-2
+          box-sizing: border-box
+          color: $grey-1
+          display: flex
+          flex-direction: column
+          font-size: 0
+          height: 65vw
+          justify-content: center
+          padding: 20px
+          text-align: center
+          text-transform: uppercase
+          width: 65vw
+
+          &:hover
+            @extend .active
+
+          &::before
+            border-radius: 50%
+            content: ''
+            display: block
+            height: 60%
+            width: 60%
+
+          &#cloud
+            &::before
+              background: url('images/warranties/icon-cloud.svg')
+
+          &#payment
+            &::before
+              background: url('images/warranties/icon-payment.svg')
+
+          &#ars
+            &::before
+              background: url('images/warranties/icon-ars.svg')
+
+          &#security
+            &::before
+              background: url('images/warranties/icon-security.svg')
+
+          &#order
+            &::before
+              background: url('images/warranties/icon-order.svg')
+
+          &#sav
+            &::before
+              background: url('images/warranties/icon-sav.svg')
+
+          &#seo
+            &::before
+              background: url('images/warranties/icon-seo.svg')
+
+          &#responsive
+            &::before
+              background: url('images/warranties/icon-responsive.svg')
+
+        li.active
+          background-color: $grey-3
+          font-size: $basic-font-size
+
+          &::before
+            border: solid 3px $mainColor
+            margin-bottom: 20px
+
+    section#reasons
+      h2
+        @include h2_source_sans
+
+      p
+        font-style: italic
+        text-align: center
+
+      ol
+        counter-reset: reasons
+        margin: 0 auto
+        width: 90%
+
+        li
+          background-color: $grey-2
+          background-image: url('images/warranties/icon-responsive.svg')
+          background-repeat: no-repeat
+          background-size: 50px
+          display: flex
+          align-items: center
+          counter-increment: reasons
+          list-style-type: none
+          min-height: 40px        
+          position: relative
+
+          &::before
+            border-style: solid
+            content: ''
+            display: inline-block
+            height: 0
+            position: absolute
+            top: calc(50% - 10px)
+            width: 0
+
+          &::after
+            border: solid 1px #d3d3d3
+            border-radius: 50%
+            color: #d3d3d3
+            content: counter(reasons)
+            height: 20px
+            text-align: center
+            top: calc(50% - 10px)
+            position: absolute
+            width: 20px
+
+        li#develop, li#loyal, li#accompaniment
+          background-position: right 10px center
+          margin: 20px 30px 20px 0
+          padding: 15px 75px 15px 20px
+          text-align: right
+
+          &::before
+            border-color: transparent transparent transparent $grey-2
+            border-width: 10px 0 10px 7px
+            right: -7px
+
+          &::after
+            right: -35px
+
+        li#expertise, li#satisfaction, li#cost
+          background-position: 10px center
+          margin: 20px 0 20px 30px
+          padding: 15px 20px 15px 75px
+
+          &::before
+            border-color: transparent $grey-2 transparent transparent
+            border-width: 10px 7px 10px 0
+            left: -7px
+
+          &::after
+            left: -35px
