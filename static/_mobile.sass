@@ -1,0 +1,105 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400)
+
+html
+
+  ul
+    list-style-type: none
+    padding-left: 0
+
+  body
+    display: flex
+    flex-direction: column
+    margin: 0
+
+    section#sales
+      background: url('images/pharminfo-presentation.jpg') no-repeat center
+      background-size: cover
+      display: flex
+      flex-direction: column
+      height: 100vh
+      justify-content: center
+      text-align: center
+
+      h2
+        @include bottom_stroke(28px, 4px, 30px)
+        color: $white
+        font-family: 'Source Sans Pro', sans-serif
+        font-size: $big-title
+        font-weight: 400
+        margin: 0 10%
+
+        &::before
+          background: url('images/logo-white.svg')
+          background-repeat: no-repeat
+          content: ''
+          display: block
+          height: 66px
+          margin: 20px auto
+          width: 252px
+
+      ul
+        margin-top: 40px
+
+        li a
+          background-color: $white
+          color: $grey-1
+          text-decoration: none
+          padding: 10px 20px
+
+    section#about
+      h2
+        @include h2_source_sans(30px, $green, italic)
+      
+    section#goals
+
+      h2
+        @include h2_source_sans
+      
+
+      ul
+        display: flex
+        flex-wrap: wrap
+        margin: 0 auto
+        width: 90%
+
+        li
+          align-self: center
+          box-sizing: border-box
+          font-family: 'Source Sans Pro', sans-serif
+          font-size: $basic
+          font-weight: 300
+          margin-bottom: 40px
+          min-width: 33%
+          min-height: 56px
+          padding-left: 70px
+
+          &#innovate
+            background: url('images/objectifs/icon-innovation.svg') no-repeat
+            background-size: 56px 56px
+          
+          &#simplify
+            background: url('images/objectifs/icon-simple.svg') no-repeat
+            background-size: 56px 56px
+          
+          &#connect
+            background: url('images/objectifs/icon-connect.svg') no-repeat
+            background-size: 56px 56px
+          
+          &#help
+            background: url('images/objectifs/icon-help.svg') no-repeat
+            background-size: 56px 56px
+          
+          &#save
+            background: url('images/objectifs/icon-win.svg') no-repeat
+            background-size: 56px 56px
+          
+          &#raise
+            background: url('images/objectifs/icon-increase.svg') no-repeat
+            background-size: 56px 56px
+
+          strong
+            color: $green
+            display: block
+            font-family: 'Source Sans Pro', sans-serif
+            font-size: $subtitle
+            font-weight: 300
