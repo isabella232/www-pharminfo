@@ -1,37 +1,56 @@
+/* Mixin for title's strokes */
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400);
+html ul {
+  list-style-type: none;
+  padding-left: 0; }
+
 html body {
   display: flex;
   flex-direction: column;
   margin: 0; }
   html body section#sales {
-    background: url("images/pharminfo-presentation.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url("images/pharminfo-presentation.jpg") no-repeat center;
     background-size: cover;
     display: flex;
     flex-direction: column;
     height: 100vh;
-    justify-content: center; }
-    html body section#sales h2::before {
-      background: url("images/logo-white.svg");
-      background-repeat: no-repeat;
-      content: '';
-      display: block;
-      height: 66px;
-      margin: 0 auto;
-      width: 252px; }
-    html body section#sales h2::after {
-      background-color: #00a071;
-      content: '';
-      display: block;
-      height: 20px;
-      margin: 0 auto;
-      width: 15px; }
+    justify-content: center;
+    text-align: center; }
+    html body section#sales h2 {
+      color: #FFFFFF;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 2.5em;
+      font-weight: 400;
+      margin: 0 10%; }
+      html body section#sales h2::after {
+        background-color: #00a071;
+        content: '';
+        display: block;
+        height: 4px;
+        margin: 30px auto 0 auto;
+        width: 28px; }
+      html body section#sales h2::before {
+        background: url("images/logo-white.svg");
+        background-repeat: no-repeat;
+        content: '';
+        display: block;
+        height: 66px;
+        margin: 20px auto;
+        width: 252px; }
     html body section#sales ul {
-      list-style-type: none; }
+      margin-top: 40px; }
       html body section#sales ul li a {
         background-color: #FFFFFF;
         color: #515151;
         text-decoration: none;
         padding: 10px 20px; }
+  html body section#goals ul li {
+    /*background: url('images/objectifs/icon-connect.svg') no-repeat;*/ }
+    html body section#goals ul li::before {
+      background: url("images/objectifs/icon-connect.svg") no-repeat;
+      content: '';
+      display: inline-block;
+      width: 56px;
+      height: 56px; }
 
 /*# sourceMappingURL=style.scss.css.map */

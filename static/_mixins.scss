@@ -1,10 +1,13 @@
-@mixin bottom_stroke($height, $width) {
+/* Mixin for title's strokes */
+@mixin bottom_stroke($width, $height, $margin-top) {
 
-	background-color: $green;
-	content:'';
-	display: block;
-	height: $height;
-	margin: 0 auto;
-	width: $width;
+	&::after {
+		background-color: $green;
+		content:'';
+		display: block;
+		height: $height;
+		margin: $margin-top auto 0 auto;
+		width: $width;
+	}
 
 }
