@@ -193,37 +193,48 @@ html body {
     counter-reset: reasons;
     margin: 40px auto;
     width: 90%; }
-    html body section#reasons ol li::before {
-      border-style: solid;
-      content: '';
-      display: inline-block;
-      height: 0;
-      position: absolute;
-      top: calc(50% - 10px);
-      width: 0; }
-    html body section#reasons ol li::after {
-      border: solid 1px #d3d3d3;
-      border-radius: 50%;
-      color: #d3d3d3;
-      content: counter(reasons);
-      font-weight: 400;
-      height: 20px;
-      text-align: center;
-      top: calc(50% - 10px);
-      position: absolute;
-      width: 20px; }
-    html body section#reasons ol li#develop {
-      background-image: url("images/choose/icon-development.svg"); }
-    html body section#reasons ol li#expertise {
-      background-image: url("images/choose/icon-expertise.svg"); }
-    html body section#reasons ol li#loyal {
-      background-image: url("images/choose/icon-fidelisation.svg"); }
-    html body section#reasons ol li#satisfaction {
-      background-image: url("images/choose/icon-satisfaction.svg"); }
-    html body section#reasons ol li#accompaniment {
-      background-image: url("images/choose/icon-accompagnement.svg"); }
-    html body section#reasons ol li#cost {
-      background-image: url("images/choose/icon-cost.svg"); }
+    html body section#reasons ol li {
+      align-items: center;
+      background-color: #e6e6e6;
+      background-repeat: no-repeat;
+      background-size: 50px;
+      counter-increment: reasons;
+      display: flex;
+      font-weight: 300;
+      list-style-type: none;
+      min-height: 40px;
+      position: relative; }
+      html body section#reasons ol li::before {
+        border-style: solid;
+        content: '';
+        display: inline-block;
+        height: 0;
+        position: absolute;
+        top: calc(50% - 10px);
+        width: 0; }
+      html body section#reasons ol li::after {
+        border: solid 1px #d3d3d3;
+        border-radius: 50%;
+        color: #d3d3d3;
+        content: counter(reasons);
+        font-weight: 400;
+        height: 20px;
+        text-align: center;
+        top: calc(50% - 10px);
+        position: absolute;
+        width: 20px; }
+      html body section#reasons ol li#develop {
+        background-image: url("images/choose/icon-development.svg"); }
+      html body section#reasons ol li#expertise {
+        background-image: url("images/choose/icon-expertise.svg"); }
+      html body section#reasons ol li#loyal {
+        background-image: url("images/choose/icon-fidelisation.svg"); }
+      html body section#reasons ol li#satisfaction {
+        background-image: url("images/choose/icon-satisfaction.svg"); }
+      html body section#reasons ol li#accompaniment {
+        background-image: url("images/choose/icon-accompagnement.svg"); }
+      html body section#reasons ol li#cost {
+        background-image: url("images/choose/icon-cost.svg"); }
     html body section#reasons ol li#develop, html body section#reasons ol li#loyal, html body section#reasons ol li#accompaniment {
       background-position: right 10px center;
       margin: 20px 30px 20px 0;

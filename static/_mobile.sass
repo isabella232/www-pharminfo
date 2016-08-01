@@ -191,6 +191,17 @@ html
         width: 90%
 
         li
+          align-items: center
+          background-color: $grey-2
+          background-repeat: no-repeat
+          background-size: 50px
+          counter-increment: reasons
+          display: flex
+          font-weight: 300
+          list-style-type: none
+          min-height: 40px        
+          position: relative
+
           &::before
             border-style: solid
             content: ''
@@ -229,6 +240,7 @@ html
 
           &#cost
             background-image: url('images/choose/icon-cost.svg')
+
 
         li#develop, li#loyal, li#accompaniment
           background-position: right 10px center
