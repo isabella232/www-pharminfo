@@ -167,10 +167,10 @@ html body {
         background: url("images/warranties/icon-seo.svg"); }
       html body section#guarantees ul li#responsive::before {
         background: url("images/warranties/icon-responsive.svg"); }
-    html body section#guarantees ul li.active, html body section#guarantees ul li:hover {
+    html body section#guarantees ul li.active, html body section#guarantees ul li {
       background-color: #f5f5f5;
       font-size: 0.875em; }
-      html body section#guarantees ul li.active::before, html body section#guarantees ul li:hover::before {
+      html body section#guarantees ul li.active::before, html body section#guarantees ul li::before {
         border: solid 3px #00a071;
         margin-bottom: 20px; }
   html body section#reasons h2 {
@@ -196,20 +196,27 @@ html body {
     html body section#reasons ol li {
       align-items: center;
       background-color: #e6e6e6;
+      background-position: right 10px center;
       background-repeat: no-repeat;
       background-size: 50px;
       counter-increment: reasons;
       display: flex;
       font-weight: 300;
       list-style-type: none;
+      margin: 20px 30px 20px 0;
       min-height: 40px;
-      position: relative; }
+      padding: 15px 75px 15px 20px;
+      position: relative;
+      text-align: right; }
       html body section#reasons ol li::before {
+        border-color: transparent transparent transparent #e6e6e6;
         border-style: solid;
+        border-width: 10px 0 10px 7px;
         content: '';
         display: inline-block;
         height: 0;
         position: absolute;
+        right: -7px;
         top: calc(50% - 10px);
         width: 0; }
       html body section#reasons ol li::after {
@@ -222,6 +229,7 @@ html body {
         text-align: center;
         top: calc(50% - 10px);
         position: absolute;
+        right: -35px;
         width: 20px; }
       html body section#reasons ol li#develop {
         background-image: url("images/choose/icon-development.svg"); }
@@ -235,27 +243,6 @@ html body {
         background-image: url("images/choose/icon-accompagnement.svg"); }
       html body section#reasons ol li#cost {
         background-image: url("images/choose/icon-cost.svg"); }
-    html body section#reasons ol li#develop, html body section#reasons ol li#loyal, html body section#reasons ol li#accompaniment {
-      background-position: right 10px center;
-      margin: 20px 30px 20px 0;
-      padding: 15px 75px 15px 20px;
-      text-align: right; }
-      html body section#reasons ol li#develop::before, html body section#reasons ol li#loyal::before, html body section#reasons ol li#accompaniment::before {
-        border-color: transparent transparent transparent #e6e6e6;
-        border-width: 10px 0 10px 7px;
-        right: -7px; }
-      html body section#reasons ol li#develop::after, html body section#reasons ol li#loyal::after, html body section#reasons ol li#accompaniment::after {
-        right: -35px; }
-    html body section#reasons ol li#expertise, html body section#reasons ol li#satisfaction, html body section#reasons ol li#cost {
-      background-position: 10px center;
-      margin: 20px 0 20px 30px;
-      padding: 15px 20px 15px 75px; }
-      html body section#reasons ol li#expertise::before, html body section#reasons ol li#satisfaction::before, html body section#reasons ol li#cost::before {
-        border-color: transparent #e6e6e6 transparent transparent;
-        border-width: 10px 7px 10px 0;
-        left: -7px; }
-      html body section#reasons ol li#expertise::after, html body section#reasons ol li#satisfaction::after, html body section#reasons ol li#cost::after {
-        left: -35px; }
   html body section#clients ul + ul {
     display: flex;
     flex-wrap: wrap; }
@@ -377,6 +364,7 @@ html body {
       font-size: 0.75em;
       margin: 20px; }
   html body section#main-offer {
+    background-color: #f5f5f5;
     text-align: center; }
     html body section#main-offer::after {
       background: url("images/city-bkgd.svg") no-repeat;
@@ -389,6 +377,10 @@ html body {
     html body section#main-offer h2 {
       font-size: 1.875em;
       font-weight: 300; }
+    html body section#main-offer p {
+      font-style: italic;
+      font-weight: 300;
+      margin: 0 20px; }
     html body section#main-offer ol {
       counter-reset: offer_count;
       display: flex;
@@ -448,5 +440,47 @@ html body {
       padding: 10px 20px;
       text-decoration: none;
       text-transform: uppercase; }
+  html body section#customize {
+    padding: 0 20px;
+    text-align: center; }
+    html body section#customize h2 {
+      font-size: 1.875em;
+      font-weight: 300; }
+    html body section#customize p {
+      font-style: italic;
+      font-weight: 300; }
+    html body section#customize dl dt {
+      font-size: 0.875em;
+      font-weight: 300;
+      margin: 40px auto 0 auto;
+      max-width: 150px;
+      position: relative; }
+      html body section#customize dl dt::before {
+        content: '';
+        display: block;
+        height: 50px;
+        margin: 0 auto 10px auto;
+        width: 50px; }
+      html body section#customize dl dt::after {
+        background-color: #00a071;
+        content: '';
+        display: block;
+        height: 2px;
+        left: calc( 50% - 9px);
+        position: absolute;
+        top: 50px;
+        width: 18px; }
+      html body section#customize dl dt#image::before {
+        background: url("images/personnalisation/icon-camera.svg") center 0 no-repeat; }
+      html body section#customize dl dt#colors::before {
+        background: url("images/personnalisation/icon-brush.svg") center 0 no-repeat; }
+      html body section#customize dl dt#logo::before {
+        background: url("images/personnalisation/icon-pharmacy-logo.svg") center 0 no-repeat; }
+      html body section#customize dl dt#theme::before {
+        background: url("images/personnalisation/icon-browser.svg") center 0 no-repeat; }
+    html body section#customize dl dd {
+      font-size: 1.25em;
+      margin-left: 0;
+      margin-top: 10px; }
 
 /*# sourceMappingURL=style.sass.css.map */
