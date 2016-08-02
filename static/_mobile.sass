@@ -246,7 +246,7 @@ html
 
           &#cost
             background-image: url('images/choose/icon-cost.svg')
-            
+
     section#clients
       ul + ul
         display: flex
@@ -533,3 +533,123 @@ html
           font-size: $subtitle
           margin-left: 0
           margin-top: 10px
+
+    section#contact
+      h2
+        font-size: $title
+        font-weight: 300
+
+        &::after
+          background-color: $mainColor
+          content: ''
+          display: block
+          height: 2px
+          margin-top: 15px
+          width: 16px
+
+      dl
+        dt
+          color: $mainColor
+          float: left
+          margin-right: 10px
+
+          &::after
+            content: ' :'
+
+          &:first-of-type
+            display: none
+
+        dd
+          font-weight: 300
+          margin-left: 0
+
+          a
+            color: inherit
+            text-decoration: none
+
+          &:first-of-type
+            display: block
+            margin-bottom: 40px
+
+          strong
+            font-weight: 400
+
+      form
+        label
+          display: none
+
+        input:first-of-type, textarea
+          border: solid 1px $grey-1
+          box-sizing: border-box
+          display: block
+          font-family: inherit
+          padding: 10px
+          width: 100%
+
+        textarea
+          min-height: 130px
+
+        input:last-of-type
+          background: transparent
+          border: solid 1px $grey-1
+          font-size: 0.7em
+          margin-top: 20px
+          padding: 10px 20px
+          text-transform: uppercase
+
+      & > p
+        font-size: 0.7em
+        font-style: italic
+        text-decoration: underline
+
+    aside#click-to-call
+      @extend .close
+      position: fixed
+      right: 0
+      top: 40%
+
+      &.close
+        background: url('images/click-to-call.svg') center center / 80% auto no-repeat, #1eb7e0
+        height: 55px
+        width: 55px
+
+        h2, form
+          display: none
+
+    footer
+      background-color: $grey-1
+
+      ul#social
+        margin: 0 0 20px 10%
+
+        li
+          display: inline-block
+          font-size: 0
+          height: 23px
+          margin: 5px
+          width: 23px
+
+          &#facebook
+            background: url('images/social-medias/icon-facebook.svg')
+
+          &#twitter
+            background: url('images/social-medias/icon-twitter.svg')
+
+          &#google
+            background: url('images/social-medias/icon-gplus.svg')
+
+          &#linkedin
+            background: url('images/social-medias/icon-linkedin.svg')
+
+          &#scoopit
+            background: url('images/social-medias/icon-scoopit.svg')
+
+      ul#links
+        color: $white
+        font-size: 0.7em
+        margin-right: 10%
+        text-align: right
+
+        a
+          color: inherit
+          text-decoration: none

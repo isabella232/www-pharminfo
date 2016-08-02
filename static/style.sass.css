@@ -482,5 +482,94 @@ html body {
       font-size: 1.25em;
       margin-left: 0;
       margin-top: 10px; }
+  html body section#contact h2 {
+    font-size: 2.25em;
+    font-weight: 300; }
+    html body section#contact h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin-top: 15px;
+      width: 16px; }
+  html body section#contact dl dt {
+    color: #00a071;
+    float: left;
+    margin-right: 10px; }
+    html body section#contact dl dt::after {
+      content: ' :'; }
+    html body section#contact dl dt:first-of-type {
+      display: none; }
+  html body section#contact dl dd {
+    font-weight: 300;
+    margin-left: 0; }
+    html body section#contact dl dd a {
+      color: inherit;
+      text-decoration: none; }
+    html body section#contact dl dd:first-of-type {
+      display: block;
+      margin-bottom: 40px; }
+    html body section#contact dl dd strong {
+      font-weight: 400; }
+  html body section#contact form label {
+    display: none; }
+  html body section#contact form input:first-of-type, html body section#contact form textarea {
+    border: solid 1px #515151;
+    box-sizing: border-box;
+    display: block;
+    font-family: inherit;
+    padding: 10px;
+    width: 100%; }
+  html body section#contact form textarea {
+    min-height: 130px; }
+  html body section#contact form input:last-of-type {
+    background: transparent;
+    border: solid 1px #515151;
+    font-size: 0.7em;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase; }
+  html body section#contact > p {
+    font-size: 0.7em;
+    font-style: italic;
+    text-decoration: underline; }
+  html body aside#click-to-call {
+    position: fixed;
+    right: 0;
+    top: 40%; }
+    html body aside#click-to-call.close, html body aside#click-to-call {
+      background: url("images/click-to-call.svg") center center/80% auto no-repeat, #1eb7e0;
+      height: 55px;
+      width: 55px; }
+      html body aside#click-to-call.close h2, html body aside#click-to-call h2, html body aside#click-to-call.close form, html body aside#click-to-call form {
+        display: none; }
+  html body footer {
+    background-color: #515151; }
+    html body footer ul#social {
+      margin: 0 0 20px 10%; }
+      html body footer ul#social li {
+        display: inline-block;
+        font-size: 0;
+        height: 23px;
+        margin: 5px;
+        width: 23px; }
+        html body footer ul#social li#facebook {
+          background: url("images/social-medias/icon-facebook.svg"); }
+        html body footer ul#social li#twitter {
+          background: url("images/social-medias/icon-twitter.svg"); }
+        html body footer ul#social li#google {
+          background: url("images/social-medias/icon-gplus.svg"); }
+        html body footer ul#social li#linkedin {
+          background: url("images/social-medias/icon-linkedin.svg"); }
+        html body footer ul#social li#scoopit {
+          background: url("images/social-medias/icon-scoopit.svg"); }
+    html body footer ul#links {
+      color: #FFFFFF;
+      font-size: 0.7em;
+      margin-right: 10%;
+      text-align: right; }
+      html body footer ul#links a {
+        color: inherit;
+        text-decoration: none; }
 
 /*# sourceMappingURL=style.sass.css.map */
