@@ -277,26 +277,37 @@ html
         li
           box-sizing: border-box
           font-weight: 300
-          padding: 20px 20px 20px 70px
+          margin: 40px 0
           position: relative
           width: 100%
 
-          &::before
-            background: url('images/numbers/city-fly.svg')
-            background-repeat: no-repeat
-            background-size: contain
-            content: ''
-            display: block
-            height: 100%
-            min-height: 150px
-            width: 100%
-            position: absolute
+          &#interne
+            background: url('images/numbers/computer.svg') padding-box center 0 / 80% auto no-repeat
+            padding: 150px 20px 20px 120px
+
+          &#symplify
+            background: url('images/numbers/city-fly.svg') padding-box center 0 / 80% auto no-repeat
+            padding: 150px 20px 20px 120px
+
+          &#special-order
+            background: url('images/numbers/patient-order-section.svg') padding-box center 0 / 80% auto no-repeat
+            padding: 150px 20px 20px 120px
+
+          &#delivery
+            background: url('images/numbers/delivery.svg') padding-box center 0 / 80% auto no-repeat
+            padding: 150px 20px 20px 120px
 
           strong
             font-size: 3em
             font-weight: 400
-            left: -15px
+            left: 20px
+            line-height: 1
             position: absolute
+
+      > p
+        font-size: 0.75em
+        margin: 10px 20px
+        text-align: center
 
       &::after
         background: url('images/photos/bkgd-meds.jpg')
@@ -458,24 +469,24 @@ html
             width: 0
 
           &#medicine
-            background: url('images/timeline-mobile-app/medicine.svg') border-box center 0 no-repeat, padding-box $grey-2;
-            background-size: 146px auto;
+            background: url('images/timeline-mobile-app/medicine.svg') border-box center 0 no-repeat, padding-box $grey-2
+            background-size: 146px auto
 
           &#app
-            background: url('images/timeline-mobile-app/app.svg') border-box center 0 no-repeat, padding-box $grey-2;
-            background-size: 146px auto;
+            background: url('images/timeline-mobile-app/app.svg') border-box center 0 no-repeat, padding-box $grey-2
+            background-size: 146px auto
 
           &#computer
-            background: url('images/timeline-mobile-app/computer.svg') border-box center 0 no-repeat, padding-box $grey-2;
-            background-size: 146px auto;
+            background: url('images/timeline-mobile-app/computer.svg') border-box center 0 no-repeat, padding-box $grey-2
+            background-size: 146px auto
 
           &#sms
-            background: url('images/timeline-mobile-app/sms.svg') border-box center 0 no-repeat, padding-box $grey-2;
-            background-size: 146px auto;
+            background: url('images/timeline-mobile-app/sms.svg') border-box center 0 no-repeat, padding-box $grey-2
+            background-size: 146px auto
 
           &#reception
-            background: url('images/timeline-mobile-app/reception.svg') border-box center 0 no-repeat, padding-box $grey-2;
-            background-size: 146px auto;
+            background: url('images/timeline-mobile-app/reception.svg') border-box center 0 no-repeat, padding-box $grey-2
+            background-size: 146px auto
 
       ul.links li a
         background-color: $mainColor

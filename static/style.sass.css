@@ -262,24 +262,31 @@ html body {
     html body section#clients ul + ul li {
       box-sizing: border-box;
       font-weight: 300;
-      padding: 20px 20px 20px 70px;
+      margin: 40px 0;
       position: relative;
       width: 100%; }
-      html body section#clients ul + ul li::before {
-        background: url("images/numbers/city-fly.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        content: '';
-        display: block;
-        height: 100%;
-        min-height: 150px;
-        width: 100%;
-        position: absolute; }
+      html body section#clients ul + ul li#interne {
+        background: url("images/numbers/computer.svg") padding-box center 0/80% auto no-repeat;
+        padding: 150px 20px 20px 120px; }
+      html body section#clients ul + ul li#symplify {
+        background: url("images/numbers/city-fly.svg") padding-box center 0/80% auto no-repeat;
+        padding: 150px 20px 20px 120px; }
+      html body section#clients ul + ul li#special-order {
+        background: url("images/numbers/patient-order-section.svg") padding-box center 0/80% auto no-repeat;
+        padding: 150px 20px 20px 120px; }
+      html body section#clients ul + ul li#delivery {
+        background: url("images/numbers/delivery.svg") padding-box center 0/80% auto no-repeat;
+        padding: 150px 20px 20px 120px; }
       html body section#clients ul + ul li strong {
         font-size: 3em;
         font-weight: 400;
-        left: -15px;
+        left: 20px;
+        line-height: 1;
         position: absolute; }
+  html body section#clients > p {
+    font-size: 0.75em;
+    margin: 10px 20px;
+    text-align: center; }
   html body section#clients::after {
     background: url("images/photos/bkgd-meds.jpg");
     background-repeat: no-repeat;
