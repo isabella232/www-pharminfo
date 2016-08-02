@@ -12,6 +12,51 @@ html
     font-family: 'Source Sans Pro', sans-serif
     margin: 0
 
+    nav
+      height: 100vh
+      background-color: $mainColor
+      width: 100%
+
+      ul
+        box-sizing: border-box
+        display: flex
+        flex-direction: column
+        flex-wrap: wrap
+        height: 80%
+        justify-content: space-between
+        margin: 20% 0 0 0
+        padding: 20px
+        position: relative
+
+        li
+          width: 100%
+          text-align: center
+
+          a
+            color: $white
+            font-size: 1.125em
+            line-height: 2
+            text-decoration: none
+
+          &:last-of-type a
+            border: solid 1px $white
+            padding: 5px 10px
+
+        &::before, &::after
+          background-color: $white
+          content: ''
+          height: 2px
+          position: absolute
+          width: 30px
+          top: -20px
+          right: 20px
+
+        &::before
+          transform: rotate(45deg)
+
+        &::after
+          transform: rotate(-45deg)
+
     section#sales
       background: url('images/pharminfo-presentation.jpg') no-repeat center
       background-size: cover
@@ -27,6 +72,7 @@ html
         font-size: $big-title
         font-weight: 400
         margin: 0 10%
+        text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.2)
 
         &::before
           background: url('images/logo-white.svg')
@@ -57,7 +103,7 @@ html
       ul
         display: flex
         flex-wrap: wrap
-        margin: 0 auto
+        margin: 40px auto 0 auto
         width: 90%
 
         li
@@ -178,6 +224,7 @@ html
     section#reasons
       h2
         @include h2_source_sans
+        margin-top: 80px
 
       p
         font-style: italic
@@ -306,6 +353,9 @@ html
         text-align: center
         margin: 20px
 
+        & + p
+          margin-bottom: 40px
+
       h2
         @include h2_source_sans
 
@@ -390,6 +440,7 @@ html
 
     section#main-offer
       background-color: $grey-3
+      padding-top: 80px
       text-align: center
 
       &::after
@@ -421,7 +472,7 @@ html
           border-top: solid 220px transparent
           counter-increment: offer_count
           font-weight: 300
-          margin-bottom: 40px
+          margin-bottom: 60px
           padding: 10px
           position: relative          
           width: 100%
@@ -481,7 +532,8 @@ html
         text-transform: uppercase
 
     section#customize
-      padding: 0 20px
+      background-color: $grey-3
+      padding: 60px 20px 40px 20px
       text-align: center
 
       h2
@@ -496,7 +548,7 @@ html
         dt
           font-size: $basic-font-size
           font-weight: 300
-          margin: 40px auto 0 auto
+          margin: 60px auto 0 auto
           max-width: 150px
           position: relative
 
