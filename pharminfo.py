@@ -3,11 +3,13 @@ from flask import (
     Flask, abort, current_app, flash, redirect, render_template,
     request, url_for)
 from jinja2.exceptions import TemplateNotFound
+from top_model.public import Client, ClientType, db
 import mandrill
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'default secret key'
+app.config['DB'] = 'pgfdw://hydra@localhost/hydra'
 app.config.from_envvar('WWW_PHARMINFO_CONFIG', silent=True)
 
 
@@ -32,10 +34,22 @@ def page(page='index'):
 
 
 @app.route('/clients')
-@app.route('/clients/<department>')
+@app.route('/clients/<int:department>')
 def clients(department=None):
-    # TODO
-    return render_template('clients.html', department=department)
+    if department:
+        clients = list(
+            Client.query.join(ClientType)
+            .filter(
+                (ClientType.domain == 'pharminfo') &
+                (Client.current_contract != None) &
+                (Client.zip.like('%{:02d}%'.format(department))) &
+                (Client.domain != None))
+            .all())
+        print(clients)
+    else:
+        clients = []
+    return render_template(
+        'clients.html', department=department, clients=clients)
 
 
 @app.route('/news')
@@ -102,6 +116,8 @@ def contact():
 def not_found(error):
     return render_template('404.html'), 404
 
+
+db.configure(app.config['DB']).assign_flask_app(app)
 
 if __name__ == '__main__':
     from sassutils.wsgi import SassMiddleware
