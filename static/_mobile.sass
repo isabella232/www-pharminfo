@@ -1,17 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400)
 
 html
-
-  ul, ol
-    list-style-type: none
-    padding-left: 0
-
   body
     display: flex
     flex-direction: column
     font-family: 'Source Sans Pro', sans-serif
     margin: 0
 
+    /* Styles général */
+    ul, ol
+      list-style-type: none
+      padding-left: 0
+
+    *:not( h2 ):not( strong )
+      font-weight: 300
+
+    section#goals, section#guarantees, section#reasons, section#offers
+      h2
+        @include h2_source_sans
+
+    /* Styles menu */
     header
       display: none
 
@@ -78,11 +86,8 @@ html
         text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.2)
 
         &::before
-          background: url('images/logo-white.svg')
-          background-repeat: no-repeat
-          content: ''
+          content: url('images/logo-white.svg')
           display: block
-          height: 66px
           margin: 20px auto
           width: 252px
 
@@ -100,60 +105,43 @@ html
         @include h2_source_sans(30px, $mainColor, italic)
       
     section#goals
-      h2
-        @include h2_source_sans
-      
       ul
         display: flex
         flex-wrap: wrap
-        margin: 40px auto 0 auto
+        margin: 40px auto 0
         width: 90%
 
         li
-          align-self: center
-          box-sizing: border-box
           font-size: $basic-font-size
-          font-weight: 300
           margin-bottom: 50px
-          min-width: 33%
-          min-height: 56px
+          height: 56px
           padding-left: 70px
 
           &#innovate
             background: url('images/objectifs/icon-innovation.svg') no-repeat
-            background-size: 56px 56px
           
           &#simplify
             background: url('images/objectifs/icon-simple.svg') no-repeat
-            background-size: 56px 56px
           
           &#connect
             background: url('images/objectifs/icon-connect.svg') no-repeat
-            background-size: 56px 56px
           
           &#help
             background: url('images/objectifs/icon-help.svg') no-repeat
-            background-size: 56px 56px
           
           &#save
             background: url('images/objectifs/icon-win.svg') no-repeat
-            background-size: 56px 56px
           
           &#raise
             background: url('images/objectifs/icon-increase.svg') no-repeat
-            background-size: 56px 56px
 
           strong
             color: $mainColor
             display: block
  
             font-size: $subtitle
-            font-weight: 300
 
     section#guarantees
-      h2
-        @include h2_source_sans
-
       ul
         display: flex
         flex-wrap: wrap
@@ -164,7 +152,8 @@ html
         li
           @extend .active
           align-items: center
-          border: solid 1px $grey-2
+          border-left: solid 1px $grey-2
+          box-shadow: 1px -1px 0 $grey-2
           box-sizing: border-box
           color: $grey-1
           display: flex
@@ -226,7 +215,6 @@ html
 
     section#reasons
       h2
-        @include h2_source_sans
         margin-top: 80px
 
       p
@@ -246,8 +234,6 @@ html
           background-size: 50px
           counter-increment: reasons
           display: flex
-          font-weight: 300
-          list-style-type: none
           margin: 20px 0 20px 30px
           min-height: 40px        
           padding: 15px 20px 15px 75px
@@ -304,7 +290,6 @@ html
 
         li
           box-sizing: border-box
-          font-weight: 300
           margin: 40px 0
           position: relative
           width: 100%
@@ -345,22 +330,18 @@ html
         content: ''
         display: block
         height: 260px
-        width: 100
+        width: 100%
 
     section#offers
       background-color: $grey-3
 
       > p
         font-style: italic
-        font-weight: 300
         text-align: center
         margin: 20px
 
         & + p
           margin-bottom: 40px
-
-      h2
-        @include h2_source_sans
 
       section
         margin: 20px
@@ -408,7 +389,6 @@ html
           background-color: $white
           border: solid 3px $grey-3
           color: $grey-1
-          font-weight: 300
 
           ul.links li a
             border-color: $grey-1
@@ -457,11 +437,9 @@ html
 
       h2
         font-size: 1.875em
-        font-weight: 300
 
       p
         font-style: italic
-        font-weight: 300
         margin: 0 20px
 
 
@@ -474,7 +452,6 @@ html
         li
           border-top: solid 220px transparent
           counter-increment: offer_count
-          font-weight: 300
           margin-bottom: 60px
           padding: 10px
           position: relative          
@@ -540,18 +517,15 @@ html
       text-align: center
 
       h2
-        font-size: 1.875em;
-        font-weight: 300;
+        font-size: 1.875em;;
 
       p
         font-style: italic
-        font-weight: 300
 
       dl
         dt
           font-size: $basic-font-size
-          font-weight: 300
-          margin: 60px auto 0 auto
+          margin: 60px auto 0
           max-width: 150px
           position: relative
 
@@ -559,7 +533,7 @@ html
             content: ''
             display: block
             height: 50px
-            margin: 0 auto 10px auto
+            margin: 0 auto 10px
             width: 50px
 
           &::after
@@ -594,7 +568,6 @@ html
 
       h2
         font-size: $title
-        font-weight: 300
 
         &::after
           background-color: $mainColor
@@ -617,7 +590,6 @@ html
             display: none
 
         dd
-          font-weight: 300
           margin-left: 0
 
           a

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Colors */
 /* Font-size */
 /* 45pt */
@@ -5,15 +6,31 @@
 /* Mixin for title's strokes */
 /* Mixin for h2 styles*/
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400);
-html ul, html ol {
-  list-style-type: none;
-  padding-left: 0; }
-
 html body {
   display: flex;
   flex-direction: column;
   font-family: 'Source Sans Pro', sans-serif;
-  margin: 0; }
+  margin: 0;
+  /* Styles général */
+  /* Styles menu */ }
+  html body ul, html body ol {
+    list-style-type: none;
+    padding-left: 0; }
+  html body *:not(h2):not(strong) {
+    font-weight: 300; }
+  html body section#goals h2, html body section#guarantees h2, html body section#reasons h2, html body section#offers h2 {
+    color: #515151;
+    font-size: 2.25em;
+    font-style: normal;
+    font-weight: 300;
+    text-align: center; }
+    html body section#goals h2::after, html body section#guarantees h2::after, html body section#reasons h2::after, html body section#offers h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin: 20px auto 0 auto;
+      width: 20px; }
   html body header {
     display: none; }
   html body nav {
@@ -75,11 +92,8 @@ html body {
         margin: 30px auto 0 auto;
         width: 28px; }
       html body section#sales h2::before {
-        background: url("images/logo-white.svg");
-        background-repeat: no-repeat;
-        content: '';
+        content: url("images/logo-white.svg");
         display: block;
-        height: 66px;
         margin: 20px auto;
         width: 252px; }
     html body section#sales ul {
@@ -102,69 +116,32 @@ html body {
       height: 2px;
       margin: 30px auto 0 auto;
       width: 20px; }
-  html body section#goals h2 {
-    color: #515151;
-    font-size: 2.25em;
-    font-style: normal;
-    font-weight: 300;
-    text-align: center; }
-    html body section#goals h2::after {
-      background-color: #00a071;
-      content: '';
-      display: block;
-      height: 2px;
-      margin: 20px auto 0 auto;
-      width: 20px; }
   html body section#goals ul {
     display: flex;
     flex-wrap: wrap;
-    margin: 40px auto 0 auto;
+    margin: 40px auto 0;
     width: 90%; }
     html body section#goals ul li {
-      align-self: center;
-      box-sizing: border-box;
       font-size: 0.875em;
-      font-weight: 300;
       margin-bottom: 50px;
-      min-width: 33%;
-      min-height: 56px;
+      height: 56px;
       padding-left: 70px; }
       html body section#goals ul li#innovate {
-        background: url("images/objectifs/icon-innovation.svg") no-repeat;
-        background-size: 56px 56px; }
+        background: url("images/objectifs/icon-innovation.svg") no-repeat; }
       html body section#goals ul li#simplify {
-        background: url("images/objectifs/icon-simple.svg") no-repeat;
-        background-size: 56px 56px; }
+        background: url("images/objectifs/icon-simple.svg") no-repeat; }
       html body section#goals ul li#connect {
-        background: url("images/objectifs/icon-connect.svg") no-repeat;
-        background-size: 56px 56px; }
+        background: url("images/objectifs/icon-connect.svg") no-repeat; }
       html body section#goals ul li#help {
-        background: url("images/objectifs/icon-help.svg") no-repeat;
-        background-size: 56px 56px; }
+        background: url("images/objectifs/icon-help.svg") no-repeat; }
       html body section#goals ul li#save {
-        background: url("images/objectifs/icon-win.svg") no-repeat;
-        background-size: 56px 56px; }
+        background: url("images/objectifs/icon-win.svg") no-repeat; }
       html body section#goals ul li#raise {
-        background: url("images/objectifs/icon-increase.svg") no-repeat;
-        background-size: 56px 56px; }
+        background: url("images/objectifs/icon-increase.svg") no-repeat; }
       html body section#goals ul li strong {
         color: #00a071;
         display: block;
-        font-size: 1.25em;
-        font-weight: 300; }
-  html body section#guarantees h2 {
-    color: #515151;
-    font-size: 2.25em;
-    font-style: normal;
-    font-weight: 300;
-    text-align: center; }
-    html body section#guarantees h2::after {
-      background-color: #00a071;
-      content: '';
-      display: block;
-      height: 2px;
-      margin: 20px auto 0 auto;
-      width: 20px; }
+        font-size: 1.25em; }
   html body section#guarantees ul {
     display: flex;
     flex-wrap: wrap;
@@ -173,7 +150,8 @@ html body {
     width: 85%; }
     html body section#guarantees ul li {
       align-items: center;
-      border: solid 1px #e6e6e6;
+      border-left: solid 1px #e6e6e6;
+      box-shadow: 1px -1px 0 #e6e6e6;
       box-sizing: border-box;
       color: #515151;
       display: flex;
@@ -214,19 +192,7 @@ html body {
         border: solid 3px #00a071;
         margin-bottom: 20px; }
   html body section#reasons h2 {
-    color: #515151;
-    font-size: 2.25em;
-    font-style: normal;
-    font-weight: 300;
-    text-align: center;
     margin-top: 80px; }
-    html body section#reasons h2::after {
-      background-color: #00a071;
-      content: '';
-      display: block;
-      height: 2px;
-      margin: 20px auto 0 auto;
-      width: 20px; }
   html body section#reasons p {
     font-style: italic;
     text-align: center; }
@@ -242,8 +208,6 @@ html body {
       background-size: 50px;
       counter-increment: reasons;
       display: flex;
-      font-weight: 300;
-      list-style-type: none;
       margin: 20px 0 20px 30px;
       min-height: 40px;
       padding: 15px 20px 15px 75px;
@@ -289,7 +253,6 @@ html body {
     flex-wrap: wrap; }
     html body section#clients ul + ul li {
       box-sizing: border-box;
-      font-weight: 300;
       margin: 40px 0;
       position: relative;
       width: 100%; }
@@ -323,29 +286,15 @@ html body {
     content: '';
     display: block;
     height: 260px;
-    width: 100; }
+    width: 100%; }
   html body section#offers {
     background-color: #f5f5f5; }
     html body section#offers > p {
       font-style: italic;
-      font-weight: 300;
       text-align: center;
       margin: 20px; }
       html body section#offers > p + p {
         margin-bottom: 40px; }
-    html body section#offers h2 {
-      color: #515151;
-      font-size: 2.25em;
-      font-style: normal;
-      font-weight: 300;
-      text-align: center; }
-      html body section#offers h2::after {
-        background-color: #00a071;
-        content: '';
-        display: block;
-        height: 2px;
-        margin: 20px auto 0 auto;
-        width: 20px; }
     html body section#offers section {
       margin: 20px;
       padding: 30px;
@@ -381,8 +330,7 @@ html body {
       html body section#offers section#ecoweb, html body section#offers section#flexiweb, html body section#offers section#optiweb {
         background-color: #FFFFFF;
         border: solid 3px #f5f5f5;
-        color: #515151;
-        font-weight: 300; }
+        color: #515151; }
         html body section#offers section#ecoweb ul.links li a, html body section#offers section#flexiweb ul.links li a, html body section#offers section#optiweb ul.links li a {
           border-color: #515151; }
       html body section#offers section#flexiweb-plus {
@@ -419,11 +367,9 @@ html body {
       margin-top: 50px;
       width: 100%; }
     html body section#main-offer h2 {
-      font-size: 1.875em;
-      font-weight: 300; }
+      font-size: 1.875em; }
     html body section#main-offer p {
       font-style: italic;
-      font-weight: 300;
       margin: 0 20px; }
     html body section#main-offer ol {
       counter-reset: offer_count;
@@ -433,7 +379,6 @@ html body {
       html body section#main-offer ol li {
         border-top: solid 220px transparent;
         counter-increment: offer_count;
-        font-weight: 300;
         margin-bottom: 60px;
         padding: 10px;
         position: relative;
@@ -489,22 +434,19 @@ html body {
     padding: 60px 20px 40px 20px;
     text-align: center; }
     html body section#customize h2 {
-      font-size: 1.875em;
-      font-weight: 300; }
+      font-size: 1.875em; }
     html body section#customize p {
-      font-style: italic;
-      font-weight: 300; }
+      font-style: italic; }
     html body section#customize dl dt {
       font-size: 0.875em;
-      font-weight: 300;
-      margin: 60px auto 0 auto;
+      margin: 60px auto 0;
       max-width: 150px;
       position: relative; }
       html body section#customize dl dt::before {
         content: '';
         display: block;
         height: 50px;
-        margin: 0 auto 10px auto;
+        margin: 0 auto 10px;
         width: 50px; }
       html body section#customize dl dt::after {
         background-color: #00a071;
@@ -530,8 +472,7 @@ html body {
   html body section#contact {
     padding: 0 20px; }
     html body section#contact h2 {
-      font-size: 2.25em;
-      font-weight: 300; }
+      font-size: 2.25em; }
       html body section#contact h2::after {
         background-color: #00a071;
         content: '';
@@ -548,7 +489,6 @@ html body {
       html body section#contact dl dt:first-of-type {
         display: none; }
     html body section#contact dl dd {
-      font-weight: 300;
       margin-left: 0; }
       html body section#contact dl dd a {
         color: inherit;
