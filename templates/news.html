@@ -1,4 +1,24 @@
 {% extends '_layout.html' %}
 
+{% block title %}Actualités{% endblock title %}
+
 {% block body %}
+  <section id="news">
+    <h2>Les Actualités Pharminfo.fr</h2>
+    {% for entry in news %}
+      <article>
+        <h3>{{ entry.title }}</h3>
+        <time pubdate datetime="{{ entry.isodate }}">{{ entry.date }}</time>
+        {% if entry.image %}
+          <img src="{{ entry.image or url_for('static', filename='news.png') }}" alt="{{ entry.title }}" />
+        {% endif %}
+        <p>
+          {{ entry.description | safe }}
+        </p>
+        <p>
+          <a href="{{ entry.link }}">Lire la suite…</a>
+        </p>
+      </article>
+    {% endfor %}
+  </section>
 {% endblock body %}

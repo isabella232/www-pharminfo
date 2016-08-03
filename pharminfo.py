@@ -1,16 +1,23 @@
 #!/usr/bin/env python
+
+from email.utils import parsedate_to_datetime
 from flask import (
     Flask, abort, current_app, flash, redirect, render_template,
     request, url_for)
 from jinja2.exceptions import TemplateNotFound
+from locale import LC_ALL, setlocale
+from mandrill import Mandrill
 from top_model.public import Client, ClientType, db
-import mandrill
+from urllib.request import urlopen
+from xml.etree import ElementTree
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'default secret key'
 app.config['DB'] = 'pgfdw://hydra@localhost/hydra'
 app.config.from_envvar('WWW_PHARMINFO_CONFIG', silent=True)
+
+setlocale(LC_ALL, 'fr_FR')
 
 
 def send_mail(title, html):
@@ -20,15 +27,38 @@ def send_mail(title, html):
         'subject': title,
         'html': html}
     if not current_app.debug:
-        mandrill_client = mandrill.Mandrill(app.config.get('MANDRILL_KEY'))
+        mandrill_client = Mandrill(app.config.get('MANDRILL_KEY'))
         mandrill_client.messages.send(message=message)
+
+
+def get_news():
+    tree = ElementTree.parse(urlopen(
+        'https://kozeagroup.wordpress.com/category/pharminfo-fr/feed/'))
+    news = []
+    for item in tree.find('channel').findall('item'):
+        date = parsedate_to_datetime(item.find('pubDate').text)
+        entry = {
+            'title': item.find('title').text,
+            'description': item.find('description').text,
+            'link': item.find('link').text,
+            'isodate': date.strftime('%Y-%m-%d'),
+            'date': date.strftime('%d %B %Y')}
+        image = item.find(
+            'media:thumbnail',
+            namespaces={'media': 'http://search.yahoo.com/mrss/'})
+        if image is not None:
+            entry['image'] = image.attrib['url']
+        print(entry)
+        news.append(entry)
+    return news
 
 
 @app.route('/')
 @app.route('/<page>')
 def page(page='index'):
+    extra = {'news': get_news()} if page == 'index' else {}
     try:
-        return render_template('{}.html'.format(page), page=page)
+        return render_template('{}.html'.format(page), page=page, **extra)
     except TemplateNotFound:
         abort(404)
 
@@ -54,8 +84,7 @@ def clients(department=None):
 
 @app.route('/news')
 def news():
-    # TODO
-    return render_template('news.html')
+    return render_template('news.html', news=get_news())
 
 
 @app.route('/register', methods=['POST'])
