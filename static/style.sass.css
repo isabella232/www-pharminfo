@@ -14,6 +14,8 @@ html body {
   flex-direction: column;
   font-family: 'Source Sans Pro', sans-serif;
   margin: 0; }
+  html body header {
+    display: none; }
   html body nav {
     height: 100vh;
     background-color: #00a071;
@@ -235,27 +237,27 @@ html body {
     html body section#reasons ol li {
       align-items: center;
       background-color: #e6e6e6;
-      background-position: right 10px center;
+      background-position: 10px center;
       background-repeat: no-repeat;
       background-size: 50px;
       counter-increment: reasons;
       display: flex;
       font-weight: 300;
       list-style-type: none;
-      margin: 20px 30px 20px 0;
+      margin: 20px 0 20px 30px;
       min-height: 40px;
-      padding: 15px 75px 15px 20px;
+      padding: 15px 20px 15px 75px;
       position: relative;
-      text-align: right; }
+      text-align: left; }
       html body section#reasons ol li::before {
-        border-color: transparent transparent transparent #e6e6e6;
+        border-color: transparent #e6e6e6 transparent transparent;
         border-style: solid;
-        border-width: 10px 0 10px 7px;
+        border-width: 10px 7px 10px 0;
         content: '';
         display: inline-block;
         height: 0;
         position: absolute;
-        right: -7px;
+        left: -7px;
         top: calc(50% - 10px);
         width: 0; }
       html body section#reasons ol li::after {
@@ -268,7 +270,7 @@ html body {
         text-align: center;
         top: calc(50% - 10px);
         position: absolute;
-        right: -35px;
+        left: -35px;
         width: 20px; }
       html body section#reasons ol li#develop {
         background-image: url("images/choose/icon-development.svg"); }
@@ -525,57 +527,62 @@ html body {
       font-size: 1.25em;
       margin-left: 0;
       margin-top: 10px; }
-  html body section#contact h2 {
-    font-size: 2.25em;
-    font-weight: 300; }
-    html body section#contact h2::after {
-      background-color: #00a071;
-      content: '';
-      display: block;
-      height: 2px;
-      margin-top: 15px;
-      width: 16px; }
-  html body section#contact dl dt {
-    color: #00a071;
-    float: left;
-    margin-right: 10px; }
-    html body section#contact dl dt::after {
-      content: ' :'; }
-    html body section#contact dl dt:first-of-type {
-      display: none; }
-  html body section#contact dl dd {
-    font-weight: 300;
-    margin-left: 0; }
-    html body section#contact dl dd a {
-      color: inherit;
-      text-decoration: none; }
-    html body section#contact dl dd:first-of-type {
-      display: block;
-      margin-bottom: 40px; }
-    html body section#contact dl dd strong {
-      font-weight: 400; }
-  html body section#contact form label {
-    display: none; }
-  html body section#contact form input:first-of-type, html body section#contact form textarea {
-    border: solid 1px #515151;
-    box-sizing: border-box;
-    display: block;
-    font-family: inherit;
-    padding: 10px;
-    width: 100%; }
-  html body section#contact form textarea {
-    min-height: 130px; }
-  html body section#contact form input:last-of-type {
-    background: transparent;
-    border: solid 1px #515151;
-    font-size: 0.7em;
-    margin-top: 20px;
-    padding: 10px 20px;
-    text-transform: uppercase; }
-  html body section#contact > p {
-    font-size: 0.7em;
-    font-style: italic;
-    text-decoration: underline; }
+  html body section#contact {
+    padding: 0 20px; }
+    html body section#contact h2 {
+      font-size: 2.25em;
+      font-weight: 300; }
+      html body section#contact h2::after {
+        background-color: #00a071;
+        content: '';
+        display: block;
+        height: 2px;
+        margin-top: 15px;
+        width: 16px; }
+    html body section#contact dl dt {
+      color: #00a071;
+      float: left;
+      margin-right: 10px; }
+      html body section#contact dl dt::after {
+        content: ' :'; }
+      html body section#contact dl dt:first-of-type {
+        display: none; }
+    html body section#contact dl dd {
+      font-weight: 300;
+      margin-left: 0; }
+      html body section#contact dl dd a {
+        color: inherit;
+        text-decoration: none; }
+      html body section#contact dl dd:first-of-type {
+        display: block;
+        margin-bottom: 40px; }
+      html body section#contact dl dd strong {
+        font-weight: 400; }
+    html body section#contact form {
+      margin-top: 40px; }
+      html body section#contact form label {
+        display: none; }
+      html body section#contact form input:first-of-type, html body section#contact form textarea {
+        border: solid 1px #515151;
+        box-sizing: border-box;
+        display: block;
+        font-family: inherit;
+        padding: 10px;
+        width: 100%; }
+      html body section#contact form textarea {
+        min-height: 130px; }
+      html body section#contact form input:last-of-type {
+        background: transparent;
+        border: solid 1px #515151;
+        font-size: 0.7em;
+        margin-top: 20px;
+        padding: 10px 20px;
+        text-transform: uppercase; }
+    html body section#contact > p {
+      font-size: 0.7em;
+      font-style: italic;
+      margin-bottom: 40px;
+      text-decoration: underline; }
   html body aside#click-to-call {
     position: fixed;
     right: 0;

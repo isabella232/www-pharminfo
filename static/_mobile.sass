@@ -12,6 +12,9 @@ html
     font-family: 'Source Sans Pro', sans-serif
     margin: 0
 
+    header
+      display: none
+
     nav
       height: 100vh
       background-color: $mainColor
@@ -238,28 +241,28 @@ html
         li
           align-items: center
           background-color: $grey-2
-          background-position: right 10px center
+          background-position: 10px center
           background-repeat: no-repeat
           background-size: 50px
           counter-increment: reasons
           display: flex
           font-weight: 300
           list-style-type: none
-          margin: 20px 30px 20px 0
+          margin: 20px 0 20px 30px
           min-height: 40px        
-          padding: 15px 75px 15px 20px
+          padding: 15px 20px 15px 75px
           position: relative
-          text-align: right
+          text-align: left
 
           &::before
-            border-color: transparent transparent transparent $grey-2
+            border-color: transparent $grey-2 transparent transparent
             border-style: solid
-            border-width: 10px 0 10px 7px
+            border-width: 10px 7px 10px 0
             content: ''
             display: inline-block
             height: 0
             position: absolute
-            right: -7px
+            left: -7px
             top: calc(50% - 10px)
             width: 0
 
@@ -273,7 +276,7 @@ html
             text-align: center
             top: calc(50% - 10px)
             position: absolute
-            right: -35px
+            left: -35px
             width: 20px
 
           &#develop
@@ -587,6 +590,8 @@ html
           margin-top: 10px
 
     section#contact
+      padding: 0 20px
+
       h2
         font-size: $title
         font-weight: 300
@@ -627,6 +632,8 @@ html
             font-weight: 400
 
       form
+        margin-top: 40px
+
         label
           display: none
 
@@ -652,6 +659,7 @@ html
       & > p
         font-size: 0.7em
         font-style: italic
+        margin-bottom: 40px
         text-decoration: underline
 
     aside#click-to-call
