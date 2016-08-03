@@ -11,6 +11,17 @@ app.config['SECRET_KEY'] = 'default secret key'
 app.config.from_envvar('WWW_PHARMINFO_CONFIG', silent=True)
 
 
+def send_mail(title, html):
+    message = {
+        'to': [{'email': 'contact@pharminfo.fr'}],
+        'from_email': 'contact@pharminfo.fr',
+        'subject': title,
+        'html': html}
+    if not current_app.debug:
+        mandrill_client = mandrill.Mandrill(app.config.get('MANDRILL_KEY'))
+        mandrill_client.messages.send(message=message)
+
+
 @app.route('/')
 @app.route('/<page>')
 def page(page='index'):
@@ -33,28 +44,43 @@ def news():
     return render_template('news.html')
 
 
-@app.route('/register', methods=('GET', 'POST'))
+@app.route('/register', methods=['POST'])
 def register():
-    if 'phone' in request.form:
-        html = 'Rappeler le numéro {}'.format(request.form['phone'])
-    else:
-        html = '<br>'.join([
-            'Email : %s' % request.form['email'],
-            'Message : %s ' % request.form['message']])
-    message = {
-        'to': [{'email': 'contact@pharminfo.fr'}],
-        'subject': 'Prise de contact sur le site de Pharminfo.fr',
-        'from_email': 'contact@pharminfo.fr',
-        'html': html}
-    if not current_app.debug:
-        mandrill_client = mandrill.Mandrill(app.config.get('MANDRILL_KEY'))
-        mandrill_client.messages.send(message=message)
-    flash(
-        'Merci de nous avoir contacté, nos équipes vous recontacteront '
-        'dans les plus brefs délais.')
-    return redirect('')
+    if not all(request.form[key] for key in ('siret', 'phone')):
+        if not request.form['siret']:
+            flash('Merci de nous indiquer votre SIRET.', 'error')
+        if not request.form['phone']:
+            flash('Merci de nous indiquer votre numéro de téléphone.', 'error')
+        return redirect(url_for('page', page='register'))
+    html = '<br>'.join((
+        'SIRET : %s' % request.form['siret'],
+        'Téléphone : %s' % request.form['phone'],
+        'Fax : %s' % request.form['fax'],
+        'Email : %s' % request.form['email']))
+    send_mail('Nouvelle inscription sur le site de Pharminfo.fr', html)
+    return redirect(url_for('page'))
 
-    return render_template('register.html')
+
+@app.route('/whitepaper', methods=['POST'])
+def whitepaper():
+    if not all(request.form[key] for key in ('name', 'email', 'function')):
+        if not request.form['name']:
+            flash('Merci de nous indiquer votre nom.', 'error')
+        if not request.form['email']:
+            flash('Merci de nous indiquer votre adresse email.', 'error')
+        if not request.form['function']:
+            flash(
+                'Merci de nous indiquer la fonction que vous occupez dans '
+                'votre société.', 'error')
+        return redirect(url_for('page', page='whitepaper'))
+    html = '<br>'.join((
+        'Nom : %s' % request.form['name'],
+        'Email : %s' % request.form['email'],
+        'Fonction : %s' % request.form['function'],
+        'Téléphone : %s' % request.form['phone'],
+        'Société : %s' % request.form['company']))
+    send_mail('Téléchargement du livre blanc Pharminfo.fr', html)
+    return redirect(url_for('static', filename='whitepaper.pdf'))
 
 
 @app.route('/contact', methods=('POST',))
@@ -62,17 +88,10 @@ def contact():
     if 'phone' in request.form:
         html = 'Rappeler le numéro {}'.format(request.form['phone'])
     else:
-        html = '<br>'.join([
+        html = '<br>'.join((
             'Email : %s' % request.form['email'],
-            'Message : %s ' % request.form['message']])
-    message = {
-        'to': [{'email': 'contact@pharminfo.fr'}],
-        'subject': 'Prise de contact sur le site de Pharminfo.fr',
-        'from_email': 'contact@pharminfo.fr',
-        'html': html}
-    if not current_app.debug:
-        mandrill_client = mandrill.Mandrill(app.config.get('MANDRILL_KEY'))
-        mandrill_client.messages.send(message=message)
+            'Message : %s ' % request.form['message']))
+    send_mail('Prise de contact sur le site de Pharminfo.fr', html)
     flash(
         'Merci de nous avoir contacté, nos équipes vous recontacteront '
         'dans les plus brefs délais.')

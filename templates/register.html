@@ -1,8 +1,6 @@
 {% extends '_layout.html' %}
 
-{% block header %}
-  <h1>Souscription</h1>
-{% endblock header %}
+{% block title %}Souscription{% endblock title %}
 
 {% block body %}
   <section id="register">
@@ -14,14 +12,14 @@
     </p>
     <form action="{{ url_for('register') }}" method="POST">
       <label for="siret">SIRET</label>
-      <input id="siret" name="siret" placeholder="Numéro SIRET" />
+      <input id="siret" name="siret" placeholder="Numéro SIRET" required="required" />
       <label for="phone">Téléphone</label>
-      <input id="phone" type="tel" name="phone" placeholder="Numéro de téléphone" />
+      <input id="phone" type="tel" name="phone" placeholder="Numéro de téléphone" required="required" />
       <label for="fax">Fax</label>
       <input id="fax" type="tel" name="fax" placeholder="Numéro de fax" />
       <p>ou</p>
-      <label for="mail">Mail</label>
-      <textarea id="mail" type="mail" name="mail" placeholder="Adresse mail"></textarea>
+      <label for="email">Email</label>
+      <textarea id="email" type="email" name="email" placeholder="Adresse email"></textarea>
       <input type="submit" value="Valider" />
     </form>
   </section>

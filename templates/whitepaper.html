@@ -1,4 +1,43 @@
 {% extends '_layout.html' %}
 
+{% block title %}Livre blanc{% endblock title %}
+
 {% block body %}
+  <section id="whitepaper">
+    <h2>Comment développer vos ventes grâce à votre site Internet ?</h2>
+    <p>
+      Ce document est à destination des pharmaciens d'officine propriétaires
+      d'un site Internet de vente en ligne de médicaments et de produits de
+      parapharmacie.
+    </p>
+    <p>
+      Il vous permettra d'identifier les solutions à mettre en œuvre pour
+      accélérer les ventes sur votre site Internet.
+    </p>
+    <p>
+      Informez-vous sur :
+    </p>
+    <ul>
+      <li>la réglementation en vigueur,</li>
+      <li>des astuces pour bien vendre,</li>
+      <li>des opérations marketing à mettre en place.</li>
+    </ul>
+    <p>
+      Vous pouvez télécharger le livre blanc gratuitement en remplissant le
+      formulaire.
+    </p>
+    <form action="{{ url_for('whitepaper') }}" method="POST">
+      <label for="name">Nom</label>
+      <input id="name" name="name" placeholder="Nom" required="required" />
+      <label for="email">Email</label>
+      <input id="email" name="email" placeholder="Email" required="required" />
+      <label for="function">Fonction</label>
+      <input id="function" name="function" placeholder="Fonction" required="required" />
+      <label for="phone">Téléphone</label>
+      <input id="phone" type="tel" name="phone" placeholder="Téléphone" />
+      <label for="company">Société</label>
+      <input id="company" name="company" placeholder="Société" />
+      <input type="submit" value="Télécharger le livre blanc" />
+    </form>
+  </section>
 {% endblock body %}
