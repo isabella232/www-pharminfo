@@ -18,6 +18,8 @@ html body {
     padding-left: 0; }
   html body *:not(h2):not(strong) {
     font-weight: 300; }
+  html body section:not(#clients), html body footer {
+    padding: 0 10%; }
   html body section#goals h2, html body section#guarantees h2, html body section#reasons h2, html body section#offers h2 {
     color: #515151;
     font-size: 2.25em;
@@ -82,7 +84,7 @@ html body {
       color: #FFFFFF;
       font-size: 2.8em;
       font-weight: 400;
-      margin: 0 10%;
+      margin: 0;
       text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.2); }
       html body section#sales h2::after {
         background-color: #00a071;
@@ -119,35 +121,38 @@ html body {
   html body section#goals ul {
     display: flex;
     flex-wrap: wrap;
-    margin: 40px auto 0;
-    width: 90%; }
+    justify-content: space-between;
+    margin-top: 40px; }
     html body section#goals ul li {
       font-size: 0.875em;
-      margin-bottom: 50px;
-      height: 56px;
-      padding-left: 70px; }
+      margin: 20px 0;
+      min-height: 56px;
+      padding-left: 70px;
+      width: 100%; }
       html body section#goals ul li#innovate {
-        background: url("images/objectifs/icon-innovation.svg") no-repeat; }
+        background: url("images/objectifs/icon-innovation.svg") top left/56px 56px no-repeat; }
       html body section#goals ul li#simplify {
-        background: url("images/objectifs/icon-simple.svg") no-repeat; }
+        background: url("images/objectifs/icon-simple.svg") top left/56px 56px no-repeat; }
       html body section#goals ul li#connect {
-        background: url("images/objectifs/icon-connect.svg") no-repeat; }
+        background: url("images/objectifs/icon-connect.svg") top left/56px 56px no-repeat; }
       html body section#goals ul li#help {
-        background: url("images/objectifs/icon-help.svg") no-repeat; }
+        background: url("images/objectifs/icon-help.svg") top left/56px 56px no-repeat; }
       html body section#goals ul li#save {
-        background: url("images/objectifs/icon-win.svg") no-repeat; }
+        background: url("images/objectifs/icon-win.svg") top left/56px 56px no-repeat; }
       html body section#goals ul li#raise {
-        background: url("images/objectifs/icon-increase.svg") no-repeat; }
+        background: url("images/objectifs/icon-increase.svg") top left/56px 56px no-repeat; }
       html body section#goals ul li strong {
         color: #00a071;
         display: block;
         font-size: 1.25em; }
+  @media screen and (min-width: 560px) {
+    html body section#goals ul li {
+      box-sizing: border-box;
+      width: 45%; } }
   html body section#guarantees ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    width: 85%; }
+    justify-content: center; }
     html body section#guarantees ul li {
       align-items: center;
       border-left: solid 1px #e6e6e6;
@@ -157,49 +162,60 @@ html body {
       display: flex;
       flex-direction: column;
       font-size: 0;
-      height: 65vw;
       justify-content: center;
       padding: 20px;
       text-align: center;
-      text-transform: uppercase;
-      width: 65vw; }
+      text-transform: uppercase; }
       html body section#guarantees ul li::before {
         border-radius: 50%;
-        content: '';
         display: block;
-        height: 60%;
-        width: 60%; }
+        height: 50%;
+        width: 50%; }
       html body section#guarantees ul li#cloud::before {
-        background: url("images/warranties/icon-cloud.svg"); }
+        content: url("images/warranties/icon-cloud.svg"); }
       html body section#guarantees ul li#payment::before {
-        background: url("images/warranties/icon-payment.svg"); }
+        content: url("images/warranties/icon-payment.svg"); }
       html body section#guarantees ul li#ars::before {
-        background: url("images/warranties/icon-ars.svg"); }
+        content: url("images/warranties/icon-ars.svg"); }
       html body section#guarantees ul li#security::before {
-        background: url("images/warranties/icon-security.svg"); }
+        content: url("images/warranties/icon-security.svg"); }
       html body section#guarantees ul li#order::before {
-        background: url("images/warranties/icon-order.svg"); }
+        content: url("images/warranties/icon-order.svg"); }
       html body section#guarantees ul li#sav::before {
-        background: url("images/warranties/icon-sav.svg"); }
+        content: url("images/warranties/icon-sav.svg"); }
       html body section#guarantees ul li#seo::before {
-        background: url("images/warranties/icon-seo.svg"); }
+        content: url("images/warranties/icon-seo.svg"); }
       html body section#guarantees ul li#responsive::before {
-        background: url("images/warranties/icon-responsive.svg"); }
+        content: url("images/warranties/icon-responsive.svg"); }
     html body section#guarantees ul li.active, html body section#guarantees ul li {
       background-color: #f5f5f5;
       font-size: 0.875em; }
       html body section#guarantees ul li.active::before, html body section#guarantees ul li::before {
         border: solid 3px #00a071;
-        margin-bottom: 20px; }
+        margin-bottom: 15px; }
+  @media screen and (max-width: 400px) {
+    html body section#guarantees ul li {
+      height: calc(65vw);
+      width: calc(65vw); } }
+  @media screen and (min-width: 400px) and (max-width: 550px) {
+    html body section#guarantees ul li {
+      height: calc(40vw);
+      width: calc(40vw); } }
+  @media screen and (min-width: 550px) and (max-width: 780px) {
+    html body section#guarantees ul li {
+      height: calc(26vw);
+      width: calc(26vw); } }
+  @media screen and (min-width: 780px) {
+    html body section#guarantees ul li {
+      height: calc(20vw);
+      width: calc(20vw); } }
   html body section#reasons h2 {
     margin-top: 80px; }
   html body section#reasons p {
     font-style: italic;
     text-align: center; }
   html body section#reasons ol {
-    counter-reset: reasons;
-    margin: 40px auto;
-    width: 90%; }
+    counter-reset: reasons; }
     html body section#reasons ol li {
       align-items: center;
       background-color: #e6e6e6;
@@ -225,6 +241,7 @@ html body {
         top: calc(50% - 10px);
         width: 0; }
       html body section#reasons ol li::after {
+        background-color: #FFFFFF;
         border: solid 1px #d3d3d3;
         border-radius: 50%;
         color: #d3d3d3;
@@ -248,30 +265,68 @@ html body {
         background-image: url("images/choose/icon-accompagnement.svg"); }
       html body section#reasons ol li#cost {
         background-image: url("images/choose/icon-cost.svg"); }
+  @media screen and (min-width: 630px) {
+    html body section#reasons ol {
+      display: flex;
+      flex-direction: column;
+      position: relative; }
+      html body section#reasons ol::before {
+        background-color: #d3d3d3;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 50%;
+        position: absolute;
+        width: 1px; }
+      html body section#reasons ol li {
+        box-sizing: border-box;
+        width: calc(50% - 24px); }
+      html body section#reasons ol li#develop, html body section#reasons ol li#loyal, html body section#reasons ol li#accompaniment {
+        background-position: right 10px center;
+        margin: 20px 30px 20px 0;
+        padding: 15px 75px 15px 20px;
+        text-align: right; }
+        html body section#reasons ol li#develop::before, html body section#reasons ol li#loyal::before, html body section#reasons ol li#accompaniment::before {
+          border-color: transparent transparent transparent #e6e6e6;
+          border-width: 10px 0 10px 7px;
+          right: -7px;
+          left: initial; }
+        html body section#reasons ol li#develop::after, html body section#reasons ol li#loyal::after, html body section#reasons ol li#accompaniment::after {
+          right: -35px;
+          left: initial; }
+      html body section#reasons ol li#expertise, html body section#reasons ol li#satisfaction, html body section#reasons ol li#cost {
+        align-self: flex-end;
+        background-position: 10px center;
+        margin: 20px 0 20px 30px;
+        padding: 15px 20px 15px 75px; }
+        html body section#reasons ol li#expertise::before, html body section#reasons ol li#satisfaction::before, html body section#reasons ol li#cost::before {
+          border-color: transparent #e6e6e6 transparent transparent;
+          border-width: 10px 7px 10px 0;
+          left: -7px; }
+        html body section#reasons ol li#expertise::after, html body section#reasons ol li#satisfaction::after, html body section#reasons ol li#cost::after {
+          left: -35px; } }
   html body section#clients ul + ul {
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: space-between; }
     html body section#clients ul + ul li {
       box-sizing: border-box;
-      margin: 40px 0;
+      margin: 20px 0;
+      padding: 150px 0px 20px 100px;
       position: relative;
       width: 100%; }
       html body section#clients ul + ul li#interne {
-        background: url("images/numbers/computer.svg") padding-box center 0/80% auto no-repeat;
-        padding: 150px 20px 20px 120px; }
+        background: url("images/numbers/computer.svg") padding-box center 0/100% auto no-repeat; }
       html body section#clients ul + ul li#symplify {
-        background: url("images/numbers/city-fly.svg") padding-box center 0/80% auto no-repeat;
-        padding: 150px 20px 20px 120px; }
+        background: url("images/numbers/city-fly.svg") padding-box center 0/100% auto no-repeat; }
       html body section#clients ul + ul li#special-order {
-        background: url("images/numbers/patient-order-section.svg") padding-box center 0/80% auto no-repeat;
-        padding: 150px 20px 20px 120px; }
+        background: url("images/numbers/patient-order-section.svg") padding-box center 0/100% auto no-repeat; }
       html body section#clients ul + ul li#delivery {
-        background: url("images/numbers/delivery.svg") padding-box center 0/80% auto no-repeat;
-        padding: 150px 20px 20px 120px; }
+        background: url("images/numbers/delivery.svg") padding-box center 0/100% auto no-repeat; }
       html body section#clients ul + ul li strong {
         font-size: 3em;
         font-weight: 400;
-        left: 20px;
+        left: -5px;
         line-height: 1;
         position: absolute; }
   html body section#clients > p {
@@ -287,6 +342,38 @@ html body {
     display: block;
     height: 260px;
     width: 100%; }
+  @media screen and (max-width: 840px) {
+    html body section#clients ul + ul {
+      margin: 0 auto;
+      width: 80%; } }
+  @media screen and (min-width: 400px) and (max-width: 840px) {
+    html body section#clients ul + ul li#interne, html body section#clients ul + ul li#delivery {
+      background-size: auto 60%; }
+    html body section#clients ul + ul li#symplify, html body section#clients ul + ul li#special-order {
+      background-size: auto 50%; } }
+  @media screen and (min-width: 840px) {
+    html body section#clients ul + ul li {
+      margin: 0;
+      width: 50%; }
+      html body section#clients ul + ul li#interne:hover {
+        background: url("images/numbers/computer.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+      html body section#clients ul + ul li#symplify:hover {
+        background: url("images/numbers/city-fly.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+      html body section#clients ul + ul li#special-order:hover {
+        background: url("images/numbers/patient-order-section.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+      html body section#clients ul + ul li#delivery:hover {
+        background: url("images/numbers/delivery.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+    html body section#clients ul + ul li#interne, html body section#clients ul + ul li#symplify, html body section#clients ul + ul li#delivery, html body section#clients ul + ul li#special-order {
+      background-size: auto 45%;
+      background-position: center 20px; }
+    html body section#clients ul + ul li#delivery, html body section#clients ul + ul li#symplify {
+      padding: 150px 10% 20px 127px; }
+      html body section#clients ul + ul li#delivery strong, html body section#clients ul + ul li#symplify strong {
+        left: 20px; }
+    html body section#clients ul + ul li#interne, html body section#clients ul + ul li#special-order {
+      padding: 150px 20px 20px calc(10% + 87px); }
+      html body section#clients ul + ul li#interne strong, html body section#clients ul + ul li#special-order strong {
+        left: 20%; } }
   html body section#offers {
     background-color: #f5f5f5; }
     html body section#offers > p {
@@ -296,7 +383,7 @@ html body {
       html body section#offers > p + p {
         margin-bottom: 40px; }
     html body section#offers section {
-      margin: 20px;
+      margin: 20px 0;
       padding: 30px;
       text-align: center; }
       html body section#offers section h3 {
@@ -356,26 +443,17 @@ html body {
       margin: 20px; }
   html body section#main-offer {
     background-color: #f5f5f5;
-    padding-top: 80px;
+    padding-top: 60px;
     text-align: center; }
-    html body section#main-offer::after {
-      background: url("images/city-bkgd.svg") no-repeat;
-      background-size: cover;
-      content: '';
-      display: block;
-      height: 250px;
-      margin-top: 50px;
-      width: 100%; }
     html body section#main-offer h2 {
       font-size: 1.875em; }
     html body section#main-offer p {
-      font-style: italic;
-      margin: 0 20px; }
+      font-style: italic; }
     html body section#main-offer ol {
       counter-reset: offer_count;
       display: flex;
       flex-wrap: wrap;
-      margin: 20px; }
+      margin: 20px 0; }
       html body section#main-offer ol li {
         border-top: solid 220px transparent;
         counter-increment: offer_count;
@@ -429,6 +507,16 @@ html body {
       padding: 10px 20px;
       text-decoration: none;
       text-transform: uppercase; }
+    html body section#main-offer::after {
+      background: url("images/city-bkgd.svg") no-repeat;
+      background-size: cover;
+      content: '';
+      display: block;
+      height: 250px;
+      left: -12.5%;
+      margin-top: 50px;
+      position: relative;
+      width: 125%; }
   html body section#customize {
     background-color: #f5f5f5;
     padding: 60px 20px 40px 20px;
@@ -469,60 +557,59 @@ html body {
       font-size: 1.25em;
       margin-left: 0;
       margin-top: 10px; }
-  html body section#contact {
-    padding: 0 20px; }
-    html body section#contact h2 {
-      font-size: 2.25em; }
-      html body section#contact h2::after {
-        background-color: #00a071;
-        content: '';
-        display: block;
-        height: 2px;
-        margin-top: 15px;
-        width: 16px; }
-    html body section#contact dl dt {
-      color: #00a071;
-      float: left;
-      margin-right: 10px; }
-      html body section#contact dl dt::after {
-        content: ' :'; }
-      html body section#contact dl dt:first-of-type {
-        display: none; }
-    html body section#contact dl dd {
-      margin-left: 0; }
-      html body section#contact dl dd a {
-        color: inherit;
-        text-decoration: none; }
-      html body section#contact dl dd:first-of-type {
-        display: block;
-        margin-bottom: 40px; }
-      html body section#contact dl dd strong {
-        font-weight: 400; }
-    html body section#contact form {
-      margin-top: 40px; }
-      html body section#contact form label {
-        display: none; }
-      html body section#contact form input:first-of-type, html body section#contact form textarea {
-        border: solid 1px #515151;
-        box-sizing: border-box;
-        display: block;
-        font-family: inherit;
-        padding: 10px;
-        width: 100%; }
-      html body section#contact form textarea {
-        min-height: 130px; }
-      html body section#contact form input:last-of-type {
-        background: transparent;
-        border: solid 1px #515151;
-        font-size: 0.7em;
-        margin-top: 20px;
-        padding: 10px 20px;
-        text-transform: uppercase; }
-    html body section#contact > p {
+  html body section#contact h2 {
+    font-size: 2.25em; }
+    html body section#contact h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin-top: 15px;
+      width: 16px; }
+  html body section#contact dl dt {
+    color: #00a071;
+    float: left;
+    margin-right: 10px; }
+    html body section#contact dl dt::after {
+      content: ' :'; }
+    html body section#contact dl dt:first-of-type {
+      display: none; }
+  html body section#contact dl dd {
+    margin-left: 0; }
+    html body section#contact dl dd a {
+      color: inherit;
+      text-decoration: none; }
+    html body section#contact dl dd:first-of-type {
+      display: block;
+      margin-bottom: 40px; }
+    html body section#contact dl dd strong {
+      font-weight: 400; }
+  html body section#contact form {
+    margin-top: 40px; }
+    html body section#contact form label {
+      display: none; }
+    html body section#contact form input:first-of-type, html body section#contact form textarea {
+      border: solid 1px #515151;
+      box-sizing: border-box;
+      display: block;
+      font-family: inherit;
+      padding: 10px;
+      width: 100%; }
+    html body section#contact form textarea {
+      border-top: none;
+      min-height: 130px; }
+    html body section#contact form input:last-of-type {
+      background: transparent;
+      border: solid 1px #515151;
       font-size: 0.7em;
-      font-style: italic;
-      margin-bottom: 40px;
-      text-decoration: underline; }
+      margin-top: 20px;
+      padding: 10px 20px;
+      text-transform: uppercase; }
+  html body section#contact > p {
+    font-size: 0.7em;
+    font-style: italic;
+    margin-bottom: 40px;
+    text-decoration: underline; }
   html body aside#click-to-call {
     position: fixed;
     right: 0;
@@ -536,7 +623,7 @@ html body {
   html body footer {
     background-color: #515151; }
     html body footer ul#social {
-      margin: 0 0 20px 10%; }
+      margin-bottom: 20px; }
       html body footer ul#social li {
         display: inline-block;
         font-size: 0;
@@ -556,10 +643,11 @@ html body {
     html body footer ul#links {
       color: #FFFFFF;
       font-size: 0.7em;
-      margin-right: 10%;
       text-align: right; }
-      html body footer ul#links a {
-        color: inherit;
-        text-decoration: none; }
+      html body footer ul#links li {
+        margin-top: 10px; }
+        html body footer ul#links li a {
+          color: inherit;
+          text-decoration: none; }
 
 /*# sourceMappingURL=style.sass.css.map */

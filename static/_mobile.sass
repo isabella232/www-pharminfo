@@ -15,6 +15,9 @@ html
     *:not( h2 ):not( strong )
       font-weight: 300
 
+    section:not( #clients ), footer
+      padding: 0 10%
+
     section#goals, section#guarantees, section#reasons, section#offers
       h2
         @include h2_source_sans
@@ -82,7 +85,7 @@ html
         color: $white
         font-size: $big-title
         font-weight: 400
-        margin: 0 10%
+        margin: 0
         text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.2)
 
         &::before
@@ -108,32 +111,33 @@ html
       ul
         display: flex
         flex-wrap: wrap
-        margin: 40px auto 0
-        width: 90%
+        justify-content: space-between
+        margin-top: 40px
 
         li
           font-size: $basic-font-size
-          margin-bottom: 50px
-          height: 56px
+          margin: 20px 0
+          min-height: 56px
           padding-left: 70px
+          width: 100%
 
           &#innovate
-            background: url('images/objectifs/icon-innovation.svg') no-repeat
+            background: url('images/objectifs/icon-innovation.svg') top left / 56px 56px no-repeat
           
           &#simplify
-            background: url('images/objectifs/icon-simple.svg') no-repeat
+            background: url('images/objectifs/icon-simple.svg') top left / 56px 56px no-repeat
           
           &#connect
-            background: url('images/objectifs/icon-connect.svg') no-repeat
+            background: url('images/objectifs/icon-connect.svg') top left / 56px 56px no-repeat
           
           &#help
-            background: url('images/objectifs/icon-help.svg') no-repeat
+            background: url('images/objectifs/icon-help.svg') top left / 56px 56px no-repeat
           
           &#save
-            background: url('images/objectifs/icon-win.svg') no-repeat
+            background: url('images/objectifs/icon-win.svg') top left / 56px 56px no-repeat
           
           &#raise
-            background: url('images/objectifs/icon-increase.svg') no-repeat
+            background: url('images/objectifs/icon-increase.svg') top left / 56px 56px no-repeat
 
           strong
             color: $mainColor
@@ -141,13 +145,16 @@ html
  
             font-size: $subtitle
 
+      @media screen and (min-width: 560px)
+        ul li
+          box-sizing: border-box
+          width: 45%
+
     section#guarantees
       ul
         display: flex
         flex-wrap: wrap
         justify-content: center
-        margin: 0 auto
-        width: 85%
 
         li
           @extend .active
@@ -159,51 +166,48 @@ html
           display: flex
           flex-direction: column
           font-size: 0
-          height: 65vw
           justify-content: center
           padding: 20px
           text-align: center
           text-transform: uppercase
-          width: 65vw
 
           &::before
             border-radius: 50%
-            content: ''
             display: block
-            height: 60%
-            width: 60%
+            height: 50%
+            width: 50%
 
           &#cloud
             &::before
-              background: url('images/warranties/icon-cloud.svg')
+              content: url('images/warranties/icon-cloud.svg')
 
           &#payment
             &::before
-              background: url('images/warranties/icon-payment.svg')
+              content: url('images/warranties/icon-payment.svg')
 
           &#ars
             &::before
-              background: url('images/warranties/icon-ars.svg')
+              content: url('images/warranties/icon-ars.svg')
 
           &#security
             &::before
-              background: url('images/warranties/icon-security.svg')
+              content: url('images/warranties/icon-security.svg')
 
           &#order
             &::before
-              background: url('images/warranties/icon-order.svg')
+              content: url('images/warranties/icon-order.svg')
 
           &#sav
             &::before
-              background: url('images/warranties/icon-sav.svg')
+              content: url('images/warranties/icon-sav.svg')
 
           &#seo
             &::before
-              background: url('images/warranties/icon-seo.svg')
+              content: url('images/warranties/icon-seo.svg')
 
           &#responsive
             &::before
-              background: url('images/warranties/icon-responsive.svg')
+              content: url('images/warranties/icon-responsive.svg')
 
         li.active
           background-color: $grey-3
@@ -211,7 +215,27 @@ html
 
           &::before
             border: solid 3px $mainColor
-            margin-bottom: 20px
+            margin-bottom: 15px
+
+      @media screen and (max-width: 400px)
+        ul li
+          height: calc(65vw)
+          width: calc(65vw)
+
+      @media screen and (min-width: 400px) and (max-width: 550px)
+        ul li
+          height: calc(40vw)
+          width: calc(40vw)
+
+      @media screen and (min-width: 550px) and (max-width: 780px)
+        ul li
+          height: calc(26vw)
+          width: calc(26vw)
+
+      @media screen and (min-width: 780px)
+        ul li
+          height: calc(20vw)
+          width: calc(20vw)
 
     section#reasons
       h2
@@ -223,8 +247,6 @@ html
 
       ol
         counter-reset: reasons
-        margin: 40px auto
-        width: 90%
 
         li
           align-items: center
@@ -253,6 +275,7 @@ html
             width: 0
 
           &::after
+            background-color: $white
             border: solid 1px #d3d3d3
             border-radius: 50%
             color: #d3d3d3
@@ -283,37 +306,84 @@ html
           &#cost
             background-image: url('images/choose/icon-cost.svg')
 
+      @media screen and (min-width: 630px)
+        ol
+          display: flex
+          flex-direction: column
+          position: relative
+
+          &::before
+            background-color: #d3d3d3
+            content: ''
+            display: block
+            height: 100%
+            left: 50%
+            position: absolute
+            width: 1px
+
+          li
+            box-sizing: border-box
+            width: calc(50% - 24px)
+
+          li#develop, li#loyal, li#accompaniment
+            background-position: right 10px center
+            margin: 20px 30px 20px 0
+            padding: 15px 75px 15px 20px
+            text-align: right
+
+            &::before
+              border-color: transparent transparent transparent $grey-2
+              border-width: 10px 0 10px 7px
+              right: -7px
+              left: initial
+
+            &::after
+              right: -35px
+              left: initial
+
+          li#expertise, li#satisfaction, li#cost
+            align-self: flex-end
+            background-position: 10px center
+            margin: 20px 0 20px 30px
+            padding: 15px 20px 15px 75px
+
+            &::before
+              border-color: transparent $grey-2 transparent transparent
+              border-width: 10px 7px 10px 0
+              left: -7px
+
+            &::after
+              left: -35px
+
     section#clients
       ul + ul
         display: flex
         flex-wrap: wrap
+        justify-content: space-between
 
         li
           box-sizing: border-box
-          margin: 40px 0
+          margin: 20px 0
+          padding: 150px 0px 20px 100px
           position: relative
           width: 100%
 
           &#interne
-            background: url('images/numbers/computer.svg') padding-box center 0 / 80% auto no-repeat
-            padding: 150px 20px 20px 120px
+            background: url('images/numbers/computer.svg') padding-box center 0 / 100% auto no-repeat
 
           &#symplify
-            background: url('images/numbers/city-fly.svg') padding-box center 0 / 80% auto no-repeat
-            padding: 150px 20px 20px 120px
+            background: url('images/numbers/city-fly.svg') padding-box center 0 / 100% auto no-repeat
 
           &#special-order
-            background: url('images/numbers/patient-order-section.svg') padding-box center 0 / 80% auto no-repeat
-            padding: 150px 20px 20px 120px
+            background: url('images/numbers/patient-order-section.svg') padding-box center 0 / 100% auto no-repeat
 
           &#delivery
-            background: url('images/numbers/delivery.svg') padding-box center 0 / 80% auto no-repeat
-            padding: 150px 20px 20px 120px
+            background: url('images/numbers/delivery.svg') padding-box center 0 / 100% auto no-repeat
 
           strong
             font-size: 3em
             font-weight: 400
-            left: 20px
+            left: -5px
             line-height: 1
             position: absolute
 
@@ -332,6 +402,51 @@ html
         height: 260px
         width: 100%
 
+      @media screen and (max-width: 840px)
+        ul + ul
+          margin: 0 auto
+          width: 80%
+
+      @media screen and (min-width: 400px) and (max-width: 840px)
+        ul + ul li#interne, ul + ul li#delivery
+          background-size: auto 60%
+
+        ul + ul li#symplify, ul + ul li#special-order
+          background-size: auto 50%
+
+      @media screen and (min-width: 840px)
+        ul + ul li
+          margin: 0
+          width: 50%
+
+          &#interne:hover
+            background: url('images/numbers/computer.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
+
+          &#symplify:hover
+            background: url('images/numbers/city-fly.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
+
+          &#special-order:hover
+            background: url('images/numbers/patient-order-section.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
+
+          &#delivery:hover
+            background: url('images/numbers/delivery.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
+
+        ul + ul li#interne, ul + ul li#symplify, ul + ul li#delivery, ul + ul li#special-order
+          background-size: auto 45%
+          background-position: center 20px
+
+        ul + ul li#delivery, ul + ul li#symplify
+          padding: 150px 10% 20px 127px
+
+          strong
+            left: 20px
+
+        ul + ul li#interne, ul + ul li#special-order
+          padding: 150px 20px 20px calc(10% + 87px)
+
+          strong
+            left: 20%
+
     section#offers
       background-color: $grey-3
 
@@ -344,7 +459,7 @@ html
           margin-bottom: 40px
 
       section
-        margin: 20px
+        margin: 20px 0
         padding: 30px
         text-align: center
 
@@ -423,31 +538,20 @@ html
 
     section#main-offer
       background-color: $grey-3
-      padding-top: 80px
+      padding-top: 60px
       text-align: center
-
-      &::after
-        background: url('images/city-bkgd.svg') no-repeat
-        background-size: cover
-        content: ''
-        display: block
-        height: 250px
-        margin-top: 50px
-        width: 100%
 
       h2
         font-size: 1.875em
 
       p
         font-style: italic
-        margin: 0 20px
-
 
       ol
         counter-reset: offer_count
         display: flex
         flex-wrap: wrap
-        margin: 20px
+        margin: 20px 0
 
         li
           border-top: solid 220px transparent
@@ -511,6 +615,17 @@ html
         text-decoration: none
         text-transform: uppercase
 
+      &::after
+        background: url('images/city-bkgd.svg') no-repeat
+        background-size: cover
+        content: ''
+        display: block
+        height: 250px
+        left: -12.5%
+        margin-top: 50px
+        position: relative
+        width: 125%
+
     section#customize
       background-color: $grey-3
       padding: 60px 20px 40px 20px
@@ -564,8 +679,6 @@ html
           margin-top: 10px
 
     section#contact
-      padding: 0 20px
-
       h2
         font-size: $title
 
@@ -618,6 +731,7 @@ html
           width: 100%
 
         textarea
+          border-top: none
           min-height: 130px
 
         input:last-of-type
@@ -652,7 +766,7 @@ html
       background-color: $grey-1
 
       ul#social
-        margin: 0 0 20px 10%
+        margin-bottom: 20px
 
         li
           display: inline-block
@@ -679,9 +793,11 @@ html
       ul#links
         color: $white
         font-size: 0.7em
-        margin-right: 10%
         text-align: right
 
-        a
-          color: inherit
-          text-decoration: none
+        li
+          margin-top: 10px
+
+          a
+            color: inherit
+            text-decoration: none
