@@ -48,7 +48,6 @@ def get_news():
             namespaces={'media': 'http://search.yahoo.com/mrss/'})
         if image is not None:
             entry['image'] = image.attrib['url']
-        print(entry)
         news.append(entry)
     return news
 
