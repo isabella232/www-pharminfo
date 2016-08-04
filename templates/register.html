@@ -1,4 +1,26 @@
 {% extends '_layout.html' %}
 
+{% block title %}Souscription{% endblock title %}
+
 {% block body %}
+  <section id="register">
+    <h2>Souscrivez à l'offre Pharminfo.fr</h2>
+    <p>
+      Préinscrivez-vous sur notre plateforme, nous vous renverrons le bordereau
+      d'inscription par fax ou par mail. Vous n'aurez plus qu'à finaliser
+      l'inscription et signer avant de nous le renvoyer.
+    </p>
+    <form action="{{ url_for('register') }}" method="POST">
+      <label for="siret">SIRET</label>
+      <input id="siret" name="siret" placeholder="Numéro SIRET" required="required" />
+      <label for="phone">Téléphone</label>
+      <input id="phone" type="tel" name="phone" placeholder="Numéro de téléphone" required="required" />
+      <label for="fax">Fax</label>
+      <input id="fax" type="tel" name="fax" placeholder="Numéro de fax" />
+      <p>ou</p>
+      <label for="email">Email</label>
+      <textarea id="email" type="email" name="email" placeholder="Adresse email"></textarea>
+      <input type="submit" value="Valider" />
+    </form>
+  </section>
 {% endblock body %}
