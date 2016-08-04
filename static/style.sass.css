@@ -5,7 +5,7 @@
 /* 36pt */
 /* Mixin for title's strokes */
 /* Mixin for h2 styles*/
-/* MIxin for offer block style */
+/* Mixin for offer block style */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400);
 @media screen and (max-width: 650px) {
   html body section#offers section#ecoweb ul, html body section#offers section#flexiweb ul, html body section#offers section#optiweb ul {
@@ -31,13 +31,11 @@ html body {
     font-weight: 300; }
   html body section:not(#clients):not(#reasons), html body footer {
     padding: 60px 10%; }
-  html body section#goals h2, html body section#guarantees h2, html body section#reasons h2, html body section#offers h2 {
+  html body #goals h2, html body #guarantees h2, html body #reasons h2, html body #offers h2 {
     color: #515151;
-    font-size: 2.25em;
-    font-style: normal;
-    font-weight: 300;
+    font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
     text-align: center; }
-    html body section#goals h2::after, html body section#guarantees h2::after, html body section#reasons h2::after, html body section#offers h2::after {
+    html body #goals h2::after, html body #guarantees h2::after, html body #reasons h2::after, html body #offers h2::after {
       background-color: #00a071;
       content: '';
       display: block;
@@ -107,12 +105,11 @@ html body {
           html body nav ul::after {
             transform: rotate(-45deg); } }
   html body section#sales {
-    background: url("images/pharminfo-presentation.jpg") no-repeat center;
-    background-size: cover;
+    background: url("images/pharminfo-presentation.jpg") no-repeat center/cover;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     justify-content: center;
+    min-height: 100vh;
     text-align: center; }
     html body section#sales h2 {
       color: #FFFFFF;
@@ -141,9 +138,7 @@ html body {
         padding: 10px 20px; }
   html body section#about h2 {
     color: #00a071;
-    font-size: 2.25em;
-    font-style: italic;
-    font-weight: 300;
+    font: italic 300 2.25em/normal "Source Sans Pro", sans-serif;
     text-align: center; }
     html body section#about h2::after {
       background-color: #00a071;
@@ -167,18 +162,18 @@ html body {
         min-height: 56px;
         padding-left: 70px;
         width: 100%; }
-        html body section#goals ul li#innovate {
-          background: url("images/objectifs/icon-innovation.svg") top left/56px 56px no-repeat; }
-        html body section#goals ul li#simplify {
-          background: url("images/objectifs/icon-simple.svg") top left/56px 56px no-repeat; }
-        html body section#goals ul li#connect {
-          background: url("images/objectifs/icon-connect.svg") top left/56px 56px no-repeat; }
         html body section#goals ul li#help {
-          background: url("images/objectifs/icon-help.svg") top left/56px 56px no-repeat; }
+          background: url(images/objectifs/icon-help.svg) top left/56px 56px no-repeat; }
+        html body section#goals ul li#connect {
+          background: url(images/objectifs/icon-connect.svg) top left/56px 56px no-repeat; }
+        html body section#goals ul li#innovate {
+          background: url(images/objectifs/icon-innovate.svg) top left/56px 56px no-repeat; }
+        html body section#goals ul li#simplify {
+          background: url(images/objectifs/icon-simplify.svg) top left/56px 56px no-repeat; }
         html body section#goals ul li#save {
-          background: url("images/objectifs/icon-win.svg") top left/56px 56px no-repeat; }
+          background: url(images/objectifs/icon-save.svg) top left/56px 56px no-repeat; }
         html body section#goals ul li#raise {
-          background: url("images/objectifs/icon-increase.svg") top left/56px 56px no-repeat; }
+          background: url(images/objectifs/icon-raise.svg) top left/56px 56px no-repeat; }
         html body section#goals ul li strong {
           color: #00a071;
           display: block;
@@ -212,21 +207,21 @@ html body {
         max-width: 100px;
         width: 50%; }
       html body section#guarantees ul li#cloud::before {
-        content: url("images/warranties/icon-cloud.svg"); }
+        content: url(images/warranties/icon-cloud.svg); }
       html body section#guarantees ul li#payment::before {
-        content: url("images/warranties/icon-payment.svg"); }
+        content: url(images/warranties/icon-payment.svg); }
       html body section#guarantees ul li#ars::before {
-        content: url("images/warranties/icon-ars.svg"); }
+        content: url(images/warranties/icon-ars.svg); }
       html body section#guarantees ul li#security::before {
-        content: url("images/warranties/icon-security.svg"); }
+        content: url(images/warranties/icon-security.svg); }
       html body section#guarantees ul li#order::before {
-        content: url("images/warranties/icon-order.svg"); }
+        content: url(images/warranties/icon-order.svg); }
       html body section#guarantees ul li#sav::before {
-        content: url("images/warranties/icon-sav.svg"); }
+        content: url(images/warranties/icon-sav.svg); }
       html body section#guarantees ul li#seo::before {
-        content: url("images/warranties/icon-seo.svg"); }
+        content: url(images/warranties/icon-seo.svg); }
       html body section#guarantees ul li#responsive::before {
-        content: url("images/warranties/icon-responsive.svg"); }
+        content: url(images/warranties/icon-responsive.svg); }
     html body section#guarantees ul li.active, html body section#guarantees ul li {
       background-color: #f5f5f5;
       font-size: 0.875em; }
@@ -258,10 +253,6 @@ html body {
     padding-bottom: 40px; }
     html body section#reasons ol li {
       align-items: center;
-      background-color: #e6e6e6;
-      background-position: 10px center;
-      background-repeat: no-repeat;
-      background-size: 50px;
       counter-increment: reasons;
       display: flex;
       margin: 20px 0 20px 30px;
@@ -294,17 +285,17 @@ html body {
         left: -35px;
         width: 20px; }
       html body section#reasons ol li#develop {
-        background-image: url("images/choose/icon-development.svg"); }
+        background: url("images/choose/icon-develop.svg") 10px center/50px no-repeat, #e6e6e6; }
       html body section#reasons ol li#expertise {
-        background-image: url("images/choose/icon-expertise.svg"); }
+        background: url("images/choose/icon-expertise.svg") 10px center/50px no-repeat, #e6e6e6; }
       html body section#reasons ol li#loyal {
-        background-image: url("images/choose/icon-fidelisation.svg"); }
+        background: url("images/choose/icon-loyal.svg") 10px center/50px no-repeat, #e6e6e6; }
       html body section#reasons ol li#satisfaction {
-        background-image: url("images/choose/icon-satisfaction.svg"); }
+        background: url("images/choose/icon-satisfaction.svg") 10px center/50px no-repeat, #e6e6e6; }
       html body section#reasons ol li#accompaniment {
-        background-image: url("images/choose/icon-accompagnement.svg"); }
+        background: url("images/choose/icon-accompaniment.svg") 10px center/50px no-repeat, #e6e6e6; }
       html body section#reasons ol li#cost {
-        background-image: url("images/choose/icon-cost.svg"); }
+        background: url("images/choose/icon-cost.svg") 10px center/50px no-repeat, #e6e6e6; }
   @media screen and (min-width: 630px) {
     html body section#reasons ol {
       display: flex;
@@ -357,11 +348,11 @@ html body {
       position: relative;
       width: 100%; }
       html body section#clients ul + ul li#interne {
-        background: url("images/numbers/computer.svg") padding-box center 0/100% auto no-repeat; }
+        background: url("images/numbers/interne.svg") padding-box center 0/100% auto no-repeat; }
       html body section#clients ul + ul li#symplify {
-        background: url("images/numbers/city-fly.svg") padding-box center 0/100% auto no-repeat; }
+        background: url("images/numbers/symplify.svg") padding-box center 0/100% auto no-repeat; }
       html body section#clients ul + ul li#special-order {
-        background: url("images/numbers/patient-order-section.svg") padding-box center 0/100% auto no-repeat; }
+        background: url("images/numbers/special-order.svg") padding-box center 0/100% auto no-repeat; }
       html body section#clients ul + ul li#delivery {
         background: url("images/numbers/delivery.svg") padding-box center 0/100% auto no-repeat; }
       html body section#clients ul + ul li strong {
@@ -397,11 +388,11 @@ html body {
       margin: 0;
       width: 50%; }
       html body section#clients ul + ul li#interne:hover {
-        background: url("images/numbers/computer.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+        background: url("images/numbers/interne.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
       html body section#clients ul + ul li#symplify:hover {
-        background: url("images/numbers/city-fly.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+        background: url("images/numbers/symplify.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
       html body section#clients ul + ul li#special-order:hover {
-        background: url("images/numbers/patient-order-section.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+        background: url("images/numbers/special-order.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
       html body section#clients ul + ul li#delivery:hover {
         background: url("images/numbers/delivery.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
     html body section#clients ul + ul li#interne, html body section#clients ul + ul li#symplify, html body section#clients ul + ul li#delivery, html body section#clients ul + ul li#special-order {
@@ -629,13 +620,13 @@ html body {
           top: 50px;
           width: 18px; }
         html body section#customize dl dt#image::before {
-          background: url("images/personnalisation/icon-camera.svg") center 0 no-repeat; }
+          background: url("images/personnalisation/icon-image.svg") center 0 no-repeat; }
         html body section#customize dl dt#colors::before {
-          background: url("images/personnalisation/icon-brush.svg") center 0 no-repeat; }
+          background: url("images/personnalisation/icon-colors.svg") center 0 no-repeat; }
         html body section#customize dl dt#logo::before {
-          background: url("images/personnalisation/icon-pharmacy-logo.svg") center 0 no-repeat; }
+          background: url("images/personnalisation/icon-logo.svg") center 0 no-repeat; }
         html body section#customize dl dt#theme::before {
-          background: url("images/personnalisation/icon-browser.svg") center 0 no-repeat; }
+          background: url("images/personnalisation/icon-theme.svg") center 0 no-repeat; }
       html body section#customize dl dd {
         font-size: 1.25em;
         margin-left: 0;

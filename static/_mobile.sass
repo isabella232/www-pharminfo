@@ -12,19 +12,19 @@ html
       list-style-type: none
       padding-left: 0
 
-    *:not( strong )
+    *:not(strong)
       font-weight: 300
 
-    section:not( #clients ):not( #reasons ), footer
+    section:not(#clients):not(#reasons), footer
       padding: 60px 10%
 
-    section#goals, section#guarantees, section#reasons, section#offers
+    #goals, #guarantees, #reasons, #offers
       h2
         @include h2_source_sans
 
     /* Styles menu */
     header
-      background-color: $mainColor
+      background-color: $main-color
       font-size: 0
       height: 4px
 
@@ -64,7 +64,7 @@ html
             margin: 0 10px
 
       @media screen and (max-width: 850px)
-        background-color: $mainColor
+        background-color: $main-color
         height: 100vh
         position: relative
         right: 0
@@ -98,12 +98,11 @@ html
             transform: rotate(-45deg)
 
     section#sales
-      background: url('images/pharminfo-presentation.jpg') no-repeat center
-      background-size: cover
+      background: url('images/pharminfo-presentation.jpg') no-repeat center/cover
       display: flex
       flex-direction: column
-      height: 100vh
       justify-content: center
+      min-height: 100vh
       text-align: center
 
       h2
@@ -131,7 +130,7 @@ html
 
     section#about
       h2
-        @include h2_source_sans(30px, $mainColor, italic)
+        @include h2_source_sans(30px, $main-color, italic)
 
       article
 
@@ -156,26 +155,12 @@ html
           padding-left: 70px
           width: 100%
 
-          &#innovate
-            background: url('images/objectifs/icon-innovation.svg') top left / 56px 56px no-repeat
-          
-          &#simplify
-            background: url('images/objectifs/icon-simple.svg') top left / 56px 56px no-repeat
-          
-          &#connect
-            background: url('images/objectifs/icon-connect.svg') top left / 56px 56px no-repeat
-          
-          &#help
-            background: url('images/objectifs/icon-help.svg') top left / 56px 56px no-repeat
-          
-          &#save
-            background: url('images/objectifs/icon-win.svg') top left / 56px 56px no-repeat
-          
-          &#raise
-            background: url('images/objectifs/icon-increase.svg') top left / 56px 56px no-repeat
+          @each $name in help, connect, innovate, simplify, save, raise
+            &##{$name}
+              background: url(images/objectifs/icon-#{$name}.svg) top left / 56px 56px no-repeat
 
           strong
-            color: $mainColor
+            color: $main-color
             display: block
  
             font-size: $subtitle
@@ -214,44 +199,16 @@ html
             max-width: 100px
             width: 50%
 
-          &#cloud
-            &::before
-              content: url('images/warranties/icon-cloud.svg')
-
-          &#payment
-            &::before
-              content: url('images/warranties/icon-payment.svg')
-
-          &#ars
-            &::before
-              content: url('images/warranties/icon-ars.svg')
-
-          &#security
-            &::before
-              content: url('images/warranties/icon-security.svg')
-
-          &#order
-            &::before
-              content: url('images/warranties/icon-order.svg')
-
-          &#sav
-            &::before
-              content: url('images/warranties/icon-sav.svg')
-
-          &#seo
-            &::before
-              content: url('images/warranties/icon-seo.svg')
-
-          &#responsive
-            &::before
-              content: url('images/warranties/icon-responsive.svg')
+          @each $name in cloud, payment, ars, security, order, sav, seo, responsive
+            &##{$name}::before
+              content: url(images/warranties/icon-#{$name}.svg)
 
         li.active
           background-color: $grey-3
           font-size: $basic-font-size
 
           &::before
-            border: solid 3px $mainColor
+            border: solid 3px $main-color
             margin-bottom: 15px
 
       @media screen and (max-width: 400px)
@@ -286,10 +243,6 @@ html
 
         li
           align-items: center
-          background-color: $grey-2
-          background-position: 10px center
-          background-repeat: no-repeat
-          background-size: 50px
           counter-increment: reasons
           display: flex
           margin: 20px 0 20px 30px
@@ -324,23 +277,9 @@ html
             left: -35px
             width: 20px
 
-          &#develop
-            background-image: url('images/choose/icon-development.svg')
-
-          &#expertise
-            background-image: url('images/choose/icon-expertise.svg')
-
-          &#loyal
-            background-image: url('images/choose/icon-fidelisation.svg')
-
-          &#satisfaction
-            background-image: url('images/choose/icon-satisfaction.svg')
-
-          &#accompaniment
-            background-image: url('images/choose/icon-accompagnement.svg')
-
-          &#cost
-            background-image: url('images/choose/icon-cost.svg')
+          @each $name in develop, expertise, loyal, satisfaction, accompaniment, cost
+            &##{$name}
+              background: url('images/choose/icon-#{$name}.svg') 10px center / 50px no-repeat, $grey-2
 
       @media screen and (min-width: 630px)
         ol
@@ -405,17 +344,9 @@ html
           position: relative
           width: 100%
 
-          &#interne
-            background: url('images/numbers/computer.svg') padding-box center 0 / 100% auto no-repeat
-
-          &#symplify
-            background: url('images/numbers/city-fly.svg') padding-box center 0 / 100% auto no-repeat
-
-          &#special-order
-            background: url('images/numbers/patient-order-section.svg') padding-box center 0 / 100% auto no-repeat
-
-          &#delivery
-            background: url('images/numbers/delivery.svg') padding-box center 0 / 100% auto no-repeat
+          @each $name in interne, symplify, special-order, delivery
+            &##{$name}
+              background: url('images/numbers/#{$name}.svg') padding-box center 0 / 100% auto no-repeat
 
           strong
             font-size: 3em
@@ -456,17 +387,9 @@ html
           margin: 0
           width: 50%
 
-          &#interne:hover
-            background: url('images/numbers/computer.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
-
-          &#symplify:hover
-            background: url('images/numbers/city-fly.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
-
-          &#special-order:hover
-            background: url('images/numbers/patient-order-section.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
-
-          &#delivery:hover
-            background: url('images/numbers/delivery.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
+          @each $name in interne, symplify, special-order, delivery
+            &##{$name}:hover
+              background: url('images/numbers/#{$name}.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
 
         ul + ul li#interne, ul + ul li#symplify, ul + ul li#delivery, ul + ul li#special-order
           background-size: auto 45%
@@ -552,8 +475,8 @@ html
             border-color: $grey-1
 
         &#flexiweb-plus
-          background-color: $mainColor
-          border: solid 3px $mainColor-light
+          background-color: $main-color
+          border: solid 3px $main-color-light
           color: $white
           font-weight: 400
 
@@ -649,23 +572,12 @@ html
             top: -7px
             width: 0
 
-          &#medicine
-            background: url('images/timeline-mobile-app/medicine.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
-
-          &#app
-            background: url('images/timeline-mobile-app/app.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
-
-          &#computer
-            background: url('images/timeline-mobile-app/computer.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
-
-          &#sms
-            background: url('images/timeline-mobile-app/sms.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
-
-          &#reception
-            background: url('images/timeline-mobile-app/reception.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
+          @each $name in medicine, app, computer, sms, reception
+            &##{$name}
+              background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
 
       ul.links li a
-        background-color: $mainColor
+        background-color: $main-color
         color: $white
         padding: 10px 20px
         text-decoration: none
@@ -740,7 +652,7 @@ html
             width: 50px
 
           &::after
-            background-color: $mainColor
+            background-color: $main-color
             content: ''
             display: block
             height: 2px
@@ -749,17 +661,9 @@ html
             top: 50px
             width: 18px
 
-          &#image::before
-            background: url('images/personnalisation/icon-camera.svg') center 0 no-repeat
-
-          &#colors::before
-            background: url('images/personnalisation/icon-brush.svg') center 0 no-repeat
-
-          &#logo::before
-            background: url('images/personnalisation/icon-pharmacy-logo.svg') center 0 no-repeat
-
-          &#theme::before
-            background: url('images/personnalisation/icon-browser.svg') center 0 no-repeat
+          @each $name in image, colors, logo, theme
+            &##{$name}::before
+              background: url('images/personnalisation/icon-#{$name}.svg') center 0 no-repeat
 
         dd
           font-size: $subtitle
@@ -782,7 +686,7 @@ html
         font-size: $title
 
         &::after
-          background-color: $mainColor
+          background-color: $main-color
           content: ''
           display: block
           height: 2px
@@ -791,7 +695,7 @@ html
 
       dl
         dt
-          color: $mainColor
+          color: $main-color
           float: left
           margin-right: 10px
 
