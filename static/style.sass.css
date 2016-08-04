@@ -29,7 +29,7 @@ html body {
     padding-left: 0; }
   html body *:not(strong) {
     font-weight: 300; }
-  html body section:not(#clients, #reasons), html body footer {
+  html body section:not(#clients):not(#reasons), html body footer {
     padding: 60px 10%; }
   html body section#goals h2, html body section#guarantees h2, html body section#reasons h2, html body section#offers h2 {
     color: #515151;
