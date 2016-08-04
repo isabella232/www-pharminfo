@@ -16,3 +16,16 @@
   font-style: $font-style
   font-weight: 300
   text-align: center
+
+/* MIxin for offer block style */
+@media screen and (max-width: 650px)
+  %test
+    ul
+      display: none
+
+    &::after
+      content: 'voir plus'
+      display: block
+      font-size: $basic-font-size
+      margin-top: 30px
+      text-decoration: underline

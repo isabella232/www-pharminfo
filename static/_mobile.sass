@@ -24,52 +24,78 @@ html
 
     /* Styles menu */
     header
-      display: none
+      background-color: $mainColor
+      font-size: 0
+      height: 4px
 
     nav
-      height: 100vh
-      background-color: $mainColor
-      width: 100%
+      height: 70px
+      position: absolute
+      right: 10%
+      top: 0
+      width: 80%
 
       ul
-        box-sizing: border-box
+        align-items: center
         display: flex
-        flex-direction: column
-        flex-wrap: wrap
-        height: 80%
         justify-content: space-between
-        margin: 20% 0 0 0
-        padding: 20px
-        position: relative
-
+        
         li
-          width: 100%
-          text-align: center
-
+          &:last-of-type a
+            border: solid 1px $white
+            padding: 5px 10px
           a
             color: $white
             font-size: 1.125em
             line-height: 2
             text-decoration: none
 
-          &:last-of-type a
-            border: solid 1px $white
-            padding: 5px 10px
+        @media screen and (min-width: 1150px)
+          justify-content: flex-end
 
-        &::before, &::after
-          background-color: $white
-          content: ''
-          height: 2px
-          position: absolute
-          width: 30px
-          top: -20px
-          right: 20px
+          &::before
+            content: url('images/logo-white.svg')
+            display: inline-block
+            left: 0
+            position: absolute
+            width: 170px
 
-        &::before
-          transform: rotate(45deg)
+          li
+            margin: 0 10px
 
-        &::after
-          transform: rotate(-45deg)
+      @media screen and (max-width: 850px)
+        background-color: $mainColor
+        height: 100vh
+        position: relative
+        right: 0
+        width: 100%
+
+        ul
+          box-sizing: border-box
+          flex-direction: column
+          flex-wrap: wrap
+          height: 100%
+          margin: 0
+          padding: 15% 0
+
+          li
+            width: 100%
+            text-align: center
+
+          &::before, &::after
+            background-color: $white
+            content: ''
+            height: 2px
+            position: absolute
+            width: 30px
+            top: 10%
+            right: 10%
+
+          &::before
+            transform: rotate(45deg)
+
+          &::after
+            transform: rotate(-45deg)
 
     section#sales
       background: url('images/pharminfo-presentation.jpg') no-repeat center
@@ -106,7 +132,14 @@ html
     section#about
       h2
         @include h2_source_sans(30px, $mainColor, italic)
-      
+
+      article
+
+
+    section#news
+      article
+        overflow: hidden
+
     section#goals
       ul
         display: flex
@@ -159,6 +192,7 @@ html
         li
           @extend .active
           align-items: center
+          border-bottom: solid 1px $grey-2
           border-left: solid 1px $grey-2
           box-shadow: 1px -1px 0 $grey-2
           box-sizing: border-box
@@ -247,6 +281,8 @@ html
 
       ol
         counter-reset: reasons
+        margin-bottom: 0
+        padding-bottom: 40px
 
         li
           align-items: center
@@ -316,9 +352,10 @@ html
             background-color: #d3d3d3
             content: ''
             display: block
-            height: 100%
+            height: 90%
             left: 50%
             position: absolute
+            top: 10%
             width: 1px
 
           li
@@ -328,7 +365,7 @@ html
           li#develop, li#loyal, li#accompaniment
             background-position: right 10px center
             margin: 20px 30px 20px 0
-            padding: 15px 75px 15px 20px
+            padding: 25px 75px 25px 20px
             text-align: right
 
             &::before
@@ -345,7 +382,7 @@ html
             align-self: flex-end
             background-position: 10px center
             margin: 20px 0 20px 30px
-            padding: 15px 20px 15px 75px
+            padding: 25px 20px 25px 75px
 
             &::before
               border-color: transparent $grey-2 transparent transparent
@@ -442,7 +479,7 @@ html
             left: 20px
 
         ul + ul li#interne, ul + ul li#special-order
-          padding: 150px 20px 20px calc(10% + 87px)
+          padding: 150px 20px 20px calc(10% + 107px)
 
           strong
             left: 20%
@@ -474,11 +511,12 @@ html
         p.price
           border-bottom: solid 1px $grey-2
           border-top: solid 1px $grey-2
+          font-size: 0.75em
           margin: 10px
           padding: 5px
 
           strong
-            font-size: $title
+            font-size: $big-title
             font-weight: 400
 
         ul:first-of-type
@@ -500,7 +538,7 @@ html
           text-transform: uppercase
 
         &#ecoweb, &#flexiweb, &#optiweb
-          @extend .close
+          @extend %test
           background-color: $white
           border: solid 3px $grey-3
           color: $grey-1
@@ -535,6 +573,19 @@ html
       ul.notes
         font-size: 0.75em
         margin: 20px
+
+      @media screen and (min-width: 650px)
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+
+        section
+          box-sizing: border-box
+          width: 48%
+
+      @media screen and (min-width: 1215px)
+        section
+          width: 24%  
 
     section#main-offer
       background-color: $grey-3

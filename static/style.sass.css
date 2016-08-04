@@ -5,7 +5,18 @@
 /* 36pt */
 /* Mixin for title's strokes */
 /* Mixin for h2 styles*/
+/* MIxin for offer block style */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400);
+@media screen and (max-width: 650px) {
+  html body section#offers section#ecoweb ul, html body section#offers section#flexiweb ul, html body section#offers section#optiweb ul {
+    display: none; }
+  html body section#offers section#ecoweb::after, html body section#offers section#flexiweb::after, html body section#offers section#optiweb::after {
+    content: 'voir plus';
+    display: block;
+    font-size: 0.875em;
+    margin-top: 30px;
+    text-decoration: underline; } }
+
 html body {
   display: flex;
   flex-direction: column;
@@ -34,44 +45,67 @@ html body {
       margin: 20px auto 0 auto;
       width: 20px; }
   html body header {
-    display: none; }
-  html body nav {
-    height: 100vh;
     background-color: #00a071;
-    width: 100%; }
+    font-size: 0;
+    height: 4px; }
+  html body nav {
+    height: 70px;
+    position: absolute;
+    right: 10%;
+    top: 0;
+    width: 80%; }
     html body nav ul {
-      box-sizing: border-box;
+      align-items: center;
       display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      height: 80%;
-      justify-content: space-between;
-      margin: 20% 0 0 0;
-      padding: 20px;
-      position: relative; }
-      html body nav ul li {
-        width: 100%;
-        text-align: center; }
-        html body nav ul li a {
-          color: #FFFFFF;
-          font-size: 1.125em;
-          line-height: 2;
-          text-decoration: none; }
-        html body nav ul li:last-of-type a {
-          border: solid 1px #FFFFFF;
-          padding: 5px 10px; }
-      html body nav ul::before, html body nav ul::after {
-        background-color: #FFFFFF;
-        content: '';
-        height: 2px;
-        position: absolute;
-        width: 30px;
-        top: -20px;
-        right: 20px; }
-      html body nav ul::before {
-        transform: rotate(45deg); }
-      html body nav ul::after {
-        transform: rotate(-45deg); }
+      justify-content: space-between; }
+      html body nav ul li:last-of-type a {
+        border: solid 1px #FFFFFF;
+        padding: 5px 10px; }
+      html body nav ul li a {
+        color: #FFFFFF;
+        font-size: 1.125em;
+        line-height: 2;
+        text-decoration: none; }
+      @media screen and (min-width: 1150px) {
+        html body nav ul {
+          justify-content: flex-end; }
+          html body nav ul::before {
+            content: url("images/logo-white.svg");
+            display: inline-block;
+            left: 0;
+            position: absolute;
+            width: 170px; }
+          html body nav ul li {
+            margin: 0 10px; } }
+    @media screen and (max-width: 850px) {
+      html body nav {
+        background-color: #00a071;
+        height: 100vh;
+        position: relative;
+        right: 0;
+        width: 100%; }
+        html body nav ul {
+          box-sizing: border-box;
+          flex-direction: column;
+          flex-wrap: wrap;
+          height: 100%;
+          margin: 0;
+          padding: 15% 0; }
+          html body nav ul li {
+            width: 100%;
+            text-align: center; }
+          html body nav ul::before, html body nav ul::after {
+            background-color: #FFFFFF;
+            content: '';
+            height: 2px;
+            position: absolute;
+            width: 30px;
+            top: 10%;
+            right: 10%; }
+          html body nav ul::before {
+            transform: rotate(45deg); }
+          html body nav ul::after {
+            transform: rotate(-45deg); } }
   html body section#sales {
     background: url("images/pharminfo-presentation.jpg") no-repeat center;
     background-size: cover;
@@ -118,6 +152,8 @@ html body {
       height: 2px;
       margin: 30px auto 0 auto;
       width: 20px; }
+  html body section#news article {
+    overflow: hidden; }
   html body section#goals ul {
     display: flex;
     flex-wrap: wrap;
@@ -155,6 +191,7 @@ html body {
     justify-content: center; }
     html body section#guarantees ul li {
       align-items: center;
+      border-bottom: solid 1px #e6e6e6;
       border-left: solid 1px #e6e6e6;
       box-shadow: 1px -1px 0 #e6e6e6;
       box-sizing: border-box;
@@ -215,7 +252,9 @@ html body {
     font-style: italic;
     text-align: center; }
   html body section#reasons ol {
-    counter-reset: reasons; }
+    counter-reset: reasons;
+    margin-bottom: 0;
+    padding-bottom: 40px; }
     html body section#reasons ol li {
       align-items: center;
       background-color: #e6e6e6;
@@ -274,9 +313,10 @@ html body {
         background-color: #d3d3d3;
         content: '';
         display: block;
-        height: 100%;
+        height: 90%;
         left: 50%;
         position: absolute;
+        top: 10%;
         width: 1px; }
       html body section#reasons ol li {
         box-sizing: border-box;
@@ -284,7 +324,7 @@ html body {
       html body section#reasons ol li#develop, html body section#reasons ol li#loyal, html body section#reasons ol li#accompaniment {
         background-position: right 10px center;
         margin: 20px 30px 20px 0;
-        padding: 15px 75px 15px 20px;
+        padding: 25px 75px 25px 20px;
         text-align: right; }
         html body section#reasons ol li#develop::before, html body section#reasons ol li#loyal::before, html body section#reasons ol li#accompaniment::before {
           border-color: transparent transparent transparent #e6e6e6;
@@ -298,7 +338,7 @@ html body {
         align-self: flex-end;
         background-position: 10px center;
         margin: 20px 0 20px 30px;
-        padding: 15px 20px 15px 75px; }
+        padding: 25px 20px 25px 75px; }
         html body section#reasons ol li#expertise::before, html body section#reasons ol li#satisfaction::before, html body section#reasons ol li#cost::before {
           border-color: transparent #e6e6e6 transparent transparent;
           border-width: 10px 7px 10px 0;
@@ -371,7 +411,7 @@ html body {
       html body section#clients ul + ul li#delivery strong, html body section#clients ul + ul li#symplify strong {
         left: 20px; }
     html body section#clients ul + ul li#interne, html body section#clients ul + ul li#special-order {
-      padding: 150px 20px 20px calc(10% + 87px); }
+      padding: 150px 20px 20px calc(10% + 107px); }
       html body section#clients ul + ul li#interne strong, html body section#clients ul + ul li#special-order strong {
         left: 20%; } }
   html body section#offers {
@@ -395,10 +435,11 @@ html body {
       html body section#offers section p.price {
         border-bottom: solid 1px #e6e6e6;
         border-top: solid 1px #e6e6e6;
+        font-size: 0.75em;
         margin: 10px;
         padding: 5px; }
         html body section#offers section p.price strong {
-          font-size: 2.25em;
+          font-size: 2.8em;
           font-weight: 400; }
       html body section#offers section ul:first-of-type {
         margin-top: 30px; }
@@ -430,9 +471,9 @@ html body {
           border-top: solid 1px #FFFFFF; }
         html body section#offers section#flexiweb-plus ul.links li a {
           border-color: #FFFFFF; }
-      html body section#offers section.close ul, html body section#offers section#ecoweb ul, html body section#offers section#flexiweb ul, html body section#offers section#optiweb ul {
+      html body section#offers section.close ul {
         display: none; }
-      html body section#offers section.close::after, html body section#offers section#ecoweb::after, html body section#offers section#flexiweb::after, html body section#offers section#optiweb::after {
+      html body section#offers section.close::after {
         content: 'voir plus';
         display: block;
         font-size: 0.875em;
@@ -441,6 +482,17 @@ html body {
     html body section#offers ul.notes {
       font-size: 0.75em;
       margin: 20px; }
+    @media screen and (min-width: 650px) {
+      html body section#offers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; }
+        html body section#offers section {
+          box-sizing: border-box;
+          width: 48%; } }
+    @media screen and (min-width: 1215px) {
+      html body section#offers section {
+        width: 24%; } }
   html body section#main-offer {
     background-color: #f5f5f5;
     padding-top: 60px;
