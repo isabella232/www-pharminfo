@@ -12,11 +12,11 @@ html
       list-style-type: none
       padding-left: 0
 
-    *:not( h2 ):not( strong )
+    *:not( strong )
       font-weight: 300
 
-    section:not( #clients ), footer
-      padding: 0 10%
+    section:not( #clients, #reasons ), footer
+      padding: 60px 10%
 
     section#goals, section#guarantees, section#reasons, section#offers
       h2
@@ -141,6 +141,8 @@ html
         overflow: hidden
 
     section#goals
+      background-color: $grey-3
+
       ul
         display: flex
         flex-wrap: wrap
@@ -209,6 +211,7 @@ html
             border-radius: 50%
             display: block
             height: 50%
+            max-width: 100px
             width: 50%
 
           &#cloud
@@ -272,16 +275,13 @@ html
           width: calc(20vw)
 
     section#reasons
-      h2
-        margin-top: 80px
-
       p
         font-style: italic
         text-align: center
 
       ol
         counter-reset: reasons
-        margin-bottom: 0
+        margin: 20px 10% 0 10%
         padding-bottom: 40px
 
         li
@@ -352,10 +352,10 @@ html
             background-color: #d3d3d3
             content: ''
             display: block
-            height: 90%
+            height: 92%
             left: 50%
             position: absolute
-            top: 10%
+            top: 8%
             width: 1px
 
           li
@@ -486,11 +486,16 @@ html
 
     section#offers
       background-color: $grey-3
+      padding-top: 120px
+
+      h2
+        width: 100%;
 
       > p
         font-style: italic
         text-align: center
-        margin: 20px
+        margin: 20px 0
+        width: 100%
 
         & + p
           margin-bottom: 40px
@@ -579,6 +584,9 @@ html
         flex-wrap: wrap
         justify-content: space-between
 
+        > p
+          padding: 0 20%
+
         section
           box-sizing: border-box
           width: 48%
@@ -613,6 +621,7 @@ html
           width: 100%
 
           &::before
+            background-color: $grey-3
             border: solid 1px #d3d3d3
             border-radius: 50%
             color: #d3d3d3
@@ -626,6 +635,7 @@ html
             top: -45px
             text-align: center
             width: 20px
+            z-index: 2
 
           &::after
             border-color: transparent transparent $grey-2 transparent
@@ -640,24 +650,19 @@ html
             width: 0
 
           &#medicine
-            background: url('images/timeline-mobile-app/medicine.svg') border-box center 0 no-repeat, padding-box $grey-2
-            background-size: 146px auto
+            background: url('images/timeline-mobile-app/medicine.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
 
           &#app
-            background: url('images/timeline-mobile-app/app.svg') border-box center 0 no-repeat, padding-box $grey-2
-            background-size: 146px auto
+            background: url('images/timeline-mobile-app/app.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
 
           &#computer
-            background: url('images/timeline-mobile-app/computer.svg') border-box center 0 no-repeat, padding-box $grey-2
-            background-size: 146px auto
+            background: url('images/timeline-mobile-app/computer.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
 
           &#sms
-            background: url('images/timeline-mobile-app/sms.svg') border-box center 0 no-repeat, padding-box $grey-2
-            background-size: 146px auto
+            background: url('images/timeline-mobile-app/sms.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
 
           &#reception
-            background: url('images/timeline-mobile-app/reception.svg') border-box center 0 no-repeat, padding-box $grey-2
-            background-size: 146px auto
+            background: url('images/timeline-mobile-app/reception.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
 
       ul.links li a
         background-color: $mainColor
@@ -677,22 +682,54 @@ html
         position: relative
         width: 125%
 
+      @media screen and (min-width: 530px)
+        ol
+          justify-content: space-around
+
+          li
+            box-sizing: border-box
+            width: 45%
+
+      @media screen and (min-width: 1000px)
+          ol
+            margin-top: 60px
+            position: relative
+
+            &::after
+              background-color: #d3d3d3
+              content: ''
+              display: block
+              height: 1px
+              left: 10%
+              position: absolute
+              top: 136px
+              width: 80%
+
+            li#medicine, li#app, li#computer, li#sms, li#reception
+              background-size: auto 100px
+              border-top: solid 170px transparent
+              width: 18%
+
     section#customize
       background-color: $grey-3
-      padding: 60px 20px 40px 20px
       text-align: center
 
       h2
-        font-size: 1.875em;;
+        font-size: 1.875em
 
       p
         font-style: italic
 
       dl
+        align-items: center
+        display: flex
+        flex-direction: column
+        flex-wrap: wrap
+        height: 760px
+
         dt
           font-size: $basic-font-size
-          margin: 60px auto 0
-          max-width: 150px
+          margin-top: 40px
           position: relative
 
           &::before
@@ -728,6 +765,17 @@ html
           font-size: $subtitle
           margin-left: 0
           margin-top: 10px
+
+        dt, dd
+          max-width: 150px
+
+      @media screen and (min-width: 480px)
+        dl
+          height: 380px
+
+      @media screen and (min-width: 720px)
+        dl
+          height: 200px
 
     section#contact
       h2
