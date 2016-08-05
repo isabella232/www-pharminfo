@@ -2,12 +2,12 @@
 
 html
   body
-    display: flex
-    flex-direction: column
-    font-family: 'Source Sans Pro', sans-serif
     margin: 0
 
     /* Styles général */
+    *
+      font-family: 'Source Sans Pro', sans-serif
+
     ul, ol
       list-style-type: none
       padding-left: 0
@@ -15,7 +15,7 @@ html
     *:not(strong)
       font-weight: 300
 
-    section:not(#clients):not(#reasons), footer
+    section:not(#clients):not(#reasons)
       padding: 60px 10%
 
     #goals, #guarantees, #reasons, #offers
@@ -36,9 +36,8 @@ html
       width: 80%
 
       ul
+        @include flexbox(row, space-between)
         align-items: center
-        display: flex
-        justify-content: space-between
         
         li
           &:last-of-type a
@@ -97,11 +96,10 @@ html
           &::after
             transform: rotate(-45deg)
 
+    /* Styles page d'accueil */        
     section#sales
+      @include flexbox(column, center)
       background: url('images/pharminfo-presentation.jpg') no-repeat center/cover
-      display: flex
-      flex-direction: column
-      justify-content: center
       min-height: 100vh
       text-align: center
 
@@ -132,9 +130,6 @@ html
       h2
         @include h2_source_sans(30px, $main-color, italic)
 
-      article
-
-
     section#news
       article
         overflow: hidden
@@ -143,10 +138,7 @@ html
       background-color: $grey-3
 
       ul
-        display: flex
-        flex-wrap: wrap
-        justify-content: space-between
-        margin-top: 40px
+        @include flexbox(row, space-between)
 
         li
           font-size: $basic-font-size
@@ -162,7 +154,6 @@ html
           strong
             color: $main-color
             display: block
- 
             font-size: $subtitle
 
       @media screen and (min-width: 560px)
@@ -172,22 +163,18 @@ html
 
     section#guarantees
       ul
-        display: flex
-        flex-wrap: wrap
-        justify-content: center
+        @include flexbox(row, center)
 
         li
           @extend .active
+          @include flexbox(column, center)
           align-items: center
           border-bottom: solid 1px $grey-2
           border-left: solid 1px $grey-2
           box-shadow: 1px -1px 0 $grey-2
           box-sizing: border-box
           color: $grey-1
-          display: flex
-          flex-direction: column
           font-size: 0
-          justify-content: center
           padding: 20px
           text-align: center
           text-transform: uppercase
@@ -203,6 +190,22 @@ html
             &##{$name}::before
               content: url(images/warranties/icon-#{$name}.svg)
 
+          @media screen and (max-width: 400px)
+            height: calc(65vw)
+            width: calc(65vw)
+      
+          @media screen and (min-width: 400px) and (max-width: 550px)
+            height: calc(40vw)
+            width: calc(40vw)
+
+          @media screen and (min-width: 550px) and (max-width: 780px)
+            height: calc(26vw)
+            width: calc(26vw)
+
+          @media screen and (min-width: 780px)
+            height: calc(20vw)
+            width: calc(20vw)
+
         li.active
           background-color: $grey-3
           font-size: $basic-font-size
@@ -211,25 +214,6 @@ html
             border: solid 3px $main-color
             margin-bottom: 15px
 
-      @media screen and (max-width: 400px)
-        ul li
-          height: calc(65vw)
-          width: calc(65vw)
-
-      @media screen and (min-width: 400px) and (max-width: 550px)
-        ul li
-          height: calc(40vw)
-          width: calc(40vw)
-
-      @media screen and (min-width: 550px) and (max-width: 780px)
-        ul li
-          height: calc(26vw)
-          width: calc(26vw)
-
-      @media screen and (min-width: 780px)
-        ul li
-          height: calc(20vw)
-          width: calc(20vw)
 
     section#reasons
       p
@@ -242,40 +226,32 @@ html
         padding-bottom: 40px
 
         li
-          align-items: center
           counter-increment: reasons
-          display: flex
           margin: 20px 0 20px 30px
-          min-height: 40px        
-          padding: 15px 20px 15px 75px
+          padding: 20px 20px 20px 75px
           position: relative
           text-align: left
 
           &::before
+            @include content(inline-block, 0, 0)  
             border-color: transparent $grey-2 transparent transparent
             border-style: solid
             border-width: 10px 7px 10px 0
-            content: ''
-            display: inline-block
-            height: 0
             position: absolute
             left: -7px
             top: calc(50% - 10px)
-            width: 0
-
+            
           &::after
+            @include content(initial, 20px, 20px, counter(reasons))
             background-color: $white
             border: solid 1px #d3d3d3
             border-radius: 50%
             color: #d3d3d3
-            content: counter(reasons)
             font-weight: 400
-            height: 20px
             text-align: center
             top: calc(50% - 10px)
             position: absolute
             left: -35px
-            width: 20px
 
           @each $name in develop, expertise, loyal, satisfaction, accompaniment, cost
             &##{$name}
@@ -283,19 +259,15 @@ html
 
       @media screen and (min-width: 630px)
         ol
-          display: flex
-          flex-direction: column
+          @include flexbox(column, flex-start)
           position: relative
 
           &::before
+            @include content(block, 92%, 1px)
             background-color: #d3d3d3
-            content: ''
-            display: block
-            height: 92%
             left: 50%
             position: absolute
             top: 8%
-            width: 1px
 
           li
             box-sizing: border-box
@@ -333,9 +305,7 @@ html
 
     section#clients
       ul + ul
-        display: flex
-        flex-wrap: wrap
-        justify-content: space-between
+        @include flexbox(row, space-between)
 
         li
           box-sizing: border-box
@@ -361,14 +331,11 @@ html
         text-align: center
 
       &::after
+        @include content(block, 260px, 100%)
         background: url('images/photos/bkgd-meds.jpg')
         background-repeat: no-repeat
         background-size: cover
         background-attachment: fixed
-        content: ''
-        display: block
-        height: 260px
-        width: 100%
 
       @media screen and (max-width: 840px)
         ul + ul
@@ -466,7 +433,7 @@ html
           text-transform: uppercase
 
         &#ecoweb, &#flexiweb, &#optiweb
-          @extend %test
+          @extend %hide-offer
           background-color: $white
           border: solid 3px $grey-3
           color: $grey-1
@@ -503,9 +470,7 @@ html
         margin: 20px
 
       @media screen and (min-width: 650px)
-        display: flex
-        flex-wrap: wrap
-        justify-content: space-between
+        @include flexbox(row, space-between)
 
         > p
           padding: 0 20%
@@ -530,9 +495,8 @@ html
         font-style: italic
 
       ol
+        @include flexbox(row, flex-start)
         counter-reset: offer_count
-        display: flex
-        flex-wrap: wrap
         margin: 20px 0
 
         li
@@ -544,33 +508,27 @@ html
           width: 100%
 
           &::before
+            @include content(block, 20px, 20px, counter(offer_count))
             background-color: $grey-3
             border: solid 1px #d3d3d3
             border-radius: 50%
             color: #d3d3d3
-            content: counter(offer_count)
-            display: block
             font-weight: 400
-            height: 20px
             left: calc(50% - 10px)
             margin: 0 auto
             position: absolute
             top: -45px
             text-align: center
-            width: 20px
             z-index: 2
 
           &::after
+            @include content(block, 0, 0)
             border-color: transparent transparent $grey-2 transparent
             border-style: solid
             border-width: 0 10px 7px 10px
-            content: ''
-            display: block
-            height: 0
             left: calc(50% - 10px)
             position: absolute
             top: -7px
-            width: 0
 
           @each $name in medicine, app, computer, sms, reception
             &##{$name}
@@ -584,15 +542,12 @@ html
         text-transform: uppercase
 
       &::after
+        @include content(block, 250px, 125%)
         background: url('images/city-bkgd.svg') no-repeat
         background-size: cover
-        content: ''
-        display: block
-        height: 250px
         left: -12.5%
         margin-top: 50px
         position: relative
-        width: 125%
 
       @media screen and (min-width: 530px)
         ol
@@ -608,15 +563,12 @@ html
             position: relative
 
             &::after
+              @include content(block, 1px, 80%)
               background-color: #d3d3d3
-              content: ''
-              display: block
-              height: 1px
               left: 10%
               position: absolute
               top: 136px
-              width: 80%
-
+              
             li#medicine, li#app, li#computer, li#sms, li#reception
               background-size: auto 100px
               border-top: solid 170px transparent
@@ -633,33 +585,24 @@ html
         font-style: italic
 
       dl
+        @include flexbox(column, flex-start)
         align-items: center
-        display: flex
-        flex-direction: column
-        flex-wrap: wrap
-        height: 760px
+        height: 680px
 
         dt
+          @include bottom_stroke(18px, 2px, 0)
           font-size: $basic-font-size
           margin-top: 40px
           position: relative
 
           &::before
-            content: ''
-            display: block
-            height: 50px
+            @include content(block, 50px, 50px)
             margin: 0 auto 10px
-            width: 50px
-
+            
           &::after
-            background-color: $main-color
-            content: ''
-            display: block
-            height: 2px
             left: calc( 50% - 9px )
             position: absolute
             top: 50px
-            width: 18px
 
           @each $name in image, colors, logo, theme
             &##{$name}::before
@@ -686,12 +629,9 @@ html
         font-size: $title
 
         &::after
+          @include content(block, 2px, 16px)
           background-color: $main-color
-          content: ''
-          display: block
-          height: 2px
           margin-top: 15px
-          width: 16px
 
       dl
         dt
@@ -767,6 +707,7 @@ html
 
     footer
       background-color: $grey-1
+      padding: 0 10%
 
       ul#social
         margin-bottom: 20px
@@ -778,24 +719,14 @@ html
           margin: 5px
           width: 23px
 
-          &#facebook
-            background: url('images/social-medias/icon-facebook.svg')
-
-          &#twitter
-            background: url('images/social-medias/icon-twitter.svg')
-
-          &#google
-            background: url('images/social-medias/icon-gplus.svg')
-
-          &#linkedin
-            background: url('images/social-medias/icon-linkedin.svg')
-
-          &#scoopit
-            background: url('images/social-medias/icon-scoopit.svg')
+          @each $name in facebook, twitter, google, linkedin, scoopit
+            &##{$name}
+              background: url('images/social-medias/icon-#{$name}.svg') center 0 no-repeat
 
       ul#links
         color: $white
         font-size: 0.7em
+        margin: 0 0 20px 0
         text-align: right
 
         li

@@ -1,3 +1,17 @@
+/* Mixin flexbox display */
+@mixin flexbox($flex-direction, $justify-content, $flex-wrap: wrap)
+  display: flex
+  flex-direction: $flex-direction
+  flex-wrap: $flex-wrap
+  justify-content: $justify-content
+
+/* Mixin for ::after & ::before */
+@mixin content($display, $height, $width, $content: '')
+  content: $content
+  display: $display 
+  height: $height 
+  width: $width 
+
 /* Mixin for title's strokes */
 @mixin bottom_stroke($width: 20px, $height: 2px, $margin-top: 20px)
   &::after
@@ -17,7 +31,7 @@
 
 /* Mixin for offer block style */
 @media screen and (max-width: 650px)
-  %test
+  %hide-offer
     ul
       display: none
 

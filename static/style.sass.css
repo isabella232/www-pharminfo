@@ -3,6 +3,8 @@
 /* Font-size */
 /* 45pt */
 /* 36pt */
+/* Mixin flexbox display */
+/* Mixin for ::after & ::before */
 /* Mixin for title's strokes */
 /* Mixin for h2 styles*/
 /* Mixin for offer block style */
@@ -18,18 +20,18 @@
     text-decoration: underline; } }
 
 html body {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
   /* Styles général */
-  /* Styles menu */ }
+  /* Styles menu */
+  /* Styles page d'accueil */ }
+  html body * {
+    font-family: 'Source Sans Pro', sans-serif; }
   html body ul, html body ol {
     list-style-type: none;
     padding-left: 0; }
   html body *:not(strong) {
     font-weight: 300; }
-  html body section:not(#clients):not(#reasons), html body footer {
+  html body section:not(#clients):not(#reasons) {
     padding: 60px 10%; }
   html body #goals h2, html body #guarantees h2, html body #reasons h2, html body #offers h2 {
     color: #515151;
@@ -53,9 +55,11 @@ html body {
     top: 0;
     width: 80%; }
     html body nav ul {
-      align-items: center;
       display: flex;
-      justify-content: space-between; }
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center; }
       html body nav ul li:last-of-type a {
         border: solid 1px #FFFFFF;
         padding: 5px 10px; }
@@ -105,10 +109,11 @@ html body {
           html body nav ul::after {
             transform: rotate(-45deg); } }
   html body section#sales {
-    background: url("images/pharminfo-presentation.jpg") no-repeat center/cover;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
+    background: url("images/pharminfo-presentation.jpg") no-repeat center/cover;
     min-height: 100vh;
     text-align: center; }
     html body section#sales h2 {
@@ -153,9 +158,9 @@ html body {
     background-color: #f5f5f5; }
     html body section#goals ul {
       display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-between;
-      margin-top: 40px; }
+      justify-content: space-between; }
       html body section#goals ul li {
         font-size: 0.875em;
         margin: 20px 0;
@@ -184,19 +189,21 @@ html body {
         width: 45%; } }
   html body section#guarantees ul {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center; }
     html body section#guarantees ul li {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
       border-bottom: solid 1px #e6e6e6;
       border-left: solid 1px #e6e6e6;
       box-shadow: 1px -1px 0 #e6e6e6;
       box-sizing: border-box;
       color: #515151;
-      display: flex;
-      flex-direction: column;
       font-size: 0;
-      justify-content: center;
       padding: 20px;
       text-align: center;
       text-transform: uppercase; }
@@ -222,28 +229,28 @@ html body {
         content: url(images/warranties/icon-seo.svg); }
       html body section#guarantees ul li#responsive::before {
         content: url(images/warranties/icon-responsive.svg); }
+      @media screen and (max-width: 400px) {
+        html body section#guarantees ul li {
+          height: calc(65vw);
+          width: calc(65vw); } }
+      @media screen and (min-width: 400px) and (max-width: 550px) {
+        html body section#guarantees ul li {
+          height: calc(40vw);
+          width: calc(40vw); } }
+      @media screen and (min-width: 550px) and (max-width: 780px) {
+        html body section#guarantees ul li {
+          height: calc(26vw);
+          width: calc(26vw); } }
+      @media screen and (min-width: 780px) {
+        html body section#guarantees ul li {
+          height: calc(20vw);
+          width: calc(20vw); } }
     html body section#guarantees ul li.active, html body section#guarantees ul li {
       background-color: #f5f5f5;
       font-size: 0.875em; }
       html body section#guarantees ul li.active::before, html body section#guarantees ul li::before {
         border: solid 3px #00a071;
         margin-bottom: 15px; }
-  @media screen and (max-width: 400px) {
-    html body section#guarantees ul li {
-      height: calc(65vw);
-      width: calc(65vw); } }
-  @media screen and (min-width: 400px) and (max-width: 550px) {
-    html body section#guarantees ul li {
-      height: calc(40vw);
-      width: calc(40vw); } }
-  @media screen and (min-width: 550px) and (max-width: 780px) {
-    html body section#guarantees ul li {
-      height: calc(26vw);
-      width: calc(26vw); } }
-  @media screen and (min-width: 780px) {
-    html body section#guarantees ul li {
-      height: calc(20vw);
-      width: calc(20vw); } }
   html body section#reasons p {
     font-style: italic;
     text-align: center; }
@@ -252,38 +259,36 @@ html body {
     margin: 20px 10% 0 10%;
     padding-bottom: 40px; }
     html body section#reasons ol li {
-      align-items: center;
       counter-increment: reasons;
-      display: flex;
       margin: 20px 0 20px 30px;
-      min-height: 40px;
-      padding: 15px 20px 15px 75px;
+      padding: 20px 20px 20px 75px;
       position: relative;
       text-align: left; }
       html body section#reasons ol li::before {
+        content: "";
+        display: inline-block;
+        height: 0;
+        width: 0;
         border-color: transparent #e6e6e6 transparent transparent;
         border-style: solid;
         border-width: 10px 7px 10px 0;
-        content: '';
-        display: inline-block;
-        height: 0;
         position: absolute;
         left: -7px;
-        top: calc(50% - 10px);
-        width: 0; }
+        top: calc(50% - 10px); }
       html body section#reasons ol li::after {
+        content: counter(reasons);
+        display: initial;
+        height: 20px;
+        width: 20px;
         background-color: #FFFFFF;
         border: solid 1px #d3d3d3;
         border-radius: 50%;
         color: #d3d3d3;
-        content: counter(reasons);
         font-weight: 400;
-        height: 20px;
         text-align: center;
         top: calc(50% - 10px);
         position: absolute;
-        left: -35px;
-        width: 20px; }
+        left: -35px; }
       html body section#reasons ol li#develop {
         background: url("images/choose/icon-develop.svg") 10px center/50px no-repeat, #e6e6e6; }
       html body section#reasons ol li#expertise {
@@ -300,16 +305,18 @@ html body {
     html body section#reasons ol {
       display: flex;
       flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: flex-start;
       position: relative; }
       html body section#reasons ol::before {
-        background-color: #d3d3d3;
-        content: '';
+        content: "";
         display: block;
         height: 92%;
+        width: 1px;
+        background-color: #d3d3d3;
         left: 50%;
         position: absolute;
-        top: 8%;
-        width: 1px; }
+        top: 8%; }
       html body section#reasons ol li {
         box-sizing: border-box;
         width: calc(50% - 24px); }
@@ -339,6 +346,7 @@ html body {
           left: -35px; } }
   html body section#clients ul + ul {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between; }
     html body section#clients ul + ul li {
@@ -366,14 +374,14 @@ html body {
     margin: 10px 20px;
     text-align: center; }
   html body section#clients::after {
+    content: "";
+    display: block;
+    height: 260px;
+    width: 100%;
     background: url("images/photos/bkgd-meds.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
-    content: '';
-    display: block;
-    height: 260px;
-    width: 100%; }
+    background-attachment: fixed; }
   @media screen and (max-width: 840px) {
     html body section#clients ul + ul {
       margin: 0 auto;
@@ -481,6 +489,7 @@ html body {
     @media screen and (min-width: 650px) {
       html body section#offers {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between; }
         html body section#offers > p {
@@ -500,9 +509,11 @@ html body {
     html body section#main-offer p {
       font-style: italic; }
     html body section#main-offer ol {
-      counter-reset: offer_count;
       display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
+      justify-content: flex-start;
+      counter-reset: offer_count;
       margin: 20px 0; }
       html body section#main-offer ol li {
         border-top: solid 220px transparent;
@@ -512,32 +523,32 @@ html body {
         position: relative;
         width: 100%; }
         html body section#main-offer ol li::before {
+          content: counter(offer_count);
+          display: block;
+          height: 20px;
+          width: 20px;
           background-color: #f5f5f5;
           border: solid 1px #d3d3d3;
           border-radius: 50%;
           color: #d3d3d3;
-          content: counter(offer_count);
-          display: block;
           font-weight: 400;
-          height: 20px;
           left: calc(50% - 10px);
           margin: 0 auto;
           position: absolute;
           top: -45px;
           text-align: center;
-          width: 20px;
           z-index: 2; }
         html body section#main-offer ol li::after {
+          content: "";
+          display: block;
+          height: 0;
+          width: 0;
           border-color: transparent transparent #e6e6e6 transparent;
           border-style: solid;
           border-width: 0 10px 7px 10px;
-          content: '';
-          display: block;
-          height: 0;
           left: calc(50% - 10px);
           position: absolute;
-          top: -7px;
-          width: 0; }
+          top: -7px; }
         html body section#main-offer ol li#medicine {
           background: url("images/timeline-mobile-app/medicine.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
         html body section#main-offer ol li#app {
@@ -555,15 +566,15 @@ html body {
       text-decoration: none;
       text-transform: uppercase; }
     html body section#main-offer::after {
-      background: url("images/city-bkgd.svg") no-repeat;
-      background-size: cover;
-      content: '';
+      content: "";
       display: block;
       height: 250px;
+      width: 125%;
+      background: url("images/city-bkgd.svg") no-repeat;
+      background-size: cover;
       left: -12.5%;
       margin-top: 50px;
-      position: relative;
-      width: 125%; }
+      position: relative; }
     @media screen and (min-width: 530px) {
       html body section#main-offer ol {
         justify-content: space-around; }
@@ -575,14 +586,14 @@ html body {
         margin-top: 60px;
         position: relative; }
         html body section#main-offer ol::after {
-          background-color: #d3d3d3;
-          content: '';
+          content: "";
           display: block;
           height: 1px;
+          width: 80%;
+          background-color: #d3d3d3;
           left: 10%;
           position: absolute;
-          top: 136px;
-          width: 80%; }
+          top: 136px; }
         html body section#main-offer ol li#medicine, html body section#main-offer ol li#app, html body section#main-offer ol li#computer, html body section#main-offer ol li#sms, html body section#main-offer ol li#reception {
           background-size: auto 100px;
           border-top: solid 170px transparent;
@@ -595,30 +606,33 @@ html body {
     html body section#customize p {
       font-style: italic; }
     html body section#customize dl {
-      align-items: center;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
       height: 760px; }
       html body section#customize dl dt {
         font-size: 0.875em;
         margin-top: 40px;
         position: relative; }
-        html body section#customize dl dt::before {
-          content: '';
-          display: block;
-          height: 50px;
-          margin: 0 auto 10px;
-          width: 50px; }
         html body section#customize dl dt::after {
           background-color: #00a071;
           content: '';
           display: block;
           height: 2px;
+          margin: 0 auto 0;
+          width: 18px; }
+        html body section#customize dl dt::before {
+          content: "";
+          display: block;
+          height: 50px;
+          width: 50px;
+          margin: 0 auto 10px; }
+        html body section#customize dl dt::after {
           left: calc( 50% - 9px);
           position: absolute;
-          top: 50px;
-          width: 18px; }
+          top: 50px; }
         html body section#customize dl dt#image::before {
           background: url("images/personnalisation/icon-image.svg") center 0 no-repeat; }
         html body section#customize dl dt#colors::before {
@@ -703,7 +717,8 @@ html body {
       html body aside#click-to-call.close h2, html body aside#click-to-call h2, html body aside#click-to-call.close form, html body aside#click-to-call form {
         display: none; }
   html body footer {
-    background-color: #515151; }
+    background-color: #515151;
+    padding: 0 10%; }
     html body footer ul#social {
       margin-bottom: 20px; }
       html body footer ul#social li {
@@ -713,18 +728,19 @@ html body {
         margin: 5px;
         width: 23px; }
         html body footer ul#social li#facebook {
-          background: url("images/social-medias/icon-facebook.svg"); }
+          background: url("images/social-medias/icon-facebook.svg") center 0 no-repeat; }
         html body footer ul#social li#twitter {
-          background: url("images/social-medias/icon-twitter.svg"); }
+          background: url("images/social-medias/icon-twitter.svg") center 0 no-repeat; }
         html body footer ul#social li#google {
-          background: url("images/social-medias/icon-gplus.svg"); }
+          background: url("images/social-medias/icon-google.svg") center 0 no-repeat; }
         html body footer ul#social li#linkedin {
-          background: url("images/social-medias/icon-linkedin.svg"); }
+          background: url("images/social-medias/icon-linkedin.svg") center 0 no-repeat; }
         html body footer ul#social li#scoopit {
-          background: url("images/social-medias/icon-scoopit.svg"); }
+          background: url("images/social-medias/icon-scoopit.svg") center 0 no-repeat; }
     html body footer ul#links {
       color: #FFFFFF;
       font-size: 0.7em;
+      margin: 0 0 20px 0;
       text-align: right; }
       html body footer ul#links li {
         margin-top: 10px; }
