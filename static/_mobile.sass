@@ -2,6 +2,7 @@
 
 html
   body
+    color: $grey-1
     margin: 0
 
     /* Styles général */
@@ -15,7 +16,7 @@ html
     *:not(strong)
       font-weight: 300
 
-    section:not(#clients):not(#reasons)
+    section:not(#reasons):not(#ecoweb):not(#flexiweb):not(#flexiweb-plus):not(#optiweb)
       padding: 60px 10%
 
     #goals, #guarantees, #reasons, #offers
@@ -42,7 +43,8 @@ html
         li
           &:last-of-type a
             border: solid 1px $white
-            padding: 5px 10px
+            padding: 0.4em 0.6em
+          
           a
             color: $white
             font-size: 1.125em
@@ -60,7 +62,7 @@ html
             width: 170px
 
           li
-            margin: 0 10px
+            margin: 0 0.6em
 
       @media screen and (max-width: 850px)
         background-color: $main-color
@@ -82,13 +84,11 @@ html
             text-align: center
 
           &::before, &::after
+            @include content(initial, 2px, 30px)
             background-color: $white
-            content: ''
-            height: 2px
             position: absolute
-            width: 30px
-            top: 10%
             right: 10%
+            top: 10%
 
           &::before
             transform: rotate(45deg)
@@ -122,9 +122,9 @@ html
 
         li a
           background-color: $white
-          color: $grey-1
+        
           text-decoration: none
-          padding: 10px 20px
+          padding: 0.5em 1em
 
     section#about
       h2
@@ -135,7 +135,7 @@ html
         overflow: hidden
 
     section#goals
-      background-color: $grey-3
+      background-color: $grey-4
 
       ul
         @include flexbox(row, space-between)
@@ -144,7 +144,7 @@ html
           font-size: $basic-font-size
           margin: 20px 0
           min-height: 56px
-          padding-left: 70px
+          padding-left: 5.5em
           width: 100%
 
           @each $name in help, connect, innovate, simplify, save, raise
@@ -169,11 +169,11 @@ html
           @extend .active
           @include flexbox(column, center)
           align-items: center
-          border-bottom: solid 1px $grey-2
-          border-left: solid 1px $grey-2
-          box-shadow: 1px -1px 0 $grey-2
+          border-bottom: solid 1px $grey-3
+          border-left: solid 1px $grey-3
+          box-shadow: 1px -1px 0 $grey-3
           box-sizing: border-box
-          color: $grey-1
+        
           font-size: 0
           padding: 20px
           text-align: center
@@ -207,7 +207,7 @@ html
             width: calc(20vw)
 
         li.active
-          background-color: $grey-3
+          background-color: $grey-4
           font-size: $basic-font-size
 
           &::before
@@ -222,7 +222,7 @@ html
 
       ol
         counter-reset: reasons
-        margin: 20px 10% 0 10%
+        margin: 20px 10% 0
         padding-bottom: 40px
 
         li
@@ -234,7 +234,7 @@ html
 
           &::before
             @include content(inline-block, 0, 0)  
-            border-color: transparent $grey-2 transparent transparent
+            border-color: transparent $grey-3 transparent transparent
             border-style: solid
             border-width: 10px 7px 10px 0
             position: absolute
@@ -244,9 +244,9 @@ html
           &::after
             @include content(initial, 20px, 20px, counter(reasons))
             background-color: $white
-            border: solid 1px #d3d3d3
+            border: solid 1px $grey-2
             border-radius: 50%
-            color: #d3d3d3
+            color: $grey-2
             font-weight: 400
             text-align: center
             top: calc(50% - 10px)
@@ -255,7 +255,7 @@ html
 
           @each $name in develop, expertise, loyal, satisfaction, accompaniment, cost
             &##{$name}
-              background: url('images/choose/icon-#{$name}.svg') 10px center / 50px no-repeat, $grey-2
+              background: url('images/choose/icon-#{$name}.svg') 10px center / 50px no-repeat, $grey-3
 
       @media screen and (min-width: 630px)
         ol
@@ -264,7 +264,7 @@ html
 
           &::before
             @include content(block, 92%, 1px)
-            background-color: #d3d3d3
+            background-color: $grey-2
             left: 50%
             position: absolute
             top: 8%
@@ -280,7 +280,7 @@ html
             text-align: right
 
             &::before
-              border-color: transparent transparent transparent $grey-2
+              border-color: transparent transparent transparent $grey-3
               border-width: 10px 0 10px 7px
               right: -7px
               left: initial
@@ -296,7 +296,7 @@ html
             padding: 25px 20px 25px 75px
 
             &::before
-              border-color: transparent $grey-2 transparent transparent
+              border-color: transparent $grey-3 transparent transparent
               border-width: 10px 7px 10px 0
               left: -7px
 
@@ -306,6 +306,7 @@ html
     section#clients
       ul + ul
         @include flexbox(row, space-between)
+        margin: 0 -12.5%
 
         li
           box-sizing: border-box
@@ -327,15 +328,11 @@ html
 
       > p
         font-size: 0.75em
-        margin: 10px 20px
         text-align: center
 
       &::after
         @include content(block, 260px, 100%)
-        background: url('images/photos/bkgd-meds.jpg')
-        background-repeat: no-repeat
-        background-size: cover
-        background-attachment: fixed
+        background: url('images/photos/bkgd-meds.jpg') center / cover no-repeat fixed
 
       @media screen and (max-width: 840px)
         ul + ul
@@ -356,7 +353,7 @@ html
 
           @each $name in interne, symplify, special-order, delivery
             &##{$name}:hover
-              background: url('images/numbers/#{$name}.svg') padding-box center 20px / auto 45% no-repeat, $grey-3
+              background: url('images/numbers/#{$name}.svg') padding-box center 20px / auto 45% no-repeat, $grey-4
 
         ul + ul li#interne, ul + ul li#symplify, ul + ul li#delivery, ul + ul li#special-order
           background-size: auto 45%
@@ -375,28 +372,23 @@ html
             left: 20%
 
     section#offers
-      background-color: $grey-3
-      padding-top: 120px
+      background-color: $grey-4
 
-      h2
+      h2, > p
         width: 100%;
+
+      h2, > p, section
+        text-align: center
 
       > p
         font-style: italic
-        text-align: center
-        margin: 20px 0
-        width: 100%
-
-        & + p
-          margin-bottom: 40px
 
       section
         margin: 20px 0
-        padding: 30px
-        text-align: center
+        padding: 20px
 
         h3
-          font-weight: inherit
+          font-weight: 400
           margin: 0
           text-transform: uppercase
 
@@ -404,11 +396,10 @@ html
           margin-top: 0
 
         p.price
-          border-bottom: solid 1px $grey-2
-          border-top: solid 1px $grey-2
+          border-bottom: solid 1px $grey-3
+          border-top: solid 1px $grey-3
           font-size: 0.75em
-          margin: 10px
-          padding: 5px
+          padding: 0.7em
 
           strong
             font-size: $big-title
@@ -419,7 +410,7 @@ html
 
           li
             font-size: $basic-font-size
-            margin: 10px
+            margin: 1em
             
             &.disabled
               opacity: 0.5
@@ -428,15 +419,15 @@ html
           border: solid 1px
           color: inherit
           font-size: 0.75em
-          padding: 5px 10px
+          padding: 0.5em 1em
           text-decoration: none
           text-transform: uppercase
 
         &#ecoweb, &#flexiweb, &#optiweb
           @extend %hide-offer
           background-color: $white
-          border: solid 3px $grey-3
-          color: $grey-1
+          border: solid 3px $grey-4
+        
 
           ul.links li a
             border-color: $grey-1
@@ -445,13 +436,8 @@ html
           background-color: $main-color
           border: solid 3px $main-color-light
           color: $white
-          font-weight: 400
 
-          p.price
-            border-bottom: solid 1px $white
-            border-top: solid 1px $white
-
-          ul.links li a
+          p.price, ul.links li a
             border-color: $white
 
         &.close
@@ -459,15 +445,13 @@ html
             display: none
 
           &::after
-            content: 'voir plus'
-            display: block
+            @include content(block, auto, auto, 'voir plus')
             font-size: $basic-font-size
             margin-top: 30px
             text-decoration: underline
 
       ul.notes
         font-size: 0.75em
-        margin: 20px
 
       @media screen and (min-width: 650px)
         @include flexbox(row, space-between)
@@ -484,7 +468,7 @@ html
           width: 24%  
 
     section#main-offer
-      background-color: $grey-3
+      background-color: $grey-4
       padding-top: 60px
       text-align: center
 
@@ -497,22 +481,22 @@ html
       ol
         @include flexbox(row, flex-start)
         counter-reset: offer_count
-        margin: 20px 0
+        margin: 2em 0
 
         li
           border-top: solid 220px transparent
           counter-increment: offer_count
           margin-bottom: 60px
-          padding: 10px
+          padding: 0.7em
           position: relative          
           width: 100%
 
           &::before
             @include content(block, 20px, 20px, counter(offer_count))
-            background-color: $grey-3
-            border: solid 1px #d3d3d3
+            background-color: $grey-4
+            border: solid 1px $grey-2
             border-radius: 50%
-            color: #d3d3d3
+            color: $grey-2
             font-weight: 400
             left: calc(50% - 10px)
             margin: 0 auto
@@ -523,7 +507,7 @@ html
 
           &::after
             @include content(block, 0, 0)
-            border-color: transparent transparent $grey-2 transparent
+            border-color: transparent transparent $grey-3 transparent
             border-style: solid
             border-width: 0 10px 7px 10px
             left: calc(50% - 10px)
@@ -532,12 +516,12 @@ html
 
           @each $name in medicine, app, computer, sms, reception
             &##{$name}
-              background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-2
+              background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-3
 
       ul.links li a
         background-color: $main-color
         color: $white
-        padding: 10px 20px
+        padding: 0.75em 1em
         text-decoration: none
         text-transform: uppercase
 
@@ -559,12 +543,12 @@ html
 
       @media screen and (min-width: 1000px)
           ol
-            margin-top: 60px
+            margin-top: 4em
             position: relative
 
             &::after
               @include content(block, 1px, 80%)
-              background-color: #d3d3d3
+              background-color: $grey-2
               left: 10%
               position: absolute
               top: 136px
@@ -575,7 +559,7 @@ html
               width: 18%
 
     section#customize
-      background-color: $grey-3
+      background-color: $grey-4
       text-align: center
 
       h2
@@ -592,7 +576,7 @@ html
         dt
           @include bottom_stroke(18px, 2px, 0)
           font-size: $basic-font-size
-          margin-top: 40px
+          margin-top: 3em
           position: relative
 
           &::before
@@ -611,7 +595,7 @@ html
         dd
           font-size: $subtitle
           margin-left: 0
-          margin-top: 10px
+          margin-top: 0.5em
 
         dt, dd
           max-width: 150px
@@ -670,7 +654,7 @@ html
           box-sizing: border-box
           display: block
           font-family: inherit
-          padding: 10px
+          padding: 0.75em
           width: 100%
 
         textarea
@@ -682,7 +666,7 @@ html
           border: solid 1px $grey-1
           font-size: 0.7em
           margin-top: 20px
-          padding: 10px 20px
+          padding: 0.75em 1em
           text-transform: uppercase
 
       & > p
@@ -707,26 +691,23 @@ html
 
     footer
       background-color: $grey-1
-      padding: 0 10%
+      padding: 20px 10%
 
-      ul#social
-        margin-bottom: 20px
+      ul#social li
+        display: inline-block
+        font-size: 0
+        height: 23px
+        margin: 0 5px
+        vertical-align: top;
+        width: 23px
 
-        li
-          display: inline-block
-          font-size: 0
-          height: 23px
-          margin: 5px
-          width: 23px
-
-          @each $name in facebook, twitter, google, linkedin, scoopit
-            &##{$name}
-              background: url('images/social-medias/icon-#{$name}.svg') center 0 no-repeat
+        @each $name in facebook, twitter, google, linkedin, scoopit
+          &##{$name}
+            background: url('images/social-medias/icon-#{$name}.svg') center 0 no-repeat
 
       ul#links
         color: $white
         font-size: 0.7em
-        margin: 0 0 20px 0
         text-align: right
 
         li
