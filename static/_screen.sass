@@ -106,7 +106,41 @@ html
 
     section#news
       article
+        height: 250px
         overflow: hidden
+        position: relative
+        width: 100%
+
+        h3
+          background-color: $white
+          border-bottom: solid 1px $main-color
+          bottom: 0
+          left: 0
+          margin: 0
+          padding: 0.75em
+          position: absolute
+          right: 0
+          z-index: 10
+
+        img
+          opacity: 0.5
+          width: 100%
+
+        p
+          left: 0
+          margin: 0
+          position: absolute
+          right: 0
+          text-align: center
+          bottom: 50%
+
+          a
+            background-color: $main-color
+            color: $white
+            margin-top: -50%
+            padding: 0.5em 1em
+            text-decoration: none
+            vertical-align: middle
 
     section#goals
       background-color: $grey-4
