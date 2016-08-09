@@ -32,6 +32,7 @@
       height: 100vh
       position: relative
       right: 0
+      top: 0
       width: 100%
 
       ul
@@ -57,7 +58,7 @@
           transform: rotate(45deg)
 
         &::after
-          transform: rotate(-45deg)
+          transform: rotate(-45deg)      
 
     section#clients
       ul + ul
@@ -65,8 +66,10 @@
         width: 80%
 
 @media screen and (min-width: 480px)
+
   html body
     section#customize 
+      dl
         height: 380px
 
 @media screen and (min-width: 530px)
@@ -142,12 +145,27 @@
       dl
         height: 200px
 
+    footer
+      ul
+        display: inline-block
+        width: 49%
+
+      ul#links li
+        display: inline-block
+        margin: 0  0 0 10px
+
+        & + li::before
+          @include content(inline-block, 1px, 4px)
+          background-color: $white
+          margin-right: 5px
+          vertical-align: middle
+
 @media screen and (min-width: 840px)
   html body
     section#guarantees ul li
-      height: calc(20vw)
-      width: calc(20vw)
-      
+      height: calc(19vw)
+      width: calc(19vw)
+
     section#clients
       ul + ul li
         margin: 0
@@ -205,6 +223,9 @@
 
       li
         margin: 0 0.6em
+
+    section#goals ul li
+      width: 30%
 
 @media screen and (min-width: 1215px)
   html body

@@ -28,16 +28,3 @@
   color: $color
   font: $font-style 300 $title/normal 'Source Sans Pro', sans-serif
   text-align: center
-
-/* Mixin for offer block style */
-@media screen and (max-width: 650px)
-  %hide-offer
-    ul
-      display: none
-
-    &::after
-      content: 'voir plus'
-      display: block
-      font-size: $basic-font-size
-      margin-top: 30px
-      text-decoration: underline

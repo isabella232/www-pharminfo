@@ -7,18 +7,7 @@
 /* Mixin for ::after & ::before */
 /* Mixin for title's strokes */
 /* Mixin for h2 styles*/
-/* Mixin for offer block style */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400);
-@media screen and (max-width: 650px) {
-  html body section#offers section#ecoweb ul, html body section#offers section#flexiweb ul, html body section#offers section#optiweb ul {
-    display: none; }
-  html body section#offers section#ecoweb::after, html body section#offers section#flexiweb::after, html body section#offers section#optiweb::after {
-    content: 'voir plus';
-    display: block;
-    font-size: 0.875em;
-    margin-top: 30px;
-    text-decoration: underline; } }
-
 html body {
   color: #515151;
   margin: 0;
@@ -32,7 +21,7 @@ html body {
     padding-left: 0; }
   html body *:not(strong) {
     font-weight: 300; }
-  html body section:not(#reasons):not(#ecoweb):not(#flexiweb):not(#flexiweb-plus):not(#optiweb) {
+  html body section:not(#reasons):not(#clients):not(#ecoweb):not(#flexiweb):not(#flexiweb-plus):not(#optiweb) {
     padding: 60px 10%; }
   html body #goals h2, html body #guarantees h2, html body #reasons h2, html body #offers h2 {
     color: #515151;
@@ -53,7 +42,7 @@ html body {
     height: 70px;
     position: absolute;
     right: 10%;
-    top: 0;
+    top: 20px;
     width: 80%; }
     html body nav ul {
       display: flex;
@@ -75,6 +64,7 @@ html body {
     flex-wrap: wrap;
     justify-content: center;
     background: url("images/pharminfo-presentation.jpg") no-repeat center/cover;
+    box-sizing: border-box;
     min-height: 100vh;
     text-align: center; }
     html body section#sales h2 {
@@ -161,17 +151,20 @@ html body {
       flex-wrap: nowrap;
       justify-content: center;
       align-items: center;
+      background-color: #f5f5f5;
       border-bottom: solid 1px #e6e6e6;
       border-left: solid 1px #e6e6e6;
       box-shadow: 1px -1px 0 #e6e6e6;
       box-sizing: border-box;
-      font-size: 0;
+      font-size: 0.875em;
       padding: 20px;
       text-align: center;
       text-transform: uppercase; }
       html body section#guarantees ul li::before {
+        border: solid 3px #00a071;
         border-radius: 50%;
         display: block;
+        margin-bottom: 15px;
         max-height: 50%;
         max-width: 100px;
         width: 50%; }
@@ -191,12 +184,6 @@ html body {
         content: url(images/warranties/icon-seo.svg); }
       html body section#guarantees ul li#responsive::before {
         content: url(images/warranties/icon-responsive.svg); }
-    html body section#guarantees ul li.active, html body section#guarantees ul li {
-      background-color: #f5f5f5;
-      font-size: 0.875em; }
-      html body section#guarantees ul li.active::before, html body section#guarantees ul li::before {
-        border: solid 3px #00a071;
-        margin-bottom: 15px; }
   html body section#reasons p {
     font-style: italic;
     text-align: center; }
@@ -247,41 +234,44 @@ html body {
         background: url("images/choose/icon-accompaniment.svg") 10px center/50px no-repeat, #e6e6e6; }
       html body section#reasons ol li#cost {
         background: url("images/choose/icon-cost.svg") 10px center/50px no-repeat, #e6e6e6; }
-  html body section#clients ul + ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0 -12.5%; }
-    html body section#clients ul + ul li {
-      box-sizing: border-box;
-      margin: 20px 0;
-      padding: 150px 0px 20px 100px;
-      position: relative;
-      width: 100%; }
-      html body section#clients ul + ul li#interne {
-        background: url("images/numbers/interne.svg") padding-box center 0/100% auto no-repeat; }
-      html body section#clients ul + ul li#symplify {
-        background: url("images/numbers/symplify.svg") padding-box center 0/100% auto no-repeat; }
-      html body section#clients ul + ul li#special-order {
-        background: url("images/numbers/special-order.svg") padding-box center 0/100% auto no-repeat; }
-      html body section#clients ul + ul li#delivery {
-        background: url("images/numbers/delivery.svg") padding-box center 0/100% auto no-repeat; }
-      html body section#clients ul + ul li strong {
-        font-size: 3em;
-        font-weight: 400;
-        left: -5px;
-        line-height: 1;
-        position: absolute; }
-  html body section#clients > p {
-    font-size: 0.75em;
-    text-align: center; }
-  html body section#clients::after {
-    content: "";
-    display: block;
-    height: 260px;
-    width: 100%;
-    background: url("images/photos/bkgd-meds.jpg") center/cover no-repeat fixed; }
+  html body section#clients {
+    padding: 0 10%; }
+    html body section#clients ul + ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 -12.5%; }
+      html body section#clients ul + ul li {
+        box-sizing: border-box;
+        margin: 20px 0;
+        padding: 150px 0px 20px 100px;
+        position: relative;
+        width: 100%; }
+        html body section#clients ul + ul li#interne {
+          background: url("images/numbers/interne.svg") padding-box center 0/100% auto no-repeat; }
+        html body section#clients ul + ul li#symplify {
+          background: url("images/numbers/symplify.svg") padding-box center 0/100% auto no-repeat; }
+        html body section#clients ul + ul li#special-order {
+          background: url("images/numbers/special-order.svg") padding-box center 0/100% auto no-repeat; }
+        html body section#clients ul + ul li#delivery {
+          background: url("images/numbers/delivery.svg") padding-box center 0/100% auto no-repeat; }
+        html body section#clients ul + ul li strong {
+          font-size: 3em;
+          font-weight: 400;
+          left: -5px;
+          line-height: 1;
+          position: absolute; }
+    html body section#clients > p {
+      font-size: 0.75em;
+      text-align: center; }
+    html body section#clients::after {
+      content: "";
+      display: block;
+      height: 260px;
+      width: 125%;
+      background: url("images/photos/bkgd-meds.jpg") center/cover no-repeat fixed;
+      margin: 0 -12.5%; }
   html body section#offers {
     background-color: #f5f5f5; }
     html body section#offers h2, html body section#offers > p {
@@ -292,7 +282,7 @@ html body {
       font-style: italic; }
     html body section#offers section {
       margin: 20px 0;
-      padding: 20px; }
+      padding: 2em 1.5em; }
       html body section#offers section h3 {
         font-weight: 400;
         margin: 0;
@@ -588,6 +578,7 @@ html body {
     height: 100vh;
     position: relative;
     right: 0;
+    top: 0;
     width: 100%; }
     html body nav ul {
       box-sizing: border-box;
@@ -617,7 +608,7 @@ html body {
     width: 80%; } }
 
 @media screen and (min-width: 480px) {
-  html body section#customize {
+  html body section#customize dl {
     height: 380px; } }
 
 @media screen and (min-width: 530px) {
@@ -683,12 +674,26 @@ html body {
 
 @media screen and (min-width: 780px) {
   html body section#customize dl {
-    height: 200px; } }
+    height: 200px; }
+  html body footer ul {
+    display: inline-block;
+    width: 49%; }
+  html body footer ul#links li {
+    display: inline-block;
+    margin: 0  0 0 10px; }
+    html body footer ul#links li + li::before {
+      content: "";
+      display: inline-block;
+      height: 1px;
+      width: 4px;
+      background-color: #FFFFFF;
+      margin-right: 5px;
+      vertical-align: middle; } }
 
 @media screen and (min-width: 840px) {
   html body section#guarantees ul li {
-    height: calc(20vw);
-    width: calc(20vw); }
+    height: calc(19vw);
+    width: calc(19vw); }
   html body section#clients ul + ul li {
     margin: 0;
     width: 50%; }
@@ -740,10 +745,38 @@ html body {
       position: absolute;
       width: 170px; }
     html body nav ul li {
-      margin: 0 0.6em; } }
+      margin: 0 0.6em; }
+  html body section#goals ul li {
+    width: 30%; } }
 
 @media screen and (min-width: 1215px) {
   html body section#offers section {
     width: 24%; } }
+
+/* Class for offer block style */
+@media screen and (max-width: 650px) {
+  html body section#offers section#ecoweb ul, html body section#offers section#flexiweb ul, html body section#offers section#optiweb ul {
+    display: none; }
+  html body section#offers section#ecoweb::after, html body section#offers section#flexiweb::after, html body section#offers section#optiweb::after {
+    content: 'voir plus';
+    display: block;
+    font-size: 0.875em;
+    margin-top: 30px;
+    text-decoration: underline; } }
+
+/* Class for offer block style */
+@media screen and (min-width: 840px) {
+  html body section#guarantees ul li {
+    background-color: transparent;
+    font-size: 0; }
+    html body section#guarantees ul li::before {
+      border: none;
+      margin-bottom: 0; }
+    html body section#guarantees ul li:hover {
+      background-color: #f5f5f5;
+      font-size: 0.875em; }
+      html body section#guarantees ul li:hover::before {
+        border: solid 3px #00a071;
+        margin-bottom: 15px; } }
 
 /*# sourceMappingURL=style.sass.css.map */
