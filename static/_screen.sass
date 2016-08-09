@@ -62,7 +62,7 @@ html
               color: $grey-1
 
     /* Styles page d'accueil */
-    section#sales
+    #sales
       @include flexbox(column, center)
       background: url('images/pharminfo-presentation.jpg') no-repeat center/cover
       box-sizing: border-box
@@ -100,15 +100,15 @@ html
             color: $white
             padding: 1em 2em
 
-    section#about
+    #about
       h2
         @include h2_source_sans(30px, $main-color, italic)
 
-    section#news
+    #news
       article
         overflow: hidden
 
-    section#goals
+    #goals
       background-color: $grey-4
 
       ul
@@ -135,7 +135,7 @@ html
           box-sizing: border-box
           width: 45%
 
-    section#guarantees
+    #guarantees
       ul
         @extend %hide-guarantees
         @include flexbox(row, center)
@@ -166,7 +166,7 @@ html
             &##{$name}::before
               content: url(images/warranties/icon-#{$name}.svg)
 
-    section#reasons
+    #reasons
       p
         font-style: italic
         text-align: center
@@ -209,7 +209,7 @@ html
             &##{$name}
               background: url('images/choose/icon-#{$name}.svg') 10px center / 50px no-repeat, $grey-3
 
-    section#clients
+    #clients
       padding: 0 10%
 
       ul + ul
@@ -243,7 +243,7 @@ html
         background: url('images/photos/bkgd-meds.jpg') center / cover no-repeat fixed
         margin: 0 -12.5%
 
-    section#offers
+    #offers
       background-color: $grey-4
 
       h2, > p
@@ -336,7 +336,7 @@ html
       ul.notes
         font-size: 0.75em
 
-    section#main-offer
+    #main-offer
       background-color: $grey-4
       padding-top: 60px
       text-align: center
@@ -405,7 +405,7 @@ html
         margin-top: 50px
         position: relative
 
-    section#customize
+    #customize
       background-color: $grey-4
       text-align: center
 
@@ -447,7 +447,7 @@ html
         dt, dd
           max-width: 150px
 
-    section#contact
+    #contact
       h2
         font-size: $title
 
@@ -515,7 +515,7 @@ html
         margin-bottom: 40px
         text-decoration: underline
 
-    aside#click-to-call
+    #click-to-call
       @extend .close
       position: fixed
       right: 0
@@ -533,7 +533,7 @@ html
       background-color: $grey-1
       padding: 20px 10%
 
-      ul#social li
+      #social li
         display: inline-block
         font-size: 0
         height: 23px
@@ -545,7 +545,7 @@ html
           &##{$name}
             background: url('images/social-medias/icon-#{$name}.svg') center 0 no-repeat
 
-      ul#links
+      #links
         color: $white
         font-size: 0.7em
         text-align: right
