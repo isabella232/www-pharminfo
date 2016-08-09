@@ -1,0 +1,749 @@
+@charset "UTF-8";
+/* Colors */
+/* Font-size */
+/* 45pt */
+/* 36pt */
+/* Mixin flexbox display */
+/* Mixin for ::after & ::before */
+/* Mixin for title's strokes */
+/* Mixin for h2 styles*/
+/* Mixin for offer block style */
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400);
+@media screen and (max-width: 650px) {
+  html body section#offers section#ecoweb ul, html body section#offers section#flexiweb ul, html body section#offers section#optiweb ul {
+    display: none; }
+  html body section#offers section#ecoweb::after, html body section#offers section#flexiweb::after, html body section#offers section#optiweb::after {
+    content: 'voir plus';
+    display: block;
+    font-size: 0.875em;
+    margin-top: 30px;
+    text-decoration: underline; } }
+
+html body {
+  color: #515151;
+  margin: 0;
+  /* Styles général */
+  /* Styles menu */
+  /* Styles page d'accueil */ }
+  html body * {
+    font-family: 'Source Sans Pro', sans-serif; }
+  html body ul, html body ol {
+    list-style-type: none;
+    padding-left: 0; }
+  html body *:not(strong) {
+    font-weight: 300; }
+  html body section:not(#reasons):not(#ecoweb):not(#flexiweb):not(#flexiweb-plus):not(#optiweb) {
+    padding: 60px 10%; }
+  html body #goals h2, html body #guarantees h2, html body #reasons h2, html body #offers h2 {
+    color: #515151;
+    font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
+    text-align: center; }
+    html body #goals h2::after, html body #guarantees h2::after, html body #reasons h2::after, html body #offers h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin: 20px auto 0;
+      width: 20px; }
+  html body header {
+    background-color: #00a071;
+    font-size: 0;
+    height: 4px; }
+  html body nav {
+    height: 70px;
+    position: absolute;
+    right: 10%;
+    top: 0;
+    width: 80%; }
+    html body nav ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center; }
+      html body nav ul li:last-of-type a {
+        border: solid 1px #FFFFFF;
+        padding: 0.4em 0.6em; }
+      html body nav ul li a {
+        color: #FFFFFF;
+        font-size: 1.125em;
+        line-height: 2;
+        text-decoration: none; }
+  html body section#sales {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: url("images/pharminfo-presentation.jpg") no-repeat center/cover;
+    min-height: 100vh;
+    text-align: center; }
+    html body section#sales h2 {
+      color: #FFFFFF;
+      font-size: 2.8em;
+      font-weight: 400;
+      margin: 0 auto;
+      max-width: 750px;
+      text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.2); }
+      html body section#sales h2::after {
+        background-color: #00a071;
+        content: '';
+        display: block;
+        height: 4px;
+        margin: 30px auto 0;
+        width: 28px; }
+      html body section#sales h2::before {
+        content: url("images/logo-white.svg");
+        display: block;
+        margin: 20px auto;
+        width: 252px; }
+    html body section#sales ul {
+      margin-top: 40px; }
+      html body section#sales ul li a {
+        background-color: #FFFFFF;
+        color: inherit;
+        font-weight: 400;
+        text-decoration: none;
+        padding: 0.5em 1em; }
+  html body section#about h2 {
+    color: #00a071;
+    font: italic 300 2.25em/normal "Source Sans Pro", sans-serif;
+    text-align: center; }
+    html body section#about h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin: 30px auto 0;
+      width: 20px; }
+  html body section#news article {
+    overflow: hidden; }
+  html body section#goals {
+    background-color: #f5f5f5; }
+    html body section#goals ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between; }
+      html body section#goals ul li {
+        font-size: 0.875em;
+        margin: 20px 0;
+        min-height: 56px;
+        padding-left: 5.5em;
+        width: 100%; }
+        html body section#goals ul li#help {
+          background: url(images/objectifs/icon-help.svg) top left/56px 56px no-repeat; }
+        html body section#goals ul li#connect {
+          background: url(images/objectifs/icon-connect.svg) top left/56px 56px no-repeat; }
+        html body section#goals ul li#innovate {
+          background: url(images/objectifs/icon-innovate.svg) top left/56px 56px no-repeat; }
+        html body section#goals ul li#simplify {
+          background: url(images/objectifs/icon-simplify.svg) top left/56px 56px no-repeat; }
+        html body section#goals ul li#save {
+          background: url(images/objectifs/icon-save.svg) top left/56px 56px no-repeat; }
+        html body section#goals ul li#raise {
+          background: url(images/objectifs/icon-raise.svg) top left/56px 56px no-repeat; }
+        html body section#goals ul li strong {
+          color: #00a071;
+          display: block;
+          font-size: 1.25em; }
+    @media screen and (min-width: 560px) {
+      html body section#goals ul li {
+        box-sizing: border-box;
+        width: 45%; } }
+  html body section#guarantees ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; }
+    html body section#guarantees ul li {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      border-bottom: solid 1px #e6e6e6;
+      border-left: solid 1px #e6e6e6;
+      box-shadow: 1px -1px 0 #e6e6e6;
+      box-sizing: border-box;
+      font-size: 0;
+      padding: 20px;
+      text-align: center;
+      text-transform: uppercase; }
+      html body section#guarantees ul li::before {
+        border-radius: 50%;
+        display: block;
+        max-height: 50%;
+        max-width: 100px;
+        width: 50%; }
+      html body section#guarantees ul li#cloud::before {
+        content: url(images/warranties/icon-cloud.svg); }
+      html body section#guarantees ul li#payment::before {
+        content: url(images/warranties/icon-payment.svg); }
+      html body section#guarantees ul li#ars::before {
+        content: url(images/warranties/icon-ars.svg); }
+      html body section#guarantees ul li#security::before {
+        content: url(images/warranties/icon-security.svg); }
+      html body section#guarantees ul li#order::before {
+        content: url(images/warranties/icon-order.svg); }
+      html body section#guarantees ul li#sav::before {
+        content: url(images/warranties/icon-sav.svg); }
+      html body section#guarantees ul li#seo::before {
+        content: url(images/warranties/icon-seo.svg); }
+      html body section#guarantees ul li#responsive::before {
+        content: url(images/warranties/icon-responsive.svg); }
+    html body section#guarantees ul li.active, html body section#guarantees ul li {
+      background-color: #f5f5f5;
+      font-size: 0.875em; }
+      html body section#guarantees ul li.active::before, html body section#guarantees ul li::before {
+        border: solid 3px #00a071;
+        margin-bottom: 15px; }
+  html body section#reasons p {
+    font-style: italic;
+    text-align: center; }
+  html body section#reasons ol {
+    counter-reset: reasons;
+    margin: 20px 10% 0;
+    padding-bottom: 40px; }
+    html body section#reasons ol li {
+      counter-increment: reasons;
+      margin: 20px 0 20px 30px;
+      padding: 20px 20px 20px 75px;
+      position: relative;
+      text-align: left; }
+      html body section#reasons ol li::before {
+        content: "";
+        display: inline-block;
+        height: 0;
+        width: 0;
+        border-color: transparent #e6e6e6 transparent transparent;
+        border-style: solid;
+        border-width: 10px 7px 10px 0;
+        position: absolute;
+        left: -7px;
+        top: calc(50% - 10px); }
+      html body section#reasons ol li::after {
+        content: counter(reasons);
+        display: initial;
+        height: 20px;
+        width: 20px;
+        background-color: #FFFFFF;
+        border: solid 1px #d3d3d3;
+        border-radius: 50%;
+        color: #d3d3d3;
+        font-weight: 400;
+        text-align: center;
+        top: calc(50% - 10px);
+        position: absolute;
+        left: -35px; }
+      html body section#reasons ol li#develop {
+        background: url("images/choose/icon-develop.svg") 10px center/50px no-repeat, #e6e6e6; }
+      html body section#reasons ol li#expertise {
+        background: url("images/choose/icon-expertise.svg") 10px center/50px no-repeat, #e6e6e6; }
+      html body section#reasons ol li#loyal {
+        background: url("images/choose/icon-loyal.svg") 10px center/50px no-repeat, #e6e6e6; }
+      html body section#reasons ol li#satisfaction {
+        background: url("images/choose/icon-satisfaction.svg") 10px center/50px no-repeat, #e6e6e6; }
+      html body section#reasons ol li#accompaniment {
+        background: url("images/choose/icon-accompaniment.svg") 10px center/50px no-repeat, #e6e6e6; }
+      html body section#reasons ol li#cost {
+        background: url("images/choose/icon-cost.svg") 10px center/50px no-repeat, #e6e6e6; }
+  html body section#clients ul + ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -12.5%; }
+    html body section#clients ul + ul li {
+      box-sizing: border-box;
+      margin: 20px 0;
+      padding: 150px 0px 20px 100px;
+      position: relative;
+      width: 100%; }
+      html body section#clients ul + ul li#interne {
+        background: url("images/numbers/interne.svg") padding-box center 0/100% auto no-repeat; }
+      html body section#clients ul + ul li#symplify {
+        background: url("images/numbers/symplify.svg") padding-box center 0/100% auto no-repeat; }
+      html body section#clients ul + ul li#special-order {
+        background: url("images/numbers/special-order.svg") padding-box center 0/100% auto no-repeat; }
+      html body section#clients ul + ul li#delivery {
+        background: url("images/numbers/delivery.svg") padding-box center 0/100% auto no-repeat; }
+      html body section#clients ul + ul li strong {
+        font-size: 3em;
+        font-weight: 400;
+        left: -5px;
+        line-height: 1;
+        position: absolute; }
+  html body section#clients > p {
+    font-size: 0.75em;
+    text-align: center; }
+  html body section#clients::after {
+    content: "";
+    display: block;
+    height: 260px;
+    width: 100%;
+    background: url("images/photos/bkgd-meds.jpg") center/cover no-repeat fixed; }
+  html body section#offers {
+    background-color: #f5f5f5; }
+    html body section#offers h2, html body section#offers > p {
+      width: 100%; }
+    html body section#offers h2, html body section#offers > p, html body section#offers section {
+      text-align: center; }
+    html body section#offers > p {
+      font-style: italic; }
+    html body section#offers section {
+      margin: 20px 0;
+      padding: 20px; }
+      html body section#offers section h3 {
+        font-weight: 400;
+        margin: 0;
+        text-transform: uppercase; }
+      html body section#offers section p:first-of-type {
+        margin-top: 0; }
+      html body section#offers section p.price {
+        border-bottom: solid 1px #e6e6e6;
+        border-top: solid 1px #e6e6e6;
+        font-size: 0.75em;
+        padding: 0.7em; }
+        html body section#offers section p.price strong {
+          font-size: 2.8em;
+          font-weight: 400; }
+      html body section#offers section ul:first-of-type {
+        margin-top: 30px; }
+        html body section#offers section ul:first-of-type li {
+          font-size: 0.875em;
+          margin: 1em; }
+          html body section#offers section ul:first-of-type li.disabled {
+            opacity: 0.5; }
+      html body section#offers section ul.links li a {
+        border: solid 1px;
+        color: inherit;
+        font-size: 0.75em;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        text-transform: uppercase; }
+      html body section#offers section#ecoweb, html body section#offers section#flexiweb, html body section#offers section#optiweb {
+        background-color: #FFFFFF;
+        border: solid 3px #f5f5f5; }
+        html body section#offers section#ecoweb ul.links li a, html body section#offers section#flexiweb ul.links li a, html body section#offers section#optiweb ul.links li a {
+          border-color: #515151; }
+      html body section#offers section#flexiweb-plus {
+        background-color: #00a071;
+        border: solid 3px #2fc17b;
+        color: #FFFFFF; }
+        html body section#offers section#flexiweb-plus p.price, html body section#offers section#flexiweb-plus ul.links li a {
+          border-color: #FFFFFF; }
+      html body section#offers section.close ul {
+        display: none; }
+      html body section#offers section.close::after {
+        content: "voir plus";
+        display: block;
+        height: auto;
+        width: auto;
+        font-size: 0.875em;
+        margin-top: 30px;
+        text-decoration: underline; }
+    html body section#offers ul.notes {
+      font-size: 0.75em; }
+  html body section#main-offer {
+    background-color: #f5f5f5;
+    padding-top: 60px;
+    text-align: center; }
+    html body section#main-offer h2 {
+      font-size: 1.875em; }
+    html body section#main-offer p {
+      font-style: italic; }
+    html body section#main-offer ol {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      counter-reset: offer_count;
+      margin: 2em 0; }
+      html body section#main-offer ol li {
+        border-top: solid 220px transparent;
+        counter-increment: offer_count;
+        margin-bottom: 60px;
+        padding: 0.7em;
+        position: relative;
+        width: 100%; }
+        html body section#main-offer ol li::before {
+          content: counter(offer_count);
+          display: block;
+          height: 20px;
+          width: 20px;
+          background-color: #f5f5f5;
+          border: solid 1px #d3d3d3;
+          border-radius: 50%;
+          color: #d3d3d3;
+          font-weight: 400;
+          left: calc(50% - 10px);
+          margin: 0 auto;
+          position: absolute;
+          top: -45px;
+          text-align: center;
+          z-index: 2; }
+        html body section#main-offer ol li::after {
+          content: "";
+          display: block;
+          height: 0;
+          width: 0;
+          border-color: transparent transparent #e6e6e6 transparent;
+          border-style: solid;
+          border-width: 0 10px 7px 10px;
+          left: calc(50% - 10px);
+          position: absolute;
+          top: -7px; }
+        html body section#main-offer ol li#medicine {
+          background: url("images/timeline-mobile-app/medicine.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
+        html body section#main-offer ol li#app {
+          background: url("images/timeline-mobile-app/app.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
+        html body section#main-offer ol li#computer {
+          background: url("images/timeline-mobile-app/computer.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
+        html body section#main-offer ol li#sms {
+          background: url("images/timeline-mobile-app/sms.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
+        html body section#main-offer ol li#reception {
+          background: url("images/timeline-mobile-app/reception.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
+    html body section#main-offer ul.links li a {
+      background-color: #00a071;
+      color: #FFFFFF;
+      padding: 0.75em 1em;
+      text-decoration: none;
+      text-transform: uppercase; }
+    html body section#main-offer::after {
+      content: "";
+      display: block;
+      height: 250px;
+      width: 125%;
+      background: url("images/city-bkgd.svg") no-repeat;
+      background-size: cover;
+      left: -12.5%;
+      margin-top: 50px;
+      position: relative; }
+  html body section#customize {
+    background-color: #f5f5f5;
+    text-align: center; }
+    html body section#customize h2 {
+      font-size: 1.875em; }
+    html body section#customize p {
+      font-style: italic; }
+    html body section#customize dl {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      height: 680px; }
+      html body section#customize dl dt {
+        font-size: 0.875em;
+        margin-top: 3em;
+        position: relative; }
+        html body section#customize dl dt::after {
+          background-color: #00a071;
+          content: '';
+          display: block;
+          height: 2px;
+          margin: 0 auto 0;
+          width: 18px; }
+        html body section#customize dl dt::before {
+          content: "";
+          display: block;
+          height: 50px;
+          width: 50px;
+          margin: 0 auto 10px; }
+        html body section#customize dl dt::after {
+          left: calc( 50% - 9px);
+          position: absolute;
+          top: 50px; }
+        html body section#customize dl dt#image::before {
+          background: url("images/personnalisation/icon-image.svg") center 0 no-repeat; }
+        html body section#customize dl dt#colors::before {
+          background: url("images/personnalisation/icon-colors.svg") center 0 no-repeat; }
+        html body section#customize dl dt#logo::before {
+          background: url("images/personnalisation/icon-logo.svg") center 0 no-repeat; }
+        html body section#customize dl dt#theme::before {
+          background: url("images/personnalisation/icon-theme.svg") center 0 no-repeat; }
+      html body section#customize dl dd {
+        font-size: 1.25em;
+        margin-left: 0;
+        margin-top: 0.5em; }
+      html body section#customize dl dt, html body section#customize dl dd {
+        max-width: 150px; }
+  html body section#contact h2 {
+    font-size: 2.25em; }
+    html body section#contact h2::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 16px;
+      background-color: #00a071;
+      margin-top: 15px; }
+  html body section#contact dl dt {
+    color: #00a071;
+    float: left;
+    margin-right: 10px; }
+    html body section#contact dl dt::after {
+      content: ' :'; }
+    html body section#contact dl dt:first-of-type {
+      display: none; }
+  html body section#contact dl dd {
+    margin-left: 0; }
+    html body section#contact dl dd a {
+      color: inherit;
+      text-decoration: none; }
+    html body section#contact dl dd:first-of-type {
+      display: block;
+      margin-bottom: 40px; }
+    html body section#contact dl dd strong {
+      font-weight: 400; }
+  html body section#contact form {
+    margin-top: 40px; }
+    html body section#contact form label {
+      display: none; }
+    html body section#contact form input:first-of-type, html body section#contact form textarea {
+      border: solid 1px #515151;
+      box-sizing: border-box;
+      display: block;
+      font-family: inherit;
+      padding: 0.75em;
+      width: 100%; }
+    html body section#contact form textarea {
+      border-top: none;
+      min-height: 130px; }
+    html body section#contact form input:last-of-type {
+      background: transparent;
+      border: solid 1px #515151;
+      font-size: 0.7em;
+      margin-top: 20px;
+      padding: 0.75em 1em;
+      text-transform: uppercase; }
+  html body section#contact > p {
+    font-size: 0.7em;
+    font-style: italic;
+    margin-bottom: 40px;
+    text-decoration: underline; }
+  html body aside#click-to-call {
+    position: fixed;
+    right: 0;
+    top: 40%; }
+    html body aside#click-to-call.close, html body aside#click-to-call {
+      background: url("images/click-to-call.svg") center center/80% auto no-repeat, #1eb7e0;
+      height: 55px;
+      width: 55px; }
+      html body aside#click-to-call.close h2, html body aside#click-to-call h2, html body aside#click-to-call.close form, html body aside#click-to-call form {
+        display: none; }
+  html body footer {
+    background-color: #515151;
+    padding: 20px 10%; }
+    html body footer ul#social li {
+      display: inline-block;
+      font-size: 0;
+      height: 23px;
+      margin: 0 5px;
+      vertical-align: top;
+      width: 23px; }
+      html body footer ul#social li#facebook {
+        background: url("images/social-medias/icon-facebook.svg") center 0 no-repeat; }
+      html body footer ul#social li#twitter {
+        background: url("images/social-medias/icon-twitter.svg") center 0 no-repeat; }
+      html body footer ul#social li#google {
+        background: url("images/social-medias/icon-google.svg") center 0 no-repeat; }
+      html body footer ul#social li#linkedin {
+        background: url("images/social-medias/icon-linkedin.svg") center 0 no-repeat; }
+      html body footer ul#social li#scoopit {
+        background: url("images/social-medias/icon-scoopit.svg") center 0 no-repeat; }
+    html body footer ul#links {
+      color: #FFFFFF;
+      font-size: 0.7em;
+      text-align: right; }
+      html body footer ul#links li {
+        margin-top: 10px; }
+        html body footer ul#links li a {
+          color: inherit;
+          text-decoration: none; }
+
+@media screen and (max-width: 400px) {
+  html body section#guarantees ul li {
+    height: calc(65vw);
+    width: calc(65vw); } }
+
+@media screen and (min-width: 400px) and (max-width: 780px) {
+  html body section#guarantees ul li {
+    height: calc(40vw);
+    width: calc(40vw); } }
+
+@media screen and (min-width: 780px) and (max-width: 840px) {
+  html body section#guarantees ul li {
+    height: calc(26vw);
+    width: calc(26vw); } }
+
+@media screen and (min-width: 400px) and (max-width: 840px) {
+  html body section#clients ul + ul li#interne, html body section#clients ul + ul li#delivery {
+    background-size: auto 60%; }
+  html body section#clients ul + ul li#symplify, html body section#clients ul + ul li#special-order {
+    background-size: auto 50%; } }
+
+@media screen and (max-width: 840px) {
+  html body nav {
+    background-color: #00a071;
+    height: 100vh;
+    position: relative;
+    right: 0;
+    width: 100%; }
+    html body nav ul {
+      box-sizing: border-box;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 100%;
+      margin: 0;
+      padding: 15% 0; }
+      html body nav ul li {
+        width: 100%;
+        text-align: center; }
+      html body nav ul::before, html body nav ul::after {
+        content: "";
+        display: initial;
+        height: 2px;
+        width: 30px;
+        background-color: #FFFFFF;
+        position: absolute;
+        right: 10%;
+        top: 10%; }
+      html body nav ul::before {
+        transform: rotate(45deg); }
+      html body nav ul::after {
+        transform: rotate(-45deg); }
+  html body section#clients ul + ul {
+    margin: 0 auto;
+    width: 80%; } }
+
+@media screen and (min-width: 480px) {
+  html body section#customize {
+    height: 380px; } }
+
+@media screen and (min-width: 530px) {
+  html body section#main-offer ol {
+    justify-content: space-around; }
+    html body section#main-offer ol li {
+      box-sizing: border-box;
+      width: 45%; } }
+
+@media screen and (min-width: 630px) {
+  html body section#reasons ol {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative; }
+    html body section#reasons ol::before {
+      content: "";
+      display: block;
+      height: 92%;
+      width: 1px;
+      background-color: #d3d3d3;
+      left: 50%;
+      position: absolute;
+      top: 8%; }
+    html body section#reasons ol li {
+      box-sizing: border-box;
+      width: calc(50% - 24px); }
+    html body section#reasons ol li#develop, html body section#reasons ol li#loyal, html body section#reasons ol li#accompaniment {
+      background-position: right 10px center;
+      margin: 20px 30px 20px 0;
+      padding: 25px 75px 25px 20px;
+      text-align: right; }
+      html body section#reasons ol li#develop::before, html body section#reasons ol li#loyal::before, html body section#reasons ol li#accompaniment::before {
+        border-color: transparent transparent transparent #e6e6e6;
+        border-width: 10px 0 10px 7px;
+        right: -7px;
+        left: initial; }
+      html body section#reasons ol li#develop::after, html body section#reasons ol li#loyal::after, html body section#reasons ol li#accompaniment::after {
+        right: -35px;
+        left: initial; }
+    html body section#reasons ol li#expertise, html body section#reasons ol li#satisfaction, html body section#reasons ol li#cost {
+      align-self: flex-end;
+      background-position: 10px center;
+      margin: 20px 0 20px 30px;
+      padding: 25px 20px 25px 75px; }
+      html body section#reasons ol li#expertise::before, html body section#reasons ol li#satisfaction::before, html body section#reasons ol li#cost::before {
+        border-color: transparent #e6e6e6 transparent transparent;
+        border-width: 10px 7px 10px 0;
+        left: -7px; }
+      html body section#reasons ol li#expertise::after, html body section#reasons ol li#satisfaction::after, html body section#reasons ol li#cost::after {
+        left: -35px; }
+  html body section#offers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    html body section#offers > p {
+      padding: 0 20%; }
+    html body section#offers section {
+      box-sizing: border-box;
+      width: 48%; } }
+
+@media screen and (min-width: 780px) {
+  html body section#customize dl {
+    height: 200px; } }
+
+@media screen and (min-width: 840px) {
+  html body section#guarantees ul li {
+    height: calc(20vw);
+    width: calc(20vw); }
+  html body section#clients ul + ul li {
+    margin: 0;
+    width: 50%; }
+    html body section#clients ul + ul li#interne:hover {
+      background: url("images/numbers/interne.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+    html body section#clients ul + ul li#symplify:hover {
+      background: url("images/numbers/symplify.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+    html body section#clients ul + ul li#special-order:hover {
+      background: url("images/numbers/special-order.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+    html body section#clients ul + ul li#delivery:hover {
+      background: url("images/numbers/delivery.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+  html body section#clients ul + ul li#interne, html body section#clients ul + ul li#symplify, html body section#clients ul + ul li#delivery, html body section#clients ul + ul li#special-order {
+    background-size: auto 45%;
+    background-position: center 20px; }
+  html body section#clients ul + ul li#delivery, html body section#clients ul + ul li#symplify {
+    padding: 150px 10% 20px 127px; }
+    html body section#clients ul + ul li#delivery strong, html body section#clients ul + ul li#symplify strong {
+      left: 20px; }
+  html body section#clients ul + ul li#interne, html body section#clients ul + ul li#special-order {
+    padding: 150px 20px 20px calc(10% + 107px); }
+    html body section#clients ul + ul li#interne strong, html body section#clients ul + ul li#special-order strong {
+      left: 20%; } }
+
+@media screen and (min-width: 1000px) {
+  html body section#main-offer ol {
+    margin-top: 4em;
+    position: relative; }
+    html body section#main-offer ol::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 80%;
+      background-color: #d3d3d3;
+      left: 10%;
+      position: absolute;
+      top: 136px; }
+    html body section#main-offer ol li#medicine, html body section#main-offer ol li#app, html body section#main-offer ol li#computer, html body section#main-offer ol li#sms, html body section#main-offer ol li#reception {
+      background-size: auto 100px;
+      border-top: solid 170px transparent;
+      width: 18%; } }
+
+@media screen and (min-width: 1150px) {
+  html body nav ul {
+    justify-content: flex-end; }
+    html body nav ul::before {
+      content: url("images/logo-white.svg");
+      display: inline-block;
+      left: 0;
+      position: absolute;
+      width: 170px; }
+    html body nav ul li {
+      margin: 0 0.6em; } }
+
+@media screen and (min-width: 1215px) {
+  html body section#offers section {
+    width: 24%; } }
+
+/*# sourceMappingURL=style.sass.css.map */

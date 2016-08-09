@@ -1,0 +1,43 @@
+/* Mixin flexbox display */
+@mixin flexbox($flex-direction, $justify-content, $flex-wrap: wrap)
+  display: flex
+  flex-direction: $flex-direction
+  flex-wrap: $flex-wrap
+  justify-content: $justify-content
+
+/* Mixin for ::after & ::before */
+@mixin content($display, $height, $width, $content: '')
+  content: $content
+  display: $display 
+  height: $height 
+  width: $width 
+
+/* Mixin for title's strokes */
+@mixin bottom_stroke($width: 20px, $height: 2px, $margin-top: 20px)
+  &::after
+    background-color: $main-color
+    content: ''
+    display: block
+    height: $height
+    margin: $margin-top auto 0
+    width: $width
+
+/* Mixin for h2 styles*/
+@mixin h2_source_sans($margin-top: 20px, $color: $grey-1, $font-style: normal)
+  @include bottom_stroke(20px, 2px, $margin-top)
+  color: $color
+  font: $font-style 300 $title/normal 'Source Sans Pro', sans-serif
+  text-align: center
+
+/* Mixin for offer block style */
+@media screen and (max-width: 650px)
+  %hide-offer
+    ul
+      display: none
+
+    &::after
+      content: 'voir plus'
+      display: block
+      font-size: $basic-font-size
+      margin-top: 30px
+      text-decoration: underline
