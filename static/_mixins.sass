@@ -28,3 +28,8 @@
   color: $color
   font: $font-style 300 $title/normal 'Source Sans Pro', sans-serif
   text-align: center
+
+/* Mixin transitions */
+@mixin transition($transition-value, $time: 0.25s)
+  -webkit-transition: $transition-value $time
+  transition: $transition-value $time

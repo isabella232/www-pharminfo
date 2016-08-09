@@ -173,20 +173,20 @@
 
         @each $name in interne, symplify, special-order, delivery
           &##{$name}:hover
-            background: url('images/numbers/#{$name}.svg') padding-box center 20px / auto 45% no-repeat, $grey-4
+            background: url('images/numbers/#{$name}.svg') padding-box center 40px / auto 55% no-repeat, $grey-4
 
       ul + ul li#interne, ul + ul li#symplify, ul + ul li#delivery, ul + ul li#special-order
-        background-size: auto 45%
-        background-position: center 20px
+        background-size: auto 55%
+        background-position: center 40px
 
       ul + ul li#delivery, ul + ul li#symplify
-        padding: 150px 10% 20px 127px
+        padding: 280px 10% 40px 127px
 
         strong
           left: 20px
 
       ul + ul li#interne, ul + ul li#special-order
-        padding: 150px 20px 20px calc(10% + 107px)
+        padding: 280px 40px 40px calc(10% + 107px)
 
         strong
           left: 20%
@@ -205,9 +205,21 @@
         top: 136px
         
       li#medicine, li#app, li#computer, li#sms, li#reception
+        background-color: transparent
         background-size: auto 100px
         border-top: solid 170px transparent
+        color: $grey-4
         width: 18%
+
+        &::after
+          border-width: 0
+
+        &:hover
+          background-color: $grey-3
+          color: $grey-1
+
+          &::after
+            border-width: 0 10px 7px 10px
 
 @media screen and (min-width: 1150px)
   html body
@@ -231,3 +243,6 @@
   html body
     section#offers section
         width: 24%
+
+    section#main-offer::after
+      height: 320px

@@ -7,6 +7,7 @@
 /* Mixin for ::after & ::before */
 /* Mixin for title's strokes */
 /* Mixin for h2 styles*/
+/* Mixin transitions */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400);
 html body {
   color: #515151;
@@ -50,14 +51,23 @@ html body {
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center; }
-      html body nav ul li:last-of-type a {
-        border: solid 1px #FFFFFF;
-        padding: 0.4em 0.6em; }
       html body nav ul li a {
+        -webkit-transition: all 0.25s;
+        transition: all 0.25s;
+        border-bottom: solid 2px transparent;
         color: #FFFFFF;
         font-size: 1.125em;
         line-height: 2;
+        padding: 0.5em 0;
         text-decoration: none; }
+        html body nav ul li a:hover {
+          border-bottom: solid 2px #FFFFFF; }
+      html body nav ul li:last-of-type a {
+        border: solid 1px #FFFFFF;
+        padding: 0.4em 0.6em; }
+        html body nav ul li:last-of-type a:hover {
+          background-color: #FFFFFF;
+          color: #515151; }
   html body section#sales {
     display: flex;
     flex-direction: column;
@@ -89,11 +99,17 @@ html body {
     html body section#sales ul {
       margin-top: 40px; }
       html body section#sales ul li a {
+        -webkit-transition: all 0.25s;
+        transition: all 0.25s;
         background-color: #FFFFFF;
         color: inherit;
         font-weight: 400;
         text-decoration: none;
         padding: 0.5em 1em; }
+        html body section#sales ul li a:hover {
+          background-color: #00a071;
+          color: #FFFFFF;
+          padding: 1em 2em; }
   html body section#about h2 {
     color: #00a071;
     font: italic 300 2.25em/normal "Source Sans Pro", sans-serif;
@@ -189,8 +205,9 @@ html body {
     text-align: center; }
   html body section#reasons ol {
     counter-reset: reasons;
-    margin: 20px 10% 0;
-    padding-bottom: 40px; }
+    margin: 20px auto 0;
+    max-width: 700px;
+    padding: 0 10% 40px; }
     html body section#reasons ol li {
       counter-increment: reasons;
       margin: 20px 0 20px 30px;
@@ -281,6 +298,9 @@ html body {
     html body section#offers > p {
       font-style: italic; }
     html body section#offers section {
+      -webkit-transition: border 0.25s;
+      transition: border 0.25s;
+      box-sizing: border-box;
       margin: 20px 0;
       padding: 2em 1.5em; }
       html body section#offers section h3 {
@@ -304,16 +324,24 @@ html body {
           margin: 1em; }
           html body section#offers section ul:first-of-type li.disabled {
             opacity: 0.5; }
-      html body section#offers section ul.links li a {
-        border: solid 1px;
-        color: inherit;
-        font-size: 0.75em;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        text-transform: uppercase; }
+      html body section#offers section ul.links {
+        margin-top: 50px; }
+        html body section#offers section ul.links li a {
+          -webkit-transition: all 0.25s;
+          transition: all 0.25s;
+          border: solid 1px;
+          color: inherit;
+          font-size: 0.75em;
+          padding: 0.5em 1em;
+          text-decoration: none;
+          text-transform: uppercase; }
+          html body section#offers section ul.links li a:hover {
+            padding: 1em 2em; }
       html body section#offers section#ecoweb, html body section#offers section#flexiweb, html body section#offers section#optiweb {
         background-color: #FFFFFF;
         border: solid 3px #f5f5f5; }
+        html body section#offers section#ecoweb:hover, html body section#offers section#flexiweb:hover, html body section#offers section#optiweb:hover {
+          border: solid 3px #e6e6e6; }
         html body section#offers section#ecoweb ul.links li a, html body section#offers section#flexiweb ul.links li a, html body section#offers section#optiweb ul.links li a {
           border-color: #515151; }
       html body section#offers section#flexiweb-plus {
@@ -394,18 +422,21 @@ html body {
         html body section#main-offer ol li#reception {
           background: url("images/timeline-mobile-app/reception.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
     html body section#main-offer ul.links li a {
+      -webkit-transition: padding 0.25s;
+      transition: padding 0.25s;
       background-color: #00a071;
       color: #FFFFFF;
       padding: 0.75em 1em;
       text-decoration: none;
       text-transform: uppercase; }
+      html body section#main-offer ul.links li a:hover {
+        padding: 1.5em 2em; }
     html body section#main-offer::after {
       content: "";
       display: block;
       height: 250px;
       width: 125%;
-      background: url("images/city-bkgd.svg") no-repeat;
-      background-size: cover;
+      background: url("images/city-bkgd.svg") center/auto 100% no-repeat;
       left: -12.5%;
       margin-top: 50px;
       position: relative; }
@@ -502,6 +533,7 @@ html body {
     html body section#contact form input:last-of-type {
       background: transparent;
       border: solid 1px #515151;
+      cursor: pointer;
       font-size: 0.7em;
       margin-top: 20px;
       padding: 0.75em 1em;
@@ -698,22 +730,22 @@ html body {
     margin: 0;
     width: 50%; }
     html body section#clients ul + ul li#interne:hover {
-      background: url("images/numbers/interne.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+      background: url("images/numbers/interne.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
     html body section#clients ul + ul li#symplify:hover {
-      background: url("images/numbers/symplify.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+      background: url("images/numbers/symplify.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
     html body section#clients ul + ul li#special-order:hover {
-      background: url("images/numbers/special-order.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+      background: url("images/numbers/special-order.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
     html body section#clients ul + ul li#delivery:hover {
-      background: url("images/numbers/delivery.svg") padding-box center 20px/auto 45% no-repeat, #f5f5f5; }
+      background: url("images/numbers/delivery.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
   html body section#clients ul + ul li#interne, html body section#clients ul + ul li#symplify, html body section#clients ul + ul li#delivery, html body section#clients ul + ul li#special-order {
-    background-size: auto 45%;
-    background-position: center 20px; }
+    background-size: auto 55%;
+    background-position: center 40px; }
   html body section#clients ul + ul li#delivery, html body section#clients ul + ul li#symplify {
-    padding: 150px 10% 20px 127px; }
+    padding: 280px 10% 40px 127px; }
     html body section#clients ul + ul li#delivery strong, html body section#clients ul + ul li#symplify strong {
       left: 20px; }
   html body section#clients ul + ul li#interne, html body section#clients ul + ul li#special-order {
-    padding: 150px 20px 20px calc(10% + 107px); }
+    padding: 280px 40px 40px calc(10% + 107px); }
     html body section#clients ul + ul li#interne strong, html body section#clients ul + ul li#special-order strong {
       left: 20%; } }
 
@@ -731,9 +763,18 @@ html body {
       position: absolute;
       top: 136px; }
     html body section#main-offer ol li#medicine, html body section#main-offer ol li#app, html body section#main-offer ol li#computer, html body section#main-offer ol li#sms, html body section#main-offer ol li#reception {
+      background-color: transparent;
       background-size: auto 100px;
       border-top: solid 170px transparent;
-      width: 18%; } }
+      color: #f5f5f5;
+      width: 18%; }
+      html body section#main-offer ol li#medicine::after, html body section#main-offer ol li#app::after, html body section#main-offer ol li#computer::after, html body section#main-offer ol li#sms::after, html body section#main-offer ol li#reception::after {
+        border-width: 0; }
+      html body section#main-offer ol li#medicine:hover, html body section#main-offer ol li#app:hover, html body section#main-offer ol li#computer:hover, html body section#main-offer ol li#sms:hover, html body section#main-offer ol li#reception:hover {
+        background-color: #e6e6e6;
+        color: #515151; }
+        html body section#main-offer ol li#medicine:hover::after, html body section#main-offer ol li#app:hover::after, html body section#main-offer ol li#computer:hover::after, html body section#main-offer ol li#sms:hover::after, html body section#main-offer ol li#reception:hover::after {
+          border-width: 0 10px 7px 10px; } }
 
 @media screen and (min-width: 1150px) {
   html body nav ul {
@@ -751,7 +792,9 @@ html body {
 
 @media screen and (min-width: 1215px) {
   html body section#offers section {
-    width: 24%; } }
+    width: 24%; }
+  html body section#main-offer::after {
+    height: 320px; } }
 
 /* Class for offer block style */
 @media screen and (max-width: 650px) {
@@ -767,6 +810,8 @@ html body {
 /* Class for offer block style */
 @media screen and (min-width: 840px) {
   html body section#guarantees ul li {
+    -webkit-transition: font-size 0.25s;
+    transition: font-size 0.25s;
     background-color: transparent;
     font-size: 0; }
     html body section#guarantees ul li::before {

@@ -41,15 +41,25 @@ html
         align-items: center
         
         li
-          &:last-of-type a
-            border: solid 1px $white
-            padding: 0.4em 0.6em
-          
           a
+            @include transition(all)
+            border-bottom: solid 2px transparent
             color: $white
             font-size: 1.125em
             line-height: 2
+            padding: 0.5em 0
             text-decoration: none
+
+            &:hover
+              border-bottom: solid 2px $white
+
+          &:last-of-type a
+            border: solid 1px $white
+            padding: 0.4em 0.6em
+
+            &:hover
+              background-color: $white
+              color: $grey-1
 
     /* Styles page d'accueil */        
     section#sales
@@ -78,11 +88,17 @@ html
         margin-top: 40px
 
         li a
+          @include transition(all) 
           background-color: $white
           color: inherit
           font-weight: 400
           text-decoration: none
           padding: 0.5em 1em
+
+          &:hover
+            background-color: $main-color
+            color: $white
+            padding: 1em 2em
 
     section#about
       h2
@@ -157,9 +173,9 @@ html
 
       ol
         counter-reset: reasons
-        margin: 20px 10% 0
+        margin: 20px auto 0
         max-width: 700px
-        padding-bottom: 40px
+        padding: 0 10% 40px
 
         li
           counter-increment: reasons
@@ -240,6 +256,8 @@ html
         font-style: italic
 
       section
+        @include transition(border)
+        box-sizing: border-box
         margin: 20px 0
         padding: 2em 1.5em
 
@@ -271,19 +289,28 @@ html
             &.disabled
               opacity: 0.5
 
-        ul.links li a
-          border: solid 1px
-          color: inherit
-          font-size: 0.75em
-          padding: 0.5em 1em
-          text-decoration: none
-          text-transform: uppercase
+        ul.links
+          margin-top: 50px
+
+          li a
+            @include transition(all)
+            border: solid 1px
+            color: inherit
+            font-size: 0.75em
+            padding: 0.5em 1em
+            text-decoration: none
+            text-transform: uppercase
+
+            &:hover
+              padding: 1em 2em
 
         &#ecoweb, &#flexiweb, &#optiweb
           @extend %hide-offer
           background-color: $white
           border: solid 3px $grey-4
-        
+
+          &:hover
+            border: solid 3px $grey-3
 
           ul.links li a
             border-color: $grey-1
@@ -330,7 +357,7 @@ html
           counter-increment: offer_count
           margin-bottom: 60px
           padding: 0.7em
-          position: relative          
+          position: relative
           width: 100%
 
           &::before
@@ -361,16 +388,19 @@ html
               background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-3
 
       ul.links li a
+        @include transition(padding)
         background-color: $main-color
         color: $white
         padding: 0.75em 1em
         text-decoration: none
         text-transform: uppercase
 
+        &:hover
+          padding: 1.5em 2em
+
       &::after
         @include content(block, 250px, 125%)
-        background: url('images/city-bkgd.svg') no-repeat
-        background-size: cover
+        background: url('images/city-bkgd.svg') center / auto 100% no-repeat
         left: -12.5%
         margin-top: 50px
         position: relative
@@ -473,6 +503,7 @@ html
         input:last-of-type
           background: transparent
           border: solid 1px $grey-1
+          cursor: pointer
           font-size: 0.7em
           margin-top: 20px
           padding: 0.75em 1em
