@@ -39,7 +39,7 @@ html
       ul
         @include flexbox(row, space-between)
         align-items: center
-        
+
         li
           a
             @include transition(all)
@@ -61,7 +61,7 @@ html
               background-color: $white
               color: $grey-1
 
-    /* Styles page d'accueil */        
+    /* Styles page d'accueil */
     section#sales
       @include flexbox(column, center)
       background: url('images/pharminfo-presentation.jpg') no-repeat center/cover
@@ -88,7 +88,7 @@ html
         margin-top: 40px
 
         li a
-          @include transition(all) 
+          @include transition(all)
           background-color: $white
           color: inherit
           font-weight: 400
@@ -185,14 +185,14 @@ html
           text-align: left
 
           &::before
-            @include content(inline-block, 0, 0)  
+            @include content(inline-block, 0, 0)
             border-color: transparent $grey-3 transparent transparent
             border-style: solid
             border-width: 10px 7px 10px 0
             position: absolute
             left: -7px
             top: calc(50% - 10px)
-            
+
           &::after
             @include content(initial, 20px, 20px, counter(reasons))
             background-color: $white
@@ -207,7 +207,7 @@ html
 
           @each $name in develop, expertise, loyal, satisfaction, accompaniment, cost
             &##{$name}
-              background: url('images/choose/icon-#{$name}.svg') 10px center / 50px no-repeat, $grey-3        
+              background: url('images/choose/icon-#{$name}.svg') 10px center / 50px no-repeat, $grey-3
 
     section#clients
       padding: 0 10%
@@ -285,7 +285,7 @@ html
           li
             font-size: $basic-font-size
             margin: 1em
-            
+
             &.disabled
               opacity: 0.5
 
@@ -429,7 +429,7 @@ html
           &::before
             @include content(block, 50px, 50px)
             margin: 0 auto 10px
-            
+
           &::after
             left: calc( 50% - 9px )
             position: absolute
