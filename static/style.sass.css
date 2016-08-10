@@ -22,7 +22,7 @@ html body {
     padding-left: 0; }
   html body *:not(strong) {
     font-weight: 300; }
-  html body section:not(#reasons):not(#clients):not(#ecoweb):not(#flexiweb):not(#flexiweb-plus):not(#optiweb) {
+  html body section:not(#news):not(#reasons):not(#clients):not(#ecoweb):not(#flexiweb):not(#flexiweb-plus):not(#optiweb) {
     padding: 60px 10%; }
   html body #goals h2, html body #guarantees h2, html body #reasons h2, html body #offers h2 {
     color: #515151;
@@ -35,6 +35,17 @@ html body {
       height: 2px;
       margin: 20px auto 0;
       width: 20px; }
+  html body #news ul li a, html body #offers ul.links li a {
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    border: solid 1px;
+    color: inherit;
+    font-size: 0.75em;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    text-transform: uppercase; }
+    html body #news ul li a:hover, html body #offers ul.links li a:hover {
+      padding: 1em 2em; }
   html body header {
     background-color: #00a071;
     font-size: 0;
@@ -121,38 +132,59 @@ html body {
       height: 2px;
       margin: 30px auto 0;
       width: 20px; }
-  html body #news article {
-    height: 250px;
-    overflow: hidden;
-    position: relative;
+  html body #news {
+    display: table;
+    table-layout: fixed;
     width: 100%; }
-    html body #news article h3 {
-      background-color: #FFFFFF;
-      border-bottom: solid 1px #00a071;
-      bottom: 0;
-      left: 0;
-      margin: 0;
-      padding: 0.75em;
-      position: absolute;
-      right: 0;
-      z-index: 10; }
-    html body #news article img {
-      opacity: 0.5;
+    html body #news h2 {
+      display: none; }
+    html body #news article {
+      display: table-cell;
+      height: 250px;
+      overflow: hidden;
+      position: relative;
       width: 100%; }
-    html body #news article p {
-      left: 0;
+      html body #news article h3 {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-bottom: solid 1px #00a071;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 0.75em;
+        position: absolute;
+        right: 0;
+        z-index: 10; }
+      html body #news article img {
+        left: 50%;
+        min-height: 100%;
+        min-width: 100%;
+        opacity: 0.5;
+        position: absolute;
+        transform: translateX(-50%); }
+      html body #news article a {
+        bottom: 0;
+        font-size: 0;
+        left: 0;
+        margin: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 20; }
+    html body #news ul {
+      background: #e6e6e6;
+      display: table-cell;
       margin: 0;
-      position: absolute;
-      right: 0;
-      text-align: center;
-      bottom: 50%; }
-      html body #news article p a {
-        background-color: #00a071;
-        color: #FFFFFF;
-        margin-top: -50%;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        vertical-align: middle; }
+      min-height: 100px;
+      position: relative; }
+      html body #news ul li {
+        left: 0;
+        margin: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        bottom: 50%; }
+        html body #news ul li a {
+          border-color: #515151; }
   html body #goals {
     background-color: #f5f5f5; }
     html body #goals ul {
@@ -356,17 +388,6 @@ html body {
             opacity: 0.5; }
       html body #offers section ul.links {
         margin-top: 50px; }
-        html body #offers section ul.links li a {
-          -webkit-transition: all 0.25s;
-          transition: all 0.25s;
-          border: solid 1px;
-          color: inherit;
-          font-size: 0.75em;
-          padding: 0.5em 1em;
-          text-decoration: none;
-          text-transform: uppercase; }
-          html body #offers section ul.links li a:hover {
-            padding: 1em 2em; }
       html body #offers section#ecoweb, html body #offers section#flexiweb, html body #offers section#optiweb {
         background-color: #FFFFFF;
         border: solid 3px #f5f5f5; }
@@ -614,24 +635,24 @@ html body {
           text-decoration: none; }
 
 @media screen and (max-width: 400px) {
-  html body section#guarantees ul li {
+  html body #guarantees ul li {
     height: calc(65vw);
     width: calc(65vw); } }
 
 @media screen and (min-width: 400px) and (max-width: 780px) {
-  html body section#guarantees ul li {
+  html body #guarantees ul li {
     height: calc(40vw);
     width: calc(40vw); } }
 
 @media screen and (min-width: 780px) and (max-width: 840px) {
-  html body section#guarantees ul li {
+  html body #guarantees ul li {
     height: calc(26vw);
     width: calc(26vw); } }
 
 @media screen and (min-width: 400px) and (max-width: 840px) {
-  html body section#clients ul + ul li#interne, html body section#clients ul + ul li#delivery {
+  html body #clients ul + ul li#interne, html body #clients ul + ul li#delivery {
     background-size: auto 60%; }
-  html body section#clients ul + ul li#symplify, html body section#clients ul + ul li#special-order {
+  html body #clients ul + ul li#symplify, html body #clients ul + ul li#special-order {
     background-size: auto 50%; } }
 
 @media screen and (max-width: 840px) {
@@ -665,29 +686,29 @@ html body {
         transform: rotate(45deg); }
       html body nav ul::after {
         transform: rotate(-45deg); }
-  html body section#clients ul + ul {
+  html body #clients ul + ul {
     margin: 0 auto;
     width: 80%; } }
 
 @media screen and (min-width: 480px) {
-  html body section#customize dl {
+  html body #customize dl {
     height: 380px; } }
 
 @media screen and (min-width: 530px) {
-  html body section#main-offer ol {
+  html body #main-offer ol {
     justify-content: space-around; }
-    html body section#main-offer ol li {
+    html body #main-offer ol li {
       box-sizing: border-box;
       width: 45%; } }
 
 @media screen and (min-width: 630px) {
-  html body section#reasons ol {
+  html body #reasons ol {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
     position: relative; }
-    html body section#reasons ol::before {
+    html body #reasons ol::before {
       content: "";
       display: block;
       height: 92%;
@@ -696,46 +717,48 @@ html body {
       left: 50%;
       position: absolute;
       top: 8%; }
-    html body section#reasons ol li {
+    html body #reasons ol li {
       box-sizing: border-box;
       width: calc(50% - 24px); }
-    html body section#reasons ol li#develop, html body section#reasons ol li#loyal, html body section#reasons ol li#accompaniment {
+    html body #reasons ol li#develop, html body #reasons ol li#loyal, html body #reasons ol li#accompaniment {
       background-position: right 10px center;
       margin: 20px 30px 20px 0;
       padding: 25px 75px 25px 20px;
       text-align: right; }
-      html body section#reasons ol li#develop::before, html body section#reasons ol li#loyal::before, html body section#reasons ol li#accompaniment::before {
+      html body #reasons ol li#develop::before, html body #reasons ol li#loyal::before, html body #reasons ol li#accompaniment::before {
         border-color: transparent transparent transparent #e6e6e6;
         border-width: 10px 0 10px 7px;
         right: -7px;
         left: initial; }
-      html body section#reasons ol li#develop::after, html body section#reasons ol li#loyal::after, html body section#reasons ol li#accompaniment::after {
+      html body #reasons ol li#develop::after, html body #reasons ol li#loyal::after, html body #reasons ol li#accompaniment::after {
         right: -35px;
         left: initial; }
-    html body section#reasons ol li#expertise, html body section#reasons ol li#satisfaction, html body section#reasons ol li#cost {
+    html body #reasons ol li#expertise, html body #reasons ol li#satisfaction, html body #reasons ol li#cost {
       align-self: flex-end;
       background-position: 10px center;
       margin: 20px 0 20px 30px;
       padding: 25px 20px 25px 75px; }
-      html body section#reasons ol li#expertise::before, html body section#reasons ol li#satisfaction::before, html body section#reasons ol li#cost::before {
+      html body #reasons ol li#expertise::before, html body #reasons ol li#satisfaction::before, html body #reasons ol li#cost::before {
         border-color: transparent #e6e6e6 transparent transparent;
         border-width: 10px 7px 10px 0;
         left: -7px; }
-      html body section#reasons ol li#expertise::after, html body section#reasons ol li#satisfaction::after, html body section#reasons ol li#cost::after {
+      html body #reasons ol li#expertise::after, html body #reasons ol li#satisfaction::after, html body #reasons ol li#cost::after {
         left: -35px; }
-  html body section#offers {
+  html body #offers {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between; }
-    html body section#offers > p {
+    html body #offers > p {
       padding: 0 20%; }
-    html body section#offers section {
+    html body #offers section {
       box-sizing: border-box;
       width: 48%; } }
 
 @media screen and (min-width: 780px) {
-  html body section#customize dl {
+  html body #news article {
+    width: 25%; }
+  html body #customize dl {
     height: 200px; }
   html body footer ul {
     display: inline-block;
@@ -753,37 +776,43 @@ html body {
       vertical-align: middle; } }
 
 @media screen and (min-width: 840px) {
-  html body section#guarantees ul li {
+  html body #news article h3 {
+    -webkit-transition: bottom 0.5s;
+    transition: bottom 0.5s;
+    bottom: -300px; }
+  html body #news article:hover h3 {
+    bottom: 0; }
+  html body #guarantees ul li {
     height: calc(19vw);
     width: calc(19vw); }
-  html body section#clients ul + ul li {
+  html body #clients ul + ul li {
     margin: 0;
     width: 50%; }
-    html body section#clients ul + ul li#interne:hover {
+    html body #clients ul + ul li#interne:hover {
       background: url("images/numbers/interne.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
-    html body section#clients ul + ul li#symplify:hover {
+    html body #clients ul + ul li#symplify:hover {
       background: url("images/numbers/symplify.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
-    html body section#clients ul + ul li#special-order:hover {
+    html body #clients ul + ul li#special-order:hover {
       background: url("images/numbers/special-order.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
-    html body section#clients ul + ul li#delivery:hover {
+    html body #clients ul + ul li#delivery:hover {
       background: url("images/numbers/delivery.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
-  html body section#clients ul + ul li#interne, html body section#clients ul + ul li#symplify, html body section#clients ul + ul li#delivery, html body section#clients ul + ul li#special-order {
+  html body #clients ul + ul li#interne, html body #clients ul + ul li#symplify, html body #clients ul + ul li#delivery, html body #clients ul + ul li#special-order {
     background-size: auto 55%;
     background-position: center 40px; }
-  html body section#clients ul + ul li#delivery, html body section#clients ul + ul li#symplify {
+  html body #clients ul + ul li#delivery, html body #clients ul + ul li#symplify {
     padding: 280px 10% 40px 127px; }
-    html body section#clients ul + ul li#delivery strong, html body section#clients ul + ul li#symplify strong {
+    html body #clients ul + ul li#delivery strong, html body #clients ul + ul li#symplify strong {
       left: 20px; }
-  html body section#clients ul + ul li#interne, html body section#clients ul + ul li#special-order {
+  html body #clients ul + ul li#interne, html body #clients ul + ul li#special-order {
     padding: 280px 40px 40px calc(10% + 107px); }
-    html body section#clients ul + ul li#interne strong, html body section#clients ul + ul li#special-order strong {
+    html body #clients ul + ul li#interne strong, html body #clients ul + ul li#special-order strong {
       left: 20%; } }
 
 @media screen and (min-width: 1000px) {
-  html body section#main-offer ol {
+  html body #main-offer ol {
     margin-top: 4em;
     position: relative; }
-    html body section#main-offer ol::after {
+    html body #main-offer ol::after {
       content: "";
       display: block;
       height: 1px;
@@ -792,18 +821,18 @@ html body {
       left: 10%;
       position: absolute;
       top: 136px; }
-    html body section#main-offer ol li#medicine, html body section#main-offer ol li#app, html body section#main-offer ol li#computer, html body section#main-offer ol li#sms, html body section#main-offer ol li#reception {
+    html body #main-offer ol li#medicine, html body #main-offer ol li#app, html body #main-offer ol li#computer, html body #main-offer ol li#sms, html body #main-offer ol li#reception {
       background-color: transparent;
       background-size: auto 100px;
       border-top: solid 170px transparent;
       color: #f5f5f5;
       width: 18%; }
-      html body section#main-offer ol li#medicine::after, html body section#main-offer ol li#app::after, html body section#main-offer ol li#computer::after, html body section#main-offer ol li#sms::after, html body section#main-offer ol li#reception::after {
+      html body #main-offer ol li#medicine::after, html body #main-offer ol li#app::after, html body #main-offer ol li#computer::after, html body #main-offer ol li#sms::after, html body #main-offer ol li#reception::after {
         border-width: 0; }
-      html body section#main-offer ol li#medicine:hover, html body section#main-offer ol li#app:hover, html body section#main-offer ol li#computer:hover, html body section#main-offer ol li#sms:hover, html body section#main-offer ol li#reception:hover {
+      html body #main-offer ol li#medicine:hover, html body #main-offer ol li#app:hover, html body #main-offer ol li#computer:hover, html body #main-offer ol li#sms:hover, html body #main-offer ol li#reception:hover {
         background-color: #e6e6e6;
         color: #515151; }
-        html body section#main-offer ol li#medicine:hover::after, html body section#main-offer ol li#app:hover::after, html body section#main-offer ol li#computer:hover::after, html body section#main-offer ol li#sms:hover::after, html body section#main-offer ol li#reception:hover::after {
+        html body #main-offer ol li#medicine:hover::after, html body #main-offer ol li#app:hover::after, html body #main-offer ol li#computer:hover::after, html body #main-offer ol li#sms:hover::after, html body #main-offer ol li#reception:hover::after {
           border-width: 0 10px 7px 10px; } }
 
 @media screen and (min-width: 1150px) {
@@ -817,13 +846,13 @@ html body {
       width: 170px; }
     html body nav ul li {
       margin: 0 0.6em; }
-  html body section#goals ul li {
+  html body #goals ul li {
     width: 30%; } }
 
 @media screen and (min-width: 1215px) {
-  html body section#offers section {
+  html body #offers section {
     width: 24%; }
-  html body section#main-offer::after {
+  html body #main-offer::after {
     height: 320px; } }
 
 /* Class for offer block style */

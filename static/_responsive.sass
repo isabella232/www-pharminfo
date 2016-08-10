@@ -1,24 +1,24 @@
 @media screen and (max-width: 400px)
   html body
-    section#guarantees ul li
+    #guarantees ul li
       height: calc(65vw)
       width: calc(65vw)
 
 @media screen and (min-width: 400px) and (max-width: 780px)
   html body
-    section#guarantees ul li
+    #guarantees ul li
       height: calc(40vw)
       width: calc(40vw)
 
 @media screen and (min-width: 780px) and (max-width: 840px)
   html body
-    section#guarantees ul li
+    #guarantees ul li
       height: calc(26vw)
       width: calc(26vw)
 
 @media screen and (min-width: 400px) and (max-width: 840px)
   html body
-    section#clients
+    #clients
       ul + ul li#interne, ul + ul li#delivery
         background-size: auto 60%
 
@@ -58,9 +58,9 @@
           transform: rotate(45deg)
 
         &::after
-          transform: rotate(-45deg)      
+          transform: rotate(-45deg)
 
-    section#clients
+    #clients
       ul + ul
         margin: 0 auto
         width: 80%
@@ -68,13 +68,13 @@
 @media screen and (min-width: 480px)
 
   html body
-    section#customize 
+    #customize 
       dl
         height: 380px
 
 @media screen and (min-width: 530px)
   html body
-    section#main-offer ol
+    #main-offer ol
       justify-content: space-around
 
       li
@@ -83,7 +83,7 @@
 
 @media screen and (min-width: 630px)
   html body
-    section#reasons
+    #reasons
       ol
         @include flexbox(column, flex-start)
         position: relative
@@ -129,7 +129,7 @@
           &::after
             left: -35px
 
-    section#offers
+    #offers
       @include flexbox(row, space-between)
 
       > p
@@ -141,7 +141,10 @@
 
 @media screen and (min-width: 780px)
   html body
-    section#customize
+    #news article
+      width: 25%
+
+    #customize
       dl
         height: 200px
 
@@ -162,11 +165,19 @@
 
 @media screen and (min-width: 840px)
   html body
-    section#guarantees ul li
+    #news article 
+      h3
+        @include transition(bottom, 0.5s)
+        bottom: -300px
+
+      &:hover h3
+        bottom: 0
+
+    #guarantees ul li
       height: calc(19vw)
       width: calc(19vw)
 
-    section#clients
+    #clients
       ul + ul li
         margin: 0
         width: 50%
@@ -193,7 +204,7 @@
 
 @media screen and (min-width: 1000px)
   html body
-    section#main-offer ol
+    #main-offer ol
       margin-top: 4em
       position: relative
 
@@ -236,13 +247,13 @@
       li
         margin: 0 0.6em
 
-    section#goals ul li
+    #goals ul li
       width: 30%
 
 @media screen and (min-width: 1215px)
   html body
-    section#offers section
+    #offers section
         width: 24%
 
-    section#main-offer::after
+    #main-offer::after
       height: 320px
