@@ -16,7 +16,7 @@
       height: calc(26vw)
       width: calc(26vw)
 
-@media screen and (min-width: 400px) and (max-width: 840px)
+@media screen and (min-width: 400px) and (max-width: 839px)
   html body
     #clients
       ul + ul li#interne, ul + ul li#delivery
@@ -25,45 +25,29 @@
       ul + ul li#symplify, ul + ul li#special-order
         background-size: auto 50%
 
-@media screen and (max-width: 840px)
-  html body
-    nav
-      background-color: $main-color
-      height: 100vh
-      position: relative
-      right: 0
-      top: 0
-      width: 100%
+@media screen and (max-width: 839px)
+  nav ul
+    background-color: $main-color
+    flex-direction: column
+    height: 100vh
+    margin: 0
+    padding: calc(10vh) 0
+    position: inherit
+    width: 100%
 
-      ul
-        box-sizing: border-box
-        flex-direction: column
-        flex-wrap: wrap
-        height: 100%
-        margin: 0
-        padding: 15% 0
+    &::before
+      color: white
+      content: '×'
+      font-size: 4em
+      line-height: 1ex
+      position: absolute
+      right: 10%
+      top: 10%
 
-        li
-          width: 100%
-          text-align: center
-
-        &::before, &::after
-          @include content(initial, 2px, 30px)
-          background-color: $white
-          position: absolute
-          right: 10%
-          top: 10%
-
-        &::before
-          transform: rotate(45deg)
-
-        &::after
-          transform: rotate(-45deg)
-
-    #clients
-      ul + ul
-        margin: 0 auto
-        width: 80%
+  #clients
+    ul + ul
+      margin: 0 auto
+      width: 80%
 
 @media screen and (min-width: 480px)
 
@@ -83,6 +67,12 @@
       li
         box-sizing: border-box
         width: 45%
+
+@media screen and (min-width: 560px)
+  #goals ul li
+    box-sizing: border-box
+    width: 45%
+
 
 @media screen and (min-width: 630px)
   html body
