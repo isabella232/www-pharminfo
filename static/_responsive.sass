@@ -74,6 +74,9 @@
 
 @media screen and (min-width: 530px)
   html body
+    #news article
+      display: table-cell
+
     #main-offer ol
       justify-content: space-around
 
@@ -141,8 +144,12 @@
 
 @media screen and (min-width: 780px)
   html body
-    #news article
+    #news article, #news ul
       width: 25%
+
+    #news ul
+      display: table-cell
+      caption-side: initial
 
     #customize
       dl
