@@ -24,18 +24,6 @@ body > section:not(#news):not(#reasons):not(#clients)
   h2
     @include h2_source_sans
 
-#news ul li a, #offers ul.links li a
-  @include transition(all)
-  border: solid 1px
-  color: inherit
-  font-size: 0.75em
-  padding: 0.5em 1em
-  text-decoration: none
-  text-transform: uppercase
-
-  &:hover
-    padding: 1em 2em
-
 /* Styles menu */
 header
   display: none
@@ -171,6 +159,7 @@ nav ul
       top: 50%
 
       a
+        @include cta
         border-color: $grey-1
 
 #goals
@@ -193,6 +182,19 @@ nav ul
         color: $main-color
         display: block
         font-size: $subtitle
+
+@keyframes content-fadein
+  0%
+    color: $grey-4
+    font-size: 0
+
+  60%
+    color: $grey-4
+    font-size: $basic-font-size
+
+  100%
+    color: $grey-1
+    font-size: $basic-font-size
 
 #guarantees
   ul
@@ -237,19 +239,11 @@ nav ul
     padding: 0 10% 3em
 
     li
+      @include triangle(-7px, inherit, calc(50% - 10px), 0)
       counter-increment: reasons
       margin: 1.2em 0 1.2em 1.5em
       padding: 1.5em 1.5em 1.5em calc(1.5em + 50px)
       position: relative
-
-      &::before
-        @include content(inline-block, 0, 0)
-        border-color: transparent $grey-3 transparent transparent
-        border-style: solid
-        border-width: 10px 7px 10px 0
-        position: absolute
-        left: -7px
-        top: calc(50% - 10px)
 
       &::after
         @include content(initial, 1.2em, 1.2em, counter(reasons))
@@ -357,6 +351,7 @@ nav ul
         border: solid 3px $grey-3
 
       ul.links li a
+        @include cta
         border-color: $grey-1
 
     &#flexiweb-plus
@@ -397,6 +392,7 @@ nav ul
     margin: 2em 0
 
     li
+      @include triangle(calc(50% - 4px), inherit, -13px, 90deg)
       border-top: solid 220px transparent
       counter-increment: offer_count
       margin-bottom: 3em
@@ -404,7 +400,7 @@ nav ul
       position: relative
       width: 100%
 
-      &::before
+      &::after
         @include content(block, 20px, 20px, counter(offer_count))
         background-color: $grey-4
         border: solid 1px $grey-2
@@ -416,15 +412,6 @@ nav ul
         position: absolute
         top: -2.5em
         z-index: 2
-
-      &::after
-        @include content(block, 0, 0)
-        border-color: transparent transparent $grey-3 transparent
-        border-style: solid
-        border-width: 0 10px 7px 10px
-        left: calc(50% - 10px)
-        position: absolute
-        top: -7px
 
       @each $name in medicine, app, computer, sms, reception
         &##{$name}

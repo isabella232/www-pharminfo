@@ -75,16 +75,11 @@
       width: calc(50% - 1.5em)
 
       &#develop, &#loyal, &#accompaniment
+        @include triangle( inherit, -7px, calc(50% - 10px), 180deg)
         background-position: right 10px center
         margin: 1.2em 1.5em 1.2em 0
         padding: 1.5em calc(1.5em + 50px) 1.5em 1.5em
         text-align: right
-
-        &::before
-          border-color: transparent transparent transparent $grey-3
-          border-width: 10px 0 10px 7px
-          left: initial
-          right: -7px
 
         &::after
           right: -35px
@@ -171,15 +166,15 @@
         color: $grey-4
         width: 18%
 
-        &::after
+        &::before
           border-width: 0
 
         &:hover
           background-color: $grey-3
           color: $grey-1
 
-          &::after
-            border-width: 0 10px 7px 10px
+          &::before
+            border-width: 10px 7px 10px 0
 
 @media screen and (min-width: 1150px)
   nav ul
