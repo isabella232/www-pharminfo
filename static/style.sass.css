@@ -101,7 +101,7 @@ nav ul {
     color: #FFFFFF;
     font-size: 2.8em;
     font-weight: 400;
-    margin: 0.7em auto 0;
+    margin: 0.7em auto;
     max-width: 15em;
     text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.4); }
     #sales h2::after {
@@ -223,10 +223,6 @@ nav ul {
         color: #00a071;
         display: block;
         font-size: 1.25em; }
-  @media screen and (min-width: 560px) {
-    #goals ul li {
-      box-sizing: border-box;
-      width: 45%; } }
 
 #guarantees ul {
   display: flex;
@@ -279,15 +275,14 @@ nav ul {
 
 #reasons ol {
   counter-reset: reasons;
-  margin: 20px auto 0;
-  max-width: 700px;
-  padding: 0 10% 40px; }
+  margin: 1.2em auto 0;
+  max-width: 45em;
+  padding: 0 10% 3em; }
   #reasons ol li {
     counter-increment: reasons;
-    margin: 20px 0 20px 30px;
-    padding: 20px 20px 20px 75px;
-    position: relative;
-    text-align: left; }
+    margin: 1.2em 0 1.2em 1.5em;
+    padding: 1.5em 1.5em 1.5em calc(1.5em + 50px);
+    position: relative; }
     #reasons ol li::before {
       content: "";
       display: inline-block;
@@ -302,8 +297,8 @@ nav ul {
     #reasons ol li::after {
       content: counter(reasons);
       display: initial;
-      height: 20px;
-      width: 20px;
+      height: 1.2em;
+      width: 1.2em;
       background-color: #FFFFFF;
       border: solid 1px #d3d3d3;
       border-radius: 50%;
@@ -314,17 +309,17 @@ nav ul {
       position: absolute;
       left: -35px; }
     #reasons ol li#develop {
-      background: url("images/choose/icon-develop.svg") 10px center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-develop.svg") 0.75em center/50px no-repeat, #e6e6e6; }
     #reasons ol li#expertise {
-      background: url("images/choose/icon-expertise.svg") 10px center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-expertise.svg") 0.75em center/50px no-repeat, #e6e6e6; }
     #reasons ol li#loyal {
-      background: url("images/choose/icon-loyal.svg") 10px center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-loyal.svg") 0.75em center/50px no-repeat, #e6e6e6; }
     #reasons ol li#satisfaction {
-      background: url("images/choose/icon-satisfaction.svg") 10px center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-satisfaction.svg") 0.75em center/50px no-repeat, #e6e6e6; }
     #reasons ol li#accompaniment {
-      background: url("images/choose/icon-accompaniment.svg") 10px center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-accompaniment.svg") 0.75em center/50px no-repeat, #e6e6e6; }
     #reasons ol li#cost {
-      background: url("images/choose/icon-cost.svg") 10px center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-cost.svg") 0.75em center/50px no-repeat, #e6e6e6; }
 
 #clients {
   padding: 0 10%; }
@@ -333,27 +328,26 @@ nav ul {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 -12.5%; }
+    padding: 0; }
     #clients ul + ul li {
+      background: padding-box center 0 / 100% auto no-repeat;
       box-sizing: border-box;
+      display: flex;
       margin: 20px 0;
-      padding: 150px 0px 20px 100px;
-      position: relative;
-      width: 100%; }
+      padding: 150px 0 1em; }
       #clients ul + ul li#interne {
-        background: url("images/numbers/interne.svg") padding-box center 0/100% auto no-repeat; }
+        background-image: url("images/numbers/interne.svg"); }
       #clients ul + ul li#symplify {
-        background: url("images/numbers/symplify.svg") padding-box center 0/100% auto no-repeat; }
+        background-image: url("images/numbers/symplify.svg"); }
       #clients ul + ul li#special-order {
-        background: url("images/numbers/special-order.svg") padding-box center 0/100% auto no-repeat; }
+        background-image: url("images/numbers/special-order.svg"); }
       #clients ul + ul li#delivery {
-        background: url("images/numbers/delivery.svg") padding-box center 0/100% auto no-repeat; }
+        background-image: url("images/numbers/delivery.svg"); }
       #clients ul + ul li strong {
         font-size: 3em;
         font-weight: 400;
-        left: -5px;
         line-height: 1;
-        position: absolute; }
+        padding: 0 0.2em; }
   #clients > p {
     font-size: 0.75em;
     text-align: center; }
@@ -376,8 +370,9 @@ nav ul {
   #offers section {
     -webkit-transition: border 0.25s;
     transition: border 0.25s;
+    border: solid 3px;
     box-sizing: border-box;
-    margin: 20px 0;
+    margin: 1.2em 0;
     padding: 2em 1.5em; }
     #offers section h3 {
       font-weight: 400;
@@ -389,25 +384,24 @@ nav ul {
       border-bottom: solid 1px #e6e6e6;
       border-top: solid 1px #e6e6e6;
       font-size: 0.75em;
+      margin: 1em 0 2em;
       padding: 0.7em; }
       #offers section p.price strong {
         font-size: 2.8em;
         font-weight: 400; }
-    #offers section ul:first-of-type {
-      margin-top: 30px; }
-      #offers section ul:first-of-type li {
-        font-size: 0.875em;
-        margin: 1em; }
-        #offers section ul:first-of-type li.disabled {
-          opacity: 0.5; }
+    #offers section ul li {
+      font-size: 0.875em;
+      margin: 1em; }
+      #offers section ul li.disabled {
+        opacity: 0.5; }
     #offers section ul.links {
-      margin-top: 50px; }
-    #offers section#ecoweb, #offers section#flexiweb, #offers section#optiweb {
+      margin-top: 3em; }
+    #offers section:not(#flexiweb-plus) {
       background-color: #FFFFFF;
       border: solid 3px #f5f5f5; }
-      #offers section#ecoweb:hover, #offers section#flexiweb:hover, #offers section#optiweb:hover {
+      #offers section:not(#flexiweb-plus):hover {
         border: solid 3px #e6e6e6; }
-      #offers section#ecoweb ul.links li a, #offers section#flexiweb ul.links li a, #offers section#optiweb ul.links li a {
+      #offers section:not(#flexiweb-plus) ul.links li a {
         border-color: #515151; }
     #offers section#flexiweb-plus {
       background-color: #00a071;
@@ -423,14 +417,14 @@ nav ul {
       height: auto;
       width: auto;
       font-size: 0.875em;
-      margin-top: 30px;
+      margin-top: 2em;
       text-decoration: underline; }
   #offers ul.notes {
     font-size: 0.75em; }
 
 #main-offer {
   background-color: #f5f5f5;
-  padding-top: 60px;
+  padding-top: 3em;
   text-align: center; }
   #main-offer h2 {
     font-size: 1.875em; }
@@ -446,7 +440,7 @@ nav ul {
     #main-offer ol li {
       border-top: solid 220px transparent;
       counter-increment: offer_count;
-      margin-bottom: 60px;
+      margin-bottom: 3em;
       padding: 0.7em;
       position: relative;
       width: 100%; }
@@ -460,11 +454,10 @@ nav ul {
         border-radius: 50%;
         color: #d3d3d3;
         font-weight: 400;
-        left: calc(50% - 10px);
+        left: calc(50% - 0.7em);
         margin: 0 auto;
         position: absolute;
-        top: -45px;
-        text-align: center;
+        top: -2.5em;
         z-index: 2; }
       #main-offer ol li::after {
         content: "";
@@ -692,25 +685,25 @@ footer {
       text-transform: uppercase;
       width: auto; }
 
-@media screen and (max-width: 400px) {
-  html body #guarantees ul li {
+@media screen and (max-width: 399px) {
+  #guarantees ul li {
     height: calc(65vw);
     width: calc(65vw); } }
 
-@media screen and (min-width: 400px) and (max-width: 780px) {
-  html body #guarantees ul li {
+@media screen and (min-width: 400px) and (max-width: 779px) {
+  #guarantees ul li {
     height: calc(40vw);
     width: calc(40vw); } }
 
 @media screen and (min-width: 780px) and (max-width: 840px) {
-  html body #guarantees ul li {
+  #guarantees ul li {
     height: calc(26vw);
     width: calc(26vw); } }
 
 @media screen and (min-width: 400px) and (max-width: 839px) {
-  html body #clients ul + ul li#interne, html body #clients ul + ul li#delivery {
+  #clients #interne, #clients #delivery {
     background-size: auto 60%; }
-  html body #clients ul + ul li#symplify, html body #clients ul + ul li#special-order {
+  #clients #symplify, #clients #special-order {
     background-size: auto 50%; } }
 
 @media screen and (max-width: 839px) {
@@ -729,32 +722,34 @@ footer {
       line-height: 1ex;
       position: absolute;
       right: 10%;
-      top: 10%; }
-  #clients ul + ul {
-    margin: 0 auto;
-    width: 80%; } }
+      top: 10%; } }
 
 @media screen and (min-width: 480px) {
-  html body #customize dl {
+  #customize dl {
     height: 380px; } }
 
 @media screen and (min-width: 530px) {
-  html body #news article {
+  #news article {
     display: table-cell; }
-  html body #main-offer ol {
+  #main-offer ol {
     justify-content: space-around; }
-    html body #main-offer ol li {
+    #main-offer ol li {
       box-sizing: border-box;
       width: 45%; } }
 
+@media screen and (min-width: 560px) {
+  #goals ul li {
+    box-sizing: border-box;
+    width: 45%; } }
+
 @media screen and (min-width: 630px) {
-  html body #reasons ol {
+  #reasons ol {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
     position: relative; }
-    html body #reasons ol::before {
+    #reasons ol::before {
       content: "";
       display: block;
       height: 92%;
@@ -763,152 +758,181 @@ footer {
       left: 50%;
       position: absolute;
       top: 8%; }
-    html body #reasons ol li {
+    #reasons ol li {
       box-sizing: border-box;
-      width: calc(50% - 24px); }
-    html body #reasons ol li#develop, html body #reasons ol li#loyal, html body #reasons ol li#accompaniment {
-      background-position: right 10px center;
-      margin: 20px 30px 20px 0;
-      padding: 25px 75px 25px 20px;
-      text-align: right; }
-      html body #reasons ol li#develop::before, html body #reasons ol li#loyal::before, html body #reasons ol li#accompaniment::before {
-        border-color: transparent transparent transparent #e6e6e6;
-        border-width: 10px 0 10px 7px;
-        right: -7px;
-        left: initial; }
-      html body #reasons ol li#develop::after, html body #reasons ol li#loyal::after, html body #reasons ol li#accompaniment::after {
-        right: -35px;
-        left: initial; }
-    html body #reasons ol li#expertise, html body #reasons ol li#satisfaction, html body #reasons ol li#cost {
-      align-self: flex-end;
-      background-position: 10px center;
-      margin: 20px 0 20px 30px;
-      padding: 25px 20px 25px 75px; }
-      html body #reasons ol li#expertise::before, html body #reasons ol li#satisfaction::before, html body #reasons ol li#cost::before {
-        border-color: transparent #e6e6e6 transparent transparent;
-        border-width: 10px 7px 10px 0;
-        left: -7px; }
-      html body #reasons ol li#expertise::after, html body #reasons ol li#satisfaction::after, html body #reasons ol li#cost::after {
-        left: -35px; }
-  html body #offers {
+      width: calc(50% - 1.5em); }
+      #reasons ol li#develop, #reasons ol li#loyal, #reasons ol li#accompaniment {
+        background-position: right 10px center;
+        margin: 1.2em 1.5em 1.2em 0;
+        padding: 1.5em calc(1.5em + 50px) 1.5em 1.5em;
+        text-align: right; }
+        #reasons ol li#develop::before, #reasons ol li#loyal::before, #reasons ol li#accompaniment::before {
+          border-color: transparent transparent transparent #e6e6e6;
+          border-width: 10px 0 10px 7px;
+          left: initial;
+          right: -7px; }
+        #reasons ol li#develop::after, #reasons ol li#loyal::after, #reasons ol li#accompaniment::after {
+          right: -35px;
+          left: initial; }
+      #reasons ol li#expertise, #reasons ol li#satisfaction, #reasons ol li#cost {
+        align-self: flex-end; }
+  #offers {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between; }
-    html body #offers > p {
+    #offers > p {
       padding: 0 20%; }
-    html body #offers section {
+    #offers section {
       box-sizing: border-box;
       width: 48%; } }
 
 @media screen and (min-width: 780px) {
-  html body #news article, html body #news ul {
+  #news article, #news ul {
     width: 25%; }
-  html body #news ul {
+  #news ul {
     display: table-cell;
     caption-side: initial; }
-  html body #customize dl {
+  #customize dl {
     height: 200px; }
-  html body footer ul {
+  footer ul {
     display: inline-block;
     width: 49%; }
-  html body footer ul#links li {
-    display: inline-block;
-    margin: 0  0 0 10px; }
-    html body footer ul#links li + li::before {
-      content: "";
+    footer ul#links li {
       display: inline-block;
-      height: 1px;
-      width: 4px;
-      background-color: #FFFFFF;
-      margin-right: 5px;
-      vertical-align: middle; } }
+      margin: 0  0 0 10px; }
+      footer ul#links li + li::before {
+        content: "";
+        display: inline-block;
+        height: 1px;
+        width: 4px;
+        background-color: #FFFFFF;
+        margin-right: 5px;
+        vertical-align: middle; } }
 
 @media screen and (min-width: 840px) {
-  html body #news article h3 {
+  #news article h3 {
     -webkit-transition: bottom 0.5s;
     transition: bottom 0.5s;
     bottom: -300px; }
-  html body #news article:hover h3 {
+  #news article:hover h3 {
     bottom: 0; }
-  html body #guarantees ul li {
+  #guarantees ul li {
     height: calc(19vw);
     width: calc(19vw); }
-  html body #clients ul + ul li {
+  #clients ul + ul li {
+    background: center 40px / auto 55% no-repeat;
     margin: 0;
+    padding: 250px 2em 1em;
     width: 50%; }
-    html body #clients ul + ul li#interne:hover {
-      background: url("images/numbers/interne.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
-    html body #clients ul + ul li#symplify:hover {
-      background: url("images/numbers/symplify.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
-    html body #clients ul + ul li#special-order:hover {
-      background: url("images/numbers/special-order.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
-    html body #clients ul + ul li#delivery:hover {
-      background: url("images/numbers/delivery.svg") padding-box center 40px/auto 55% no-repeat, #f5f5f5; }
-  html body #clients ul + ul li#interne, html body #clients ul + ul li#symplify, html body #clients ul + ul li#delivery, html body #clients ul + ul li#special-order {
-    background-size: auto 55%;
-    background-position: center 40px; }
-  html body #clients ul + ul li#delivery, html body #clients ul + ul li#symplify {
-    padding: 280px 10% 40px 127px; }
-    html body #clients ul + ul li#delivery strong, html body #clients ul + ul li#symplify strong {
-      left: 20px; }
-  html body #clients ul + ul li#interne, html body #clients ul + ul li#special-order {
-    padding: 280px 40px 40px calc(10% + 107px); }
-    html body #clients ul + ul li#interne strong, html body #clients ul + ul li#special-order strong {
-      left: 20%; } }
+    #clients ul + ul li:hover {
+      background-color: #f5f5f5; } }
 
 @media screen and (min-width: 1000px) {
-  html body #main-offer ol {
+  #main-offer ol {
     margin-top: 4em;
     position: relative; }
-    html body #main-offer ol::after {
+    #main-offer ol::after {
       content: "";
       display: block;
       height: 1px;
       width: 80%;
       background-color: #d3d3d3;
-      left: 10%;
+      left: 9%;
+      right: 9%;
       position: absolute;
-      top: 136px; }
-    html body #main-offer ol li#medicine, html body #main-offer ol li#app, html body #main-offer ol li#computer, html body #main-offer ol li#sms, html body #main-offer ol li#reception {
+      top: calc(170px - 1.8em); }
+    #main-offer ol li#medicine {
       background-color: transparent;
-      background-size: auto 100px;
+      background-size: auto 120px;
       border-top: solid 170px transparent;
       color: #f5f5f5;
       width: 18%; }
-      html body #main-offer ol li#medicine::after, html body #main-offer ol li#app::after, html body #main-offer ol li#computer::after, html body #main-offer ol li#sms::after, html body #main-offer ol li#reception::after {
+      #main-offer ol li#medicine::after {
         border-width: 0; }
-      html body #main-offer ol li#medicine:hover, html body #main-offer ol li#app:hover, html body #main-offer ol li#computer:hover, html body #main-offer ol li#sms:hover, html body #main-offer ol li#reception:hover {
+      #main-offer ol li#medicine:hover {
         background-color: #e6e6e6;
         color: #515151; }
-        html body #main-offer ol li#medicine:hover::after, html body #main-offer ol li#app:hover::after, html body #main-offer ol li#computer:hover::after, html body #main-offer ol li#sms:hover::after, html body #main-offer ol li#reception:hover::after {
+        #main-offer ol li#medicine:hover::after {
+          border-width: 0 10px 7px 10px; }
+    #main-offer ol li#app {
+      background-color: transparent;
+      background-size: auto 120px;
+      border-top: solid 170px transparent;
+      color: #f5f5f5;
+      width: 18%; }
+      #main-offer ol li#app::after {
+        border-width: 0; }
+      #main-offer ol li#app:hover {
+        background-color: #e6e6e6;
+        color: #515151; }
+        #main-offer ol li#app:hover::after {
+          border-width: 0 10px 7px 10px; }
+    #main-offer ol li#computer {
+      background-color: transparent;
+      background-size: auto 120px;
+      border-top: solid 170px transparent;
+      color: #f5f5f5;
+      width: 18%; }
+      #main-offer ol li#computer::after {
+        border-width: 0; }
+      #main-offer ol li#computer:hover {
+        background-color: #e6e6e6;
+        color: #515151; }
+        #main-offer ol li#computer:hover::after {
+          border-width: 0 10px 7px 10px; }
+    #main-offer ol li#sms {
+      background-color: transparent;
+      background-size: auto 120px;
+      border-top: solid 170px transparent;
+      color: #f5f5f5;
+      width: 18%; }
+      #main-offer ol li#sms::after {
+        border-width: 0; }
+      #main-offer ol li#sms:hover {
+        background-color: #e6e6e6;
+        color: #515151; }
+        #main-offer ol li#sms:hover::after {
+          border-width: 0 10px 7px 10px; }
+    #main-offer ol li#reception {
+      background-color: transparent;
+      background-size: auto 120px;
+      border-top: solid 170px transparent;
+      color: #f5f5f5;
+      width: 18%; }
+      #main-offer ol li#reception::after {
+        border-width: 0; }
+      #main-offer ol li#reception:hover {
+        background-color: #e6e6e6;
+        color: #515151; }
+        #main-offer ol li#reception:hover::after {
           border-width: 0 10px 7px 10px; } }
 
 @media screen and (min-width: 1150px) {
-  html body nav ul {
+  nav ul {
     justify-content: flex-end; }
-    html body nav ul::before {
+    nav ul::before {
       content: url("images/logo-white.svg");
       display: inline-block;
       left: 0;
       position: absolute;
       width: 170px; }
-    html body nav ul li {
+    nav ul li {
       margin: 0 0.6em; }
-  html body #goals ul li {
+  #goals ul li {
     width: 30%; } }
 
 @media screen and (min-width: 1215px) {
-  html body #offers section {
+  #offers section {
     width: 24%; }
-  html body #main-offer::after {
+  #main-offer::after {
     height: 320px; } }
 
 /* Class for offer block style */
 @media screen and (max-width: 650px) {
-  #offers section#ecoweb ul, #offers section#flexiweb ul, #offers section#optiweb ul {
+  #offers section:not(#flexiweb-plus) ul {
     display: none; }
-  #offers section#ecoweb::after, #offers section#flexiweb::after, #offers section#optiweb::after {
+  #offers section:not(#flexiweb-plus)::after {
     content: 'voir plus';
     display: block;
     font-size: 0.875em;
