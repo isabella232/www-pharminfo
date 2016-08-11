@@ -31,11 +31,11 @@ ul, ol {
 body > section:not(#news):not(#reasons):not(#clients) {
   padding: 60px 10%; }
 
-#goals h2, #guarantees h2, #reasons h2, #offers h2, #register h2 {
+#goals h2, #guarantees h2, #reasons h2, #offers h2, #register h2, #whitepaper h2 {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center; }
-  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #register h2::after {
+  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #register h2::after, #whitepaper h2::after {
     background-color: #00a071;
     content: '';
     display: block;
@@ -44,7 +44,7 @@ body > section:not(#news):not(#reasons):not(#clients) {
     width: 20px; }
 
 /* Styles menu */
-header {
+header h1 {
   display: none; }
 
 nav ul {
@@ -56,8 +56,6 @@ nav ul {
   box-sizing: border-box;
   height: 70px;
   position: absolute;
-  right: 10%;
-  top: 20px;
   width: 80%; }
   nav ul li a {
     -webkit-transition: all 0.25s 0s;
@@ -187,7 +185,6 @@ nav ul {
         transition: all 0.25s 0s;
         border: solid 1px;
         color: inherit;
-        font-size: 0.75em;
         padding: 0.5em 1em;
         text-decoration: none;
         text-transform: uppercase;
@@ -259,7 +256,7 @@ nav ul {
       border: solid 3px #00a071;
       border-radius: 50%;
       display: block;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       max-height: 50%;
       max-width: 100px;
       width: 50%; }
@@ -410,23 +407,22 @@ nav ul {
         opacity: 0.5; }
     #offers section ul.links {
       margin-top: 3em; }
+      #offers section ul.links li a {
+        -webkit-transition: all 0.25s 0s;
+        transition: all 0.25s 0s;
+        border: solid 1px;
+        color: inherit;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-color: #515151; }
+        #offers section ul.links li a:hover {
+          padding: 1em 2em; }
     #offers section:not(#flexiweb-plus) {
       background-color: #FFFFFF;
       border: solid 3px #f5f5f5; }
       #offers section:not(#flexiweb-plus):hover {
         border: solid 3px #e6e6e6; }
-      #offers section:not(#flexiweb-plus) ul.links li a {
-        -webkit-transition: all 0.25s 0s;
-        transition: all 0.25s 0s;
-        border: solid 1px;
-        color: inherit;
-        font-size: 0.75em;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        text-transform: uppercase;
-        border-color: #515151; }
-        #offers section:not(#flexiweb-plus) ul.links li a:hover {
-          padding: 1em 2em; }
     #offers section#flexiweb-plus {
       background-color: #00a071;
       border: solid 3px #2fc17b;
@@ -607,34 +603,35 @@ nav ul {
   #contact dl dd strong {
     font-weight: 400; }
 
-#contact form {
-  margin-top: 40px; }
-  #contact form label {
-    display: none; }
-  #contact form input:first-of-type, #contact form textarea {
-    border: solid 1px #515151;
-    box-sizing: border-box;
-    display: block;
-    font-family: inherit;
-    padding: 0.75em;
-    width: 100%; }
-  #contact form textarea {
-    border-top: none;
-    min-height: 130px; }
-  #contact form input:last-of-type {
-    background: transparent;
-    border: solid 1px #515151;
-    cursor: pointer;
-    font-size: 0.7em;
-    margin-top: 20px;
-    padding: 0.75em 1em;
-    text-transform: uppercase; }
-
 #contact > p {
   font-size: 0.7em;
   font-style: italic;
   margin-bottom: 40px;
   text-decoration: underline; }
+
+form {
+  margin-top: 40px; }
+  form label {
+    display: none; }
+  form input:not(:last-of-type), form textarea {
+    border: transparent;
+    border-bottom: solid 1px #515151;
+    border-left: solid 1px #515151;
+    box-shadow: 1px -1px 0 #515151;
+    box-sizing: border-box;
+    display: block;
+    font-family: inherit;
+    padding: 0.75em;
+    width: 100%; }
+  form textarea {
+    min-height: 130px; }
+  form input:last-of-type {
+    background: transparent;
+    border: solid 1px #515151;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 0.75em 2em;
+    text-transform: uppercase; }
 
 #click-to-call {
   position: fixed;
@@ -669,7 +666,6 @@ footer {
       background: url("images/social-medias/icon-scoopit.svg") center 0 no-repeat; }
   footer #links {
     color: #FFFFFF;
-    font-size: 0.7em;
     text-align: right; }
     footer #links li {
       margin-top: 10px; }
@@ -677,40 +673,33 @@ footer {
         color: inherit;
         text-decoration: none; }
 
-/* Style for register page */
-#register header::after {
+/* Style for annexes */
+#register header::before, #whitepaper header::before {
+  content: "";
+  display: block;
+  height: 0;
+  width: 100%;
+  position: absolute;
+  box-shadow: 0px 20px 200px 70px rgba(0, 0, 0, 0.2); }
+
+#register header::after, #whitepaper header::after {
   content: "";
   display: block;
   height: 290px;
   width: 100%;
   background: url("images/photos/bdc-bkgd.jpg") center/cover no-repeat; }
 
-#register #suscribe {
+#register input:not(:last-of-type), #whitepaper input:not(:last-of-type) {
+  font-size: 1.125em; }
+
+#register #suscribe p, #whitepaper #suscribe p {
   text-align: center; }
-  #register #suscribe form {
-    margin: 40px auto;
-    max-width: 600px; }
-    #register #suscribe form label {
-      display: none; }
-    #register #suscribe form input, #register #suscribe form textarea {
-      border: transparent;
-      border-bottom: solid 1px #515151;
-      border-left: solid 1px #515151;
-      box-shadow: 1px -1px 0 #515151;
-      box-sizing: border-box;
-      display: block;
-      font-family: inherit;
-      font-size: 1.125em;
-      padding: 1em;
-      width: 100%; }
-    #register #suscribe form input:last-of-type {
-      background: transparent;
-      cursor: pointer;
-      font-size: 0.875em;
-      margin-top: 20px;
-      padding: 1em 1.5em;
-      text-transform: uppercase;
-      width: auto; }
+
+#register #suscribe form, #whitepaper #suscribe form {
+  margin: 40px auto;
+  max-width: 600px; }
+  #register #suscribe form label, #whitepaper #suscribe form label {
+    display: none; }
 
 @media screen and (max-width: 399px) {
   #guarantees ul li {
@@ -733,14 +722,14 @@ footer {
   #clients #symplify, #clients #special-order {
     background-size: auto 50%; } }
 
-@media screen and (max-width: 839px) {
+@media screen and (max-width: 840px) {
   nav ul {
     background-color: #00a071;
     flex-direction: column;
     height: 100vh;
     margin: 0;
     padding: calc(10vh) 0;
-    position: inherit;
+    position: relative;
     width: 100%; }
     nav ul::before {
       color: white;
@@ -847,6 +836,9 @@ footer {
         vertical-align: middle; } }
 
 @media screen and (min-width: 840px) {
+  nav ul {
+    right: 10%;
+    top: 20px; }
   #news article h3 {
     -webkit-transition: bottom 0.5s 0s;
     transition: bottom 0.5s 0s;
@@ -862,7 +854,15 @@ footer {
     padding: 250px 2em 1em;
     width: 50%; }
     #clients ul + ul li:hover {
-      background-color: #f5f5f5; } }
+      background-color: #f5f5f5; }
+  #content-whitepaper {
+    display: table; }
+    #content-whitepaper h2 {
+      display: table-caption; }
+    #content-whitepaper form {
+      display: table-cell;
+      padding-left: 5%;
+      width: 55%; } }
 
 @media screen and (min-width: 1000px) {
   #main-offer ol {

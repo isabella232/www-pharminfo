@@ -20,12 +20,12 @@ ul, ol
 body > section:not(#news):not(#reasons):not(#clients)
   padding: 60px 10%
 
-#goals, #guarantees, #reasons, #offers, #register
+#goals, #guarantees, #reasons, #offers, #register, #whitepaper
   h2
     @include h2_source_sans
 
 /* Styles menu */
-header
+header h1
   display: none
 
 nav ul
@@ -34,8 +34,6 @@ nav ul
   box-sizing: border-box
   height: 70px
   position: absolute
-  right: 10%
-  top: 20px
   width: 80%
 
   li
@@ -218,7 +216,7 @@ nav ul
         border: solid 3px $main-color
         border-radius: 50%
         display: block
-        margin-bottom: 15px
+        margin-bottom: 20px
         max-height: 50%
         max-width: 100px
         width: 50%
@@ -342,6 +340,10 @@ nav ul
     ul.links
       margin-top: 3em
 
+      li a
+        @include cta
+        border-color: $grey-1
+
     &:not(#flexiweb-plus)
       @extend %hide-offer
       background-color: $white
@@ -349,10 +351,6 @@ nav ul
 
       &:hover
         border: solid 3px $grey-3
-
-      ul.links li a
-        @include cta
-        border-color: $grey-1
 
     &#flexiweb-plus
       background-color: $main-color
@@ -512,38 +510,39 @@ nav ul
       strong
         font-weight: 400
 
-  form
-    margin-top: 40px
-
-    label
-      display: none
-
-    input:first-of-type, textarea
-      border: solid 1px $grey-1
-      box-sizing: border-box
-      display: block
-      font-family: inherit
-      padding: 0.75em
-      width: 100%
-
-    textarea
-      border-top: none
-      min-height: 130px
-
-    input:last-of-type
-      background: transparent
-      border: solid 1px $grey-1
-      cursor: pointer
-      font-size: 0.7em
-      margin-top: 20px
-      padding: 0.75em 1em
-      text-transform: uppercase
-
   & > p
     font-size: 0.7em
     font-style: italic
     margin-bottom: 40px
     text-decoration: underline
+
+form
+  margin-top: 40px
+
+  label
+    display: none
+
+  input:not(:last-of-type), textarea
+    border: transparent
+    border-bottom: solid 1px $grey-1
+    border-left: solid 1px $grey-1
+    box-shadow: 1px -1px 0 $grey-1
+    box-sizing: border-box
+    display: block
+    font-family: inherit
+    padding: 0.75em
+    width: 100%
+
+  textarea
+    min-height: 130px
+
+  input:last-of-type
+    background: transparent
+    border: solid 1px $grey-1
+    cursor: pointer
+    margin-top: 20px
+    padding: 0.75em 2em
+    text-transform: uppercase
 
 #click-to-call
   @extend .close
@@ -577,7 +576,6 @@ footer
 
   #links
     color: $white
-    font-size: 0.7em
     text-align: right
 
     li
@@ -587,14 +585,24 @@ footer
         color: inherit
         text-decoration: none
 
-/* Style for register page */
-#register
-  header::after
-    @include content(block, 290px, 100%)
-    background: url('images/photos/bdc-bkgd.jpg') center / cover no-repeat
+/* Style for annexes */
+#register, #whitepaper
+  header
+    &::before
+      @include content(block, 0, 100%)
+      position: absolute
+      box-shadow: 0px 20px 200px 70px rgba(0, 0, 0, 0.2)
+
+    &::after
+      @include content(block, 290px, 100%)
+      background: url('images/photos/bdc-bkgd.jpg') center / cover no-repeat
+
+  input:not(:last-of-type)
+        font-size: 1.125em
 
   #suscribe
-    text-align: center
+    p
+      text-align: center
 
     form
       margin: 40px auto
@@ -602,24 +610,3 @@ footer
 
       label
         display: none
-
-      input, textarea
-        border: transparent
-        border-bottom: solid 1px $grey-1
-        border-left: solid 1px $grey-1
-        box-shadow: 1px -1px 0 $grey-1
-        box-sizing: border-box
-        display: block
-        font-family: inherit
-        font-size: 1.125em
-        padding: 1em
-        width: 100%
-
-      input:last-of-type
-        background: transparent
-        cursor: pointer
-        font-size: $basic-font-size
-        margin-top: 20px
-        padding: 1em 1.5em
-        text-transform: uppercase
-        width: auto

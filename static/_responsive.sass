@@ -19,14 +19,14 @@
     #symplify, #special-order
       background-size: auto 50%
 
-@media screen and (max-width: 839px)
+@media screen and (max-width: 840px)
   nav ul
     background-color: $main-color
     flex-direction: column
     height: 100vh
     margin: 0
     padding: calc(10vh) 0
-    position: inherit
+    position: relative
     width: 100%
 
     &::before
@@ -124,6 +124,10 @@
         vertical-align: middle
 
 @media screen and (min-width: 840px)
+  nav ul
+    right: 10%
+    top: 20px
+
   #news article
     h3
       @include transition(bottom, 0.5s)
@@ -144,6 +148,17 @@
 
     &:hover
       background-color: $grey-4
+
+  #content-whitepaper
+    display: table
+
+    h2
+      display: table-caption
+
+    form
+      display: table-cell
+      padding-left: 5%
+      width: 55%
 
 @media screen and (min-width: 1000px)
   #main-offer ol

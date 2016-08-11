@@ -3,7 +3,7 @@
 {% block title %}Livre blanc{% endblock title %}
 
 {% block body %}
-  <section id="whitepaper">
+  <section id="content-whitepaper">
     <h2>Comment développer vos ventes grâce à votre site Internet ?</h2>
     <p>
       Ce document est à destination des pharmaciens d'officine propriétaires
@@ -26,13 +26,16 @@
       Vous pouvez télécharger le livre blanc gratuitement en remplissant le
       formulaire.
     </p>
+    <p>
+      Les champs marqués d'un astérisque (*) sont obligatoires
+    </p>
     <form action="{{ url_for('whitepaper') }}" method="POST">
       <label for="name">Nom</label>
-      <input id="name" name="name" placeholder="Nom" required="required" />
+      <input id="name" name="name" placeholder="Nom*" required="required" />
       <label for="email">Email</label>
-      <input id="email" name="email" placeholder="Email" required="required" />
+      <input id="email" name="email" placeholder="Email*" required="required" />
       <label for="function">Fonction</label>
-      <input id="function" name="function" placeholder="Fonction" required="required" />
+      <input id="function" name="function" placeholder="Fonction*" required="required" />
       <label for="phone">Téléphone</label>
       <input id="phone" type="tel" name="phone" placeholder="Téléphone" />
       <label for="company">Société</label>
