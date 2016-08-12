@@ -31,11 +31,11 @@ ul, ol {
 body > section:not(#news):not(#reasons):not(#clients) {
   padding: 60px 10%; }
 
-#goals h2, #guarantees h2, #reasons h2, #offers h2, #register h2, #whitepaper h2 {
+#goals h2, #guarantees h2, #reasons h2, #offers h2, #register h2, #whitepaper h2, #news-content h2 {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center; }
-  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #register h2::after, #whitepaper h2::after {
+  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #register h2::after, #whitepaper h2::after, #news-content h2::after {
     background-color: #00a071;
     content: '';
     display: block;
@@ -129,12 +129,13 @@ nav ul {
     margin: 30px auto 0;
     width: 20px; }
 
+#index #news h2 {
+  display: none; }
+
 #news {
   display: table;
   table-layout: fixed;
   width: 100%; }
-  #news h2 {
-    display: none; }
   #news article {
     height: 250px;
     overflow: hidden;
@@ -626,12 +627,17 @@ form {
   form textarea {
     min-height: 130px; }
   form input:last-of-type {
+    -webkit-transition: all 0.25s 0s;
+    transition: all 0.25s 0s;
     background: transparent;
     border: solid 1px #515151;
     cursor: pointer;
     margin-top: 20px;
     padding: 0.75em 2em;
     text-transform: uppercase; }
+    form input:last-of-type:hover {
+      background: #515151;
+      color: #f5f5f5; }
 
 #click-to-call {
   position: fixed;
@@ -653,6 +659,7 @@ footer {
     height: 23px;
     margin: 0 5px;
     vertical-align: top;
+      vertical-align-display: none;
     width: 23px; }
     footer #social li#facebook {
       background: url("images/social-medias/icon-facebook.svg") center 0 no-repeat; }
@@ -698,8 +705,49 @@ footer {
 #register #suscribe form, #whitepaper #suscribe form {
   margin: 40px auto;
   max-width: 600px; }
-  #register #suscribe form label, #whitepaper #suscribe form label {
-    display: none; }
+
+#news-content {
+  box-sizing: border-box;
+  display: table;
+  margin-top: 100px;
+  table-layout: fixed;
+  width: 100%; }
+  #news-content h2 {
+    display: table-header-group; }
+  #news-content article {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 270px;
+    overflow: hidden;
+    position: relative;
+    width: 100%; }
+    #news-content article time, #news-content article h3 {
+      background: white; }
+    #news-content article time {
+      order: -1;
+      padding: 0.75em 1em 0; }
+    #news-content article h3 {
+      margin: 0;
+      font-size: 1.25em;
+      padding: 0.25em 1em 0.75em; }
+    #news-content article img {
+      min-height: 240px;
+      position: absolute;
+      top: 0;
+      z-index: -1; }
+    #news-content article a {
+      bottom: 0;
+      font-size: 0;
+      left: 0;
+      margin: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 20; }
+    #news-content article p {
+      margin: 0; }
 
 @media screen and (max-width: 399px) {
   #guarantees ul li {
