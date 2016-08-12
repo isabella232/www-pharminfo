@@ -130,33 +130,40 @@ nav ul {
     width: 20px; }
 
 #index #news {
-  display: table;
-  table-layout: fixed;
-  width: 100%; }
+  display: flex;
+  flex-direction: column; }
   #index #news h2 {
     display: none; }
   #index #news article {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex: auto;
     height: 250px;
     overflow: hidden;
     position: relative;
     width: 100%; }
+    #index #news article time {
+      background-color: rgba(255, 255, 255, 0.9);
+      font-style: italic;
+      order: -1;
+      padding: 0.75em 0 0 15px; }
     #index #news article h3 {
       background-color: rgba(255, 255, 255, 0.9);
       border-bottom: solid 1px #00a071;
-      bottom: 0;
-      left: 0;
+      font-size: 1.25em;
       margin: 0;
-      padding: 0.75em;
-      position: absolute;
-      right: 0;
-      z-index: 10; }
+      padding: 0.25em 15px 0.75em;
+      position: relative; }
     #index #news article img {
       left: 50%;
       min-height: 100%;
       min-width: 100%;
       opacity: 0.5;
       position: absolute;
-      transform: translateX(-50%); }
+      transform: translateX(-50%);
+      z-index: -1; }
     #index #news article a {
       bottom: 0;
       font-size: 0;
@@ -166,10 +173,10 @@ nav ul {
       right: 0;
       top: 0;
       z-index: 20; }
+    #index #news article p {
+      margin: 0; }
   #index #news ul {
     background: #e6e6e6;
-    display: table-caption;
-    caption-side: bottom;
     margin: 0;
     min-height: 150px;
     position: relative; }
@@ -734,6 +741,7 @@ footer {
     #news-content article img {
       left: 50%;
       min-height: 240px;
+      min-width: 100%;
       position: absolute;
       top: 0;
       transform: translateX(-50%);
@@ -794,8 +802,6 @@ footer {
     height: 380px; } }
 
 @media screen and (min-width: 530px) {
-  #index #news article {
-    display: table-cell; }
   #main-offer ol {
     justify-content: space-around; }
     #main-offer ol li {
@@ -862,11 +868,11 @@ footer {
       width: 48%; } }
 
 @media screen and (min-width: 780px) {
-  #index #news article, #index #news ul {
-    width: 25%; }
-  #index #news ul {
-    display: table-cell;
-    caption-side: initial; }
+  #index #news {
+    flex-direction: row; }
+    #index #news article, #index #news ul {
+      flex: auto;
+      width: 25%; }
   #customize dl {
     height: 200px; }
   footer ul {

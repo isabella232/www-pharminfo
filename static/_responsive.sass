@@ -43,9 +43,6 @@
     height: 380px
 
 @media screen and (min-width: 530px)
-  #index #news article
-    display: table-cell
-
   #main-offer ol
     justify-content: space-around
 
@@ -99,12 +96,12 @@
       width: 48%
 
 @media screen and (min-width: 780px)
-  #index #news article, #index #news ul
-    width: 25%
+  #index #news
+    flex-direction: row
 
-  #index #news ul
-    display: table-cell
-    caption-side: initial
+    article, ul
+      flex: auto
+      width: 25%
 
   #customize dl
     height: 200px

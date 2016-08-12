@@ -98,29 +98,33 @@ nav ul
     @include h2_source_sans(30px, $main-color, italic)
 
 #index #news
-  display: table
-  table-layout: fixed
-  width: 100%
+  display: flex
+  flex-direction: column
 
   h2
     display: none
 
   article
+    @include flexbox(column, flex-end)
+    flex: auto
     height: 250px
     overflow: hidden
     position: relative
     width: 100%
 
+    time
+      background-color: rgba(255, 255, 255, 0.9)
+      font-style: italic
+      order: -1
+      padding: 0.75em 0 0 15px
+
     h3
       background-color: rgba(255, 255, 255, 0.9)
       border-bottom: solid 1px $main-color
-      bottom: 0
-      left: 0
+      font-size: $subtitle
       margin: 0
-      padding: 0.75em
-      position: absolute
-      right: 0
-      z-index: 10
+      padding: 0.25em 15px 0.75em
+      position: relative
 
     img
       left: 50%
@@ -129,6 +133,7 @@ nav ul
       opacity: 0.5
       position: absolute
       transform: translateX(-50%)
+      z-index: -1
 
     a
       bottom: 0
@@ -140,10 +145,11 @@ nav ul
       top: 0
       z-index: 20
 
+    p
+      margin: 0
+
   ul
     background: $grey-3
-    display: table-caption
-    caption-side: bottom
     margin: 0
     min-height: 150px
     position: relative
@@ -646,6 +652,7 @@ footer
     img
       left: 50%
       min-height: 240px
+      min-width: 100%
       position: absolute
       top: 0
       transform: translateX(-50%)
