@@ -129,19 +129,18 @@ nav ul {
     margin: 30px auto 0;
     width: 20px; }
 
-#index #news h2 {
-  display: none; }
-
-#news {
+#index #news {
   display: table;
   table-layout: fixed;
   width: 100%; }
-  #news article {
+  #index #news h2 {
+    display: none; }
+  #index #news article {
     height: 250px;
     overflow: hidden;
     position: relative;
     width: 100%; }
-    #news article h3 {
+    #index #news article h3 {
       background-color: rgba(255, 255, 255, 0.9);
       border-bottom: solid 1px #00a071;
       bottom: 0;
@@ -151,14 +150,14 @@ nav ul {
       position: absolute;
       right: 0;
       z-index: 10; }
-    #news article img {
+    #index #news article img {
       left: 50%;
       min-height: 100%;
       min-width: 100%;
       opacity: 0.5;
       position: absolute;
       transform: translateX(-50%); }
-    #news article a {
+    #index #news article a {
       bottom: 0;
       font-size: 0;
       left: 0;
@@ -167,21 +166,21 @@ nav ul {
       right: 0;
       top: 0;
       z-index: 20; }
-  #news ul {
+  #index #news ul {
     background: #e6e6e6;
     display: table-caption;
     caption-side: bottom;
     margin: 0;
     min-height: 150px;
     position: relative; }
-    #news ul li {
+    #index #news ul li {
       left: 0;
       position: absolute;
       right: 0;
       text-align: center;
       transform: translateY(-50%);
       top: 50%; }
-      #news ul li a {
+      #index #news ul li a {
         -webkit-transition: all 0.25s 0s;
         transition: all 0.25s 0s;
         border: solid 1px;
@@ -190,7 +189,7 @@ nav ul {
         text-decoration: none;
         text-transform: uppercase;
         border-color: #515151; }
-        #news ul li a:hover {
+        #index #news ul li a:hover {
           padding: 1em 2em; }
 
 #goals {
@@ -708,34 +707,36 @@ footer {
 
 #news-content {
   box-sizing: border-box;
-  display: table;
-  margin-top: 100px;
-  table-layout: fixed;
+  margin-top: 40px;
   width: 100%; }
   #news-content h2 {
-    display: table-header-group; }
+    margin-bottom: 40px; }
   #news-content article {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-end;
     height: 270px;
+    margin: 20px 0;
     overflow: hidden;
     position: relative;
     width: 100%; }
     #news-content article time, #news-content article h3 {
       background: white; }
     #news-content article time {
+      font-style: italic;
       order: -1;
-      padding: 0.75em 1em 0; }
+      padding-top: 0.75em; }
     #news-content article h3 {
       margin: 0;
       font-size: 1.25em;
-      padding: 0.25em 1em 0.75em; }
+      padding: 0.25em 0 0.75em; }
     #news-content article img {
+      left: 50%;
       min-height: 240px;
       position: absolute;
       top: 0;
+      transform: translateX(-50%);
       z-index: -1; }
     #news-content article a {
       bottom: 0;
@@ -793,7 +794,7 @@ footer {
     height: 380px; } }
 
 @media screen and (min-width: 530px) {
-  #news article {
+  #index #news article {
     display: table-cell; }
   #main-offer ol {
     justify-content: space-around; }
@@ -861,9 +862,9 @@ footer {
       width: 48%; } }
 
 @media screen and (min-width: 780px) {
-  #news article, #news ul {
+  #index #news article, #index #news ul {
     width: 25%; }
-  #news ul {
+  #index #news ul {
     display: table-cell;
     caption-side: initial; }
   #customize dl {
@@ -881,17 +882,39 @@ footer {
         width: 4px;
         background-color: #FFFFFF;
         margin-right: 5px;
-        vertical-align: middle; } }
+        vertical-align: middle; }
+  #news-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    #news-content h2 {
+      text-align: center;
+      width: 100%; }
+    #news-content article {
+      width: 49%; } }
 
 @media screen and (min-width: 840px) {
+  #news nav ul::before {
+    content: url("images/logo-bicolor.svg"); }
+  #news nav ul li a {
+    color: #515151; }
+    #news nav ul li a:hover {
+      border-bottom: solid 1px #515151; }
+  #news nav ul li:last-of-type a {
+    border-color: #515151; }
+    #news nav ul li:last-of-type a:hover {
+      background: #515151;
+      color: white; }
   nav ul {
     right: 10%;
-    top: 20px; }
-  #news article h3 {
+    top: 20px;
+    z-index: 50; }
+  #index #news article h3 {
     -webkit-transition: bottom 0.5s 0s;
     transition: bottom 0.5s 0s;
     bottom: -300px; }
-  #news article:hover h3 {
+  #index #news article:hover h3 {
     bottom: 0; }
   #guarantees ul li {
     height: calc(19vw);
@@ -910,7 +933,9 @@ footer {
     #content-whitepaper form {
       display: table-cell;
       padding-left: 5%;
-      width: 55%; } }
+      width: 55%; }
+  #news-content {
+    margin-top: 100px; } }
 
 @media screen and (min-width: 1000px) {
   #main-offer ol {

@@ -43,7 +43,7 @@
     height: 380px
 
 @media screen and (min-width: 530px)
-  #news article
+  #index #news article
     display: table-cell
 
   #main-offer ol
@@ -99,10 +99,10 @@
       width: 48%
 
 @media screen and (min-width: 780px)
-  #news article, #news ul
+  #index #news article, #index #news ul
     width: 25%
 
-  #news ul
+  #index #news ul
     display: table-cell
     caption-side: initial
 
@@ -123,12 +123,41 @@
         margin-right: 5px
         vertical-align: middle
 
+  #news-content
+    @include flexbox(row, space-between)
+
+    h2
+      text-align: center
+      width: 100%
+
+    article
+      width: 49%
+
 @media screen and (min-width: 840px)
+  #news nav ul
+    &::before
+      content: url("images/logo-bicolor.svg")
+
+    li
+      a
+        color: $grey-1
+
+        &:hover
+          border-bottom: solid 1px $grey-1
+
+      &:last-of-type a
+        border-color: $grey-1
+
+        &:hover
+          background: $grey-1
+          color: white
+
   nav ul
     right: 10%
     top: 20px
+    z-index: 50
 
-  #news article
+  #index #news article
     h3
       @include transition(bottom, 0.5s)
       bottom: -300px
@@ -159,6 +188,9 @@
       display: table-cell
       padding-left: 5%
       width: 55%
+
+  #news-content
+    margin-top: 100px
 
 @media screen and (min-width: 1000px)
   #main-offer ol

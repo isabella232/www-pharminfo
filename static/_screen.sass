@@ -97,13 +97,13 @@ nav ul
   h2
     @include h2_source_sans(30px, $main-color, italic)
 
-#index #news h2
-  display: none
-
-#news
+#index #news
   display: table
   table-layout: fixed
   width: 100%
+
+  h2
+    display: none
 
   article
     height: 250px
@@ -616,17 +616,16 @@ footer
 
 #news-content
   box-sizing: border-box
-  display: table
-  margin-top: 100px
-  table-layout: fixed
+  margin-top: 40px
   width: 100%
 
   h2
-    display: table-header-group
+    margin-bottom: 40px
 
   article
     @include flexbox(column, flex-end)
     height: 270px
+    margin: 20px 0
     overflow: hidden
     position: relative
     width: 100%
@@ -635,18 +634,21 @@ footer
       background: white
 
     time
+      font-style: italic
       order: -1
-      padding: 0.75em 1em 0
+      padding-top: 0.75em
 
     h3
       margin: 0
       font-size: $subtitle
-      padding: 0.25em 1em 0.75em
+      padding: 0.25em 0 0.75em
 
     img
+      left: 50%
       min-height: 240px
       position: absolute
       top: 0
+      transform: translateX(-50%)
       z-index: -1
 
     a
