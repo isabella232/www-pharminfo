@@ -13,9 +13,6 @@
           <img src="{{ entry.image or url_for('static', filename='news.png') }}" alt="{{ entry.title }}" />
         {% endif %}
         <p>
-          {{ entry.description | safe }}
-        </p>
-        <p>
           <a href="{{ entry.link }}">Lire la suite…</a>
         </p>
       </article>
