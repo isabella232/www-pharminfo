@@ -43,6 +43,43 @@ body > section:not(#news):not(#reasons):not(#clients) {
     margin: 20px auto 0;
     width: 20px; }
 
+article {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  height: 270px;
+  overflow: hidden;
+  position: relative;
+  width: 100%; }
+  article time {
+    font-style: italic;
+    order: -1;
+    padding-top: 0.75em; }
+  article h3 {
+    font-size: 1.25em;
+    margin: 0;
+    padding: 0.25em 0 0.75em; }
+  article img {
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: -1; }
+  article a {
+    bottom: 0;
+    font-size: 0;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 20; }
+  article p {
+    margin: 0; }
+
 /* Styles menu */
 header h1 {
   display: none; }
@@ -135,46 +172,15 @@ nav ul {
   #index #news h2 {
     display: none; }
   #index #news article {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    flex: auto;
-    height: 250px;
-    overflow: hidden;
-    position: relative;
-    width: 100%; }
-    #index #news article time {
+    flex: auto; }
+    #index #news article h3, #index #news article time {
       background-color: rgba(255, 255, 255, 0.9);
-      font-style: italic;
-      order: -1;
-      padding: 0.75em 0 0 15px; }
-    #index #news article h3 {
-      background-color: rgba(255, 255, 255, 0.9);
-      border-bottom: solid 1px #00a071;
-      font-size: 1.25em;
-      margin: 0;
-      padding: 0.25em 15px 0.75em;
+      padding-left: 15px;
+      padding-right: 15px;
       position: relative; }
-    #index #news article img {
-      left: 50%;
-      min-height: 100%;
-      min-width: 100%;
-      opacity: 0.5;
-      position: absolute;
-      transform: translateX(-50%);
-      z-index: -1; }
-    #index #news article a {
-      bottom: 0;
-      font-size: 0;
-      left: 0;
-      margin: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 20; }
-    #index #news article p {
-      margin: 0; }
+    #index #news article h3 {
+      border-bottom: solid 1px #00a071;
+      padding: 0.25em 15px 0.75em; }
   #index #news ul {
     background: #e6e6e6;
     margin: 0;
@@ -716,47 +722,10 @@ footer {
   box-sizing: border-box;
   margin-top: 40px;
   width: 100%; }
-  #news-content h2 {
-    margin-bottom: 40px; }
   #news-content article {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    height: 270px;
-    margin: 20px 0;
-    overflow: hidden;
-    position: relative;
-    width: 100%; }
+    margin: 20px 0; }
     #news-content article time, #news-content article h3 {
       background: white; }
-    #news-content article time {
-      font-style: italic;
-      order: -1;
-      padding-top: 0.75em; }
-    #news-content article h3 {
-      margin: 0;
-      font-size: 1.25em;
-      padding: 0.25em 0 0.75em; }
-    #news-content article img {
-      left: 50%;
-      min-height: 240px;
-      min-width: 100%;
-      position: absolute;
-      top: 0;
-      transform: translateX(-50%);
-      z-index: -1; }
-    #news-content article a {
-      bottom: 0;
-      font-size: 0;
-      left: 0;
-      margin: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 20; }
-    #news-content article p {
-      margin: 0; }
 
 @media screen and (max-width: 399px) {
   #guarantees ul li {
@@ -916,11 +885,11 @@ footer {
     right: 10%;
     top: 20px;
     z-index: 50; }
-  #index #news article h3 {
+  #index #news article h3, #index #news article time {
     -webkit-transition: bottom 0.5s 0s;
     transition: bottom 0.5s 0s;
     bottom: -300px; }
-  #index #news article:hover h3 {
+  #index #news article:hover h3, #index #news article:hover time {
     bottom: 0; }
   #guarantees ul li {
     height: calc(19vw);
