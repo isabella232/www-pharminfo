@@ -49,13 +49,13 @@ def get_news():
         if image is not None:
             entry['image'] = image.attrib['url']
         news.append(entry)
-    return news[:2]
+    return news
 
 
 @app.route('/')
 @app.route('/<page>')
 def page(page='index'):
-    extra = {'news': get_news()} if page == 'index' else {}
+    extra = {'news': get_news()[:2]} if page == 'index' else {}
     try:
         return render_template('{}.html'.format(page), page=page, **extra)
     except TemplateNotFound:
