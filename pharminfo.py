@@ -78,12 +78,12 @@ def clients(department=None):
     else:
         clients = []
     return render_template(
-        'clients.html', department=department, clients=clients)
+        'clients.html', department=department, clients=clients, page='clients')
 
 
 @app.route('/news')
 def news():
-    return render_template('news.html', news=get_news())
+    return render_template('news.html', news=get_news(), page='news')
 
 
 @app.route('/register', methods=['POST'])

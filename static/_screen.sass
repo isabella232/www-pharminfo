@@ -20,24 +20,51 @@ ul, ol
 body > section:not(#news):not(#reasons):not(#clients)
   padding: 60px 10%
 
-#goals, #guarantees, #reasons, #offers, #register
+#goals, #guarantees, #reasons, #offers, #register, #whitepaper, #news-content
   h2
     @include h2_source_sans
 
-#news ul li a, #offers ul.links li a
-  @include transition(all)
-  border: solid 1px
-  color: inherit
-  font-size: 0.75em
-  padding: 0.5em 1em
-  text-decoration: none
-  text-transform: uppercase
+article
+  @include flexbox(column, flex-end)
+  height: 270px
+  overflow: hidden
+  position: relative
+  width: 100%
 
-  &:hover
-    padding: 1em 2em
+  time
+    font-style: italic
+    order: -1
+    padding-top: 0.75em
+
+  h3
+    font-size: $subtitle
+    margin: 0
+    padding: 0.25em 0 0.75em
+
+  img
+    left: 50%
+    min-height: 100%
+    min-width: 100%
+    position: absolute
+    top: 0
+    transform: translateX(-50%)
+    z-index: -1
+
+  a
+    bottom: 0
+    font-size: 0
+    left: 0
+    margin: 0
+    position: absolute
+    right: 0
+    top: 0
+    z-index: 20
+
+  p
+    margin: 0
 
 /* Styles menu */
-header
+header h1
   display: none
 
 nav ul
@@ -46,8 +73,6 @@ nav ul
   box-sizing: border-box
   height: 70px
   position: absolute
-  right: 10%
-  top: 20px
   width: 80%
 
   li
@@ -113,7 +138,7 @@ nav ul
     color: $white
     font-size: $big-title
     font-weight: 400
-    margin: 0.7em auto 0
+    margin: 0.7em auto
     max-width: 15em
     text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.4)
 
@@ -140,53 +165,28 @@ nav ul
   h2
     @include h2_source_sans(30px, $main-color, italic)
 
-#news
-  display: table
-  table-layout: fixed
-  width: 100%
+#index #news
+  display: flex
+  flex-direction: column
 
   h2
     display: none
 
   article
-    height: 250px
-    overflow: hidden
-    position: relative
-    width: 100%
+    flex: auto
+
+    h3, time
+      background-color: rgba(255, 255, 255, 0.9)
+      padding-left: 15px
+      padding-right: 15px
+      position: relative
 
     h3
-      background-color: rgba(255, 255, 255, 0.9)
       border-bottom: solid 1px $main-color
-      bottom: 0
-      left: 0
-      margin: 0
-      padding: 0.75em
-      position: absolute
-      right: 0
-      z-index: 10
-
-    img
-      left: 50%
-      min-height: 100%
-      min-width: 100%
-      opacity: 0.5
-      position: absolute
-      transform: translateX(-50%);
-
-    a
-      bottom: 0
-      font-size: 0
-      left: 0
-      margin: 0
-      position: absolute
-      right: 0
-      top: 0
-      z-index: 20
+      padding: 0.25em 15px 0.75em
 
   ul
     background: $grey-3
-    display: table-caption
-    caption-side: bottom
     margin: 0
     min-height: 150px
     position: relative
@@ -196,10 +196,11 @@ nav ul
       position: absolute
       right: 0
       text-align: center
-      transform: translateY(-50%);
+      transform: translateY(-50%)
       top: 50%
 
       a
+        @include cta
         border-color: $grey-1
 
 #goals
@@ -223,6 +224,19 @@ nav ul
         display: block
         font-size: $subtitle
 
+@keyframes content-fadein
+  0%
+    color: $grey-4
+    font-size: 0
+
+  60%
+    color: $grey-4
+    font-size: $basic-font-size
+
+  100%
+    color: $grey-1
+    font-size: $basic-font-size
+
 #guarantees
   ul
     @extend %hide-guarantees
@@ -245,7 +259,7 @@ nav ul
         border: solid 3px $main-color
         border-radius: 50%
         display: block
-        margin-bottom: 15px
+        margin-bottom: 20px
         max-height: 50%
         max-width: 100px
         width: 50%
@@ -261,28 +275,19 @@ nav ul
 
   ol
     counter-reset: reasons
-    margin: 20px auto 0
-    max-width: 700px
-    padding: 0 10% 40px
+    margin: 1.2em auto 0
+    max-width: 45em
+    padding: 0 10% 3em
 
     li
+      @include triangle(-7px, inherit, calc(50% - 10px), 0)
       counter-increment: reasons
-      margin: 20px 0 20px 30px
-      padding: 20px 20px 20px 75px
+      margin: 1.2em 0 1.2em 1.5em
+      padding: 1.5em 1.5em 1.5em calc(1.5em + 50px)
       position: relative
-      text-align: left
-
-      &::before
-        @include content(inline-block, 0, 0)
-        border-color: transparent $grey-3 transparent transparent
-        border-style: solid
-        border-width: 10px 7px 10px 0
-        position: absolute
-        left: -7px
-        top: calc(50% - 10px)
 
       &::after
-        @include content(initial, 20px, 20px, counter(reasons))
+        @include content(initial, 1.2em, 1.2em, counter(reasons))
         background-color: $white
         border: solid 1px $grey-2
         border-radius: 50%
@@ -295,32 +300,31 @@ nav ul
 
       @each $name in develop, expertise, loyal, satisfaction, accompaniment, cost
         &##{$name}
-          background: url('images/choose/icon-#{$name}.svg') 10px center / 50px no-repeat, $grey-3
+          background: url('images/choose/icon-#{$name}.svg') 0.75em center / 50px no-repeat, $grey-3
 
 #clients
   padding: 0 10%
 
   ul + ul
     @include flexbox(row, space-between)
-    margin: 0 -12.5%
+    padding: 0
 
     li
+      background: padding-box center 0 / 100% auto no-repeat
       box-sizing: border-box
+      display: flex
       margin: 20px 0
-      padding: 150px 0px 20px 100px
-      position: relative
-      width: 100%
+      padding: 150px 0 1em
 
       @each $name in interne, symplify, special-order, delivery
         &##{$name}
-          background: url('images/numbers/#{$name}.svg') padding-box center 0 / 100% auto no-repeat
+          background-image: url('images/numbers/#{$name}.svg')
 
       strong
         font-size: 3em
         font-weight: 400
-        left: -5px
         line-height: 1
-        position: absolute
+        padding: 0 0.2em
 
   > p
     font-size: 0.75em
@@ -335,7 +339,7 @@ nav ul
   background-color: $grey-4
 
   h2, > p
-    width: 100%;
+    width: 100%
 
   h2, > p, section
     text-align: center
@@ -345,8 +349,9 @@ nav ul
 
   section
     @include transition(border)
+    border: solid 3px
     box-sizing: border-box
-    margin: 20px 0
+    margin: 1.2em 0
     padding: 2em 1.5em
 
     h3
@@ -361,35 +366,34 @@ nav ul
       border-bottom: solid 1px $grey-3
       border-top: solid 1px $grey-3
       font-size: 0.75em
+      margin: 1em 0 2em
       padding: 0.7em
 
       strong
         font-size: $big-title
         font-weight: 400
 
-    ul:first-of-type
-      margin-top: 30px
+    ul li
+      font-size: $basic-font-size
+      margin: 1em
 
-      li
-        font-size: $basic-font-size
-        margin: 1em
-
-        &.disabled
-          opacity: 0.5
+      &.disabled
+        opacity: 0.5
 
     ul.links
-      margin-top: 50px
+      margin-top: 3em
 
-    &#ecoweb, &#flexiweb, &#optiweb
+      li a
+        @include cta
+        border-color: $grey-1
+
+    &:not(#flexiweb-plus)
       @extend %hide-offer
       background-color: $white
       border: solid 3px $grey-4
 
       &:hover
         border: solid 3px $grey-3
-
-      ul.links li a
-        border-color: $grey-1
 
     &#flexiweb-plus
       background-color: $main-color
@@ -406,7 +410,7 @@ nav ul
       &::after
         @include content(block, auto, auto, 'voir plus')
         font-size: $basic-font-size
-        margin-top: 30px
+        margin-top: 2em
         text-decoration: underline
 
   ul.notes
@@ -414,7 +418,7 @@ nav ul
 
 #main-offer
   background-color: $grey-4
-  padding-top: 60px
+  padding-top: 3em
   text-align: center
 
   h2
@@ -429,35 +433,26 @@ nav ul
     margin: 2em 0
 
     li
+      @include triangle(calc(50% - 4px), inherit, -13px, 90deg)
       border-top: solid 220px transparent
       counter-increment: offer_count
-      margin-bottom: 60px
+      margin-bottom: 3em
       padding: 0.7em
       position: relative
       width: 100%
 
-      &::before
+      &::after
         @include content(block, 20px, 20px, counter(offer_count))
         background-color: $grey-4
         border: solid 1px $grey-2
         border-radius: 50%
         color: $grey-2
         font-weight: 400
-        left: calc(50% - 10px)
+        left: calc(50% - 0.7em)
         margin: 0 auto
         position: absolute
-        top: -45px
-        text-align: center
+        top: -2.5em
         z-index: 2
-
-      &::after
-        @include content(block, 0, 0)
-        border-color: transparent transparent $grey-3 transparent
-        border-style: solid
-        border-width: 0 10px 7px 10px
-        left: calc(50% - 10px)
-        position: absolute
-        top: -7px
 
       @each $name in medicine, app, computer, sms, reception
         &##{$name}
@@ -558,38 +553,44 @@ nav ul
       strong
         font-weight: 400
 
-  form
-    margin-top: 40px
-
-    label
-      display: none
-
-    input:first-of-type, textarea
-      border: solid 1px $grey-1
-      box-sizing: border-box
-      display: block
-      font-family: inherit
-      padding: 0.75em
-      width: 100%
-
-    textarea
-      border-top: none
-      min-height: 130px
-
-    input:last-of-type
-      background: transparent
-      border: solid 1px $grey-1
-      cursor: pointer
-      font-size: 0.7em
-      margin-top: 20px
-      padding: 0.75em 1em
-      text-transform: uppercase
-
   & > p
     font-size: 0.7em
     font-style: italic
     margin-bottom: 40px
     text-decoration: underline
+
+form
+  margin-top: 40px
+
+  label
+    display: none
+
+  input:not(:last-of-type), textarea
+    border: transparent
+    border-bottom: solid 1px $grey-1
+    border-left: solid 1px $grey-1
+    box-shadow: 1px -1px 0 $grey-1
+    box-sizing: border-box
+    display: block
+    font-family: inherit
+    padding: 0.75em
+    width: 100%
+
+  textarea
+    min-height: 130px
+
+  input:last-of-type
+    @include transition(all)
+    background: transparent
+    border: solid 1px $grey-1
+    cursor: pointer
+    margin-top: 20px
+    padding: 0.75em 2em
+    text-transform: uppercase
+
+    &:hover
+      background: $grey-1
+      color: $grey-4
 
 #click-to-call
   @extend .close
@@ -614,7 +615,8 @@ footer
     font-size: 0
     height: 23px
     margin: 0 5px
-    vertical-align: top;
+    vertical-align: top
+        display: none
     width: 23px
 
     @each $name in facebook, twitter, google, linkedin, scoopit
@@ -623,7 +625,6 @@ footer
 
   #links
     color: $white
-    font-size: 0.7em
     text-align: right
 
     li
@@ -633,39 +634,36 @@ footer
         color: inherit
         text-decoration: none
 
-/* Style for register page */
-#register
-  header::after
-    @include content(block, 290px, 100%)
-    background: url('images/photos/bdc-bkgd.jpg') center / cover no-repeat
+/* Style for annexes */
+#register, #whitepaper
+  header
+    &::before
+      @include content(block, 0, 100%)
+      position: absolute
+      box-shadow: 0px 20px 200px 70px rgba(0, 0, 0, 0.2)
+
+    &::after
+      @include content(block, 290px, 100%)
+      background: url('images/photos/bdc-bkgd.jpg') center / cover no-repeat
+
+  input:not(:last-of-type)
+        font-size: 1.125em
 
   #subscribe
-    text-align: center
+    p
+      text-align: center
 
     form
       margin: 40px auto
       max-width: 600px
 
-      label
-        display: none
+#news-content
+  box-sizing: border-box
+  margin-top: 40px
+  width: 100%
 
-      input, textarea
-        border: transparent
-        border-bottom: solid 1px $grey-1
-        border-left: solid 1px $grey-1
-        box-shadow: 1px -1px 0 $grey-1
-        box-sizing: border-box
-        display: block
-        font-family: inherit
-        font-size: 1.125em
-        padding: 1em
-        width: 100%
+  article
+    margin: 20px 0
 
-      input:last-of-type
-        background: transparent
-        cursor: pointer
-        font-size: $basic-font-size
-        margin-top: 20px
-        padding: 1em 1.5em
-        text-transform: uppercase
-        width: auto
+    time, h3
+      background: white

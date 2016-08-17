@@ -1,38 +1,32 @@
-@media screen and (max-width: 400px)
-  html body
-    #guarantees ul li
-      height: calc(65vw)
-      width: calc(65vw)
+#guarantees ul li
+  @media screen and (max-width: 399px)
+    height: calc(65vw)
+    width: calc(65vw)
 
-@media screen and (min-width: 400px) and (max-width: 780px)
-  html body
-    #guarantees ul li
-      height: calc(40vw)
-      width: calc(40vw)
+  @media screen and (min-width: 400px) and (max-width: 779px)
+    height: calc(40vw)
+    width: calc(40vw)
 
-@media screen and (min-width: 780px) and (max-width: 840px)
-  html body
-    #guarantees ul li
-      height: calc(26vw)
-      width: calc(26vw)
+  @media screen and (min-width: 780px) and (max-width: 840px)
+    height: calc(26vw)
+    width: calc(26vw)
 
 @media screen and (min-width: 400px) and (max-width: 839px)
-  html body
-    #clients
-      ul + ul li#interne, ul + ul li#delivery
-        background-size: auto 60%
+  #clients
+    #interne, #delivery
+      background-size: auto 60%
 
-      ul + ul li#symplify, ul + ul li#special-order
-        background-size: auto 50%
+    #symplify, #special-order
+      background-size: auto 50%
 
-@media screen and (max-width: 839px)
+@media screen and (max-width: 840px)
   nav ul
     background-color: $main-color
     flex-direction: column
     height: 100vh
     margin: 0
     padding: calc(10vh) 0
-    position: inherit
+    position: relative
     width: 100%
 
     &::before
@@ -44,213 +38,208 @@
       right: 10%
       top: 10%
 
-  #clients
-    ul + ul
-      margin: 0 auto
-      width: 80%
-
 @media screen and (min-width: 480px)
-
-  html body
-    #customize 
-      dl
-        height: 380px
+  #customize dl
+    height: 380px
 
 @media screen and (min-width: 530px)
-  html body
-    #news article
-      display: table-cell
+  #main-offer ol
+    justify-content: space-around
 
-    #main-offer ol
-      justify-content: space-around
-
-      li
-        box-sizing: border-box
-        width: 45%
+    li
+      box-sizing: border-box
+      width: 45%
 
 @media screen and (min-width: 560px)
   #goals ul li
     box-sizing: border-box
     width: 45%
 
-
 @media screen and (min-width: 630px)
-  html body
-    #reasons
-      ol
-        @include flexbox(column, flex-start)
-        position: relative
+  #reasons ol
+    @include flexbox(column, flex-start)
+    position: relative
 
-        &::before
-          @include content(block, 92%, 1px)
-          background-color: $grey-2
-          left: 50%
-          position: absolute
-          top: 8%
+    &::before
+      @include content(block, 92%, 1px)
+      background-color: $grey-2
+      left: 50%
+      position: absolute
+      top: 8%
 
-        li
-          box-sizing: border-box
-          width: calc(50% - 24px)
+    li
+      box-sizing: border-box
+      width: calc(50% - 1.5em)
 
-        li#develop, li#loyal, li#accompaniment
-          background-position: right 10px center
-          margin: 20px 30px 20px 0
-          padding: 25px 75px 25px 20px
-          text-align: right
+      &#develop, &#loyal, &#accompaniment
+        @include triangle( inherit, -7px, calc(50% - 10px), 180deg)
+        background-position: right 10px center
+        margin: 1.2em 1.5em 1.2em 0
+        padding: 1.5em calc(1.5em + 50px) 1.5em 1.5em
+        text-align: right
 
-          &::before
-            border-color: transparent transparent transparent $grey-3
-            border-width: 10px 0 10px 7px
-            right: -7px
-            left: initial
+        &::after
+          right: -35px
+          left: initial
 
-          &::after
-            right: -35px
-            left: initial
+      &#expertise, &#satisfaction, &#cost
+        align-self: flex-end
 
-        li#expertise, li#satisfaction, li#cost
-          align-self: flex-end
-          background-position: 10px center
-          margin: 20px 0 20px 30px
-          padding: 25px 20px 25px 75px
+  #offers
+    @include flexbox(row, space-between)
 
-          &::before
-            border-color: transparent $grey-3 transparent transparent
-            border-width: 10px 7px 10px 0
-            left: -7px
+    > p
+      padding: 0 20%
 
-          &::after
-            left: -35px
-
-    #offers
-      @include flexbox(row, space-between)
-
-      > p
-        padding: 0 20%
-
-      section
-        box-sizing: border-box
-        width: 48%
+    section
+      box-sizing: border-box
+      width: 48%
 
 @media screen and (min-width: 780px)
-  html body
-    #news article, #news ul
+  #index #news
+    flex-direction: row
+
+    article, ul
+      flex: auto
       width: 25%
 
-    #news ul
-      display: table-cell
-      caption-side: initial
+  #customize dl
+    height: 200px
 
-    #customize
-      dl
-        height: 200px
+  footer ul
+    display: inline-block
+    width: 49%
 
-    footer
-      ul
-        display: inline-block
-        width: 49%
+    &#links li
+      display: inline-block
+      margin: 0  0 0 10px
 
-      ul#links li
-        display: inline-block
-        margin: 0  0 0 10px
+      & + li::before
+        @include content(inline-block, 1px, 4px)
+        background-color: $white
+        margin-right: 5px
+        vertical-align: middle
 
-        & + li::before
-          @include content(inline-block, 1px, 4px)
-          background-color: $white
-          margin-right: 5px
-          vertical-align: middle
+  #news-content
+    @include flexbox(row, space-between)
+
+    h2
+      text-align: center
+      width: 100%
+
+    article
+      width: 49%
 
 @media screen and (min-width: 840px)
-  html body
-    #news article 
-      h3
-        @include transition(bottom, 0.5s)
-        bottom: -300px
+  #news nav ul
+    &::before
+      content: url("images/logo-bicolor.svg")
 
-      &:hover h3
-        bottom: 0
+    li
+      a
+        color: $grey-1
 
-    #guarantees ul li
-      height: calc(19vw)
-      width: calc(19vw)
+        &:hover
+          border-bottom: solid 1px $grey-1
 
-    #clients
-      ul + ul li
-        margin: 0
-        width: 50%
+      &:last-of-type a
+        border-color: $grey-1
 
-        @each $name in interne, symplify, special-order, delivery
-          &##{$name}:hover
-            background: url('images/numbers/#{$name}.svg') padding-box center 40px / auto 55% no-repeat, $grey-4
+        &:hover
+          background: $grey-1
+          color: white
 
-      ul + ul li#interne, ul + ul li#symplify, ul + ul li#delivery, ul + ul li#special-order
-        background-size: auto 55%
-        background-position: center 40px
+  nav ul
+    right: 10%
+    top: 20px
+    z-index: 50
 
-      ul + ul li#delivery, ul + ul li#symplify
-        padding: 280px 10% 40px 127px
+  #index #news article
+    h3, time
+      @include transition(bottom, 0.5s)
+      bottom: -300px
 
-        strong
-          left: 20px
+    &:hover h3, &:hover time
+      bottom: 0
 
-      ul + ul li#interne, ul + ul li#special-order
-        padding: 280px 40px 40px calc(10% + 107px)
+  #guarantees ul li
+    height: calc(19vw)
+    width: calc(19vw)
 
-        strong
-          left: 20%
+  #clients ul + ul li
+    background: center 40px / auto 55% no-repeat
+    margin: 0
+    padding: 250px 2em 1em
+    width: 50%
+
+    &:hover
+      background-color: $grey-4
+
+  #content-whitepaper
+    display: table
+
+    h2
+      display: table-caption
+
+    form
+      display: table-cell
+      padding-left: 5%
+      width: 55%
+
+  #news-content
+    margin-top: 100px
 
 @media screen and (min-width: 1000px)
-  html body
-    #main-offer ol
-      margin-top: 4em
-      position: relative
+  #main-offer ol
+    margin-top: 4em
+    position: relative
 
-      &::after
-        @include content(block, 1px, 80%)
-        background-color: $grey-2
-        left: 10%
-        position: absolute
-        top: 136px
-        
-      li#medicine, li#app, li#computer, li#sms, li#reception
+    &::after
+      @include content(block, 1px, 80%)
+      background-color: $grey-2
+      left: 9%
+      right: 9%
+      position: absolute
+      top: calc(170px - 1.8em)
+
+    @each $name in medicine, app, computer, sms, reception
+      li##{$name}
         background-color: transparent
-        background-size: auto 100px
+        background-size: auto 120px
         border-top: solid 170px transparent
         color: $grey-4
         width: 18%
 
-        &::after
+        &::before
           border-width: 0
 
         &:hover
           background-color: $grey-3
           color: $grey-1
 
-          &::after
-            border-width: 0 10px 7px 10px
+          &::before
+            border-width: 10px 7px 10px 0
 
 @media screen and (min-width: 1150px)
-  html body
-    nav ul
-      justify-content: flex-end
+  nav ul
+    justify-content: flex-end
 
-      &::before
-        content: url('images/logo-white.svg')
-        display: inline-block
-        left: 0
-        position: absolute
-        width: 170px
+    &::before
+      content: url('images/logo-white.svg')
+      display: inline-block
+      left: 0
+      position: absolute
+      width: 170px
 
-      li
-        margin: 0 0.6em
+    li
+      margin: 0 0.6em
 
-    #goals ul li
-      width: 30%
+  #goals ul li
+    width: 30%
 
 @media screen and (min-width: 1215px)
-  html body
-    #offers section
-        width: 24%
+  #offers section
+      width: 24%
 
-    #main-offer::after
-      height: 320px
+  #main-offer::after
+    height: 320px
