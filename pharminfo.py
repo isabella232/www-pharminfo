@@ -49,7 +49,7 @@ def get_news():
         if image is not None:
             entry['image'] = image.attrib['url']
         news.append(entry)
-    return news
+    return news[:2]
 
 
 @app.route('/')
