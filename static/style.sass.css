@@ -272,7 +272,6 @@ nav ul {
   100% {
     color: #515151;
     font-size: 0.875em; } }
->>>>>>> 6abcc86e7afb6c095e034bcecc382f7cacf2dadb
 
 #guarantees ul {
   display: flex;
@@ -737,35 +736,15 @@ footer {
   width: 100%;
   background: url("images/photos/bdc-bkgd.jpg") center/cover no-repeat; }
 
-#register #subscribe {
-  text-align: center; }
-  #register #subscribe form {
-    margin: 40px auto;
-    max-width: 600px; }
-    #register #subscribe form label {
-      display: none; }
-    #register #subscribe form input, #register #subscribe form textarea {
-      border: transparent;
-      border-bottom: solid 1px #515151;
-      border-left: solid 1px #515151;
-      box-shadow: 1px -1px 0 #515151;
-      box-sizing: border-box;
-      display: block;
-      font-family: inherit;
-      font-size: 1.125em;
-      padding: 1em;
-      width: 100%; }
-    #register #subscribe form input:last-of-type {
-      background: transparent;
-      cursor: pointer;
-      font-size: 0.875em;
-      margin-top: 20px;
-      padding: 1em 1.5em;
-      text-transform: uppercase;
-      width: auto; }
-
 #register input:not(:last-of-type), #whitepaper input:not(:last-of-type) {
   font-size: 1.125em; }
+
+#register #subscribe p, #whitepaper #subscribe p {
+  text-align: center; }
+
+#register #subscribe form, #whitepaper #subscribe form {
+  margin: 40px auto;
+  max-width: 600px; }
 
 #news-content {
   box-sizing: border-box;
