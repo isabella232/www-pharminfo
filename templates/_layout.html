@@ -6,6 +6,7 @@
     <title>Pharminfo.fr - {% block title %}Votre pharmacie encore plus proche{% endblock title %}</title>
     <link type="image/png" rel="icon" href="{{ url_for('static', filename='favicon.png') }}" />
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.sass.css') }}" />
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
   </head>
 
   <body id="{{ page }}">
@@ -63,5 +64,6 @@
         <li>Made by Kozea with ♥</li>
       </ul>
     </footer>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scrollReveal.min.js') }}"></script>
   </body>
 </html>
