@@ -59,17 +59,13 @@
     var nav = document.querySelector('nav');
 
     click_fn = function() {
-      if (this.classList.contains('open')) {
-        for (let span of document.body.querySelectorAll('nav span')) {
-          span.classList.remove('open');
-          span.classList.add('close');
-        }
+      if (this.parentElement.classList.contains('open')) {
+        this.parentElement.classList.remove('open');
+        this.parentElement.classList.add('close');
       }
       else {
-        for (let span of document.body.querySelectorAll('nav span')) {
-          span.classList.remove('close');
-          span.classList.add('open');
-        }
+        this.parentElement.classList.remove('close');
+        this.parentElement.classList.add('open');
       }
     }
 
