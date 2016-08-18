@@ -70,35 +70,68 @@
     }
 
     window.addEventListener('resize', function() {
-      if (window.innerWidth <= 840) {
-        if (!nav.querySelector('span')) {
-          for (let i = 0; i < 3; i++) {
-            let span = document.createElement('span');
-            nav.insertBefore(span, nav.children[0]);
+      /* Offers toggle slide */
+      if (window.innerWidth <= 650) {
+        if (!document.body.querySelector('.more')) {
+          var more_ul_ids = '#ecoweb, #flexiweb, #optiweb'
+          for (let offer of document.body.querySelectorAll(more_ul_ids)) {
+            let more = document.createElement('span');
+            more.innerHTML = 'voir plus';
+            more.classList.add('more');
+            offer.insertBefore(more, null);
+            more.addEventListener('click', function() {
+              this.parentElement.classList.add('more');
+              this.parentElement.classList.remove('less');
+            });
+
+            let less = document.createElement('span');
+            less.innerHTML = 'replier';
+            less.classList.add('less');
+            offer.insertBefore(less, null);
+            less.addEventListener('click', function() {
+              this.parentElement.classList.add('less');
+              this.parentElement.classList.remove('more');
+            });
           }
         }
-        else if (nav.querySelector('span').style.display === 'none') {
-          for (let span of nav.querySelectorAll('span')) {
-            span.style.display = 'block';
+        else {
+          for (let more of document.body.querySelectorAll('.more')) {
+            more.style.display = 'block';
           }
+          for (let less of document.body.querySelectorAll('.less')) {
+            less.style.display = 'none';
+          }
+        }
+      }
+      else if (document.body.querySelector('.more')) {
+        for (let span of document.body.querySelectorAll('.more, .less')) {
+          span.style.display = 'none';
+        }
+      }
+
+      if (window.innerWidth <= 840) {
+        if (!nav.querySelector('div')) {
+          var div = document.createElement('div');
+          for (let i = 0; i < 6; i++) {
+            let span = document.createElement('span');
+            div.insertBefore(span, null);
+          }
+          nav.insertBefore(div, nav.children[0]);
+        }
+        else if (nav.querySelector('div').style.display === 'none') {
+          div.style.display = 'block';
         }
         if (!has_event) {
-          for (let span of nav.querySelectorAll('span')) {
-            span.addEventListener('click', click_fn);
-          }
+          nav.querySelector('div').addEventListener('click', click_fn);
           has_event = true;
         }
       }
       else {
         if (has_event) {
-          for (let span of nav.querySelectorAll('span')) {
-            span.removeEventListener('click', click_fn);
-          }
+          nav.querySelector('div').removeEventListener('click', click_fn);
         }
-        if (nav.querySelector('span')) {
-          for (let span of nav.querySelectorAll('span')) {
-            span.style.display = 'none';
-          }
+        if (nav.querySelector('div')) {
+          nav.querySelector('div').style.display = 'none';
         }
       }
     });

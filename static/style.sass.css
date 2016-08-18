@@ -485,14 +485,6 @@ nav ul {
         border-color: #FFFFFF; }
     #offers section.close ul, #offers section#click-to-call ul {
       display: none; }
-    #offers section.close::after, #offers section#click-to-call::after {
-      content: "voir plus";
-      display: block;
-      height: auto;
-      width: auto;
-      font-size: 0.875em;
-      margin-top: 2em;
-      text-decoration: underline; }
   #offers ul.notes {
     font-size: 0.75em; }
 
@@ -1142,13 +1134,7 @@ footer {
 /* Class for offer block style */
 @media screen and (max-width: 650px) {
   #offers section:not(#flexiweb-plus) ul {
-    display: none; }
-  #offers section:not(#flexiweb-plus)::after {
-    content: 'voir plus';
-    display: block;
-    font-size: 0.875em;
-    margin-top: 30px;
-    text-decoration: underline; } }
+    display: none; } }
 
 /* Class for offer block style */
 @media screen and (min-width: 840px) {
