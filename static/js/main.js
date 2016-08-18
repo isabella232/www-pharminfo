@@ -59,14 +59,17 @@
     var nav = document.querySelector('nav');
 
     click_fn = function() {
-      span = this
-      if (span.classList.contains('open')) {
-        span.classList.remove('open');
-        span.classList.add('close');
+      if (this.classList.contains('open')) {
+        for (let span of document.body.querySelectorAll('nav span')) {
+          span.classList.remove('open');
+          span.classList.add('close');
+        }
       }
       else {
-        span.classList.remove('close');
-        span.classList.add('open');
+        for (let span of document.body.querySelectorAll('nav span')) {
+          span.classList.remove('close');
+          span.classList.add('open');
+        }
       }
     }
 
