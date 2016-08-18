@@ -84,6 +84,10 @@ article {
 header h1 {
   display: none; }
 
+#testimonials-map, #contact-map {
+  height: 500px;
+  width: 500px; }
+
 nav ul {
   display: flex;
   flex-direction: row;

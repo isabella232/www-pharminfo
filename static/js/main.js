@@ -124,3 +124,17 @@
     });
   });
 })();
+
+/* Google maps */
+function initMaps() {
+  var testimonials_map = new google.maps.Map(
+    document.getElementById('testimonials-map'), {
+      center: {lat: 45.776999, lng: 4.859773},
+      zoom: 15
+    });
+  var contact_map = new google.maps.Map(
+    document.getElementById('contact-map'), {
+      center: {lat: 45.776999, lng: 4.859773},
+      zoom: 15
+    });
+}
