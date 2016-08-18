@@ -17,7 +17,8 @@
       'right': ['#expertise, #satisfaction, #cost']}
     reveals.register = {'basic': ['#subscribe']}
 
-    function add_sr(selectors, animation) {
+    function add_sr(selectors, side) {
+      animation = 'enter ' + side + ', move 150px, wait 0.5s';
       for (let selector of selectors) {
         for (let el of document.querySelectorAll(selector)) {
           el.setAttribute('data-sr', animation);
@@ -28,7 +29,7 @@
     for (let page in reveals) {
       for (let type in reveals[page]) {
         if (type === 'basic') {
-          add_sr(reveals[page][type], 'enter bottom, move 150px, wait 0.5s');
+          add_sr(reveals[page][type], 'bottom');
         }
         else if (type === 'asc' || type === 'desc') {
           for (let selector of reveals[page][type]) {
@@ -42,15 +43,69 @@
           }
         }
         else if (type === 'left') {
-          add_sr(reveals[page][type], 'enter left, move 150px, wait 0.5s');
+          add_sr(reveals[page][type], 'left');
         }
         else if (type === 'right') {
-          add_sr(reveals[page][type], 'enter right, move 150px, wait 0.5s');
+          add_sr(reveals[page][type], 'right');
         }
       }
     }
+    /* Add all animations */
     window.sr = new scrollReveal();
 
+    /* Collapsible menu */
+    var has_event = false;
+    var event = new Event('resize');
+    var nav = document.querySelector('nav');
+
+    click_fn = function() {
+      span = this
+      if (span.classList.contains('open')) {
+        span.classList.remove('open');
+        span.classList.add('close');
+      }
+      else {
+        span.classList.remove('close');
+        span.classList.add('open');
+      }
+    }
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth <= 840) {
+        if (!nav.querySelector('span')) {
+          for (let i = 0; i < 3; i++) {
+            let span = document.createElement('span');
+            nav.insertBefore(span, nav.children[0]);
+          }
+        }
+        else if (nav.querySelector('span').style.display === 'none') {
+          for (let span of nav.querySelectorAll('span')) {
+            span.style.display = 'block';
+          }
+        }
+        if (!has_event) {
+          for (let span of nav.querySelectorAll('span')) {
+            span.addEventListener('click', click_fn);
+          }
+          has_event = true;
+        }
+      }
+      else {
+        if (has_event) {
+          for (let span of nav.querySelectorAll('span')) {
+            span.removeEventListener('click', click_fn);
+          }
+        }
+        if (nav.querySelector('span')) {
+          for (let span of nav.querySelectorAll('span')) {
+            span.style.display = 'none';
+          }
+        }
+      }
+    });
+    window.dispatchEvent(event);
+
+    /* Arrow to the top */
     var arrow = document.createElement('span');
     arrow.className = 'back-to-top';
     document.body.insertBefore(arrow, null);
