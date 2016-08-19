@@ -12,7 +12,7 @@
     width: calc(26vw)
 
 @media screen and (min-width: 400px) and (max-width: 839px)
-  #clients
+  #clients #stats
     #interne, #delivery
       background-size: auto 60%
 
@@ -200,6 +200,15 @@
       box-sizing: border-box
       width: 48%
 
+  #contact > div
+    width: 50%
+
+    &:not(#contact-map)
+      padding: 60px 10% 60px 5%
+
+    &#contact-map
+      height: inherit
+
 @media screen and (min-width: 780px)
   #index #news
     flex-direction: row
@@ -207,6 +216,23 @@
     article, ul
       flex: auto
       width: 25%
+
+  #clients
+    @include flexbox(row, flex-start)
+
+    #testimonials-map, #testimonials
+      height: initial
+      width: 50%
+
+    #testimonials
+      padding: 100px 10% 40px 5%;
+
+    h2
+      left: 55%;
+      width: 35%
+
+    #stats
+      width: 100%
 
   #customize dl
     height: 200px
@@ -268,10 +294,25 @@
       bottom: 0
 
   #guarantees ul li
+    @include transition(font-size)
+    background-color: transparent
+    font-size: 0
     height: calc(19vw)
     width: calc(19vw)
 
-  #clients ul + ul li
+    &::before
+      border: none
+      margin-bottom: 0
+
+    &:hover
+      animation: content-fadein 0.25s ease-out both
+      background-color: $grey-4
+
+      &::before
+        border: solid 3px $main-color
+        margin-bottom: 15px
+
+  #clients #stats li
     background: center 40px / auto 55% no-repeat
     margin: 0
     padding: 250px 2em 1em

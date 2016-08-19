@@ -17,10 +17,10 @@ ul, ol
 *:not(strong)
   font-weight: 300
 
-body > section:not(#news):not(#reasons):not(#clients)
+body > section:not(#news):not(#reasons):not(#clients):not(#contact)
   padding: 60px 10%
 
-#goals, #guarantees, #reasons, #offers, #register, #whitepaper, #news-content
+#goals, #guarantees, #reasons, #offers, #register, #whitepaper, #news-content, #clients
   h2
     @include h2_source_sans
 
@@ -230,7 +230,6 @@ nav ul
 
 #guarantees
   ul
-    @extend %hide-guarantees
     @include flexbox(row, center)
 
     li
@@ -294,11 +293,31 @@ nav ul
           background: url('images/choose/icon-#{$name}.svg') 0.75em center / 50px no-repeat, $grey-3
 
 #clients
-  padding: 0 10%
+  #testimonials-map
+    width: 100%
 
-  ul + ul
+  h2
+    position: absolute
+    text-align: center
+    width: 100%
+
+  #testimonials
+    background: $grey-3
+    box-sizing: border-box
+    margin: 0
+    padding: 100px 10% 40px
+    text-align: center
+
+    figure, blockquote
+      margin: 0
+
+    blockquote p::before, blockquote p::after
+      content: '"'
+
+  #stats
     @include flexbox(row, space-between)
-    padding: 0
+    margin: 0
+    padding: 0 10%
 
     li
       background: padding-box center 0 / 100% auto no-repeat
@@ -320,11 +339,11 @@ nav ul
   > p
     font-size: 0.75em
     text-align: center
+    width: 100%
 
   &::after
-    @include content(block, 260px, 125%)
+    @include content(block, 260px, 100%)
     background: url('images/photos/bkgd-meds.jpg') center / cover no-repeat fixed
-    margin: 0 -12.5%
 
 #offers
   background-color: $grey-4
@@ -503,6 +522,16 @@ nav ul
       max-width: 150px
 
 #contact
+  @include flexbox(row, flex-start)
+  align-items: stretch
+
+  & > div
+    box-sizing: border-box
+    width: 100%
+
+    &:not(#contact-map)
+      padding: 60px 10%
+
   h2
     font-size: $title
 
@@ -600,7 +629,6 @@ footer
     height: 23px
     margin: 0 5px
     vertical-align: top
-        display: none
     width: 23px
 
     @each $name in facebook, twitter, google, linkedin, scoopit
