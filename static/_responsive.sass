@@ -33,6 +33,7 @@
           opacity: 0
 
       span
+        cursor: pointer
         text-decoration: underline
 
         &.less
@@ -59,38 +60,45 @@
   nav
     position: relative
 
-    span
-      @include transform(rotate(0deg))
-      @include transition(all ease-in-out)
-      background: white
-      border-radius: 2px
-      display: block
-      height: 3px
-      opacity: 1
+    div
+      cursor: pointer
+      height: 70px
       position: absolute
-      -webkit-transform-origin: right center
-      -moz-transform-origin: right center
-      -o-transform-origin: right center
-      transform-origin: right center
-      width: 15px
-      z-index: 10
+      right: 0
+      width: 70px
 
-      &:nth-child(even)
-        right: 20px
-        border-radius: 0 9px 9px 0
+      span
+        @include transform(rotate(0deg))
+        @include transition(all ease-in-out)
+        background: white
+        border-radius: 2px
+        display: block
+        height: 3px
+        opacity: 1
+        position: absolute
+        -webkit-transform-origin: right center
+        -moz-transform-origin: right center
+        -o-transform-origin: right center
+        transform-origin: right center
+        width: 15px
+        z-index: 10
 
-      &:nth-child(odd)
-        right: calc(20px + 15px)
-        border-radius: 9px 0 0 9px
+        &:nth-child(even)
+          right: 20px
+          border-radius: 0 9px 9px 0
 
-      &:nth-child(1), &:nth-child(2)
-        top: 20px
+        &:nth-child(odd)
+          right: calc(20px + 15px)
+          border-radius: 9px 0 0 9px
 
-      &:nth-child(3), &:nth-child(4)
-        top: 30px
+        &:nth-child(1), &:nth-child(2)
+          top: 20px
 
-      &:nth-child(5), &:nth-child(6)
-        top: 40px
+        &:nth-child(3), &:nth-child(4)
+          top: 30px
+
+        &:nth-child(5), &:nth-child(6)
+          top: 40px
 
     ul
       background-color: $main-color
