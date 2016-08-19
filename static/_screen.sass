@@ -228,19 +228,6 @@ nav ul
         display: block
         font-size: $subtitle
 
-@keyframes content-fadein
-  0%
-    color: $grey-4
-    font-size: 0
-
-  60%
-    color: $grey-4
-    font-size: $basic-font-size
-
-  100%
-    color: $grey-1
-    font-size: $basic-font-size
-
 #guarantees
   ul
     @extend %hide-guarantees
@@ -352,7 +339,7 @@ nav ul
     font-style: italic
 
   section
-    @include transition(border)
+    @include transition(all)
     border: solid 3px
     box-sizing: border-box
     margin: 1.2em 0
@@ -382,17 +369,16 @@ nav ul
       margin: 1em
 
       &.disabled
-        opacity: 0.5
+        opacity: 0.35
 
     ul.links
-      margin-top: 3em
+      margin: 3em 0 2em
 
       li a
         @include cta
         border-color: $grey-1
 
     &:not(#flexiweb-plus)
-      @extend %hide-offer
       background-color: $white
       border: solid 3px $grey-4
 
