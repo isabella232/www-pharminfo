@@ -160,6 +160,15 @@
 
 /* Google maps */
 function initMaps() {
+  var testimonials_map_div = document.createElement('div');
+  testimonials_map_div.setAttribute('id', 'testimonials-map');
+  var clients = document.body.querySelector('#clients')
+  clients.insertBefore(testimonials_map_div, clients.querySelector('h2'))
+  var contact_map_div = document.createElement('div');
+  var contact = document.body.querySelector('#contact')
+  contact_map_div.setAttribute('id', 'contact-map');
+  var contact = document.body.querySelector('#contact')
+  contact.insertBefore(contact_map_div, contact.querySelector('h2'))
   var testimonials_map = new google.maps.Map(
     document.getElementById('testimonials-map'), {
       center: {lat: 45.776999, lng: 4.859773},
