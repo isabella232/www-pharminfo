@@ -200,14 +200,17 @@
       box-sizing: border-box
       width: 48%
 
-  #contact > div
-    width: 50%
+  #contact
+    display: table
+    width: 100%
 
-    &:not(#contact-map)
-      padding: 60px 10% 60px 5%
+    #contact-map
+      display: table-cell
+      height: auto
+      width: 50%
 
-    &#contact-map
-      height: inherit
+    > *:not(#contact-map)
+      padding: 0 20% 0 10%
 
 @media screen and (min-width: 780px)
   #index #news

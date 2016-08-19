@@ -102,22 +102,21 @@ nav ul
         color: $grey-1
 
 .back-to-top
-  position: fixed
-  opacity: 0
-  right: 70px
+  @include transition(opacity, 700ms)
+  background-color: $grey-2
+  border: solid 1px #ffffff
+  border-radius: 5px
   bottom: 70px
-  height: 50px
-  width: 50px
   color: #ffffff
-  background-color: #2a4056
-  text-align: center
   cursor: pointer
   font-size: 35px
-  font-weight: bold
-  border-radius: 5px
-  -webkit-transition: opacity 700ms ease-in
-  -ms-transition: opacity 700ms ease-in
-  transition: opacity 700ms ease-in
+  height: 50px
+  line-height: 1.4
+  opacity: 0
+  position: fixed
+  right: 20px
+  text-align: center
+  width: 50px
   z-index: 1000
 
   &:before
@@ -522,15 +521,12 @@ nav ul
       max-width: 150px
 
 #contact
-  @include flexbox(row, flex-start)
-  align-items: stretch
-
-  & > div
-    box-sizing: border-box
+  #contact-map
+    height: 400px
     width: 100%
 
-    &:not(#contact-map)
-      padding: 60px 10%
+  > *:not(#contact-map)
+    padding: 0 10%
 
   h2
     font-size: $title
