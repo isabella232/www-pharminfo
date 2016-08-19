@@ -135,30 +135,27 @@
   </section>
 
   <section id="clients">
-    <div id="testimonials-map"></div>
-    <div>
-      <h2>Témoignages</h2>
-      <ul id="testimonials">
-        {# TODO #}
-        {% for i in range(3) %}
-          <li>
-            <figure>
-              <blockquote>
-                {{ lipsum(1)  }}
-              </blockquote>
-              <figcaption>Céline D, Pharmacienne</figcaption>
-            </figure>
-          </li>
-        {% endfor %}
-      </ul>
-      <ul id="stats">
-        <li id="interne"><strong>85%</strong> des patients apprécient que leur pharmacien aient un site Internet.</li>
-        <li id="symplify"><strong>72%</strong> des patients seraient intéressés par la mise en place d'un service qui simplifie la réservation d'ordonnances.</li>
-        <li id="special-order"><strong>73%</strong> des patients souhaitent la mise en place d'un comptoir uniquement dédié aux retraits des ordonnances réservées en ligne.</li>
-        <li id="delivery"><strong>50%</strong> des patients souhaitent être livrés à leur domicile.</li>
-      </ul>
-      <p>Enquête réalisée par Pharminfo.fr au mois de juillet 2015 après de 1300 patients.</p>
-    </div>
+    <h2>Témoignages</h2>
+    <ul id="testimonials">
+      {# TODO #}
+      {% for i in range(3) %}
+        <li>
+          <figure>
+            <blockquote>
+              {{ lipsum(1)  }}
+            </blockquote>
+            <figcaption>Céline D, Pharmacienne</figcaption>
+          </figure>
+        </li>
+      {% endfor %}
+    </ul>
+    <ul id="stats">
+      <li id="interne"><strong>85%</strong> des patients apprécient que leur pharmacien aient un site Internet.</li>
+      <li id="symplify"><strong>72%</strong> des patients seraient intéressés par la mise en place d'un service qui simplifie la réservation d'ordonnances.</li>
+      <li id="special-order"><strong>73%</strong> des patients souhaitent la mise en place d'un comptoir uniquement dédié aux retraits des ordonnances réservées en ligne.</li>
+      <li id="delivery"><strong>50%</strong> des patients souhaitent être livrés à leur domicile.</li>
+    </ul>
+    <p>Enquête réalisée par Pharminfo.fr au mois de juillet 2015 après de 1300 patients.</p>
   </section>
 
   <section id="offers">
@@ -260,34 +257,31 @@
   </section>
 
   <section id="contact">
-    <div id="contact-map"></div>
-    <div>
-      <h2>Contact</h2>
-      <dl>
-        <dt>Adresse</dt>
-        <dd>
-          <strong>Pharminfo.fr − Kozea</strong><br/>
-          107 boulevard de Stalingrad<br/>
-          69100 Villeurbanne
-        </dd>
-        <dt>Tél</dt>
-        <dd>04 27 11 83 96</dd>
-        <dt>Fax</dt>
-        <dd>04 27 11 83 98</dd>
-        <dt>Email</dt>
-        <dd><a href="mailto:contact@pharminfo.fr">contact@pharminfo.fr</a></dd>
-      </dl>
-      <form action="{{ url_for('contact') }}" method="POST">
-        <label for="email">Email</label>
-        <input id="email" name="email" placeholder="Votre adresse email" />
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Votre message"></textarea>
-        <input type="submit" value="Valider" />
-      </form>
-      {# TODO #}
-      <p>
-        <a>Abonnez-vous à la newsletter</a>
-      </p>
-    </div>
+    <h2>Contact</h2>
+    <dl>
+      <dt>Adresse</dt>
+      <dd>
+        <strong>Pharminfo.fr − Kozea</strong><br/>
+        107 boulevard de Stalingrad<br/>
+        69100 Villeurbanne
+      </dd>
+      <dt>Tél</dt>
+      <dd>04 27 11 83 96</dd>
+      <dt>Fax</dt>
+      <dd>04 27 11 83 98</dd>
+      <dt>Email</dt>
+      <dd><a href="mailto:contact@pharminfo.fr">contact@pharminfo.fr</a></dd>
+    </dl>
+    <form action="{{ url_for('contact') }}" method="POST">
+      <label for="email">Email</label>
+      <input id="email" name="email" placeholder="Votre adresse email" />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Votre message"></textarea>
+      <input type="submit" value="Valider" />
+    </form>
+    {# TODO #}
+    <p>
+      <a>Abonnez-vous à la newsletter</a>
+    </p>
   </section>
 {% endblock body %}
