@@ -46,7 +46,7 @@
     padding: 0;
     width: 70px; } }
 
-@keyframes menu-fadein {
+@keyframes list-fadein {
   0% {
     display: block;
     opacity: 0;
@@ -55,6 +55,7 @@
     -o-transform: translateY(-50px);
     transform: translateY(-50px); }
   100% {
+    display: block;
     opacity: 1;
     -webkit-transform: translateY(0px);
     -moz-transform: translateY(0px);
@@ -483,8 +484,8 @@ nav ul {
   #offers > p {
     font-style: italic; }
   #offers section {
-    -webkit-transition: border 0.25s 0s;
-    transition: border 0.25s 0s;
+    -webkit-transition: all 0.25s 0s;
+    transition: all 0.25s 0s;
     border: solid 3px;
     box-sizing: border-box;
     margin: 1.2em 0;
@@ -508,9 +509,9 @@ nav ul {
       font-size: 0.875em;
       margin: 1em; }
       #offers section ul li.disabled {
-        opacity: 0.5; }
+        opacity: 0.35; }
     #offers section ul.links {
-      margin-top: 3em; }
+      margin: 3em 0 2em; }
       #offers section ul.links li a {
         -webkit-transition: all 0.25s 0s;
         transition: all 0.25s 0s;
@@ -831,6 +832,20 @@ footer {
   #clients #symplify, #clients #special-order {
     background-size: auto 50%; } }
 
+@media screen and (max-width: 650px) {
+  #offers section:not(#flexiweb-plus) ul, #offers section:not(#flexiweb-plus) span.less {
+    display: none;
+    opacity: 0; }
+  #offers section:not(#flexiweb-plus) span {
+    text-decoration: underline; }
+  #offers section:not(#flexiweb-plus).more ul, #offers section:not(#flexiweb-plus).more span.less {
+    display: block;
+    opacity: 1; }
+  #offers section:not(#flexiweb-plus).more ul {
+    animation: list-fadein 0.2s ease-in-out both; }
+  #offers section:not(#flexiweb-plus).more span.more {
+    display: none; } }
+
 @media screen and (max-width: 840px) {
   nav {
     position: relative; }
@@ -915,7 +930,7 @@ footer {
     padding: calc(10vh) 0;
     width: 100%; }
     .open ul li {
-      animation: menu-fadein 0.2s ease-in-out both;
+      animation: list-fadein 0.2s ease-in-out both;
       display: block;
       opacity: 1; }
     .open ul li:nth-child(1) {
@@ -1190,11 +1205,7 @@ footer {
     height: 320px; } }
 
 /* Class for offer block style */
-@media screen and (max-width: 650px) {
-  #offers section:not(#flexiweb-plus) ul {
-    display: none; } }
-
-/* Class for offer block style */
+/* Class for guarantees block style */
 @media screen and (min-width: 840px) {
   #guarantees ul li {
     -webkit-transition: font-size 0.25s 0s;

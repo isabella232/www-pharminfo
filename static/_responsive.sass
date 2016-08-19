@@ -19,6 +19,27 @@
     #symplify, #special-order
       background-size: auto 50%
 
+@media screen and (max-width: 650px)
+  #offers
+    section:not(#flexiweb-plus)
+      ul, span.less
+        display: none
+        opacity: 0
+
+      span
+        text-decoration: underline
+
+    section:not(#flexiweb-plus).more
+      ul, span.less
+        display: block
+        opacity: 1
+
+      ul
+        animation: list-fadein 0.2s ease-in-out both
+
+      span.more
+        display: none
+
 @media screen and (max-width: 840px)
   nav
     position: relative
@@ -104,7 +125,7 @@
       width: 100%
 
       li
-        animation: menu-fadein 0.2s ease-in-out both
+        animation: list-fadein 0.2s ease-in-out both
         display: block
         opacity: 1
 
