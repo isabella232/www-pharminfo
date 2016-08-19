@@ -22,23 +22,38 @@
 @media screen and (max-width: 650px)
   #offers
     section:not(#flexiweb-plus)
-      ul, span.less
-        display: none
-        opacity: 0
+      ul
+        @include transition(all, 0.5s)
+        margin: 0
+        max-height: 0
+        overflow-y: hidden
+
+        li
+          animation: list-fadeout 0.5s ease-in-out both
+          opacity: 0
 
       span
         text-decoration: underline
 
+        &.less
+          display: none
+          opacity: 0
+
     section:not(#flexiweb-plus).more
-      ul, span.less
-        display: block
-        opacity: 1
-
       ul
-        animation: list-fadein 0.2s ease-in-out both
+        margin: 2em 0
+        max-height: 500px
 
-      span.more
-        display: none
+        li
+          animation: list-fadein 0.5s ease-in-out both
+
+      span
+        &.more
+          display: none
+
+        &.less
+          display: block
+          opacity: 1
 
 @media screen and (max-width: 840px)
   nav

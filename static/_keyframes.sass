@@ -47,6 +47,17 @@
     opacity: 1
     @include transform(translateY(0px))
 
+@keyframes list-fadeout
+  0%
+    display: block
+    opacity: 1
+    @include transform(translateY(0px))
+
+  100%
+    display: block
+    opacity: 0
+    @include transform(translateY(-50px))
+
 /* Guaranties animation */
 @keyframes content-fadein
   0%
