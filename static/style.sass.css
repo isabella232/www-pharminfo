@@ -107,7 +107,7 @@ ul, ol {
 *:not(strong) {
   font-weight: 300; }
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact) {
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content) {
   padding: 60px 10%; }
 
 #goals h2, #guarantees h2, #reasons h2, #offers h2, #register h2, #whitepaper h2, #news-content h2, #clients h2 {
@@ -377,8 +377,9 @@ nav ul {
       border: solid 3px #00a071;
       border-radius: 50%;
       display: block;
+      height: 50%;
       margin-bottom: 20px;
-      max-height: 50%;
+      max-height: 100px;
       max-width: 100px;
       width: 50%; }
     #guarantees ul li#cloud::before {
@@ -754,15 +755,19 @@ form {
   form label {
     display: none; }
   form input:not(:last-of-type), form textarea {
-    border: transparent;
-    border-bottom: solid 1px #515151;
-    border-left: solid 1px #515151;
-    box-shadow: 1px -1px 0 #515151;
+    border: solid 1px #515151;
+    border-top: none;
+    border-radius: 0;
+    box-shadow: 0;
     box-sizing: border-box;
     display: block;
     font-family: inherit;
+    margin: 0;
     padding: 0.75em;
+    -webkit-appearance: none;
     width: 100%; }
+  form input:first-of-type {
+    border-top: solid 1px #515151; }
   form textarea {
     min-height: 130px; }
   form input:last-of-type {
@@ -770,8 +775,9 @@ form {
     transition: all 0.25s 0s;
     background: transparent;
     border: solid 1px #515151;
+    border-radius: 0;
     cursor: pointer;
-    margin-top: 20px;
+    margin: 20px 0 0;
     padding: 0.75em 2em;
     text-transform: uppercase; }
     form input:last-of-type:hover {
@@ -827,12 +833,12 @@ footer {
   position: absolute;
   box-shadow: 0px 20px 200px 70px rgba(0, 0, 0, 0.2); }
 
-#register header::after, #whitepaper header::after {
+#register > section::before, #whitepaper > section::before {
   content: "";
   display: block;
   height: 290px;
-  width: 100%;
-  background: url("images/photos/bdc-bkgd.jpg") center/cover no-repeat; }
+  width: 125%;
+  margin: -130px 0 0 -12.5%; }
 
 #register input:not(:last-of-type), #whitepaper input:not(:last-of-type) {
   font-size: 1.125em; }
@@ -843,10 +849,18 @@ footer {
 #register #subscribe form, #whitepaper #subscribe form {
   margin: 40px auto;
   max-width: 600px; }
+  #register #subscribe form #email, #whitepaper #subscribe form #email {
+    border-top: solid 1px; }
+
+#register > section::before {
+  background: url("images/photos/bdc-bkgd.jpg") center/cover no-repeat; }
+
+#whitepaper > section::before {
+  background: url("images/photos/whitepaper-bkgd.jpg") center/cover no-repeat; }
 
 #news-content {
   box-sizing: border-box;
-  margin-top: 40px;
+  padding: 0 10% 60px;
   width: 100%; }
   #news-content article {
     margin: 20px 0; }
@@ -1187,15 +1201,17 @@ footer {
   #clients #stats li {
     background: center 40px / auto 55% no-repeat;
     margin: 0;
-    padding: 250px 2em 1em;
+    padding: 250px 2em 2em;
     width: 50%; }
     #clients #stats li:hover {
       background-color: #f5f5f5; }
-  #content-whitepaper {
+  section#content-whitepaper {
     display: table; }
-    #content-whitepaper h2 {
+    section#content-whitepaper::before {
       display: table-caption; }
-    #content-whitepaper form {
+    section#content-whitepaper h2 {
+      display: table-caption; }
+    section#content-whitepaper form {
       display: table-cell;
       padding-left: 5%;
       width: 55%; }

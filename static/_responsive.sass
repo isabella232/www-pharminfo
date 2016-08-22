@@ -341,14 +341,17 @@
   #clients #stats li
     background: center 40px / auto 55% no-repeat
     margin: 0
-    padding: 250px 2em 1em
+    padding: 250px 2em 2em
     width: 50%
 
     &:hover
       background-color: $grey-4
 
-  #content-whitepaper
+  section#content-whitepaper
     display: table
+
+    &::before
+      display: table-caption
 
     h2
       display: table-caption
