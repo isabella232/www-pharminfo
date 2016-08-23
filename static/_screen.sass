@@ -137,7 +137,7 @@ nav ul
   text-align: center
 
   h2
-    @include bottom_stroke(28px, 4px, 30px)
+    @include bottom_stroke(4px, 30px auto 0, 28px)
     color: $white
     font-size: $big-title
     font-weight: 400
@@ -146,10 +146,8 @@ nav ul
     text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.4)
 
     &::before
-      content: url('images/logo-white.svg')
-      display: block
+      @include content(block, auto, 252px, url('images/logo-white.svg'))
       margin: 0 auto 20px
-      width: 252px
 
   ul li a
     @include transition(all)
@@ -166,11 +164,10 @@ nav ul
 
 #about
   h2
-    @include h2_source_sans(30px, $main-color, italic)
+    @include h2_source_sans($main-color, italic)
 
 #index #news
-  display: flex
-  flex-direction: column
+  @include flexbox(column, flex-start, nowrap)
 
   h2
     display: none
@@ -370,7 +367,7 @@ nav ul
       text-transform: uppercase
 
     p:first-of-type
-      margin-top: 0
+      margin: 0
 
     p.price
       border-bottom: solid 1px $grey-3
@@ -495,7 +492,7 @@ nav ul
     height: 680px
 
     dt
-      @include bottom_stroke(18px, 2px, 0)
+      @include bottom_stroke(2px, 0 auto, 18px)
       font-size: $basic-font-size
       margin-top: 3em
       position: relative
@@ -515,8 +512,7 @@ nav ul
 
     dd
       font-size: $subtitle
-      margin-left: 0
-      margin-top: 0.5em
+      margin: 0.5em 0 0
 
     dt, dd
       max-width: 150px
@@ -530,12 +526,8 @@ nav ul
     padding: 0 10%
 
   h2
+    @include bottom_stroke(2px, 15px 0 0, 16px)
     font-size: $title
-
-    &::after
-      @include content(block, 2px, 16px)
-      background-color: $main-color
-      margin-top: 15px
 
   dl
     dt

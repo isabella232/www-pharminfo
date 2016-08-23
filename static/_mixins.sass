@@ -1,11 +1,11 @@
 /* Mixin for title's strokes */
-@mixin bottom_stroke($width: 20px, $height: 2px, $margin-top: 20px)
+@mixin bottom_stroke($height: 2px, $margin: 20px auto 0, $width: 20px)
   &::after
     background-color: $main-color
     content: ''
     display: block
     height: $height
-    margin: $margin-top auto 0
+    margin: $margin
     width: $width
 
 /* Mixin for ::after & ::before */
@@ -36,7 +36,7 @@
 
 /* Mixin for h2 styles*/
 @mixin h2_source_sans($margin-top: 20px, $color: $grey-1, $font-style: normal)
-  @include bottom_stroke(20px, 2px, $margin-top)
+  @include bottom_stroke
   color: $color
   font: $font-style 300 $title/normal 'Source Sans Pro', sans-serif
   text-align: center

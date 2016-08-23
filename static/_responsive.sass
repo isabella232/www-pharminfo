@@ -350,10 +350,7 @@
   section#content-whitepaper
     display: table
 
-    &::before
-      display: table-caption
-
-    h2
+    &::before, h2
       display: table-caption
 
     form
@@ -372,9 +369,9 @@
     &::after
       @include content(block, 1px, 80%)
       background-color: $grey-2
-      left: 9%
-      right: 9%
+      left: 10%
       position: absolute
+      right: 10%
       top: calc(170px - 1.8em)
 
     @each $name in medicine, app, computer, sms, reception

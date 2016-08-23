@@ -255,8 +255,9 @@ nav ul {
     #sales h2::before {
       content: url("images/logo-white.svg");
       display: block;
-      margin: 0 auto 20px;
-      width: 252px; }
+      height: auto;
+      width: 252px;
+      margin: 0 auto 20px; }
   #sales ul li a {
     -webkit-transition: all 0.25s 0s;
     transition: all 0.25s 0s;
@@ -271,20 +272,22 @@ nav ul {
       padding: 1em 2em; }
 
 #about h2 {
-  color: #00a071;
-  font: italic 300 2.25em/normal "Source Sans Pro", sans-serif;
+  color: italic;
+  font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center; }
   #about h2::after {
     background-color: #00a071;
     content: '';
     display: block;
     height: 2px;
-    margin: 30px auto 0;
+    margin: 20px auto 0;
     width: 20px; }
 
 #index #news {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start; }
   #index #news h2 {
     display: none; }
   #index #news article {
@@ -532,7 +535,7 @@ nav ul {
       margin: 0;
       text-transform: uppercase; }
     #offers section p:first-of-type {
-      margin-top: 0; }
+      margin: 0; }
     #offers section p.price {
       border-bottom: solid 1px #e6e6e6;
       border-top: solid 1px #e6e6e6;
@@ -680,7 +683,7 @@ nav ul {
         content: '';
         display: block;
         height: 2px;
-        margin: 0 auto 0;
+        margin: 0 auto;
         width: 18px; }
       #customize dl dt::before {
         content: "";
@@ -702,8 +705,7 @@ nav ul {
         background: url("images/personnalisation/icon-theme.svg") center 0 no-repeat; }
     #customize dl dd {
       font-size: 1.25em;
-      margin-left: 0;
-      margin-top: 0.5em; }
+      margin: 0.5em 0 0; }
     #customize dl dt, #customize dl dd {
       max-width: 150px; }
 
@@ -717,12 +719,12 @@ nav ul {
 #contact h2 {
   font-size: 2.25em; }
   #contact h2::after {
-    content: "";
+    background-color: #00a071;
+    content: '';
     display: block;
     height: 2px;
-    width: 16px;
-    background-color: #00a071;
-    margin-top: 15px; }
+    margin: 15px 0 0;
+    width: 16px; }
 
 #contact dl dt {
   color: #00a071;
@@ -1228,8 +1230,8 @@ footer {
       height: 1px;
       width: 80%;
       background-color: #d3d3d3;
-      left: 9%;
-      right: 9%;
+      left: 10%;
+      right: 10%;
       position: absolute;
       top: calc(170px - 1.8em); }
     #main-offer ol li#medicine {
