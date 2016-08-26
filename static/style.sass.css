@@ -1209,9 +1209,7 @@ footer {
       background-color: #f5f5f5; }
   section#content-whitepaper {
     display: table; }
-    section#content-whitepaper::before {
-      display: table-caption; }
-    section#content-whitepaper h2 {
+    section#content-whitepaper::before, section#content-whitepaper h2 {
       display: table-caption; }
     section#content-whitepaper form {
       display: table-cell;
@@ -1231,8 +1229,8 @@ footer {
       width: 80%;
       background-color: #d3d3d3;
       left: 10%;
-      right: 10%;
       position: absolute;
+      right: 10%;
       top: calc(170px - 1.8em); }
     #main-offer ol li#medicine {
       background-color: transparent;

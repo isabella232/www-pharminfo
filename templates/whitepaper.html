@@ -4,32 +4,53 @@
 
 {% block body %}
   <section id="content-whitepaper">
-    <h2>Comment développer vos ventes grâce à votre site Internet ?</h2>
-    <p>
-      Ce document est à destination des pharmaciens d'officine propriétaires
-      d'un site Internet de vente en ligne de médicaments et de produits de
-      parapharmacie.
-    </p>
-    <p>
-      Il vous permettra d'identifier les solutions à mettre en œuvre pour
-      accélérer les ventes sur votre site Internet.
-    </p>
-    <p>
-      Informez-vous sur :
-    </p>
-    <ul>
-      <li>la réglementation en vigueur,</li>
-      <li>des astuces pour bien vendre,</li>
-      <li>des opérations marketing à mettre en place.</li>
-    </ul>
-    <p>
-      Vous pouvez télécharger le livre blanc gratuitement en remplissant le
-      formulaire.
-    </p>
-    <p>
-      Les champs marqués d'un astérisque (*) sont obligatoires
-    </p>
+    <article>
+      <h2>Comment développer vos ventes grâce à votre site Internet ?</h2>
+      <p>
+        Ce document est à destination des pharmaciens d'officine propriétaires
+        d'un site Internet de vente en ligne de médicaments et de produits de
+        parapharmacie.
+      </p>
+      <p>
+        Il vous permettra d'identifier les solutions à mettre en œuvre pour
+        accélérer les ventes sur votre site Internet.
+      </p>
+      <p>
+        Informez-vous sur :
+      </p>
+      <ul>
+        <li>la réglementation en vigueur,</li>
+        <li>des astuces pour bien vendre,</li>
+        <li>des opérations marketing à mettre en place.</li>
+      </ul>
+      <p>
+        Vous pouvez télécharger le livre blanc gratuitement en remplissant le
+        formulaire.
+      </p>
+      <p>
+        Les champs marqués d'un astérisque (*) sont obligatoires
+      </p>
+    </article>
+    <article>
+      <h2>Le site Internet de ma pharmacie, pour quoi faire ?</h2>
+      <p>
+        Ce document est à destination des pharmaciens d’officine désirant un
+        site Internet. Il vous permettra d’être guidé dans votre démarche de
+        digitalisation.
+      </p>
+      <p>Informez-vous sur :</p>
+      <ul>
+        <li>Le développement du e-commerce et de la e-santé</li>
+        <li>Les attentes de vos patients à l’ère du digital</li>
+        <li>Les solutions pour digitaliser votre officine et s’y adapter</li>
+      </ul>
+    </article>
     <form action="{{ url_for('whitepaper') }}" method="POST">
+      <label>
+        Choix du livre blanc
+        <input id="increase_sale" name="white_book_choice" value="Comment développer vos ventes grâce à votre site Internet ?" />
+        <input id="why_website" name="white_book_choice" value="Le site Internet de ma pharmacie, pour quoi faire ?" />
+      </label>
       <label for="name">Nom</label>
       <input id="name" name="name" placeholder="Nom*" required="required" />
       <label for="email">Email</label>
