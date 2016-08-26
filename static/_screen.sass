@@ -24,7 +24,7 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
   h2
     @include h2_source_sans
 
-article
+#news article
   @include flexbox(column, flex-end)
   height: 270px
   overflow: hidden
@@ -564,7 +564,7 @@ nav ul
 form
   margin-top: 40px
 
-  label
+  label:not(.checkbox)
     display: none
 
   input:not(:last-of-type), textarea
@@ -586,7 +586,7 @@ form
   textarea
     min-height: 130px
 
-  input:last-of-type
+  > input:last-of-type
     @include transition(all)
     background: transparent
     border: solid 1px $grey-1
@@ -669,8 +669,29 @@ footer
 #register > section::before
     background: url('images/photos/bdc-bkgd.jpg') center / cover no-repeat
 
-#whitepaper > section::before
-  background: url('images/photos/whitepaper-bkgd.jpg') center / cover no-repeat
+#whitepaper > section
+  &::before
+    background: url('images/photos/whitepaper-bkgd.jpg') center / cover no-repeat
+
+  article
+    padding-top: 50px
+
+  form
+    > p
+      @include h2_source_sans
+
+    .checkbox
+      @include flexbox(row, flex-start, nowrap)
+      font-size:  1.125em
+      margin: 20px 0
+
+      & + .checkbox
+        margin-bottom: 20px
+
+      input
+        margin-right: 10px
+        min-height: 20px
+        min-width: 20px
 
 #news-content
   box-sizing: border-box
