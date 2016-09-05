@@ -122,7 +122,7 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
     margin: 20px auto 0;
     width: 20px; }
 
-article {
+#news article {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -131,15 +131,15 @@ article {
   overflow: hidden;
   position: relative;
   width: 100%; }
-  article time {
+  #news article time {
     font-style: italic;
     order: -1;
     padding-top: 0.75em; }
-  article h3 {
+  #news article h3 {
     font-size: 1.25em;
     margin: 0;
     padding: 0.25em 0 0.75em; }
-  article img {
+  #news article img {
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -o-transform: translateX(-50%);
@@ -150,7 +150,7 @@ article {
     position: absolute;
     top: 0;
     z-index: -1; }
-  article a {
+  #news article a {
     bottom: 0;
     font-size: 0;
     left: 0;
@@ -159,7 +159,7 @@ article {
     right: 0;
     top: 0;
     z-index: 20; }
-  article p {
+  #news article p {
     margin: 0; }
 
 /* Styles menu */
@@ -201,9 +201,7 @@ nav ul {
 .back-to-top {
   -webkit-transition: opacity 700ms 0s;
   transition: opacity 700ms 0s;
-  background-color: #d3d3d3;
-  border: solid 1px #ffffff;
-  border-radius: 5px;
+  background-color: rgba(150, 150, 150, 0.8);
   bottom: 70px;
   color: #ffffff;
   cursor: pointer;
@@ -498,6 +496,7 @@ nav ul {
       font-size: 3em;
       font-weight: 400;
       line-height: 1;
+      min-width: 100px;
       padding: 0 0.2em; }
 
 #clients > p {
@@ -751,7 +750,7 @@ nav ul {
 
 form {
   margin-top: 40px; }
-  form label {
+  form label:not(.checkbox) {
     display: none; }
   form input:not(:last-of-type), form textarea {
     border: solid 1px #515151;
@@ -769,7 +768,7 @@ form {
     border-top: solid 1px #515151; }
   form textarea {
     min-height: 130px; }
-  form input:last-of-type {
+  form > input:last-of-type {
     -webkit-transition: all 0.25s 0s;
     transition: all 0.25s 0s;
     background: transparent;
@@ -779,7 +778,7 @@ form {
     margin: 20px 0 0;
     padding: 0.75em 2em;
     text-transform: uppercase; }
-    form input:last-of-type:hover {
+    form > input:last-of-type:hover {
       background: #515151;
       color: #f5f5f5; }
 
@@ -856,6 +855,35 @@ footer {
 
 #whitepaper > section::before {
   background: url("images/photos/whitepaper-bkgd.jpg") center/cover no-repeat; }
+
+#whitepaper > section article {
+  padding-top: 50px; }
+
+#whitepaper > section form > p {
+  color: #515151;
+  font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
+  text-align: center; }
+  #whitepaper > section form > p::after {
+    background-color: #00a071;
+    content: '';
+    display: block;
+    height: 2px;
+    margin: 20px auto 0;
+    width: 20px; }
+
+#whitepaper > section form .checkbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  font-size: 1.125em;
+  margin: 20px 0; }
+  #whitepaper > section form .checkbox + .checkbox {
+    margin-bottom: 20px; }
+  #whitepaper > section form .checkbox input {
+    margin-right: 10px;
+    min-height: 20px;
+    min-width: 20px; }
 
 #news-content {
   box-sizing: border-box;
@@ -1095,7 +1123,7 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between; }
+    justify-content: space-around; }
     #offers > p {
       padding: 0 20%; }
     #offers section {
@@ -1204,14 +1232,15 @@ footer {
     width: 50%; }
     #clients #stats li:hover {
       background-color: #f5f5f5; }
-  section#content-whitepaper {
-    display: table; }
-    section#content-whitepaper::before, section#content-whitepaper h2 {
-      display: table-caption; }
-    section#content-whitepaper form {
+  #content-whitepaper {
+    border-spacing: 60px 0; }
+    #content-whitepaper article {
       display: table-cell;
-      padding-left: 5%;
-      width: 55%; }
+      text-align: center;
+      width: 50%; }
+    #content-whitepaper form {
+      margin: 60px auto 0;
+      max-width: 700px; }
   #news-content {
     margin-top: 100px; } }
 

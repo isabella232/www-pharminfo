@@ -46,11 +46,9 @@
       </ul>
     </article>
     <form action="{{ url_for('whitepaper') }}" method="POST">
-      <label>
-        Choix du livre blanc
-        <input id="increase_sale" type="checkbox" name="white_book_choice" value="Comment développer vos ventes grâce à votre site Internet ?" />
-        <input id="why_website" type="checkbox" name="white_book_choice" value="Le site Internet de ma pharmacie, pour quoi faire ?" />
-      </label>
+      <p>Choix du livre blanc</p>
+      <label class="checkbox"><input id="increase_sale" type="checkbox" name="white_book_choice" />Comment développer vos ventes grâce à votre site Internet ?</label>
+      <label class="checkbox"><input id="why_website" type="checkbox" name="white_book_choice" />Le site Internet de ma pharmacie, pour quoi faire ?</label>
       <label for="name">Nom</label>
       <input id="name" name="name" placeholder="Nom*" required="required" />
       <label for="email">Email</label>
