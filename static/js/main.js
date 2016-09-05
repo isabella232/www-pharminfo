@@ -145,9 +145,7 @@
 
     window.addEventListener('scroll', function() {
       if (document.body.scrollTop > window.innerHeight) {
-        if (!arrow.classList.contains('fade')) {
-          arrow.classList.add('fade');
-        }
+        if (!arrow.classList.contains('fade')) { arrow.classList.add('fade'); }
       }
       else { arrow.classList.remove('fade'); }
     });
@@ -155,6 +153,54 @@
     arrow.addEventListener('click', function() {
       document.body.scrollTop = 0;
     });
+
+    /* Testimonial slider */
+    var testimonials = document.querySelector('#testimonials');
+    var left_arrow = document.createElement('span');
+    left_arrow.innerHTML = '&lt;';
+    left_arrow.classList.add('left');
+    document.querySelector('#clients').insertBefore(
+      left_arrow, document.querySelector('#stats'));
+    var right_arrow = document.createElement('span');
+    right_arrow.innerHTML = '&gt;';
+    right_arrow.classList.add('right');
+    document.querySelector('#clients').insertBefore(
+      right_arrow, document.querySelector('#stats'));
+
+    update_active = function(current, index_active) {
+      current.classList.remove('active');
+      current.classList.add('hidden');
+      let new_active = testimonials.querySelector(
+        '[data-index="'+ index_active + '"]');
+      new_active.classList.remove('hidden');
+      new_active.classList.add('active');
+    }
+
+    var slide_arrows = document.querySelectorAll('.left,.right');
+    for (let slide_arrow of slide_arrows) {
+      slide_arrow.addEventListener('click', function() {
+        let way = slide_arrow.getAttribute('class');
+        let current = document.querySelector('#testimonials .active');
+        if (way === 'left') {
+          if (current.getAttribute('data-index') === "0") {
+            update_active(current, "2");
+          }
+          else {
+            let active_index = parseInt(current.getAttribute('data-index'));
+            update_active(current, String(active_index - 1));
+          }
+        }
+        else {
+          if (current.getAttribute('data-index') === "2") {
+            update_active(current, "0");
+          }
+          else {
+            let active_index = parseInt(current.getAttribute('data-index'));
+            update_active(current, String(active_index + 1));
+          }
+        }
+      });
+    }
   });
 })();
 

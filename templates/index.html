@@ -136,13 +136,14 @@
 
   <section id="clients">
     <h2>Témoignages</h2>
+
     <ul id="testimonials">
       {# TODO #}
       {% for i in range(3) %}
-        <li>
+        <li{% if i > 0 %} class="hidden"{% else %} class="active"{% endif %} data-index="{{ i }}">
           <figure>
             <blockquote>
-              {{ lipsum(1)  }}
+              {{ lipsum(1) }}
             </blockquote>
             <figcaption>Céline D, Pharmacienne</figcaption>
           </figure>

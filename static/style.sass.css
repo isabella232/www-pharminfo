@@ -222,11 +222,8 @@ nav ul {
 .fade {
   opacity: 1; }
 
-.scrolltop {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
+.hidden {
+  display: none; }
 
 /* Styles page d'accueil */
 #sales {
