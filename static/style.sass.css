@@ -201,9 +201,7 @@ nav ul {
 .back-to-top {
   -webkit-transition: opacity 700ms 0s;
   transition: opacity 700ms 0s;
-  background-color: #d3d3d3;
-  border: solid 1px #ffffff;
-  border-radius: 5px;
+  background-color: rgba(150, 150, 150, 0.8);
   bottom: 70px;
   color: #ffffff;
   cursor: pointer;
@@ -501,6 +499,7 @@ nav ul {
       font-size: 3em;
       font-weight: 400;
       line-height: 1;
+      min-width: 100px;
       padding: 0 0.2em; }
 
 #clients > p {
@@ -1127,7 +1126,7 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between; }
+    justify-content: space-around; }
     #offers > p {
       padding: 0 20%; }
     #offers section {
