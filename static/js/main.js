@@ -157,12 +157,10 @@
     /* Testimonial slider */
     var testimonials = document.querySelector('#testimonials');
     var left_arrow = document.createElement('span');
-    left_arrow.innerHTML = '&lt;';
     left_arrow.classList.add('left');
     document.querySelector('#clients').insertBefore(
       left_arrow, document.querySelector('#stats'));
     var right_arrow = document.createElement('span');
-    right_arrow.innerHTML = '&gt;';
     right_arrow.classList.add('right');
     document.querySelector('#clients').insertBefore(
       right_arrow, document.querySelector('#stats'));
