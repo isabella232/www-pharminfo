@@ -139,13 +139,19 @@
 
     <ul id="testimonials">
       {# TODO #}
-      {% for i in range(3) %}
+      {% set testimonials = {
+      "Madame Skafar de la Pharmacie Gambetta" : "L’équipe de Pharminfo.fr m’accompagne pour donner des conseils illustrés à mes patients et c’est très intéressant",
+      "Madame Labbé de la Pharmacie Labbé Dutilleul" : "Les sites Pharminfo.fr sont très faciles d’utilisation. En plus, leur équipe est très conviviale et toujours à notre disposition quand on a besoin",
+      "Monsieur Tarnaud de la Pharmacie de la Tour" : "L’équipe de Pharminfo.fr est toujours très réactive",
+      "Monsieur Blache de la Pharmacie Saint Gauderique" : "Équipe très active et agréable. Quand je contacte le service de la relation client j’obtiens une réponse très rapidement, pas besoin d’attendre 15 jours contrairement à d’autres fournisseurs"
+      } %}
+      {% for author, testimonial in testimonials.items() %}
         <li{% if i > 0 %} class="hidden"{% else %} class="active"{% endif %} data-index="{{ i }}">
           <figure>
             <blockquote>
-              {{ lipsum(1) }}
+              {{ testimonial }}
             </blockquote>
-            <figcaption>Céline D, Pharmacienne</figcaption>
+            <figcaption>{{ author }}</figcaption>
           </figure>
         </li>
       {% endfor %}
