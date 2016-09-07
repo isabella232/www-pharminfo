@@ -62,6 +62,22 @@
     -o-transform: translateY(0px);
     transform: translateY(0px); } }
 
+@keyframes list-fadein-left {
+  0% {
+    display: block;
+    opacity: 0;
+    -webkit-transform: translateX(150px);
+    -moz-transform: translateX(150px);
+    -o-transform: translateX(150px);
+    transform: translateX(150px); }
+  100% {
+    display: block;
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    transform: translateX(0px); } }
+
 @keyframes list-fadeout {
   0% {
     display: block;
@@ -220,9 +236,6 @@ nav ul {
 .fade {
   opacity: 1; }
 
-.hidden {
-  display: none; }
-
 /* Styles page d'accueil */
 #sales {
   display: flex;
@@ -277,6 +290,18 @@ nav ul {
     height: 2px;
     margin: 20px auto 0;
     width: 20px; }
+
+#about a {
+  -webkit-transition: all 0.25s 0s;
+  transition: all 0.25s 0s;
+  border: solid 1px;
+  color: inherit;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-color: #515151; }
+  #about a:hover {
+    padding: 1em 2em; }
 
 #index #news {
   display: flex;
@@ -452,64 +477,129 @@ nav ul {
     #reasons ol li#cost {
       background: url("images/choose/icon-cost.svg") 0.75em center/50px no-repeat, #e6e6e6; }
 
-#clients #testimonials-map {
-  width: 100%; }
-
-#clients h2 {
-  position: absolute;
-  text-align: center;
-  width: 100%; }
-
-#clients #testimonials {
-  background: #e6e6e6;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 100px 10% 40px;
-  text-align: center; }
-  #clients #testimonials figure, #clients #testimonials blockquote {
-    margin: 0; }
-  #clients #testimonials blockquote p::before, #clients #testimonials blockquote p::after {
-    content: '"'; }
-
-#clients #stats {
+#clients {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0 10%; }
-  #clients #stats li {
-    background: padding-box center 0 / 100% auto no-repeat;
+  justify-content: flex-start; }
+  #clients #testimonials-map {
+    order: -2;
+    width: 100%; }
+  #clients h2 {
+    background: #e6e6e6;
+    margin: 0;
+    order: -1;
+    padding-top: 40px;
+    width: 100%; }
+  #clients #testimonials {
+    background: #e6e6e6;
     box-sizing: border-box;
-    display: flex;
-    margin: 20px 0;
-    padding: 150px 0 1em; }
-    #clients #stats li#interne {
-      background-image: url("images/numbers/interne.svg"); }
-    #clients #stats li#symplify {
-      background-image: url("images/numbers/symplify.svg"); }
-    #clients #stats li#special-order {
-      background-image: url("images/numbers/special-order.svg"); }
-    #clients #stats li#delivery {
-      background-image: url("images/numbers/delivery.svg"); }
-    #clients #stats li strong {
-      font-size: 3em;
+    margin: 0;
+    min-height: 250px;
+    position: relative;
+    text-align: center;
+    width: 80%; }
+    #clients #testimonials li.active {
+      animation: list-fadein-left 0.25s ease-out both;
+      display: flex;
+      height: 100%; }
+      #clients #testimonials li.active figure {
+        margin: auto;
+        padding: 0 1em 2em; }
+      #clients #testimonials li.active::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 25%;
+        background-color: #00a071;
+        position: absolute;
+        bottom: 0;
+        left: 0; }
+    #clients #testimonials li.hidden figure {
+      display: none; }
+    #clients #testimonials li + li.active::after {
+      left: 25%; }
+    #clients #testimonials li + li + li.active::after {
+      left: 50%; }
+    #clients #testimonials li + li + li + li.active::after {
+      left: 75%; }
+    #clients #testimonials figure, #clients #testimonials blockquote {
+      margin: 0; }
+    #clients #testimonials figcaption {
       font-weight: 400;
-      line-height: 1;
-      min-width: 100px;
-      padding: 0 0.2em; }
-
-#clients > p {
-  font-size: 0.75em;
-  text-align: center;
-  width: 100%; }
-
-#clients::after {
-  content: "";
-  display: block;
-  height: 260px;
-  width: 100%;
-  background: url("images/photos/bkgd-meds.jpg") center/cover no-repeat fixed; }
+      margin-top: 1em; }
+    #clients #testimonials blockquote::before, #clients #testimonials blockquote::after {
+      content: '"'; }
+  #clients > span {
+    -webkit-transition: all 0.25s 0s;
+    transition: all 0.25s 0s;
+    align-items: stretch;
+    background: #e6e6e6;
+    cursor: pointer;
+    position: relative;
+    width: 10%; }
+    #clients > span::before {
+      content: "";
+      display: block;
+      height: 20px;
+      width: 20px;
+      -webkit-transform: rotate(135deg);
+      -moz-transform: rotate(135deg);
+      -o-transform: rotate(135deg);
+      transform: rotate(135deg);
+      border-top: solid 1px #515151;
+      border-left: solid 1px #515151;
+      position: absolute;
+      left: calc(50% - 15px);
+      top: calc(50% - 15px); }
+    #clients > span.left {
+      order: -1; }
+      #clients > span.left::before {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        left: calc(50% - 7px);
+        opacity: 0.5; }
+    #clients > span:hover {
+      background-color: #d3d3d3; }
+  #clients #stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 10%; }
+    #clients #stats li {
+      background: padding-box center 0 / 100% auto no-repeat;
+      box-sizing: border-box;
+      display: flex;
+      margin: 20px 0;
+      padding: 150px 0 1em; }
+      #clients #stats li#interne {
+        background-image: url("images/numbers/interne.svg"); }
+      #clients #stats li#symplify {
+        background-image: url("images/numbers/symplify.svg"); }
+      #clients #stats li#special-order {
+        background-image: url("images/numbers/special-order.svg"); }
+      #clients #stats li#delivery {
+        background-image: url("images/numbers/delivery.svg"); }
+      #clients #stats li strong {
+        font-size: 3em;
+        font-weight: 400;
+        line-height: 1;
+        min-width: 100px;
+        padding: 0 0.2em; }
+  #clients > p {
+    font-size: 0.75em;
+    text-align: center;
+    width: 100%; }
+  #clients::after {
+    content: "";
+    display: block;
+    height: 260px;
+    width: 100%;
+    background: url("images/photos/bkgd-meds.jpg") center/cover no-repeat fixed; }
 
 #offers {
   background-color: #f5f5f5; }
@@ -1150,14 +1240,22 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start; }
-    #clients #testimonials-map, #clients #testimonials {
+    #clients #testimonials-map {
       height: initial;
+      min-height: 350px;
       width: 50%; }
     #clients #testimonials {
-      padding: 100px 10% 40px 5%; }
+      height: initial;
+      min-height: 350px;
+      padding: 100px 1.5em 0;
+      width: 35%; }
     #clients h2 {
       left: 55%;
-      width: 35%; }
+      position: absolute;
+      width: 35%;
+      z-index: 9; }
+    #clients > span.left {
+      width: 5%; }
     #clients #stats {
       width: 100%; }
   #customize dl {

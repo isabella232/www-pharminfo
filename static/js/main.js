@@ -180,8 +180,8 @@
         let way = slide_arrow.getAttribute('class');
         let current = document.querySelector('#testimonials .active');
         if (way === 'left') {
-          if (current.getAttribute('data-index') === "0") {
-            update_active(current, "2");
+          if (current.getAttribute('data-index') === "1") {
+            update_active(current, "4");
           }
           else {
             let active_index = parseInt(current.getAttribute('data-index'));
@@ -189,8 +189,8 @@
           }
         }
         else {
-          if (current.getAttribute('data-index') === "2") {
-            update_active(current, "0");
+          if (current.getAttribute('data-index') === "4") {
+            update_active(current, "1");
           }
           else {
             let active_index = parseInt(current.getAttribute('data-index'));

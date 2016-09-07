@@ -146,7 +146,7 @@
       "Monsieur Blache de la Pharmacie Saint Gauderique" : "Équipe très active et agréable. Quand je contacte le service de la relation client j’obtiens une réponse très rapidement, pas besoin d’attendre 15 jours contrairement à d’autres fournisseurs"
       } %}
       {% for author, testimonial in testimonials.items() %}
-        <li{% if i > 0 %} class="hidden"{% else %} class="active"{% endif %} data-index="{{ i }}">
+        <li{% if loop.index > 1 %} class="hidden"{% else %} class="active"{% endif %} data-index="{{ loop.index }}">
           <figure>
             <blockquote>
               {{ testimonial }}

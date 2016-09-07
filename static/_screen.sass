@@ -123,9 +123,6 @@ nav ul
 .fade
   opacity: 1
 
-.hidden
-  display: none
-
 /* Styles page d'accueil */
 #sales
   @include flexbox(column, center)
@@ -163,6 +160,10 @@ nav ul
 #about
   h2
     @include h2_source_sans($main-color, italic)
+
+  a
+    @include cta
+    border-color: $grey-1
 
 #index #news
   @include flexbox(column, flex-start, nowrap)
@@ -288,26 +289,94 @@ nav ul
           background: url('images/choose/icon-#{$name}.svg') 0.75em center / 50px no-repeat, $grey-3
 
 #clients
+  @include flexbox(row, flex-start)
+
   #testimonials-map
+    order: -2
     width: 100%
 
   h2
-    position: absolute
-    text-align: center
+    background: $grey-3
+    margin: 0
+    order: -1
+    padding-top: 40px
     width: 100%
 
   #testimonials
     background: $grey-3
     box-sizing: border-box
     margin: 0
-    padding: 100px 10% 40px
+    min-height: 250px
+    position: relative
     text-align: center
+    width: 80%
+
+    li
+      &.active
+        animation: list-fadein-left 0.25s ease-out both
+        display: flex
+        height: 100%
+
+        figure
+          margin: auto
+          padding: 0 1em 2em
+
+        &::after
+          @include content(block, 1px, 25%)
+          background-color: $main-color
+          position: absolute
+          bottom: 0
+          left: 0
+
+      &.hidden figure
+        display: none
+
+      + li.active::after
+        left: 25%
+
+      + li + li.active::after
+        left: 50%
+
+      + li + li + li.active::after
+        left: 75%
 
     figure, blockquote
       margin: 0
 
-    blockquote p::before, blockquote p::after
+    figcaption
+      font-weight: 400
+      margin-top: 1em
+
+    blockquote::before, blockquote::after
       content: '"'
+
+  > span
+    @include transition(all)
+    align-items: stretch
+    background: $grey-3
+    cursor: pointer
+    position: relative
+    width: 10%
+
+    &::before
+      @include content(block, 20px, 20px)
+      @include transform(rotate(135deg))
+      border-top: solid 1px $grey-1
+      border-left: solid 1px $grey-1
+      position: absolute
+      left: calc(50% - 15px)
+      top: calc(50% - 15px)
+
+    &.left
+      order: -1
+
+      &::before
+        @include transform(rotate(-45deg))
+        left: calc(50% - 7px)
+        opacity: 0.5
+
+    &:hover
+      background-color: $grey-2
 
   #stats
     @include flexbox(row, space-between)

@@ -246,16 +246,25 @@
   #clients
     @include flexbox(row, flex-start)
 
-    #testimonials-map, #testimonials
+    #testimonials-map
       height: initial
+      min-height: 350px
       width: 50%
 
     #testimonials
-      padding: 100px 10% 40px 5%;
+      height: initial
+      min-height: 350px
+      padding: 100px 1.5em 0
+      width: 35%
 
     h2
       left: 55%;
+      position: absolute
       width: 35%
+      z-index: 9
+
+    > span.left
+      width: 5%
 
     #stats
       width: 100%
