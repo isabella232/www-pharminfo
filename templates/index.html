@@ -37,8 +37,11 @@
 
   <section id="about">
     <h2>De nouveaux leviers de croissance avec votre pharmacie en ligne</h2>
-    <article>
-      <h3>À propos de Pharminfo.fr</h3>
+    <ul>
+      <li><a class="tab-link active" href="#about-pharminfo">À propos de Pharminfo.fr</a></li>
+      <li><a class="tab-link" href="#made-by-kozea">Made by Kozea</a></li>
+    </ul>
+    <article id="about-pharminfo" class="active">
       <p>
         Les premiers sites Internet Pharminfo.fr ont été créés en 2007 par la
         société <strong>Kozea</strong> pour répondre à une demande spécifique des
@@ -64,9 +67,7 @@
       </li>
     </ul>
     </article>
-    <article>
-      <h3>Made by Kozea</h3>
-      {# TODO #}
+    <article id="made-by-kozea">
       <p>
         Dumque ibi diu moratur commeatus opperiens, quorum translationem ex Aquitania verni imbres solito crebriores prohibebant auctique torrentes, Herculanus advenit protector domesticus, Hermogenis ex magistro equitum filius, apud Constantinopolim, ut supra rettulimus, populari quondam turbela discerpti. quo verissime referente quae Gallus egerat, damnis super praeteritis maerens et futurorum timore suspensus angorem animi quam diu potuit emendabat.
       </p>
@@ -140,13 +141,13 @@
     <ul id="testimonials">
       {# TODO #}
       {% set testimonials = {
-      "Madame Skafar de la Pharmacie Gambetta" : "L’équipe de Pharminfo.fr m’accompagne pour donner des conseils illustrés à mes patients et c’est très intéressant",
-      "Madame Labbé de la Pharmacie Labbé Dutilleul" : "Les sites Pharminfo.fr sont très faciles d’utilisation. En plus, leur équipe est très conviviale et toujours à notre disposition quand on a besoin",
-      "Monsieur Tarnaud de la Pharmacie de la Tour" : "L’équipe de Pharminfo.fr est toujours très réactive",
-      "Monsieur Blache de la Pharmacie Saint Gauderique" : "Équipe très active et agréable. Quand je contacte le service de la relation client j’obtiens une réponse très rapidement, pas besoin d’attendre 15 jours contrairement à d’autres fournisseurs"
+        "Madame Skafar de la Pharmacie Gambetta" : "L’équipe de Pharminfo.fr m’accompagne pour donner des conseils illustrés à mes patients et c’est très intéressant",
+        "Madame Labbé de la Pharmacie Labbé Dutilleul" : "Les sites Pharminfo.fr sont très faciles d’utilisation. En plus, leur équipe est très conviviale et toujours à notre disposition quand on a besoin",
+        "Monsieur Tarnaud de la Pharmacie de la Tour" : "L’équipe de Pharminfo.fr est toujours très réactive",
+        "Monsieur Blache de la Pharmacie Saint Gauderique" : "Équipe très active et agréable. Quand je contacte le service de la relation client j’obtiens une réponse très rapidement, pas besoin d’attendre 15 jours contrairement à d’autres fournisseurs"
       } %}
       {% for author, testimonial in testimonials.items() %}
-        <li{% if loop.index > 1 %} class="hidden"{% else %} class="active"{% endif %} data-index="{{ loop.index }}">
+        <li{% if loop.index == 1 %} class="active"{% endif %} data-index="{{ loop.index }}">
           <figure>
             <blockquote>
               {{ testimonial }}

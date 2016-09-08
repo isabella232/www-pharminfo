@@ -167,14 +167,12 @@
 
     update_active = function(current, index_active) {
       current.classList.remove('active');
-      current.classList.add('hidden');
       let new_active = testimonials.querySelector(
         '[data-index="'+ index_active + '"]');
-      new_active.classList.remove('hidden');
       new_active.classList.add('active');
     }
 
-    var slide_arrows = document.querySelectorAll('.left,.right');
+    slide_arrows = document.querySelectorAll('.left,.right');
     for (let slide_arrow of slide_arrows) {
       slide_arrow.addEventListener('click', function() {
         let way = slide_arrow.getAttribute('class');
@@ -197,6 +195,24 @@
             update_active(current, String(active_index + 1));
           }
         }
+      });
+    }
+
+    /* About tabs */
+    for (let tab_link of document.querySelectorAll('.tab-link')) {
+      tab_link.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (!this.classList.contains('active')) {
+            var active = document.querySelector('.tab-link.active')
+            var article_active = document.querySelector(
+              '[id="' + active.getAttribute('href').substring(1) + '"]');
+            active.classList.remove('active');
+            article_active.classList.remove('active');
+            var hidden = document.querySelector(
+              '[id="' + this.getAttribute('href').substring(1) + '"]');
+            hidden.classList.add('active');
+            this.classList.add('active');
+          }
       });
     }
   });
