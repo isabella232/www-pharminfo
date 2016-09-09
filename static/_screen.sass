@@ -14,6 +14,9 @@ ul, ol
   list-style-type: none
   padding-left: 0
 
+p
+  font-size: 1.1em
+
 *:not(strong)
   font-weight: 300
 
@@ -342,12 +345,16 @@ nav ul
     width: 80%
 
     li
+      figure
+        display: none
+
       &.active
         animation: list-fadein-left 0.25s ease-out both
         display: flex
         height: 100%
 
         figure
+          display: block
           margin: auto
           padding: 0 1em 2em
 
@@ -357,9 +364,6 @@ nav ul
           position: absolute
           bottom: 0
           left: 0
-
-      &.hidden figure
-        display: none
 
       + li.active::after
         left: 25%
@@ -552,7 +556,7 @@ nav ul
         top: -2.5em
         z-index: 2
 
-      @each $name in medicine, app, computer, sms, reception
+      @each $name in app, computer, sms, reception
         &##{$name}
           background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-3
 
