@@ -279,29 +279,54 @@ nav ul {
       color: #FFFFFF;
       padding: 1em 2em; }
 
-#about h2 {
-  color: italic;
-  font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
+#about {
   text-align: center; }
-  #about h2::after {
-    background-color: #00a071;
-    content: '';
-    display: block;
-    height: 2px;
-    margin: 20px auto 0;
-    width: 20px; }
-
-#about a {
-  -webkit-transition: all 0.25s 0s;
-  transition: all 0.25s 0s;
-  border: solid 1px;
-  color: inherit;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-color: #515151; }
-  #about a:hover {
-    padding: 1em 2em; }
+  #about h2 {
+    color: italic;
+    font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
+    text-align: center; }
+    #about h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin: 20px auto 0;
+      width: 20px; }
+  #about ul li {
+    display: inline-block; }
+    #about ul li + li::before {
+      content: "";
+      display: inline-block;
+      height: 15px;
+      width: 1px;
+      background-color: #d3d3d3;
+      margin: 0 20px 0; }
+    #about ul li a {
+      color: #d3d3d3;
+      font-weight: 400;
+      text-decoration: none;
+      text-transform: uppercase; }
+      #about ul li a.active {
+        color: #00a071; }
+  #about article {
+    display: none;
+    margin: 40px 10% 0; }
+    #about article.active {
+      animation: list-fadein 0.25s ease-out both;
+      display: block; }
+    #about article ul.links {
+      margin-top: 60px; }
+      #about article ul.links a {
+        -webkit-transition: all 0.25s 0s;
+        transition: all 0.25s 0s;
+        border: solid 1px;
+        color: inherit;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-color: #515151; }
+        #about article ul.links a:hover {
+          padding: 1em 2em; }
 
 #index #news {
   display: flex;
@@ -833,9 +858,9 @@ nav ul {
     font-weight: 400; }
 
 #contact > p {
-  font-size: 0.7em;
+  font-size: 1em;
   font-style: italic;
-  margin-bottom: 40px;
+  margin: 40px 0;
   text-decoration: underline; }
 
 form {

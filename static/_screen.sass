@@ -158,12 +158,42 @@ nav ul
       padding: 1em 2em
 
 #about
+  text-align: center
+
   h2
     @include h2_source_sans($main-color, italic)
 
-  a
-    @include cta
-    border-color: $grey-1
+  ul li
+    display: inline-block
+
+    & + li::before
+      @include content(inline-block, 15px, 1px)
+      background-color: $grey-2
+      margin: 0 20px 0
+
+    a
+      color: $grey-2
+      font-weight: 400
+      text-decoration: none
+      text-transform: uppercase
+
+      &.active
+        color: $main-color
+
+  article
+    display: none
+    margin: 40px 10% 0
+
+    &.active
+      animation: list-fadein 0.25s ease-out both
+      display: block
+
+    ul.links
+      margin-top: 60px
+
+      a
+        @include cta
+        border-color: $grey-1
 
 #index #news
   @include flexbox(column, flex-start, nowrap)
@@ -624,9 +654,9 @@ nav ul
         font-weight: 400
 
   & > p
-    font-size: 0.7em
+    font-size: 1em
     font-style: italic
-    margin-bottom: 40px
+    margin: 40px 0
     text-decoration: underline
 
 form
