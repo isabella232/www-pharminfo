@@ -20,7 +20,7 @@ ul, ol
 body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content)
   padding: 60px 10%
 
-#goals, #guarantees, #reasons, #offers, #register, #whitepaper, #news-content, #clients
+#goals, #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients
   h2
     @include h2_source_sans
 
@@ -710,7 +710,7 @@ footer
         text-decoration: none
 
 /* Style for annexes */
-#register, #whitepaper
+#subscribe, #whitepaper
   header::before
     @include content(block, 0, 100%)
     position: absolute
@@ -723,7 +723,7 @@ footer
   input:not(:last-of-type)
         font-size: 1.125em
 
-  #subscribe
+  #subscribe-form
     p
       text-align: center
 
@@ -734,7 +734,7 @@ footer
       #email
         border-top: solid 1px
 
-#register > section::before
+#subscribe > section::before
     background: url('images/photos/bdc-bkgd.jpg') center / cover no-repeat
 
 #whitepaper > section

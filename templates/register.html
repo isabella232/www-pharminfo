@@ -1,16 +1,16 @@
 {% extends '_layout.html' %}
 
-{% block title %}Souscription{% endblock title %}
+{% block title %}Inscription{% endblock title %}
 
 {% block body %}
-  <section id="subscribe">
+  <section id="subscribe-form">
     <h2>Souscrivez à l'offre Pharminfo.fr</h2>
     <p>
       Préinscrivez-vous sur notre plateforme, nous vous renverrons le bordereau
       d'inscription par fax ou par mail. Vous n'aurez plus qu'à finaliser
       l'inscription et signer avant de nous le renvoyer.
     </p>
-    <form action="{{ url_for('register') }}" method="POST">
+    <form action="{{ url_for('subscribe') }}" method="POST">
       <label for="siret">SIRET</label>
       <input id="siret" name="siret" placeholder="Numéro SIRET" required="required" />
       <label for="phone">Téléphone</label>

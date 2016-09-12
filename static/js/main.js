@@ -2,7 +2,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     /* scrollReveal for on-scroll elements animation */
     var reveals = {};
-    for (let page of ['index', 'news', 'register']) {
+    for (let page of ['index', 'news', 'subscribe']) {
       reveals[page] = {}
     }
     reveals.index = {
@@ -15,7 +15,7 @@
       'desc': ['#optiweb, #flexiweb-plus, #flexiweb, #ecoweb'],
       'left': ['#develop, #loyal, #accompaniment'],
       'right': ['#expertise, #satisfaction, #cost']}
-    reveals.register = {'basic': ['#subscribe']}
+    reveals.subscribe = {'basic': ['#subscribe-form']}
 
     function add_sr(selectors, side) {
       animation = 'enter ' + side + ', move 150px, wait 0.5s';
@@ -155,47 +155,49 @@
     });
 
     /* Testimonial slider */
-    var testimonials = document.querySelector('#testimonials');
-    var left_arrow = document.createElement('span');
-    left_arrow.classList.add('left');
-    document.querySelector('#clients').insertBefore(
-      left_arrow, document.querySelector('#stats'));
-    var right_arrow = document.createElement('span');
-    right_arrow.classList.add('right');
-    document.querySelector('#clients').insertBefore(
-      right_arrow, document.querySelector('#stats'));
+    if (document.body.getAttribute('id') === 'index') {
+      var testimonials = document.querySelector('#testimonials');
+      var left_arrow = document.createElement('span');
+      left_arrow.classList.add('left');
+      document.querySelector('#clients').insertBefore(
+        left_arrow, document.querySelector('#stats'));
+      var right_arrow = document.createElement('span');
+      right_arrow.classList.add('right');
+      document.querySelector('#clients').insertBefore(
+        right_arrow, document.querySelector('#stats'));
 
-    update_active = function(current, index_active) {
-      current.classList.remove('active');
-      let new_active = testimonials.querySelector(
-        '[data-index="'+ index_active + '"]');
-      new_active.classList.add('active');
-    }
+      update_active = function(current, index_active) {
+        current.classList.remove('active');
+        let new_active = testimonials.querySelector(
+          '[data-index="'+ index_active + '"]');
+        new_active.classList.add('active');
+      }
 
-    slide_arrows = document.querySelectorAll('.left,.right');
-    for (let slide_arrow of slide_arrows) {
-      slide_arrow.addEventListener('click', function() {
-        let way = slide_arrow.getAttribute('class');
-        let current = document.querySelector('#testimonials .active');
-        if (way === 'left') {
-          if (current.getAttribute('data-index') === "1") {
-            update_active(current, "4");
+      slide_arrows = document.querySelectorAll('.left,.right');
+      for (let slide_arrow of slide_arrows) {
+        slide_arrow.addEventListener('click', function() {
+          let way = slide_arrow.getAttribute('class');
+          let current = document.querySelector('#testimonials .active');
+          if (way === 'left') {
+            if (current.getAttribute('data-index') === "1") {
+              update_active(current, "4");
+            }
+            else {
+              let active_index = parseInt(current.getAttribute('data-index'));
+              update_active(current, String(active_index - 1));
+            }
           }
           else {
-            let active_index = parseInt(current.getAttribute('data-index'));
-            update_active(current, String(active_index - 1));
+            if (current.getAttribute('data-index') === "4") {
+              update_active(current, "1");
+            }
+            else {
+              let active_index = parseInt(current.getAttribute('data-index'));
+              update_active(current, String(active_index + 1));
+            }
           }
-        }
-        else {
-          if (current.getAttribute('data-index') === "4") {
-            update_active(current, "1");
-          }
-          else {
-            let active_index = parseInt(current.getAttribute('data-index'));
-            update_active(current, String(active_index + 1));
-          }
-        }
-      });
+        });
+      }
     }
 
     /* About tabs */
@@ -215,6 +217,93 @@
           }
       });
     }
+
+    /* Newsletter  */
+    if (document.body.querySelector('.newsletter-subscribe')) {
+      var newsletter_link = (
+        document.body.querySelector('.newsletter-subscribe'));
+      newsletter_link.addEventListener('click', function() {
+        if (!document.body.querySelector('.popup')) {
+          var popup = document.createElement('div');
+          popup.classList.add('popup');
+          popup.innerHTML = (
+            '<span class="close-popup"></span>' +
+            '<p>Veuillez renseigner votre adresse mail pour vous inscrire</p>' +
+            '<form class="newsletter-form" method="POST">' +
+            '<input name="email" type="email" placeholder="Email" required />' +
+            '<input type ="submit" value="Valider"/>' +
+            '</form>'
+          );
+          document.body.querySelector('#contact').appendChild(popup);
+        }
+        else {
+          var popup = document.body.querySelector('.popup');
+          popup.classList.remove('popup-remove');
+        }
+        var form = document.body.querySelector('.newsletter-form');
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var request = new XMLHttpRequest();
+          request.open('POST', '/newsletter', true);
+          request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+              var success = document.createElement('p');
+              success.innerHTML = 'Inscription réussie';
+              popup.insertBefore(success, null);
+              popup.classList.add('popup-remove');
+            } else {
+              popup.innerHTML = (
+                '<p>Une erreur sʼest produite, ' +
+                'essayer de recharger la page</p>');
+            }
+          };
+          request.setRequestHeader(
+            'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+          request.send('email=' + form.querySelector('input').value);
+        });
+      });
+    }
+      /*$('#newsletter a').click(function() {
+
+        $(window).keyup(function(e) {
+          if (e.keyCode === 27) {
+            remove_popup();
+            $('body > :not(.popup)').off('click');
+          }
+        });
+        $('.close-popup').click(function() {
+          remove_popup();
+          $('body > :not(.popup)').off('click');
+        });
+
+        $('.popup').slideDown(function() {
+          $('body').click(function(e) {
+            if (!$(e.target).parents('div').is('.popup')) {
+              remove_popup();
+              $('body').off('click');
+            }
+          });
+        });
+
+        $form = $('.newsletter-form')
+        $form.on('submit', function(e) {
+          e.preventDefault();
+          $.post($form.attr('action'), $form.serialize()).done(function() {
+            $('.popup div').slideUp(400, function() {
+              $('.popup .hidden').slideDown();
+              setTimeout(remove_popup, 2000);
+            });
+          });
+        });
+      });
+      function remove_popup() {
+        $('.popup').fadeOut(400, function() {
+          $('.popup .sent').hide();
+          $('.popup div').show();
+          $(window).off('keyup');
+        });
+      };
+    }*/
   });
 })();
 

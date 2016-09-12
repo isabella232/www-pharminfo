@@ -126,11 +126,11 @@ ul, ol {
 body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content) {
   padding: 60px 10%; }
 
-#goals h2, #guarantees h2, #reasons h2, #offers h2, #register h2, #whitepaper h2, #news-content h2, #clients h2 {
+#goals h2, #guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2 {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center; }
-  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #register h2::after, #whitepaper h2::after, #news-content h2::after, #clients h2::after {
+  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #subscribe h2::after, #whitepaper h2::after, #news-content h2::after, #clients h2::after {
     background-color: #00a071;
     content: '';
     display: block;
@@ -913,7 +913,7 @@ footer {
         text-decoration: none; }
 
 /* Style for annexes */
-#register header::before, #whitepaper header::before {
+#subscribe header::before, #whitepaper header::before {
   content: "";
   display: block;
   height: 0;
@@ -921,26 +921,26 @@ footer {
   position: absolute;
   box-shadow: 0px 20px 200px 70px rgba(0, 0, 0, 0.2); }
 
-#register > section::before, #whitepaper > section::before {
+#subscribe > section::before, #whitepaper > section::before {
   content: "";
   display: block;
   height: 290px;
   width: 125%;
   margin: -130px 0 0 -12.5%; }
 
-#register input:not(:last-of-type), #whitepaper input:not(:last-of-type) {
+#subscribe input:not(:last-of-type), #whitepaper input:not(:last-of-type) {
   font-size: 1.125em; }
 
-#register #subscribe p, #whitepaper #subscribe p {
+#subscribe #subscribe-form p, #whitepaper #subscribe-form p {
   text-align: center; }
 
-#register #subscribe form, #whitepaper #subscribe form {
+#subscribe #subscribe-form form, #whitepaper #subscribe-form form {
   margin: 40px auto;
   max-width: 600px; }
-  #register #subscribe form #email, #whitepaper #subscribe form #email {
+  #subscribe #subscribe-form form #email, #whitepaper #subscribe-form form #email {
     border-top: solid 1px; }
 
-#register > section::before {
+#subscribe > section::before {
   background: url("images/photos/bdc-bkgd.jpg") center/cover no-repeat; }
 
 #whitepaper > section::before {

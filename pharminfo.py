@@ -7,14 +7,12 @@ from flask import (
 from jinja2.exceptions import TemplateNotFound
 from locale import LC_ALL, setlocale
 from mandrill import Mandrill
-from top_model.public import Client, ClientType, db
 from urllib.request import urlopen
 from xml.etree import ElementTree
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'default secret key'
-app.config['DB'] = 'pgfdw://hydra@localhost/hydra'
 app.config.from_envvar('WWW_PHARMINFO_CONFIG', silent=True)
 
 setlocale(LC_ALL, 'fr_FR')
@@ -62,45 +60,34 @@ def page(page='index'):
         abort(404)
 
 
-@app.route('/clients')
-@app.route('/clients/<int:department>')
-def clients(department=None):
-    if department:
-        clients = list(
-            Client.query.join(ClientType)
-            .filter(
-                (ClientType.domain == 'pharminfo') &
-                (Client.current_contract != None) &
-                (Client.zip.like('%{:02d}%'.format(department))) &
-                (Client.domain != None))
-            .all())
-        print(clients)
-    else:
-        clients = []
-    return render_template(
-        'clients.html', department=department, clients=clients, page='clients')
-
-
 @app.route('/news')
 def news():
     return render_template('news.html', news=get_news(), page='news')
 
 
-@app.route('/register', methods=['POST'])
-def register():
-    if not all(request.form[key] for key in ('siret', 'phone')):
-        if not request.form['siret']:
-            flash('Merci de nous indiquer votre SIRET.', 'error')
-        if not request.form['phone']:
-            flash('Merci de nous indiquer votre numéro de téléphone.', 'error')
-        return redirect(url_for('page', page='register'))
-    html = '<br>'.join((
-        'SIRET : %s' % request.form['siret'],
-        'Téléphone : %s' % request.form['phone'],
-        'Fax : %s' % request.form['fax'],
-        'Email : %s' % request.form['email']))
-    send_mail('Nouvelle inscription sur le site de Pharminfo.fr', html)
-    return redirect(url_for('page'))
+@app.route('/newsletter', methods=['POST'])
+def newsletter():
+    html = 'Inscription à la newsletter www pharminfo<br>Email : %s' % (
+        request.form['email'])
+    send_mail('Inscription à la newsletter www pharminfo', html)
+    return 'Ok'
+
+
+@app.route('/subscribe', methods=['GET', 'POST'])
+def subscribe():
+    if request.method == 'POST':
+        if not all(request.form[key] for key in ('siret', 'phone')) and (
+                not request.form['email']):
+            flash('Veuillez remplir au moins un des deux formulaires', 'error')
+            return redirect(url_for('subscribe'))
+        html = '<br>'.join((
+            'SIRET : %s' % request.form['siret'],
+            'Téléphone : %s' % request.form['phone'],
+            'Fax : %s' % request.form['fax'],
+            'Email : %s' % request.form['email']))
+        send_mail('Nouvelle inscription sur le site de Pharminfo.fr', html)
+        return redirect(url_for('page'), code=303)
+    return render_template('subscribe.html', page='subscribe')
 
 
 @app.route('/whitepaper', methods=['POST'])
@@ -144,8 +131,6 @@ def contact():
 def not_found(error):
     return render_template('404.html'), 404
 
-
-db.configure(app.config['DB']).assign_flask_app(app)
 
 if __name__ == '__main__':
     from sassutils.wsgi import SassMiddleware
