@@ -65,6 +65,12 @@ def news():
     return render_template('news.html', news=get_news(), page='news')
 
 
+@app.route('/clients')
+@app.route('/clients/<int:department>')
+def clients(department=None):
+    return render_template('clients.html', page='news', department=department)
+
+
 @app.route('/newsletter', methods=['POST'])
 def newsletter():
     html = 'Inscription à la newsletter www pharminfo<br>Email : %s' % (

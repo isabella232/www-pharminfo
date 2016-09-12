@@ -3,7 +3,7 @@
 {% block title %}Liste des clients{% if department %} du département {{ department }}{% endif %}{% endblock title %}
 
 {% block body %}
-  <section id="clients">
+  <section id="websites">
     {% if department %}
       <h2>Clients pharmaciens du département {{ '{:02d}'.format(department) }}</h2>
       {% if clients %}
