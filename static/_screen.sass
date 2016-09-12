@@ -14,6 +14,9 @@ ul, ol
   list-style-type: none
   padding-left: 0
 
+p
+  font-size: 1.1em
+
 *:not(strong)
   font-weight: 300
 
@@ -158,12 +161,42 @@ nav ul
       padding: 1em 2em
 
 #about
+  text-align: center
+
   h2
     @include h2_source_sans($main-color, italic)
 
-  a
-    @include cta
-    border-color: $grey-1
+  ul li
+    display: inline-block
+
+    & + li::before
+      @include content(inline-block, 15px, 1px)
+      background-color: $grey-2
+      margin: 0 20px 0
+
+    a
+      color: $grey-2
+      font-weight: 400
+      text-decoration: none
+      text-transform: uppercase
+
+      &.active
+        color: $main-color
+
+  article
+    display: none
+    margin: 40px 10% 0
+
+    &.active
+      animation: list-fadein 0.25s ease-out both
+      display: block
+
+    ul.links
+      margin-top: 60px
+
+      a
+        @include cta
+        border-color: $grey-1
 
 #index #news
   @include flexbox(column, flex-start, nowrap)
@@ -312,12 +345,16 @@ nav ul
     width: 80%
 
     li
+      figure
+        display: none
+
       &.active
         animation: list-fadein-left 0.25s ease-out both
         display: flex
         height: 100%
 
         figure
+          display: block
           margin: auto
           padding: 0 1em 2em
 
@@ -327,9 +364,6 @@ nav ul
           position: absolute
           bottom: 0
           left: 0
-
-      &.hidden figure
-        display: none
 
       + li.active::after
         left: 25%
@@ -522,7 +556,7 @@ nav ul
         top: -2.5em
         z-index: 2
 
-      @each $name in medicine, app, computer, sms, reception
+      @each $name in app, computer, sms, reception
         &##{$name}
           background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-3
 
@@ -624,9 +658,9 @@ nav ul
         font-weight: 400
 
   & > p
-    font-size: 0.7em
+    font-size: 1em
     font-style: italic
-    margin-bottom: 40px
+    margin: 40px 0
     text-decoration: underline
 
 form

@@ -101,10 +101,10 @@
     font-size: 0; }
   60% {
     color: #f5f5f5;
-    font-size: 0.875em; }
+    font-size: 0.9em; }
   100% {
     color: #515151;
-    font-size: 0.875em; } }
+    font-size: 0.9em; } }
 
 body {
   background: white;
@@ -119,6 +119,9 @@ body {
 ul, ol {
   list-style-type: none;
   padding-left: 0; }
+
+p {
+  font-size: 1.1em; }
 
 *:not(strong) {
   font-weight: 300; }
@@ -152,7 +155,7 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
     order: -1;
     padding-top: 0.75em; }
   #news article h3 {
-    font-size: 1.25em;
+    font-size: 1.3em;
     margin: 0;
     padding: 0.25em 0 0.75em; }
   #news article img {
@@ -279,29 +282,54 @@ nav ul {
       color: #FFFFFF;
       padding: 1em 2em; }
 
-#about h2 {
-  color: italic;
-  font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
+#about {
   text-align: center; }
-  #about h2::after {
-    background-color: #00a071;
-    content: '';
-    display: block;
-    height: 2px;
-    margin: 20px auto 0;
-    width: 20px; }
-
-#about a {
-  -webkit-transition: all 0.25s 0s;
-  transition: all 0.25s 0s;
-  border: solid 1px;
-  color: inherit;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-color: #515151; }
-  #about a:hover {
-    padding: 1em 2em; }
+  #about h2 {
+    color: italic;
+    font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
+    text-align: center; }
+    #about h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin: 20px auto 0;
+      width: 20px; }
+  #about ul li {
+    display: inline-block; }
+    #about ul li + li::before {
+      content: "";
+      display: inline-block;
+      height: 15px;
+      width: 1px;
+      background-color: #d3d3d3;
+      margin: 0 20px 0; }
+    #about ul li a {
+      color: #d3d3d3;
+      font-weight: 400;
+      text-decoration: none;
+      text-transform: uppercase; }
+      #about ul li a.active {
+        color: #00a071; }
+  #about article {
+    display: none;
+    margin: 40px 10% 0; }
+    #about article.active {
+      animation: list-fadein 0.25s ease-out both;
+      display: block; }
+    #about article ul.links {
+      margin-top: 60px; }
+      #about article ul.links a {
+        -webkit-transition: all 0.25s 0s;
+        transition: all 0.25s 0s;
+        border: solid 1px;
+        color: inherit;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-color: #515151; }
+        #about article ul.links a:hover {
+          padding: 1em 2em; }
 
 #index #news {
   display: flex;
@@ -355,7 +383,7 @@ nav ul {
     flex-wrap: wrap;
     justify-content: space-between; }
     #goals ul li {
-      font-size: 0.875em;
+      font-size: 0.9em;
       margin: 1.5em 0;
       min-height: 56px;
       padding-left: calc(56px + 2em); }
@@ -374,7 +402,7 @@ nav ul {
       #goals ul li strong {
         color: #00a071;
         display: block;
-        font-size: 1.25em; }
+        font-size: 1.3em; }
 
 #guarantees ul {
   display: flex;
@@ -392,7 +420,7 @@ nav ul {
     border-left: solid 1px #e6e6e6;
     box-shadow: 1px -1px 0 #e6e6e6;
     box-sizing: border-box;
-    font-size: 0.875em;
+    font-size: 0.9em;
     padding: 20px;
     text-align: center;
     text-transform: uppercase; }
@@ -499,11 +527,14 @@ nav ul {
     position: relative;
     text-align: center;
     width: 80%; }
+    #clients #testimonials li figure {
+      display: none; }
     #clients #testimonials li.active {
       animation: list-fadein-left 0.25s ease-out both;
       display: flex;
       height: 100%; }
       #clients #testimonials li.active figure {
+        display: block;
         margin: auto;
         padding: 0 1em 2em; }
       #clients #testimonials li.active::after {
@@ -515,8 +546,6 @@ nav ul {
         position: absolute;
         bottom: 0;
         left: 0; }
-    #clients #testimonials li.hidden figure {
-      display: none; }
     #clients #testimonials li + li.active::after {
       left: 25%; }
     #clients #testimonials li + li + li.active::after {
@@ -632,7 +661,7 @@ nav ul {
         font-size: 2.8em;
         font-weight: 400; }
     #offers section ul li {
-      font-size: 0.875em;
+      font-size: 0.9em;
       margin: 1em; }
       #offers section ul li.disabled {
         opacity: 0.35; }
@@ -716,8 +745,6 @@ nav ul {
         position: absolute;
         top: -2.5em;
         z-index: 2; }
-      #main-offer ol li#medicine {
-        background: url("images/timeline-mobile-app/medicine.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
       #main-offer ol li#app {
         background: url("images/timeline-mobile-app/app.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
       #main-offer ol li#computer {
@@ -761,7 +788,7 @@ nav ul {
     align-items: center;
     height: 680px; }
     #customize dl dt {
-      font-size: 0.875em;
+      font-size: 0.9em;
       margin-top: 3em;
       position: relative; }
       #customize dl dt::after {
@@ -790,7 +817,7 @@ nav ul {
       #customize dl dt#theme::before {
         background: url("images/personnalisation/icon-theme.svg") center 0 no-repeat; }
     #customize dl dd {
-      font-size: 1.25em;
+      font-size: 1.3em;
       margin: 0.5em 0 0; }
     #customize dl dt, #customize dl dd {
       max-width: 150px; }
@@ -833,9 +860,9 @@ nav ul {
     font-weight: 400; }
 
 #contact > p {
-  font-size: 0.7em;
+  font-size: 1em;
   font-style: italic;
-  margin-bottom: 40px;
+  margin: 40px 0;
   text-decoration: underline; }
 
 form {
@@ -1213,12 +1240,13 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around; }
+    justify-content: center; }
     #offers > p {
       padding: 0 20%; }
     #offers section {
       box-sizing: border-box;
-      width: 48%; }
+      width: 48%;
+      margin: 10px; }
   #contact {
     display: table;
     width: 100%; }
@@ -1350,9 +1378,9 @@ footer {
       content: "";
       display: block;
       height: 1px;
-      width: 80%;
+      width: 75%;
       background-color: #d3d3d3;
-      left: 10%;
+      left: 12%;
       position: absolute;
       right: 10%;
       top: calc(170px - 1.8em); }

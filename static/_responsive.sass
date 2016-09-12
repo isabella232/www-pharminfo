@@ -214,7 +214,7 @@
         align-self: flex-end
 
   #offers
-    @include flexbox(row, space-around)
+    @include flexbox(row, center)
 
     > p
       padding: 0 20%
@@ -222,6 +222,7 @@
     section
       box-sizing: border-box
       width: 48%
+      margin: 10px
 
   #contact
     display: table
@@ -377,9 +378,9 @@
     position: relative
 
     &::after
-      @include content(block, 1px, 80%)
+      @include content(block, 1px, 75%)
       background-color: $grey-2
-      left: 10%
+      left: 12%
       position: absolute
       right: 10%
       top: calc(170px - 1.8em)

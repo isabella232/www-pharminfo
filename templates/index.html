@@ -25,11 +25,11 @@
 
 {% block body %}
   <section id="sales">
-    <h2>Comment développer vos ventes grâce à votre site Internet ?</h2>
+    <h2>Comment développer votre activité grâce à votre site internet ?</h2>
     <ul class="links">
       <li>
         <a href="{{ url_for('page', page='whitepaper') }}">
-          Télécharger le livre blanc
+          Télécharger les livres blanc
         </a>
       </li>
     </ul>
@@ -69,7 +69,10 @@
     </article>
     <article id="made-by-kozea">
       <p>
-        Dumque ibi diu moratur commeatus opperiens, quorum translationem ex Aquitania verni imbres solito crebriores prohibebant auctique torrentes, Herculanus advenit protector domesticus, Hermogenis ex magistro equitum filius, apud Constantinopolim, ut supra rettulimus, populari quondam turbela discerpti. quo verissime referente quae Gallus egerat, damnis super praeteritis maerens et futurorum timore suspensus angorem animi quam diu potuit emendabat.
+        Kozea group a été fondée en 2007 avec la volonté de se positionner comme un <strong>expert du web pour les acteurs de santé</strong> (pharmaciens, médecins généralistes et spécialistes, cliniques, hôpitaux, laboratoires pharmaceutiques…).
+      </p>
+      <p>
+        À l’origine, <strong>Guillaume Ayoub</strong> (ingénieur INSA) et <strong>Philippe Donadieu</strong> (docteur en pharmacie) ont associé leurs compétences pour créer les premiers sites Internet pour les pharmaciens d’officine.
       </p>
     </article>
   </section>
@@ -185,13 +188,6 @@
       {{ features(2) }}
     </section>
 
-    <section id="flexiweb">
-      <h3>Flexiweb</h3>
-      <p>Informer</p>
-      <p class="price"><strong>29,90 €</strong> HT/mois</p>
-      {{ features(5) }}
-    </section>
-
     <section id="flexiweb-plus">
       <h3>Flexiweb Plus*</h3>
       <p>Services +</p>
@@ -231,11 +227,10 @@
     </p>
     {# TODO #}
     <ol>
-      <li id="medicine"></li>
-      <li id="app"></li>
-      <li id="computer"></li>
+      <li id="app">À la suite d’un RDV chez le médecin, le patient envoie directement son ordonnance à son pharmacien grâce à l’application mobile Pharminfo</li>
+      <li id="computer">Le pharmacien est instantanément alerté et prépare l’ordonnance du patient</li>
       <li id="sms">Le pharmacien prévient le patient par mail ou SMS quand l'ordonnance est prête</li>
-      <li id="reception"></li>
+      <li id="reception">Simple et pratique, le patient peut passer à la pharmacie récupérer sa commande sans perdre de temps</li>
     </ol>
     <ul class="links">
       <li>
