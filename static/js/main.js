@@ -282,12 +282,12 @@
 
           var close = popup.querySelector('.close-popup');
           close.addEventListener('click', function() {
-            popup.classList.add('popup-remove');
+            popup.classList.add('hide-popup');
           });
 
           window.addEventListener('keyup', function(e) {
-            if (e.keyCode === 27 && !popup.classList.contains('popup-remove')) {
-              popup.classList.add('popup-remove');
+            if (e.keyCode === 27 && !popup.classList.contains('hide-popup')) {
+              popup.classList.add('hide-popup');
             }
           });
 
