@@ -137,41 +137,65 @@
     });
     window.dispatchEvent(event);
 
-    /* Arrow to the top */
+    /* Arrow back to the top */
     var arrow = document.createElement('span');
     arrow.className = 'back-to-top';
     document.body.insertBefore(arrow, null);
+    arrow.addEventListener('click', function() {
+      document.body.scrollTop = 0;
+    });
 
-    /* Used fpr detecting scroll direction */
+    /* Used for detecting scroll direction */
     var scrollTop = 0;
-    var click_to_call = document.querySelector('.click-to-call');
+    var ctc = document.querySelector('.click-to-call');
+    ctc.addEventListener('click', function() {
+      if (!ctc.classList.contains('from-right')) {
+        ctc.classList.remove('from-left');
+        ctc.classList.add('from-right');
+      }
+    });
     window.addEventListener('scroll', function() {
       if (document.body.scrollTop > window.innerHeight) {
         if (!arrow.classList.contains('fade')) { arrow.classList.add('fade'); }
         /* Down */
         if (scrollTop < document.body.scrollTop) {
-          if (click_to_call.classList.contains('fade')) {
-            click_to_call.classList.remove('fade');
-          }
+          if (ctc.classList.contains('fade')) { ctc.classList.remove('fade'); }
         }
         /* Up */
         else {
-          if (!click_to_call.classList.contains('fade')) {
-            click_to_call.classList.add('fade');
-          }
+          if (!ctc.classList.contains('fade')) { ctc.classList.add('fade'); }
         }
         scrollTop = document.body.scrollTop;
       }
       else {
         arrow.classList.remove('fade');
-        if (!click_to_call.classList.contains('fade')) {
-          click_to_call.classList.add('fade');
-        }
+        if (!ctc.classList.contains('fade')) { ctc.classList.add('fade'); }
       }
     });
+    /* Show/hide ctc */
+    window.addEventListener('click', function(e) {
+      let ctc_display = ctc.classList.contains('from-right');
+      if (!ctc_display) {
+        return
+      }
+      let el = e.target;
+      if (el.classList.contains('click-to-call')) {
+        return
+      }
 
-    arrow.addEventListener('click', function() {
-      document.body.scrollTop = 0;
+      get_parent = function(el) {
+        return el.parentElement
+      }
+
+      while (get_parent(el).tagName !== 'BODY') {
+        parent = get_parent(el);
+        if (parent.classList.contains('click-to-call')) {
+          return
+        }
+        el = parent;
+      }
+      ctc.classList.remove('from-right');
+      ctc.classList.add('from-left');
     });
 
     /* Testimonial slider */
@@ -250,8 +274,8 @@
             '<span class="close-popup"></span>' +
             '<p>Veuillez renseigner votre adresse mail pour vous inscrire</p>' +
             '<form class="newsletter-form" method="POST">' +
-            '<input name="email" type="email" placeholder="Email" required />' +
-            '<input type ="submit" value="Valider"/>' +
+            '<input name="newsletter-email" type="email" placeholder="Email" '+
+            'required /><input type ="submit" value="Valider"/>' +
             '</form>'
           );
           document.body.querySelector('#contact').appendChild(popup);
@@ -271,23 +295,27 @@
           form.addEventListener('submit', function(e) {
             e.preventDefault();
             var request = new XMLHttpRequest();
-            request.open('POST', '/newsletter', true);
+            request.open('post', '/newsletter', true);
             request.onload = function() {
               if (request.status >= 200 && request.status < 400) {
                 var success = document.createElement('p');
-                success.innerHTML = 'Inscription réussie';
+                success.innerHTML = 'inscription réussie';
                 popup.insertBefore(success, null);
-                popup.classList.add('popup-remove');
               } else {
                 popup.innerHTML = (
-                  '<p>Une erreur sʼest produite, ' +
+                  '<p>une erreur sʼest produite, ' +
                   'essayer de recharger la page</p>');
               }
+              setTimeout(
+                function(el) {
+                  el.classList.add('hide-popup');
+                }, 1000, popup);
             };
             request.setRequestHeader(
-              'Content-Type',
-              'application/x-www-form-urlencoded; charset=UTF-8');
-            request.send('email=' + form.querySelector('input').value);
+              'content-type',
+              'application/x-www-form-urlencoded; charset=utf-8');
+            request.send(
+              'newsletter-email=' + form.querySelector('input').value);
           });
         }
         else {
@@ -296,6 +324,47 @@
         }
       });
     }
+
+    /* Contact AJAX post */
+    if (document.body.querySelector('.contact-form')) {
+      let contact_form = document.body.querySelector('.contact-form');
+      contact_form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var request = new XMLHttpRequest();
+        let post_popup = document.createElement('div');
+        request.open('post', '/contact', true);
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            var success = document.createElement('p');
+            success.innerHTML = 'Votre message a été envoyé';
+            post_popup.appendChild(success);
+          } else {
+            var error = document.createElement('p');
+            error.innerHTML = (
+              '<p>une erreur sʼest produite, ' +
+              'essayer de recharger la page</p>');
+            post_popup.appendChild(error);
+          }
+          document.body.querySelector('#contact').appendChild(post_popup);
+          setTimeout(
+            function(el) {
+              el.parentElement.removeChild(el);
+            }, 1000, post_popup);
+        };
+        request.setRequestHeader(
+          'content-type',
+          'application/x-www-form-urlencoded; charset=utf-8');
+        var data = (
+          'email=' + contact_form.querySelector('#email').value +
+          '&message=' + contact_form.querySelector('#message').value)
+        request.send(data);
+      });
+    }
+
+    /* Add class to remove popup */
+    hide_popup = function(el) {
+      el.classList.add('hide-popup');
+    };
   });
 })();
 

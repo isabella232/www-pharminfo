@@ -275,11 +275,11 @@
       <dt>Email</dt>
       <dd><a href="mailto:contact@pharminfo.fr">contact@pharminfo.fr</a></dd>
     </dl>
-    <form action="{{ url_for('contact') }}" method="POST">
+    <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
       <label for="email">Email</label>
-      <input id="email" name="email" placeholder="Votre adresse email" />
+      <input id="email" name="email" placeholder="Votre adresse email" required />
       <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Votre message"></textarea>
+      <textarea id="message" name="message" placeholder="Votre message" required ></textarea>
       <input type="submit" value="Valider" />
     </form>
     {# TODO #}

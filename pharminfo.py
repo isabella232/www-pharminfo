@@ -87,7 +87,7 @@ def clients(department=None):
 @app.route('/newsletter', methods=['POST'])
 def newsletter():
     html = 'Inscription à la newsletter www pharminfo<br>Email : %s' % (
-        request.form['email'])
+        request.form['newsletter-email'])
     send_mail('Inscription à la newsletter www pharminfo', html)
     return 'Ok'
 
