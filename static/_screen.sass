@@ -1,10 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400)
 
+html
+  height: 100%
+
 body
+  @include flexbox(column, no-wrap, flex-start)
   background: white
   border-top: 4px solid $main-color
+  box-sizing: border-box
   color: $grey-1
   margin: 0
+  min-height: 100%
 
 /* Styles général */
 *
@@ -663,6 +669,15 @@ nav ul
     margin: 40px 0
     text-decoration: underline
 
+  div.popup
+    margin-bottom: 60px
+
+    &.popup-remove form
+      display: none
+
+    form
+      margin: 0
+
 form
   margin-top: 40px
 
@@ -704,22 +719,54 @@ form
 
 .click-to-call
   @extend .close
-  @include transition(opacity, 700ms)
+  @include transition(all, 700ms)
   opacity: 0
   position: fixed
   right: 0
   top: 40%
+  background: url('images/click-to-call.svg') center center / 40px 40px no-repeat, #1eb7e0
+  height: 55px
+  width: 55px
 
-  &.close
-    background: url('images/click-to-call.svg') center center / 80% auto no-repeat, #1eb7e0
-    height: 55px
-    width: 55px
+  h2, form
+    display: none
+    opacity: 0
+
+  &.fade
+    opacity: 1
+
+  &:hover
+    background-position: 20px 20px
+    height: 160px
+    padding: 1em
+    width: 200px
 
     h2, form
-      display: none
+      animation: list-fadein-left 0.5s ease-out both
+      animation-delay: 0.5s
+      display: block
+      opacity: 1
+
+    h2
+      background: transparent
+      color: white
+      font-weight: 400
+      margin: 10px 0 0 55px
+
+    form
+      margin-top: 30px
+
+      input
+        background: white
+        border: none
+        color: $grey-1
+
+        & + input
+          margin-top: 10px
 
 footer
   background-color: $grey-1
+  margin-top: auto
   padding: 20px 10%
 
   #social li
@@ -744,6 +791,9 @@ footer
       a
         color: inherit
         text-decoration: none
+
+aside#flash
+  padding: 0 10%
 
 /* Style for annexes */
 #subscribe, #whitepaper
@@ -781,7 +831,7 @@ footer
     padding-top: 50px
 
   form
-    > p
+    > p:first-of-type
       @include h2_source_sans
 
     .checkbox
