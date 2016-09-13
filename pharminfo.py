@@ -7,11 +7,14 @@ from flask import (
 from jinja2.exceptions import TemplateNotFound
 from locale import LC_ALL, setlocale
 from mandrill import Mandrill
+from top_model import db
+from top_model.public import Client, ClientType
 from urllib.request import urlopen
 from xml.etree import ElementTree
 
 
 app = Flask(__name__)
+app.config['DB'] = 'pgfdw://hydra@localhost/hydra'
 app.config['SECRET_KEY'] = 'default secret key'
 app.config.from_envvar('WWW_PHARMINFO_CONFIG', silent=True)
 
@@ -68,7 +71,17 @@ def news():
 @app.route('/clients')
 @app.route('/clients/<int:department>')
 def clients(department=None):
-    return render_template('clients.html', page='news', department=department)
+    clients = (
+        Client.query.join(ClientType).
+        filter(
+            (ClientType.domain == 'pharminfo') &
+            (Client.current_contract != None) &
+            (Client.domain != None)))
+    if department:
+        clients = clients.filter(Client.zip.like('%s%%' % department))
+    clients = clients.all()
+    return render_template(
+        'clients.html', page='news', department=department, clients=clients)
 
 
 @app.route('/newsletter', methods=['POST'])
@@ -136,6 +149,9 @@ def contact():
 @app.errorhandler(404)
 def not_found(error):
     return render_template('404.html'), 404
+
+
+db.configure(app.config['DB']).assign_flask_app(app)
 
 
 if __name__ == '__main__':
