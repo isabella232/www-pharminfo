@@ -1014,11 +1014,11 @@ aside#flash {
 #whitepaper > section article {
   padding-top: 50px; }
 
-#whitepaper > section form > p {
+#whitepaper > section form > p:first-of-type {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center; }
-  #whitepaper > section form > p::after {
+  #whitepaper > section form > p:first-of-type::after {
     background-color: #00a071;
     content: '';
     display: block;
@@ -1493,9 +1493,9 @@ aside#flash {
     justify-content: flex-end; }
     nav ul::before {
       content: url("images/logo-white.svg");
-      display: inline-block;
       left: 0;
       position: absolute;
+      top: calc(50% - 24px);
       width: 170px; }
     nav ul li {
       margin: 0 0.6em; }

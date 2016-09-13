@@ -23,13 +23,6 @@
         <li>des astuces pour bien vendre,</li>
         <li>des opérations marketing à mettre en place.</li>
       </ul>
-      <p>
-        Vous pouvez télécharger le livre blanc gratuitement en remplissant le
-        formulaire.
-      </p>
-      <p>
-        Les champs marqués d'un astérisque (*) sont obligatoires
-      </p>
     </article>
     <article>
       <h2>Le site Internet de ma pharmacie, pour quoi faire ?</h2>
@@ -47,6 +40,13 @@
     </article>
     <form action="{{ url_for('whitepaper') }}" method="POST">
       <p>Choix du livre blanc</p>
+      <p>
+        Vous pouvez télécharger le ou les livres blancs gratuitement en remplissant le
+        formulaire.
+      </p>
+      <p>
+        Les champs marqués d'un astérisque (*) sont obligatoires.
+      </p>
       <label class="checkbox"><input id="increase_sale" type="checkbox" name="white_book_choice" />Comment développer vos ventes grâce à votre site Internet ?</label>
       <label class="checkbox"><input id="why_website" type="checkbox" name="white_book_choice" />Le site Internet de ma pharmacie, pour quoi faire ?</label>
       <label for="name">Nom</label>
