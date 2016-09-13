@@ -332,6 +332,7 @@
         e.preventDefault();
         var request = new XMLHttpRequest();
         let post_popup = document.createElement('div');
+        post_popup.classList.add('contact-popup');
         request.open('post', '/contact', true);
         request.onload = function() {
           if (request.status >= 200 && request.status < 400) {
