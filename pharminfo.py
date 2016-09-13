@@ -142,7 +142,7 @@ def contact():
     send_mail('Prise de contact sur le site de Pharminfo.fr', html)
     flash(
         'Merci de nous avoir contacté, nos équipes vous recontacteront '
-        'dans les plus brefs délais.')
+        'dans les plus brefs délais.', 'info')
     return redirect(url_for('page'))
 
 

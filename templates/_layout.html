@@ -27,17 +27,17 @@
       </ul>
     </nav>
 
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <aside id="flash">
-          <ul>
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-          </ul>
-        </aside>
-      {% endif %}
-    {% endwith %}
+    {# Usually we have only one flash at a time and especially one type at a time#}
+    {% set grouped_messages = get_flashed_messages(with_categories=True)|sort(0)|groupby(0) %}
+    <aside id="flash">
+      {% for category, messages in grouped_messages %}
+        <ul class="{{ category }}">
+          {% for _, message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    </aside>
 
     {% block body %}{% endblock body %}
 
