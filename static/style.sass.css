@@ -106,11 +106,20 @@
     color: #515151;
     font-size: 0.9em; } }
 
+html {
+  height: 100%; }
+
 body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: flex-start;
+  justify-content: no-wrap;
   background: white;
   border-top: 4px solid #00a071;
+  box-sizing: border-box;
   color: #515151;
-  margin: 0; }
+  margin: 0;
+  min-height: 100%; }
 
 /* Styles général */
 * {
@@ -947,6 +956,7 @@ form {
 
 footer {
   background-color: #515151;
+  margin-top: auto;
   padding: 20px 10%; }
   footer #social li {
     display: inline-block;
