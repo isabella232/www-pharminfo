@@ -72,6 +72,20 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
   p
     margin: 0
 
+div.popup p
+  @include transform(translateY(-50%))
+  animation: popup-fadein 2s ease-in-out both
+  background: white
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2)
+  box-sizing: border-box
+  display: flex
+  left: calc(50% - 100px)
+  padding: 1em 2.5em
+  position: fixed
+  text-align: center
+  top: 50%
+  width: 300px
+
 /* Styles menu */
 header h1
   display: none
@@ -681,25 +695,6 @@ nav ul
 
     form
       margin: 0
-
-  div.contact-popup
-    animation: popup-fadein 2s ease-in-out both
-    background: white
-    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2)
-    box-sizing: border-box
-    display: flex
-    height: 200px
-    left: calc(50% - 100px)
-    padding: 1em 2.5em
-    position: fixed
-    text-align: center
-    top: calc(50% - 150px)
-    width: 300px
-
-    p
-      animation: list-fadein 0.25s ease-out both
-      animation-delay: 0.25s
-      margin: auto
 
 form
   margin-top: 40px

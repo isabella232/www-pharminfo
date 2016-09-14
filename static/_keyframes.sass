@@ -86,13 +86,17 @@
 /* Pop-up animation */
 @keyframes popup-fadein
   0%
-    height: 0
+    @include transform(scaleY(0))
+    color: white
 
   20%
-    height: 200px
+    @include transform(scaleY(1))
+    color: $grey-1
 
   85%
-    height: 200px
+    @include transform(scaleY(1))
+    color: $grey-1
 
   100%
-    height: 0
+    @include transform(scaleY(0))
+    color: white
