@@ -332,7 +332,7 @@
         e.preventDefault();
         var request = new XMLHttpRequest();
         let post_popup = document.createElement('div');
-        post_popup.classList.add('contact-popup');
+        post_popup.classList.add('popup');
         request.open('post', '/contact', true);
         request.onload = function() {
           if (request.status >= 200 && request.status < 400) {
@@ -371,6 +371,25 @@
 
 /* Google maps */
 function initMaps() {
+  var map_style = [
+    {"featureType": "administrative", "elementType": "labels.text.fill",
+     "stylers": [{"color": "#444444"}]},
+    {"featureType": "landscape", "elementType": "all", "stylers": [
+      {"color": "#f2f2f2"}]},
+    {"featureType": "poi", "elementType": "all", "stylers": [
+      {"visibility": "off"}]},
+    {"featureType": "poi.park", "elementType": "all", "stylers": [
+      {"color": "#e9e9e9"}, {"visibility": "on"}]},
+    {"featureType": "road", "elementType": "all", "stylers": [
+      {"saturation": -100}, {"lightness": 45}]},
+    {"featureType": "road.highway", "elementType": "all", "stylers": [
+      {"visibility": "simplified"}]},
+    {"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [
+      {"visibility": "off"}]},
+    {"featureType": "transit", "elementType": "all", "stylers": [
+      { "visibility": "off"}]},
+    {"featureType": "water", "elementType": "all", "stylers": [
+      {"color": "#7fcbea"}, {"visibility": "on"}]}]
   var testimonials_map_div = document.createElement('div');
   testimonials_map_div.setAttribute('id', 'testimonials-map');
   var clients = document.body.querySelector('#clients')
@@ -382,12 +401,25 @@ function initMaps() {
   contact.insertBefore(contact_map_div, contact.querySelector('h2'))
   var testimonials_map = new google.maps.Map(
     document.getElementById('testimonials-map'), {
-      center: {lat: 45.776999, lng: 4.859773},
-      zoom: 15
-    });
+      center: {lat: 46.227638, lng: 2.213749},
+      zoom: 5,
+      styles: map_style
+    }
+  );
   var contact_map = new google.maps.Map(
     document.getElementById('contact-map'), {
       center: {lat: 45.776999, lng: 4.859773},
-      zoom: 15
+      zoom: 15,
+      styles: map_style
+    }
+  );
+  add_client_marker = function(position, map, title, icon) {
+    let latlng = new google.maps.LatLng(position[0], position[1]);
+    let client_marker = new google.maps.Marker({
+      position: latlng, map: map, title: title, icon: icon
     });
+  };
+  add_client_marker(
+    [45.776999, 4.859773], contact_map, 'Pharminfo - Kozea',
+    '/static/images/map-cursor/mark-platform.png');
 }

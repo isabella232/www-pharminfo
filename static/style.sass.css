@@ -217,6 +217,23 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
   #news article p {
     margin: 0; }
 
+div.popup p {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  animation: popup-fadein 2s ease-in-out both;
+  background: white;
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  display: flex;
+  left: calc(50% - 100px);
+  padding: 1em 2.5em;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  width: 300px; }
+
 /* Styles menu */
 header h1 {
   display: none; }
@@ -911,23 +928,6 @@ nav ul {
     display: none; }
   #contact div.popup form {
     margin: 0; }
-
-#contact div.contact-popup p {
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  animation: popup-fadein 2s ease-in-out both;
-  background: white;
-  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  display: flex;
-  left: calc(50% - 100px);
-  padding: 1em 2.5em;
-  position: fixed;
-  text-align: center;
-  top: 50%;
-  width: 300px; }
 
 form {
   margin-top: 40px; }

@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 
 from email.utils import parsedate_to_datetime
-from flask import (
-    Flask, abort, current_app, flash, redirect, render_template,
-    request, url_for)
-from jinja2.exceptions import TemplateNotFound
 from locale import LC_ALL, setlocale
-from mandrill import Mandrill
-from top_model import db
-from top_model.public import Client, ClientType
 from urllib.request import urlopen
 from xml.etree import ElementTree
+
+from flask import (
+    abort, current_app, flash, Flask, jsonify, redirect, render_template,
+    request, url_for)
+from jinja2.exceptions import TemplateNotFound
+from mandrill import Mandrill
+from sqlalchemy.orm import joinedload, undefer
+from top_model import db
+from top_model.public import Client, ClientType, Contract, Offer
 
 
 app = Flask(__name__)
@@ -82,6 +84,29 @@ def clients(department=None):
     clients = clients.all()
     return render_template(
         'clients.html', page='news', department=department, clients=clients)
+
+
+@app.route('/clients/latlng')
+def get_clients_latlng():
+    clients = (
+        Client.query.join(Contract, 'current_contract')
+        .join(Offer).options(undefer('full_domain'))
+        .options(joinedload('current_offer'))
+        .filter(
+            (Contract.clienttype_domain == 'pharminfo') &
+            (Client.current_contract != None) &
+            (Offer.offer_for_test == False))
+        .all())
+    clients_sorted = {'base': [], 'ecommerce': [], 'patientorder': []}
+    for client in clients:
+        modules = [m.module_code for m in client.current_offer.moduleoffers]
+        if 'ecommerce' in modules:
+            clients_sorted['ecommerce'].append(client)
+        elif 'patient_order' in modules:
+            clients_sorted['patientorder'].append(client)
+        else:
+            clients_sorted['base'].append(client)
+    return jsonify({})
 
 
 @app.route('/newsletter', methods=['POST'])
