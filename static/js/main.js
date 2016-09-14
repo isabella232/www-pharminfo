@@ -350,7 +350,7 @@
           setTimeout(
             function(el) {
               el.parentElement.removeChild(el);
-            }, 1000, post_popup);
+            }, 2000, post_popup);
         };
         request.setRequestHeader(
           'content-type',

@@ -106,6 +106,17 @@
     color: #515151;
     font-size: 0.9em; } }
 
+/* Pop-up animation */
+@keyframes popup-fadein {
+  0% {
+    height: 0; }
+  20% {
+    height: 200px; }
+  85% {
+    height: 200px; }
+  100% {
+    height: 0; } }
+
 html {
   height: 100%; }
 
@@ -839,7 +850,7 @@ nav ul {
   height: 400px;
   width: 100%; }
 
-#contact > *:not(#contact-map) {
+#contact > h2, #contact > dl, #contact > form, #contact > p {
   padding: 0 10%; }
 
 #contact h2 {
@@ -884,6 +895,24 @@ nav ul {
     display: none; }
   #contact div.popup form {
     margin: 0; }
+
+#contact div.contact-popup {
+  animation: popup-fadein 2s ease-in-out both;
+  background: white;
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  display: flex;
+  height: 200px;
+  left: calc(50% - 100px);
+  padding: 1em 2.5em;
+  position: fixed;
+  text-align: center;
+  top: calc(50% - 150px);
+  width: 300px; }
+  #contact div.contact-popup p {
+    animation: list-fadein 0.25s ease-out both;
+    animation-delay: 0.25s;
+    margin: auto; }
 
 form {
   margin-top: 40px; }
@@ -1306,7 +1335,7 @@ aside#flash {
       display: table-cell;
       height: auto;
       width: 50%; }
-    #contact > *:not(#contact-map) {
+    #contact > h2, #contact > dl, #contact > form, #contact > p {
       padding: 0 20% 0 10%; } }
 
 @media screen and (min-width: 780px) {
