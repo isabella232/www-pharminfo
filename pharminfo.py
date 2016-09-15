@@ -158,8 +158,8 @@ def whitepaper():
         'Téléphone : %s' % request.form['phone'],
         'Société : %s' % request.form['company']))
     send_mail('Téléchargement du livre blanc Pharminfo.fr', html)
-    return redirect(url_for(
-        'static', filename='%s.pdf' % request.form['white_paper_choice']))
+    whitepaper = '_'.join(request.form.getlist('white_paper_choice'))
+    return redirect(url_for('static', filename='%s.pdf' % whitepaper))
 
 
 @app.route('/contact', methods=('POST',))
