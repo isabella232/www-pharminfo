@@ -269,7 +269,7 @@
       newsletter_link.addEventListener('click', function() {
         if (!document.body.querySelector('.popup')) {
           var popup = document.createElement('div');
-          popup.classList.add('popup');
+          popup.classList = ['static-popup popup'];
           popup.innerHTML = (
             '<span class="close-popup"></span>' +
             '<p>Veuillez renseigner votre adresse mail pour vous inscrire</p>' +
@@ -409,7 +409,7 @@ function initMaps() {
   var testimonials_map = new google.maps.Map(
     document.getElementById('testimonials-map'), {
       center: {lat: 46.227638, lng: 2.213749},
-      zoom: 5,
+      zoom: 7,
       styles: map_style
     }
   );
