@@ -29,7 +29,7 @@ p
 body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content)
   padding: 60px 10%
 
-#goals, #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients
+#goals, #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients, #websites
   h2
     @include h2_source_sans
 
@@ -890,3 +890,18 @@ aside#flash
 
     time, h3
       background: white
+
+#websites
+  ul
+    @include flexbox(row, center, wrap)
+    align-items: center
+
+    li a
+      @include transition(background)
+      color: $grey-1
+      display: block
+      padding: 1em
+      text-decoration: none
+
+      &:hover
+        background-color: $grey-4
