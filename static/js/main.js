@@ -422,12 +422,11 @@ function initMaps() {
     }
   );
   add_client_marker = function(position, map, title, icon, url) {
-    console.log(position);
     if (position instanceof Array) {
       var latlng = new google.maps.LatLng(position[0], position[1]);
     }
     else {
-      var latlng = new google.maps.LatLng(latlng.lat, latlng.lng);
+      var latlng = new google.maps.LatLng(position.lat, position.lng);
     }
     let client_marker = new google.maps.Marker({
       position: latlng, map: map, title: title, icon: icon
