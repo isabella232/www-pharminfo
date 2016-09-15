@@ -413,13 +413,26 @@ function initMaps() {
       styles: map_style
     }
   );
-  add_client_marker = function(position, map, title, icon) {
-    let latlng = new google.maps.LatLng(position[0], position[1]);
+  add_client_marker = function(position, map, title, icon, url) {
     let client_marker = new google.maps.Marker({
-      position: latlng, map: map, title: title, icon: icon
+      position: {lat: position[0], lng: position[1]}, map: map, title: title,
+      icon: icon
     });
   };
   add_client_marker(
     [45.776999, 4.859773], contact_map, 'Pharminfo - Kozea',
-    '/static/images/map-cursor/mark-platform.png');
+    '/static/images/map-cursor/mark-platform.png', null);
+  var request = new XMLHttpRequest();
+  request.open('get', '/clients/latlng', true);
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+      for (let client of JSON.parse(request.responseText)) {
+        let icon = (
+          '/static/images/map-cursor/mark-platform_' + client[2] + '.png');
+        add_client_marker(
+          client[0], testimonials_map, client[1], icon, client[3]);
+      }
+    }
+  };
+  request.send();
 }

@@ -16,7 +16,7 @@ from top_model.public import Client, ClientType, Contract, Offer
 
 
 app = Flask(__name__)
-app.config['DB'] = 'pgfdw://hydra@localhost/hydra'
+app.config['DB'] = 'pgfdw://hydra@localhost/hydra_prod'
 app.config['SECRET_KEY'] = 'default secret key'
 app.config.from_envvar('WWW_PHARMINFO_CONFIG', silent=True)
 
@@ -97,16 +97,18 @@ def get_clients_latlng():
             (Client.current_contract != None) &
             (Offer.offer_for_test == False))
         .all())
-    clients_sorted = {'base': [], 'ecommerce': [], 'patientorder': []}
+    json_client = []
     for client in clients:
         modules = [m.module_code for m in client.current_offer.moduleoffers]
         if 'ecommerce' in modules:
-            clients_sorted['ecommerce'].append(client)
+            offer = 'ecommerce'
         elif 'patient_order' in modules:
-            clients_sorted['patientorder'].append(client)
+            offer = 'prescription'
         else:
-            clients_sorted['base'].append(client)
-    return jsonify({})
+            offer = 'eco'
+        json_client.append(
+            (client.latlng(True), client.title, offer, client.full_domain))
+    return jsonify(json_client)
 
 
 @app.route('/newsletter', methods=['POST'])
@@ -136,7 +138,8 @@ def subscribe():
 
 @app.route('/whitepaper', methods=['POST'])
 def whitepaper():
-    if not all(request.form[key] for key in ('name', 'email', 'function')):
+    if not all(request.form[key] for key in (
+            'name', 'email', 'function', 'white_paper_choice')):
         if not request.form['name']:
             flash('Merci de nous indiquer votre nom.', 'error')
         if not request.form['email']:
@@ -145,6 +148,8 @@ def whitepaper():
             flash(
                 'Merci de nous indiquer la fonction que vous occupez dans '
                 'votre société.', 'error')
+        if not request.form['white_paper_choice']:
+            flash('Merci de choisir le livre blanc à télécharger.', 'error')
         return redirect(url_for('page', page='whitepaper'))
     html = '<br>'.join((
         'Nom : %s' % request.form['name'],
@@ -153,7 +158,8 @@ def whitepaper():
         'Téléphone : %s' % request.form['phone'],
         'Société : %s' % request.form['company']))
     send_mail('Téléchargement du livre blanc Pharminfo.fr', html)
-    return redirect(url_for('static', filename='whitepaper.pdf'))
+    return redirect(url_for(
+        'static', filename='%s.pdf' % request.form['white_paper_choice']))
 
 
 @app.route('/contact', methods=('POST',))
