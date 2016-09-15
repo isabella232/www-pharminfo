@@ -29,7 +29,7 @@ p
 body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content)
   padding: 60px 10%
 
-#goals, #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients
+#goals, #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients, #websites
   h2
     @include h2_source_sans
 
@@ -72,19 +72,40 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
   p
     margin: 0
 
-div.popup p
-  @include transform(translateY(-50%))
-  animation: popup-fadein 2s ease-in-out both
+div.popup
+  @include transform(translate(-50%))
+  animation: popup-fadein 0.25s ease-in-out both
   background: white
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2)
   box-sizing: border-box
-  display: flex
-  left: calc(50% - 100px)
-  padding: 1em 2.5em
+  left: 50%
+  padding: 1.5em 2.5em
   position: fixed
   text-align: center
   top: 50%
   width: 300px
+
+  span
+    display: block
+    height: 30px
+    position: absolute
+    right: 10px
+    top: 10px
+    width: 30px
+
+    &::before, &::after
+      @include content(block, 1px, 25px)
+      @include transform(rotate(45deg))
+      background-color: $grey-1
+      position: absolute
+      right: 2px
+      top: 14px
+
+    &::after
+      @include transform(rotate(-45deg))
+
+  &.hide-popup
+    animation: popup-fadeout 0.25s ease-in-out both
 
 /* Styles menu */
 header h1
@@ -687,14 +708,8 @@ nav ul
     margin: 40px 0
     text-decoration: underline
 
-  div.popup
-    margin-bottom: 60px
-
-    &.popup-remove form
-      display: none
-
-    form
-      margin: 0
+  div.popup-remove form
+    display: none
 
 form
   margin-top: 40px
@@ -875,3 +890,18 @@ aside#flash
 
     time, h3
       background: white
+
+#websites
+  ul
+    @include flexbox(row, center, wrap)
+    align-items: center
+
+    li a
+      @include transition(background)
+      color: $grey-1
+      display: block
+      padding: 1em
+      text-decoration: none
+
+      &:hover
+        background-color: $grey-4

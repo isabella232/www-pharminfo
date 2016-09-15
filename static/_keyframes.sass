@@ -86,17 +86,18 @@
 /* Pop-up animation */
 @keyframes popup-fadein
   0%
-    @include transform(scaleY(0))
+    @include transform(scaleY(0) translateY(-100%) translateX(-50%))
     color: white
 
-  20%
-    @include transform(scaleY(1))
+  100%
+    @include transform(scaleY(1) translateY(-50%) translateX(-50%))
     color: $grey-1
 
-  85%
-    @include transform(scaleY(1))
+@keyframes popup-fadeout
+  0%
+    @include transform(scaleY(1) translateY(-50%) translateX(-50%))
     color: $grey-1
 
   100%
-    @include transform(scaleY(0))
+    @include transform(scaleY(0) translateY(-100%) translateX(-50%))
     color: white

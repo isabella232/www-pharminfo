@@ -109,28 +109,30 @@
 /* Pop-up animation */
 @keyframes popup-fadein {
   0% {
-    -webkit-transform: scaleY(0);
-    -moz-transform: scaleY(0);
-    -o-transform: scaleY(0);
-    transform: scaleY(0);
+    -webkit-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -moz-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -o-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    transform: scaleY(0) translateY(-100%) translateX(-50%);
     color: white; }
-  20% {
-    -webkit-transform: scaleY(1);
-    -moz-transform: scaleY(1);
-    -o-transform: scaleY(1);
-    transform: scaleY(1);
-    color: #515151; }
-  85% {
-    -webkit-transform: scaleY(1);
-    -moz-transform: scaleY(1);
-    -o-transform: scaleY(1);
-    transform: scaleY(1);
+  100% {
+    -webkit-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -moz-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -o-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    transform: scaleY(1) translateY(-50%) translateX(-50%);
+    color: #515151; } }
+
+@keyframes popup-fadeout {
+  0% {
+    -webkit-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -moz-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -o-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    transform: scaleY(1) translateY(-50%) translateX(-50%);
     color: #515151; }
   100% {
-    -webkit-transform: scaleY(0);
-    -moz-transform: scaleY(0);
-    -o-transform: scaleY(0);
-    transform: scaleY(0);
+    -webkit-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -moz-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -o-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    transform: scaleY(0) translateY(-100%) translateX(-50%);
     color: white; } }
 
 html {
@@ -165,11 +167,11 @@ p {
 body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content) {
   padding: 60px 10%; }
 
-#goals h2, #guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2 {
+#goals h2, #guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2 {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center; }
-  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #subscribe h2::after, #whitepaper h2::after, #news-content h2::after, #clients h2::after {
+  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #subscribe h2::after, #whitepaper h2::after, #news-content h2::after, #clients h2::after, #websites h2::after {
     background-color: #00a071;
     content: '';
     display: block;
@@ -217,22 +219,48 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
   #news article p {
     margin: 0; }
 
-div.popup p {
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  animation: popup-fadein 2s ease-in-out both;
+div.popup {
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  -o-transform: translate(-50%);
+  transform: translate(-50%);
+  animation: popup-fadein 0.25s ease-in-out both;
   background: white;
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  display: flex;
-  left: calc(50% - 100px);
-  padding: 1em 2.5em;
+  left: 50%;
+  padding: 1.5em 2.5em;
   position: fixed;
   text-align: center;
   top: 50%;
   width: 300px; }
+  div.popup span {
+    display: block;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 30px; }
+    div.popup span::before, div.popup span::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 25px;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      background-color: #515151;
+      position: absolute;
+      right: 2px;
+      top: 14px; }
+    div.popup span::after {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
+  div.popup.hide-popup {
+    animation: popup-fadeout 0.25s ease-in-out both; }
 
 /* Styles menu */
 header h1 {
@@ -922,12 +950,8 @@ nav ul {
   margin: 40px 0;
   text-decoration: underline; }
 
-#contact div.popup {
-  margin-bottom: 60px; }
-  #contact div.popup.popup-remove form {
-    display: none; }
-  #contact div.popup form {
-    margin: 0; }
+#contact div.popup-remove form {
+  display: none; }
 
 form {
   margin-top: 40px; }
@@ -1106,6 +1130,22 @@ aside#flash {
     margin: 20px 0; }
     #news-content article time, #news-content article h3 {
       background: white; }
+
+#websites ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+  #websites ul li a {
+    -webkit-transition: background 0.25s 0s;
+    transition: background 0.25s 0s;
+    color: #515151;
+    display: block;
+    padding: 1em;
+    text-decoration: none; }
+    #websites ul li a:hover {
+      background-color: #f5f5f5; }
 
 @media screen and (max-width: 399px) {
   #guarantees ul li {
@@ -1463,7 +1503,7 @@ aside#flash {
     #content-whitepaper form {
       margin: 60px auto 0;
       max-width: 700px; }
-  #news-content {
+  #news-content, #websites {
     margin-top: 100px; } }
 
 @media screen and (min-width: 1000px) {
