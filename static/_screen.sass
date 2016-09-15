@@ -74,7 +74,7 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
 
 div.popup
   @include transform(translate(-50%))
-  animation: popup-fadein 0.25s ease-in-out both
+  animation: popup-animation 2s ease-in-out both
   background: white
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2)
   box-sizing: border-box
@@ -87,6 +87,7 @@ div.popup
 
   span
     display: block
+    cursor: pointer
     height: 30px
     position: absolute
     right: 10px
@@ -104,8 +105,11 @@ div.popup
     &::after
       @include transform(rotate(-45deg))
 
+  &.static-popup
+    animation: popup-static-fadein 0.25s ease-in both
+
   &.hide-popup
-    animation: popup-fadeout 0.25s ease-in-out both
+    animation: popup-static-fadeout 0.25s ease-in-out both
 
 /* Styles menu */
 header h1
@@ -707,6 +711,9 @@ nav ul
     font-style: italic
     margin: 40px 0
     text-decoration: underline
+
+  a
+    cursor: pointer
 
   div.popup-remove form
     display: none

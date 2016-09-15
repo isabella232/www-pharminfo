@@ -107,7 +107,33 @@
     font-size: 0.9em; } }
 
 /* Pop-up animation */
-@keyframes popup-fadein {
+@keyframes popup-animation {
+  0% {
+    -webkit-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -moz-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -o-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    transform: scaleY(0) translateY(-100%) translateX(-50%);
+    color: white; }
+  20% {
+    -webkit-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -moz-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -o-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    transform: scaleY(1) translateY(-50%) translateX(-50%);
+    color: #515151; }
+  85% {
+    -webkit-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -moz-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -o-transform: scaleY(1) translateY(-50%) translateX(-50%);
+    transform: scaleY(1) translateY(-50%) translateX(-50%);
+    color: #515151; }
+  100% {
+    -webkit-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -moz-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -o-transform: scaleY(0) translateY(-100%) translateX(-50%);
+    transform: scaleY(0) translateY(-100%) translateX(-50%);
+    color: white; } }
+
+@keyframes popup-static-fadein {
   0% {
     -webkit-transform: scaleY(0) translateY(-100%) translateX(-50%);
     -moz-transform: scaleY(0) translateY(-100%) translateX(-50%);
@@ -121,7 +147,7 @@
     transform: scaleY(1) translateY(-50%) translateX(-50%);
     color: #515151; } }
 
-@keyframes popup-fadeout {
+@keyframes popup-static-fadeout {
   0% {
     -webkit-transform: scaleY(1) translateY(-50%) translateX(-50%);
     -moz-transform: scaleY(1) translateY(-50%) translateX(-50%);
@@ -224,7 +250,7 @@ div.popup {
   -moz-transform: translate(-50%);
   -o-transform: translate(-50%);
   transform: translate(-50%);
-  animation: popup-fadein 0.25s ease-in-out both;
+  animation: popup-animation 2s ease-in-out both;
   background: white;
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
@@ -236,6 +262,7 @@ div.popup {
   width: 300px; }
   div.popup span {
     display: block;
+    cursor: pointer;
     height: 30px;
     position: absolute;
     right: 10px;
@@ -259,8 +286,10 @@ div.popup {
       -moz-transform: rotate(-45deg);
       -o-transform: rotate(-45deg);
       transform: rotate(-45deg); }
+  div.popup.static-popup {
+    animation: popup-static-fadein 0.25s ease-in both; }
   div.popup.hide-popup {
-    animation: popup-fadeout 0.25s ease-in-out both; }
+    animation: popup-static-fadeout 0.25s ease-in-out both; }
 
 /* Styles menu */
 header h1 {
@@ -949,6 +978,9 @@ nav ul {
   font-style: italic;
   margin: 40px 0;
   text-decoration: underline; }
+
+#contact a {
+  cursor: pointer; }
 
 #contact div.popup-remove form {
   display: none; }

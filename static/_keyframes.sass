@@ -84,7 +84,24 @@
     font-size: $basic-font-size
 
 /* Pop-up animation */
-@keyframes popup-fadein
+@keyframes popup-animation
+  0%
+    @include transform(scaleY(0) translateY(-100%) translateX(-50%))
+    color: white
+
+  20%
+    @include transform(scaleY(1) translateY(-50%) translateX(-50%))
+    color: $grey-1
+
+  85%
+    @include transform(scaleY(1) translateY(-50%) translateX(-50%))
+    color: $grey-1
+
+  100%
+    @include transform(scaleY(0) translateY(-100%) translateX(-50%))
+    color: white
+
+@keyframes popup-static-fadein
   0%
     @include transform(scaleY(0) translateY(-100%) translateX(-50%))
     color: white
@@ -93,7 +110,7 @@
     @include transform(scaleY(1) translateY(-50%) translateX(-50%))
     color: $grey-1
 
-@keyframes popup-fadeout
+@keyframes popup-static-fadeout
   0%
     @include transform(scaleY(1) translateY(-50%) translateX(-50%))
     color: $grey-1
