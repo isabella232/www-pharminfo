@@ -422,6 +422,7 @@ function initMaps() {
     }
   );
   add_client_marker = function(position, map, title, icon, url) {
+    console.log(position);
     if (position instanceof Array) {
       var latlng = new google.maps.LatLng(position[0], position[1]);
     }
