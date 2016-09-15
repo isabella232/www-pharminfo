@@ -107,7 +107,8 @@ def get_clients_latlng():
         else:
             offer = 'eco'
         json_client.append(
-            (client.latlng(True), client.title, offer, client.full_domain))
+            (client.latlng(not current_app.debug), client.title, offer,
+             client.full_domain))
     return jsonify(json_client)
 
 
