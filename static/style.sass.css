@@ -717,7 +717,8 @@ nav ul {
       box-sizing: border-box;
       display: flex;
       margin: 20px 0;
-      padding: 150px 0 1em; }
+      padding: 150px 0 1em;
+      width: 100%; }
       #clients #stats li#interne {
         background-image: url("images/numbers/interne.svg"); }
       #clients #stats li#symplify {
@@ -1065,19 +1066,21 @@ footer {
   footer #social li {
     display: inline-block;
     font-size: 0;
-    height: 23px;
     margin: 0 5px;
-    vertical-align: top;
-    width: 23px; }
-    footer #social li#facebook {
+    vertical-align: top; }
+    footer #social li a {
+      display: block;
+      height: 23px;
+      width: 23px; }
+    footer #social li#facebook a {
       background: url("images/social-medias/icon-facebook.svg") center 0 no-repeat; }
-    footer #social li#twitter {
+    footer #social li#twitter a {
       background: url("images/social-medias/icon-twitter.svg") center 0 no-repeat; }
-    footer #social li#google {
+    footer #social li#google a {
       background: url("images/social-medias/icon-google.svg") center 0 no-repeat; }
-    footer #social li#linkedin {
+    footer #social li#linkedin a {
       background: url("images/social-medias/icon-linkedin.svg") center 0 no-repeat; }
-    footer #social li#scoopit {
+    footer #social li#scoopit a {
       background: url("images/social-medias/icon-scoopit.svg") center 0 no-repeat; }
   footer #links {
     color: #FFFFFF;

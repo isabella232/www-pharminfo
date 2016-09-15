@@ -471,6 +471,7 @@ nav ul
       display: flex
       margin: 20px 0
       padding: 150px 0 1em
+      width: 100%
 
       @each $name in interne, symplify, special-order, delivery
         &##{$name}
@@ -812,13 +813,16 @@ footer
   #social li
     display: inline-block
     font-size: 0
-    height: 23px
     margin: 0 5px
     vertical-align: top
-    width: 23px
+
+    a
+      display: block
+      height: 23px
+      width: 23px
 
     @each $name in facebook, twitter, google, linkedin, scoopit
-      &##{$name}
+      &##{$name} a
         background: url('images/social-medias/icon-#{$name}.svg') center 0 no-repeat
 
   #links
