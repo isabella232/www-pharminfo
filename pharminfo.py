@@ -16,7 +16,7 @@ from top_model.public import Client, ClientType, Contract, Offer
 
 
 app = Flask(__name__)
-app.config['DB'] = 'pgfdw://hydra@localhost/hydra_prod'
+app.config['DB'] = 'pgfdw://hydra@localhost/hydra'
 app.config['SECRET_KEY'] = 'default secret key'
 app.config.from_envvar('WWW_PHARMINFO_CONFIG', silent=True)
 
