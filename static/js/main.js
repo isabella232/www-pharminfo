@@ -328,7 +328,7 @@
     /* Contact AJAX post */
     if (document.body.querySelector('.contact-form')) {
       let contact_forms = document.body.querySelectorAll('.contact-form');
-      for (contact_form of contact_forms) {
+      for (let contact_form of contact_forms) {
         contact_form.addEventListener('submit', function(e) {
           e.preventDefault();
           var request = new XMLHttpRequest();
