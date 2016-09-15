@@ -525,7 +525,6 @@ nav ul {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
     background-color: #f5f5f5;
     border-bottom: solid 1px #e6e6e6;
     border-left: solid 1px #e6e6e6;
@@ -540,7 +539,7 @@ nav ul {
       border-radius: 50%;
       display: block;
       height: 50%;
-      margin-bottom: 20px;
+      margin: 20px auto 10px;
       max-height: 100px;
       max-width: 100px;
       width: 50%; }
@@ -607,17 +606,17 @@ nav ul {
       position: absolute;
       left: -35px; }
     #reasons ol li#develop {
-      background: url("images/choose/icon-develop.svg") 0.75em center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-develop.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
     #reasons ol li#expertise {
-      background: url("images/choose/icon-expertise.svg") 0.75em center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-expertise.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
     #reasons ol li#loyal {
-      background: url("images/choose/icon-loyal.svg") 0.75em center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-loyal.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
     #reasons ol li#satisfaction {
-      background: url("images/choose/icon-satisfaction.svg") 0.75em center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-satisfaction.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
     #reasons ol li#accompaniment {
-      background: url("images/choose/icon-accompaniment.svg") 0.75em center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-accompaniment.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
     #reasons ol li#cost {
-      background: url("images/choose/icon-cost.svg") 0.75em center/50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-cost.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
 
 #clients {
   display: flex;
@@ -1034,28 +1033,28 @@ form {
     opacity: 0; }
   .click-to-call.fade {
     opacity: 1; }
-  .click-to-call:hover {
+  .click-to-call:hover, .click-to-call.from-right {
     background-position: 20px 20px;
     height: 160px;
     padding: 1em;
     width: 200px; }
-    .click-to-call:hover h2, .click-to-call:hover form {
+    .click-to-call:hover h2, .click-to-call:hover form, .click-to-call.from-right h2, .click-to-call.from-right form {
       animation: list-fadein-left 0.5s ease-out both;
       animation-delay: 0.5s;
       display: block;
       opacity: 1; }
-    .click-to-call:hover h2 {
+    .click-to-call:hover h2, .click-to-call.from-right h2 {
       background: transparent;
       color: white;
       font-weight: 400;
       margin: 10px 0 0 55px; }
-    .click-to-call:hover form {
+    .click-to-call:hover form, .click-to-call.from-right form {
       margin-top: 30px; }
-      .click-to-call:hover form input {
+      .click-to-call:hover form input, .click-to-call.from-right form input {
         background: white;
         border: none;
         color: #515151; }
-        .click-to-call:hover form input + input {
+        .click-to-call:hover form input + input, .click-to-call.from-right form input + input {
           margin-top: 10px; }
 
 footer {
