@@ -570,7 +570,7 @@ nav ul {
 #reasons ol {
   counter-reset: reasons;
   margin: 1.2em auto 0;
-  overflow: hidden;
+  max-width: 45em;
   padding: 0 10% 3em; }
   #reasons ol li {
     counter-increment: reasons;
