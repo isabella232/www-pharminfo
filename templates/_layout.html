@@ -43,7 +43,7 @@
 
     <aside class="click-to-call fade">
       <h2>Être rappelé ?</h2>
-      <form action="{{ url_for('contact') }}" method="POST">
+      <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
         <label for="phone">Téléphone</label>
         <input type="tel" id="phone" name="phone" placeholder="Téléphone" />
         <input type="submit" value="Valider" />

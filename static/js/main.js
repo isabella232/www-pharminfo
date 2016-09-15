@@ -320,46 +320,53 @@
         }
         else {
           var popup = document.body.querySelector('.popup');
-          popup.classList.remove('popup-remove');
+          popup.classList.remove('hide-popup');
         }
       });
     }
 
     /* Contact AJAX post */
     if (document.body.querySelector('.contact-form')) {
-      let contact_form = document.body.querySelector('.contact-form');
-      contact_form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var request = new XMLHttpRequest();
-        let post_popup = document.createElement('div');
-        post_popup.classList.add('popup');
-        request.open('post', '/contact', true);
-        request.onload = function() {
-          if (request.status >= 200 && request.status < 400) {
-            var success = document.createElement('p');
-            success.innerHTML = 'Votre message a été envoyé';
-            post_popup.appendChild(success);
-          } else {
-            var error = document.createElement('p');
-            error.innerHTML = (
-              '<p>une erreur sʼest produite, ' +
-              'essayer de recharger la page</p>');
-            post_popup.appendChild(error);
+      let contact_forms = document.body.querySelectorAll('.contact-form');
+      for (contact_form of contact_forms) {
+        contact_form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var request = new XMLHttpRequest();
+          let post_popup = document.createElement('div');
+          post_popup.classList.add('popup');
+          request.open('post', '/contact', true);
+          request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+              var success = document.createElement('p');
+              success.innerHTML = (
+                'Merci de nous avoir contacté, nos équipes vous ' +
+                'recontacteront dans les plus brefs délais.');
+              post_popup.appendChild(success);
+            } else {
+              var error = document.createElement('p');
+              error.innerHTML = (
+                '<p>une erreur sʼest produite, ' +
+                'essayer de recharger la page</p>');
+              post_popup.appendChild(error);
+            }
+            document.body.querySelector('#contact').appendChild(post_popup);
+            setTimeout(
+              function(el) {
+                el.parentElement.removeChild(el);
+              }, 2500, post_popup);
+          };
+          request.setRequestHeader(
+            'content-type',
+            'application/x-www-form-urlencoded; charset=utf-8');
+          data = []
+          inputs = contact_form.querySelectorAll(
+            'textarea, input:not([type="submit"])');
+          for (input of inputs) {
+            data.push(input.getAttribute('name') + '=' + input.value)
           }
-          document.body.querySelector('#contact').appendChild(post_popup);
-          setTimeout(
-            function(el) {
-              el.parentElement.removeChild(el);
-            }, 2000, post_popup);
-        };
-        request.setRequestHeader(
-          'content-type',
-          'application/x-www-form-urlencoded; charset=utf-8');
-        var data = (
-          'email=' + contact_form.querySelector('#email').value +
-          '&message=' + contact_form.querySelector('#message').value)
-        request.send(data);
-      });
+          request.send(data.join('&'));
+        });
+      }
     }
 
     /* Add class to remove popup */
