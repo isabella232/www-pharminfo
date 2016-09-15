@@ -422,9 +422,14 @@ function initMaps() {
     }
   );
   add_client_marker = function(position, map, title, icon, url) {
+    if (position instanceof Array) {
+      var latlng = new google.maps.LatLng(position[0], position[1]);
+    }
+    else {
+      var latlng = new google.maps.LatLng(position.lat, position.lng);
+    }
     let client_marker = new google.maps.Marker({
-      position: {lat: position[0], lng: position[1]}, map: map, title: title,
-      icon: icon
+      position: latlng, map: map, title: title, icon: icon
     });
   };
   add_client_marker(
