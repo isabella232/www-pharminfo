@@ -570,7 +570,7 @@ nav ul {
 #reasons ol {
   counter-reset: reasons;
   margin: 1.2em auto 0;
-  max-width: 45em;
+  overflow: hidden;
   padding: 0 10% 3em; }
   #reasons ol li {
     counter-increment: reasons;
@@ -998,6 +998,7 @@ form {
     display: block;
     font-family: inherit;
     margin: 0;
+    max-width: 100%;
     padding: 0.75em;
     -webkit-appearance: none;
     width: 100%; }
