@@ -143,6 +143,7 @@
     document.body.insertBefore(arrow, null);
     arrow.addEventListener('click', function() {
       document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     });
 
     /* Used for detecting scroll direction */
@@ -155,17 +156,17 @@
       }
     });
     window.addEventListener('scroll', function() {
-      if (document.body.scrollTop > window.innerHeight) {
+      if (window.scrollY > window.innerHeight) {
         if (!arrow.classList.contains('fade')) { arrow.classList.add('fade'); }
         /* Down */
-        if (scrollTop < document.body.scrollTop) {
+        if (scrollTop < window.scrollY) {
           if (ctc.classList.contains('fade')) { ctc.classList.remove('fade'); }
         }
         /* Up */
         else {
           if (!ctc.classList.contains('fade')) { ctc.classList.add('fade'); }
         }
-        scrollTop = document.body.scrollTop;
+        scrollTop = window.scrollY;
       }
       else {
         arrow.classList.remove('fade');
