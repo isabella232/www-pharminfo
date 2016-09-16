@@ -2,8 +2,9 @@
   document.addEventListener('DOMContentLoaded', function() {
     /* scrollReveal for on-scroll elements animation */
     var reveals = {};
-    for (let page of ['index', 'news', 'subscribe']) {
-      reveals[page] = {}
+    var page_list = ['index', 'news', 'subscribe'];
+    for (let index = 0; index < page_list.length; index++) {
+      reveals[page_list[index]] = {}
     }
     reveals.index = {
       'basic': ['#sales h2, #sales ul.links, #goals li, ' +
@@ -19,9 +20,10 @@
 
     function add_sr(selectors, side) {
       animation = 'enter ' + side + ', move 150px, wait 0.5s';
-      for (let selector of selectors) {
-        for (let el of document.querySelectorAll(selector)) {
-          el.setAttribute('data-sr', animation);
+      for (let index = 0; index < selectors.length; index++) {
+        let elements = document.querySelectorAll(selectors[index]);
+        for (let el_index = 0; el_index < elements.length; el_index++) {
+          elements[el_index].setAttribute('data-sr', animation);
         }
       }
     };
@@ -32,11 +34,13 @@
           add_sr(reveals[page][type], 'bottom');
         }
         else if (type === 'asc' || type === 'desc') {
-          for (let selector of reveals[page][type]) {
+          let selectors = reveals[page][type];
+          for (let selector_index = 0; selector_index < selectors.length;selector_index++) {
             var wait;
             type === 'asc' ? wait = 0.5 : wait = 0.9;
-            for (let el of document.querySelectorAll(selector)) {
-              el.setAttribute(
+            elements = document.querySelectorAll(selectors[selector_index]);
+            for (let el_index = 0; el_index < elements.length; el_index++) {
+              elements[el_index].setAttribute(
                 'data-sr', 'enter bottom, move 150px, wait ' + wait + 's');
               type === 'asc' ? wait += 0.1 : wait -= 0.1;
             }
@@ -73,21 +77,21 @@
       /* Offers toggle slide */
       if (window.innerWidth <= 650) {
         if (!document.body.querySelector('.more')) {
-          var more_ul_ids = '#ecoweb, #flexiweb, #optiweb'
-          for (let offer of document.body.querySelectorAll(more_ul_ids)) {
+          var more_ul_ids = '#ecoweb, #optiweb';
+          offers = document.body.querySelectorAll(more_ul_ids);
+          for (let index = 0; index < offers.length; index++) {
             let more = document.createElement('span');
             more.innerHTML = 'voir plus';
             more.classList.add('more');
-            offer.insertBefore(more, null);
+            offers[index].insertBefore(more, null);
             more.addEventListener('click', function() {
               this.parentElement.classList.add('more');
               this.parentElement.classList.remove('less');
             });
-
             let less = document.createElement('span');
             less.innerHTML = 'replier';
             less.classList.add('less');
-            offer.insertBefore(less, null);
+            offers[index].insertBefore(less, null);
             less.addEventListener('click', function() {
               this.parentElement.classList.add('less');
               this.parentElement.classList.remove('more');
@@ -95,17 +99,20 @@
           }
         }
         else {
-          for (let more of document.body.querySelectorAll('.more')) {
-            more.style.display = 'block';
+          let more = document.body.querySelectorAll('.more');
+          for (let index = 0; index < more.length; index++) {
+            more[index].style.display = 'block';
           }
-          for (let less of document.body.querySelectorAll('.less')) {
-            less.style.display = 'none';
+          let less = document.body.querySelectorAll('.less');
+          for (let index = 0; index < less.length; index++) {
+            less[index].style.display = 'none';
           }
         }
       }
       else if (document.body.querySelector('.more')) {
-        for (let span of document.body.querySelectorAll('.more, .less')) {
-          span.style.display = 'none';
+        let more_less = document.body.querySelectorAll('.more, .less');
+        for (let index = 0; index < more_less.length; index++) {
+          less[index].style.display = 'none';
         }
       }
 
@@ -219,7 +226,8 @@
       }
 
       slide_arrows = document.querySelectorAll('.left,.right');
-      for (let slide_arrow of slide_arrows) {
+      for (let index = 0; index < slide_arrows.length; index++) {
+        let slide_arrow = slide_arrows[index];
         slide_arrow.addEventListener('click', function() {
           let way = slide_arrow.getAttribute('class');
           let current = document.querySelector('#testimonials .active');
@@ -246,20 +254,22 @@
     }
 
     /* About tabs */
-    for (let tab_link of document.querySelectorAll('.tab-link')) {
+    tab_links = document.querySelectorAll('.tab-link');
+    for (let index = 0; index < tab_links.length; index++) {
+      let tab_link = tab_links[index];
       tab_link.addEventListener('click', function(e) {
-          e.preventDefault();
-          if (!this.classList.contains('active')) {
-            var active = document.querySelector('.tab-link.active')
-            var article_active = document.querySelector(
-              '[id="' + active.getAttribute('href').substring(1) + '"]');
-            active.classList.remove('active');
-            article_active.classList.remove('active');
-            var hidden = document.querySelector(
-              '[id="' + this.getAttribute('href').substring(1) + '"]');
-            hidden.classList.add('active');
-            this.classList.add('active');
-          }
+        e.preventDefault();
+        if (!this.classList.contains('active')) {
+          var active = document.querySelector('.tab-link.active')
+          var article_active = document.querySelector(
+            '[id="' + active.getAttribute('href').substring(1) + '"]');
+          active.classList.remove('active');
+          article_active.classList.remove('active');
+          var hidden = document.querySelector(
+            '[id="' + this.getAttribute('href').substring(1) + '"]');
+          hidden.classList.add('active');
+          this.classList.add('active');
+        }
       });
     }
 
@@ -329,7 +339,8 @@
     /* Contact AJAX post */
     if (document.body.querySelector('.contact-form')) {
       let contact_forms = document.body.querySelectorAll('.contact-form');
-      for (let contact_form of contact_forms) {
+      for (let index = 0; index < contact_forms.length; index++) {
+        let contact_form = contact_forms[index];
         contact_form.addEventListener('submit', function(e) {
           e.preventDefault();
           var request = new XMLHttpRequest();
@@ -362,7 +373,8 @@
           data = []
           inputs = contact_form.querySelectorAll(
             'textarea, input:not([type="submit"])');
-          for (input of inputs) {
+          for (let input_index = 0; input_index < inputs.length; input_index++) {
+            let input = inputs[input_index];
             data.push(input.getAttribute('name') + '=' + input.value)
           }
           request.send(data.join('&'));
@@ -439,7 +451,9 @@ function initMaps() {
   request.open('get', '/clients/latlng', true);
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
-      for (let client of JSON.parse(request.responseText)) {
+      response = JSON.parse(request.responseText);
+      for (let client_index = 0; client_index < response.length; client_index++ ) {
+        let client = response[client_index];
         let icon = (
           '/static/images/map-cursor/mark-platform_' + client[2] + '.png');
         add_client_marker(
