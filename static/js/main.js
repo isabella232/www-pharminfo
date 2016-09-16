@@ -77,9 +77,9 @@
       /* Offers toggle slide */
       if (window.innerWidth <= 650) {
         if (!document.body.querySelector('.more')) {
-          var more_ul_ids = '#ecoweb, #flexiweb, #optiweb'
+          var more_ul_ids = '#ecoweb, #optiweb';
           offers = document.body.querySelectorAll(more_ul_ids);
-          for (let index; index < offers.length; index++) {
+          for (let index = 0; index < offers.length; index++) {
             let more = document.createElement('span');
             more.innerHTML = 'voir plus';
             more.classList.add('more');
@@ -88,11 +88,10 @@
               this.parentElement.classList.add('more');
               this.parentElement.classList.remove('less');
             });
-
             let less = document.createElement('span');
             less.innerHTML = 'replier';
             less.classList.add('less');
-            offer.insertBefore(less, null);
+            offers[index].insertBefore(less, null);
             less.addEventListener('click', function() {
               this.parentElement.classList.add('less');
               this.parentElement.classList.remove('more');
