@@ -59,7 +59,7 @@
 
     /* Collapsible menu */
     var has_event = false;
-    var event = new Event('resize');
+    var event = new CustomEvent('resize');
     var nav = document.querySelector('nav');
 
     click_fn = function() {
