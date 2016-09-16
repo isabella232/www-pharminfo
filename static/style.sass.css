@@ -571,6 +571,7 @@ nav ul {
   counter-reset: reasons;
   margin: 1.2em auto 0;
   max-width: 45em;
+  overflow: hidden;
   padding: 0 10% 3em; }
   #reasons ol li {
     counter-increment: reasons;
@@ -1224,7 +1225,10 @@ aside#flash {
     margin: 2em 0;
     max-height: 500px; }
     #offers section:not(#flexiweb-plus).more ul li {
-      animation: list-fadein 0.5s ease-in-out both; }
+      animation: list-fadein 0.5s ease-in-out backwards;
+      opacity: 1; }
+      #offers section:not(#flexiweb-plus).more ul li.disabled {
+        opacity: 0.35; }
   #offers section:not(#flexiweb-plus).more span.more {
     display: none; }
   #offers section:not(#flexiweb-plus).more span.less {
