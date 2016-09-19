@@ -1,3 +1,17 @@
+/* Mixin for variables responsive font size */
+@mixin font-size-mobile
+  font-size: 0.95em
+
+@mixin font-size-desktop
+  font-size: 1.1em
+
+@mixin basic-font-size
+  @media screen and (max-width: 529px)
+    @include font-size-mobile
+
+  @media screen and (min-width: 530px)
+    @include font-size-desktop
+
 /* Mixin for title's strokes */
 @mixin bottom_stroke($height: 2px, $margin: 20px auto 0, $width: 20px)
   &::after

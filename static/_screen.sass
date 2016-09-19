@@ -288,7 +288,7 @@ nav ul
     @include flexbox(row, space-between)
 
     li
-      font-size: $basic-font-size
+      @include basic-font-size
       margin: 1.5em 0
       min-height: 56px
       padding-left: calc(56px + 2em)
@@ -313,7 +313,7 @@ nav ul
       border-left: solid 1px $grey-3
       box-shadow: 1px -1px 0 $grey-3
       box-sizing: border-box
-      font-size: $basic-font-size
+      @include basic-font-size
       padding: 20px
       text-align: center
       text-transform: uppercase
@@ -350,6 +350,7 @@ nav ul
     li
       @include triangle(-7px, inherit, calc(50% - 10px), 0)
       counter-increment: reasons
+      @include basic-font-size
       margin: 1.2em 0 1.2em 1.5em
       padding: 1.5em 1.5em 1.5em calc(1.5em + 50px)
       position: relative
@@ -533,7 +534,7 @@ nav ul
         font-weight: 400
 
     ul li
-      font-size: $basic-font-size
+      @include basic-font-size
       margin: 1em
 
       &.disabled
@@ -588,6 +589,7 @@ nav ul
       @include triangle(calc(50% - 4px), inherit, -13px, 90deg)
       border-top: solid 220px transparent
       counter-increment: offer_count
+      font-size: 1em
       margin-bottom: 3em
       padding: 0.7em
       position: relative
@@ -641,22 +643,22 @@ nav ul
   dl
     @include flexbox(column, flex-start)
     align-items: center
-    height: 690px
+    height: 850px
 
     dt
       @include bottom_stroke(2px, 0 auto, 18px)
-      font-size: $basic-font-size
+      @include basic-font-size
       margin-top: 3em
       position: relative
 
       &::before
-        @include content(block, 50px, 50px)
-        margin: 0 auto 10px
+        @include content(block, 60px, 60px)
+        margin: 0 auto 15px
 
       &::after
         left: calc( 50% - 9px )
         position: absolute
-        top: 50px
+        top: 60px
 
       @each $name in image, colors, logo, theme
         &##{$name}::before
@@ -667,19 +669,21 @@ nav ul
       margin: 0.5em 0 0
 
     dt, dd
-      max-width: 150px
+      max-width: 200px
 
 #contact
   #contact-map
     height: 400px
     width: 100%
 
-  > h2, > dl, > form, > p
-    padding: 0 10%
+  > dl, > form, > p
+    margin: 50px 10%
+    @include basic-font-size
 
   h2
     @include bottom_stroke(2px, 15px 0 0, 16px)
     font-size: $title
+    margin: 50px 10% 0
 
   dl
     dt
@@ -707,11 +711,18 @@ nav ul
       strong
         font-weight: 400
 
-  & > p
-    font-size: 1em
-    font-style: italic
-    margin: 40px 0
-    text-decoration: underline
+  & > p a
+    @include transition(padding)
+    background-color: $main-color
+    color: $white
+    display: inline-block
+    padding: 0.75em 1em
+    text-align: center
+    text-decoration: none
+    text-transform: uppercase
+
+    &:hover
+      padding: 1.5em 2em
 
   a
     cursor: pointer
