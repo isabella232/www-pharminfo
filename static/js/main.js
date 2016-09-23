@@ -59,7 +59,6 @@
 
     /* Collapsible menu */
     var has_event = false;
-    var event = new CustomEvent('resize');
     var nav = document.querySelector('nav');
 
     click_fn = function() {
@@ -142,7 +141,12 @@
         }
       }
     });
-    window.dispatchEvent(event);
+    var fireResizeEvent = function () {
+      var event = document.createEvent("HTMLEvents");
+      event.initEvent('resize', true, false);
+      window.dispatchEvent(event);
+    };
+    fireResizeEvent();
 
     /* Arrow back to the top */
     var arrow = document.createElement('span');
