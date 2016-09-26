@@ -284,7 +284,8 @@
       newsletter_link.addEventListener('click', function() {
         if (!document.body.querySelector('.popup')) {
           var popup = document.createElement('div');
-          popup.classList = ['static-popup popup'];
+          popup.classList.add('static-popup')
+          popup.classList.add('popup');
           popup.innerHTML = (
             '<span class="close-popup"></span>' +
             '<p>Veuillez renseigner votre adresse mail pour vous inscrire</p>' +
