@@ -1571,7 +1571,8 @@ aside#flash {
       margin-bottom: 0; }
     #guarantees ul li:hover {
       animation: content-fadein 0.5s ease-out both;
-      background-color: #f5f5f5; }
+      background-color: #f5f5f5;
+      font-size: 1.1em; }
       #guarantees ul li:hover::before {
         border: solid 3px #00a071;
         margin-bottom: 15px; }
