@@ -116,7 +116,6 @@
                 requestAnimFrame(tick);
                 window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
             } else {
-                console.log('scroll done');
                 window.scrollTo(0, scrollTargetY);
             }
         }
@@ -232,17 +231,18 @@
       }
     });
     window.addEventListener('scroll', function() {
-      if (window.scrollY > window.innerHeight) {
+      var scrollY = window.scrollY || document.documentElement.scrollTop;
+      if (scrollY > window.innerHeight) {
         if (!arrow.classList.contains('fade')) { arrow.classList.add('fade'); }
         /* Down */
-        if (scrollTop < window.scrollY) {
+        if (scrollTop < scrollY) {
           if (ctc.classList.contains('fade')) { ctc.classList.remove('fade'); }
         }
         /* Up */
         else {
           if (!ctc.classList.contains('fade')) { ctc.classList.add('fade'); }
         }
-        scrollTop = window.scrollY;
+        scrollTop = scrollY;
       }
       else {
         arrow.classList.remove('fade');
