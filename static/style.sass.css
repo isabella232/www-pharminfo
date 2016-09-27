@@ -667,7 +667,10 @@ nav ul {
     #clients #testimonials li.active {
       animation: list-fadein-left 0.25s ease-out both;
       display: flex;
-      height: 100%; }
+      height: 100%;
+      left: 0;
+      position: absolute;
+      width: 100%; }
       #clients #testimonials li.active figure {
         display: block;
         margin: auto;
@@ -1501,6 +1504,8 @@ aside#flash {
       min-height: 350px;
       padding: 100px 1.5em 0;
       width: 35%; }
+      #clients #testimonials li.active {
+        height: calc(100% - 100px); }
     #clients h2 {
       left: 55%;
       position: absolute;
