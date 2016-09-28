@@ -235,7 +235,8 @@ nav ul
 
   article
     display: none
-    margin: 40px 10% 0
+    margin: 40px auto
+    max-width: 800px
 
     &.active
       animation: list-fadein 0.25s ease-out both
@@ -317,7 +318,7 @@ nav ul
       border-left: solid 1px $grey-3
       box-shadow: 1px -1px 0 $grey-3
       box-sizing: border-box
-      @include basic-font-size
+      font-size: 1em
       padding: 20px
       text-align: center
       text-transform: uppercase
@@ -589,6 +590,7 @@ nav ul
 
   ol
     @include flexbox(row, flex-start)
+    align-items: flex-start
     counter-reset: offer_count
     margin: 2em 0
 
@@ -729,7 +731,7 @@ nav ul
     text-transform: uppercase
 
     &:hover
-      padding: 1.5em 2em
+      padding: 0.75em 2em
 
   a
     cursor: pointer

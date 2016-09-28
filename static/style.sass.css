@@ -102,10 +102,10 @@
     font-size: 0; }
   60% {
     color: #f5f5f5;
-    font-size: 1.1em; }
+    font-size: 1em; }
   100% {
     color: #515151;
-    font-size: 1.1em; } }
+    font-size: 1em; } }
 
 /* Pop-up animation */
 @keyframes popup-animation {
@@ -429,7 +429,8 @@ nav ul {
         color: #00a071; }
   #about article {
     display: none;
-    margin: 40px 10% 0; }
+    margin: 40px auto;
+    max-width: 800px; }
     #about article.active {
       animation: list-fadein 0.25s ease-out both;
       display: block; }
@@ -540,15 +541,10 @@ nav ul {
     border-left: solid 1px #e6e6e6;
     box-shadow: 1px -1px 0 #e6e6e6;
     box-sizing: border-box;
+    font-size: 1em;
     padding: 20px;
     text-align: center;
     text-transform: uppercase; }
-    @media screen and (max-width: 529px) {
-      #guarantees ul li {
-        font-size: 0.95em; } }
-    @media screen and (min-width: 530px) {
-      #guarantees ul li {
-        font-size: 1.1em; } }
     #guarantees ul li::before {
       border: solid 3px #00a071;
       border-radius: 50%;
@@ -851,6 +847,7 @@ nav ul {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: flex-start;
     counter-reset: offer_count;
     margin: 2em 0; }
     #main-offer ol li {
@@ -1027,7 +1024,7 @@ nav ul {
   text-decoration: none;
   text-transform: uppercase; }
   #contact > p a:hover {
-    padding: 1.5em 2em; }
+    padding: 0.75em 2em; }
 
 #contact a {
   cursor: pointer; }
@@ -1470,8 +1467,8 @@ aside#flash {
       padding: 0 20%; }
     #offers section {
       box-sizing: border-box;
-      width: 48%;
-      margin: 10px 1%; }
+      margin: 10px 1%;
+      width: 48%; }
   #contact {
     display: table;
     width: 100%; }
@@ -1579,7 +1576,7 @@ aside#flash {
     #guarantees ul li:hover {
       animation: content-fadein 0.5s ease-out both;
       background-color: #f5f5f5;
-      font-size: 1.1em; }
+      font-size: 1em; }
       #guarantees ul li:hover::before {
         border: solid 3px #00a071;
         margin-bottom: 15px; }
@@ -1698,7 +1695,7 @@ aside#flash {
 
 @media screen and (min-width: 1215px) {
   #offers section {
-    width: 24%; }
+    width: 30%; }
   #main-offer::after {
     height: 320px; } }
 
