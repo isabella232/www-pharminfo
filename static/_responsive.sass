@@ -234,8 +234,11 @@
 
     #contact-map
       display: table-cell
-      height: auto
       width: 50%
+      vertical-align: top
+
+      > div, > div > div
+        position: static !important /* For IE11 */
 
     h2
       margin: 50px 20% 0 10%

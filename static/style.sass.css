@@ -1477,8 +1477,10 @@ aside#flash {
     width: 100%; }
     #contact #contact-map {
       display: table-cell;
-      height: auto;
-      width: 50%; }
+      width: 50%;
+      vertical-align: top; }
+      #contact #contact-map > div, #contact #contact-map > div > div {
+        position: static !important; }
     #contact h2 {
       margin: 50px 20% 0 10%; }
     #contact > dl, #contact > form, #contact > p {
