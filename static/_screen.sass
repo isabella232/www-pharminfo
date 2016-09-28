@@ -73,6 +73,7 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
     margin: 0
 
 div.popup
+  @include transform(translateY(-50%))
   animation: popup-animation 2s ease-in-out both
   background: white
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2)
