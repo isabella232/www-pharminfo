@@ -136,30 +136,30 @@
 
 @keyframes popup-static-fadein {
   0% {
-    -webkit-transform: scaleY(0) translateY(-100%) translateX(-50%);
-    -moz-transform: scaleY(0) translateY(-100%) translateX(-50%);
-    -o-transform: scaleY(0) translateY(-100%) translateX(-50%);
-    transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -webkit-transform: scaleY(0) translateY(-100%);
+    -moz-transform: scaleY(0) translateY(-100%);
+    -o-transform: scaleY(0) translateY(-100%);
+    transform: scaleY(0) translateY(-100%);
     color: white; }
   100% {
-    -webkit-transform: scaleY(1) translateY(-50%) translateX(-50%);
-    -moz-transform: scaleY(1) translateY(-50%) translateX(-50%);
-    -o-transform: scaleY(1) translateY(-50%) translateX(-50%);
-    transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -webkit-transform: scaleY(1) translateY(-50%);
+    -moz-transform: scaleY(1) translateY(-50%);
+    -o-transform: scaleY(1) translateY(-50%);
+    transform: scaleY(1) translateY(-50%);
     color: #515151; } }
 
 @keyframes popup-static-fadeout {
   0% {
-    -webkit-transform: scaleY(1) translateY(-50%) translateX(-50%);
-    -moz-transform: scaleY(1) translateY(-50%) translateX(-50%);
-    -o-transform: scaleY(1) translateY(-50%) translateX(-50%);
-    transform: scaleY(1) translateY(-50%) translateX(-50%);
+    -webkit-transform: scaleY(1) translateY(-50%);
+    -moz-transform: scaleY(1) translateY(-50%);
+    -o-transform: scaleY(1) translateY(-50%);
+    transform: scaleY(1) translateY(-50%);
     color: #515151; }
   100% {
-    -webkit-transform: scaleY(0) translateY(-100%) translateX(-50%);
-    -moz-transform: scaleY(0) translateY(-100%) translateX(-50%);
-    -o-transform: scaleY(0) translateY(-100%) translateX(-50%);
-    transform: scaleY(0) translateY(-100%) translateX(-50%);
+    -webkit-transform: scaleY(0) translateY(-100%);
+    -moz-transform: scaleY(0) translateY(-100%);
+    -o-transform: scaleY(0) translateY(-100%);
+    transform: scaleY(0) translateY(-100%);
     color: white; } }
 
 html {
@@ -247,15 +247,11 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
     margin: 0; }
 
 div.popup {
-  -webkit-transform: translate(-50%);
-  -moz-transform: translate(-50%);
-  -o-transform: translate(-50%);
-  transform: translate(-50%);
   animation: popup-animation 2s ease-in-out both;
   background: white;
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  left: 50%;
+  left: calc(50% - 150px);
   padding: 1.5em 2.5em;
   position: fixed;
   text-align: center;
@@ -357,10 +353,6 @@ nav ul {
   flex-wrap: wrap;
   justify-content: center;
   background: url("images/photos/bkgd-home.jpg") no-repeat center/cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   box-sizing: border-box;
   min-height: 100vh;
   text-align: center; }
@@ -758,12 +750,6 @@ nav ul {
     font-size: 0.75em;
     text-align: center;
     width: 100%; }
-  #clients::after {
-    content: "";
-    display: block;
-    height: 260px;
-    width: 100%;
-    background: url("images/photos/bkgd-meds.jpg") center/cover no-repeat fixed; }
 
 #offers {
   background-color: #f5f5f5; }
@@ -829,8 +815,6 @@ nav ul {
       color: #FFFFFF; }
       #offers section#flexiweb-plus p.price, #offers section#flexiweb-plus ul.links li a {
         border-color: #FFFFFF; }
-    #offers section.close ul, #offers section.click-to-call ul {
-      display: none; }
   #offers ul.notes {
     font-size: 0.75em; }
 
@@ -1514,6 +1498,12 @@ aside#flash {
       width: 5%; }
     #clients #stats {
       width: 100%; }
+    #clients::after {
+      content: "";
+      display: block;
+      height: 260px;
+      width: 100%;
+      background: url("images/photos/bkgd-meds.jpg") center/cover no-repeat fixed; }
   #customize dl {
     height: 250px; }
   footer ul {

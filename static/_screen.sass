@@ -73,12 +73,11 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
     margin: 0
 
 div.popup
-  @include transform(translate(-50%))
   animation: popup-animation 2s ease-in-out both
   background: white
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2)
   box-sizing: border-box
-  left: 50%
+  left: calc(50% - 150px)
   padding: 1.5em 2.5em
   position: fixed
   text-align: center
@@ -175,10 +174,6 @@ nav ul
 #sales
   @include flexbox(column, center)
   background: url('images/photos/bkgd-home.jpg') no-repeat center/cover
-  background-attachment: fixed
-  background-position: center
-  background-repeat: no-repeat
-  background-size: cover
   box-sizing: border-box
   min-height: 100vh
   text-align: center
@@ -499,10 +494,6 @@ nav ul
     text-align: center
     width: 100%
 
-  &::after
-    @include content(block, 260px, 100%)
-    background: url('images/photos/bkgd-meds.jpg') center / cover no-repeat fixed
-
 #offers
   background-color: $grey-4
 
@@ -569,10 +560,6 @@ nav ul
 
       p.price, ul.links li a
         border-color: $white
-
-    &.close
-      ul
-        display: none
 
   ul.notes
     font-size: 0.75em

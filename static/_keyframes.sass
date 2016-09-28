@@ -103,18 +103,18 @@
 
 @keyframes popup-static-fadein
   0%
-    @include transform(scaleY(0) translateY(-100%) translateX(-50%))
+    @include transform(scaleY(0) translateY(-100%))
     color: white
 
   100%
-    @include transform(scaleY(1) translateY(-50%) translateX(-50%))
+    @include transform(scaleY(1) translateY(-50%))
     color: $grey-1
 
 @keyframes popup-static-fadeout
   0%
-    @include transform(scaleY(1) translateY(-50%) translateX(-50%))
+    @include transform(scaleY(1) translateY(-50%))
     color: $grey-1
 
   100%
-    @include transform(scaleY(0) translateY(-100%) translateX(-50%))
+    @include transform(scaleY(0) translateY(-100%))
     color: white
