@@ -162,7 +162,7 @@
       else if (document.body.querySelector('.more')) {
         let more_less = document.body.querySelectorAll('.more, .less');
         for (let index = 0; index < more_less.length; index++) {
-          less[index].style.display = 'none';
+          more_less[index].style.display = 'none';
         }
       }
 
@@ -176,7 +176,7 @@
           nav.insertBefore(div, nav.children[0]);
         }
         else if (nav.querySelector('div').style.display === 'none') {
-          div.style.display = 'block';
+          nav.querySelector('div').style.display = 'block';
         }
         if (!has_event) {
           nav.querySelector('div').addEventListener('click', click_fn);
@@ -489,18 +489,21 @@ function initMaps() {
   contact_map_div.setAttribute('id', 'contact-map');
   var contact = document.body.querySelector('#contact')
   contact.insertBefore(contact_map_div, contact.querySelector('h2'))
+  var scroll = window.innerWidth > 780 ? true : false;
   var testimonials_map = new google.maps.Map(
     document.getElementById('testimonials-map'), {
       center: {lat: 46.227638, lng: 2.213749},
       zoom: 7,
-      styles: map_style
+      styles: map_style,
+      scrollwheel: scroll
     }
   );
   var contact_map = new google.maps.Map(
     document.getElementById('contact-map'), {
       center: {lat: 45.776999, lng: 4.859773},
       zoom: 15,
-      styles: map_style
+      styles: map_style,
+      scrollwheel: scroll
     }
   );
   add_client_marker = function(position, map, title, icon, url) {
@@ -531,5 +534,10 @@ function initMaps() {
       }
     }
   };
+  window.addEventListener('resize', function() {
+    var scroll = window.innerWidth > 780 ? true : false;
+    contact_map.setOptions({scrollwheel: scroll});
+    testimonials_map.setOptions({scrollwheel: scroll});
+  });
   request.send();
 }
