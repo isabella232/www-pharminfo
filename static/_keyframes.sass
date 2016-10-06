@@ -58,6 +58,17 @@
     opacity: 1
     @include transform(translateX(0px))
 
+@keyframes list-fadein-right
+  0%
+    display: block
+    opacity: 0
+    @include transform(translateX(-150px))
+
+  100%
+    display: block
+    opacity: 1
+    @include transform(translateX(0px))
+
 @keyframes list-fadeout
   0%
     display: block
@@ -86,19 +97,19 @@
 /* Pop-up animation */
 @keyframes popup-animation
   0%
-    @include transform(scaleY(0) translateY(-100%) translateX(-50%))
+    @include transform(scaleY(0) translateY(-100%))
     color: white
 
   20%
-    @include transform(scaleY(1) translateY(-50%) translateX(-50%))
+    @include transform(scaleY(1) translateY(-50%))
     color: $grey-1
 
   85%
-    @include transform(scaleY(1) translateY(-50%) translateX(-50%))
+    @include transform(scaleY(1) translateY(-50%))
     color: $grey-1
 
   100%
-    @include transform(scaleY(0) translateY(-100%) translateX(-50%))
+    @include transform(scaleY(0) translateY(-100%))
     color: white
 
 @keyframes popup-static-fadein

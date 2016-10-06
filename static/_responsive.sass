@@ -211,7 +211,7 @@
         text-align: right
 
         &::after
-          right: -35px
+          right: -38px
           left: initial
 
       &#expertise, &#satisfaction, &#cost
@@ -312,7 +312,7 @@
       width: 49%
 
 @media screen and (min-width: 840px)
-  #news nav ul
+  #news nav ul, #legal nav ul
     &::before
       content: url("images/logo-bicolor.svg")
 
@@ -369,7 +369,7 @@
     padding: 250px 2em 2em
     width: 50%
 
-    &:hover
+    &:first-of-type, &:last-of-type
       background-color: $grey-4
 
   #content-whitepaper
@@ -384,7 +384,7 @@
       margin: 60px auto 0
       max-width: 700px
 
-  #news-content, #websites
+  #news-content, #websites, #legal-content
     margin-top: 100px
 
 @media screen and (min-width: 1000px)
@@ -430,7 +430,7 @@
       left: 0
       position: absolute
       top: calc(50% - 24px)
-      width: 170px
+      width: 180px
 
     li
       margin: 0 0.6em

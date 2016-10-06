@@ -26,10 +26,10 @@ p
 *:not(strong)
   font-weight: 300
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content)
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content)
   padding: 60px 10%
 
-#goals, #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients, #websites
+#goals, #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients, #websites, #legal-content
   h2
     @include h2_source_sans
 
@@ -88,19 +88,19 @@ div.popup
   span
     display: block
     cursor: pointer
-    height: 30px
+    height: 20px
     position: absolute
     right: 10px
     top: 10px
-    width: 30px
+    width: 20px
 
     &::before, &::after
-      @include content(block, 1px, 25px)
+      @include content(block, 1px, 20px)
       @include transform(rotate(45deg))
       background-color: $grey-1
       position: absolute
-      right: 2px
-      top: 14px
+      right: 0
+      top: 10px
 
     &::after
       @include transform(rotate(-45deg))
@@ -108,8 +108,8 @@ div.popup
   &.static-popup
     animation: popup-static-fadein 0.25s ease-in both
 
-  &.hide-popup
-    animation: popup-static-fadeout 0.25s ease-in-out both
+/*  &.hide-popup
+    animation: popup-static-fadeout 0.25s ease-in-out both*/
 
 /* Styles menu */
 header h1
@@ -190,8 +190,9 @@ nav ul
     width: 100%
 
     &::before
-      @include content(block, auto, 252px, url('images/logo-white.svg'))
+      @include content(block, auto, 280px, url('images/logo-white.svg'))
       margin: 0 auto 20px
+      max-width: 100%
 
   ul li a
     @include transition(all)
@@ -204,7 +205,7 @@ nav ul
     &:hover
       background-color: $main-color
       color: $white
-      padding: 1em 2em
+      padding: 0.75em 1.5em
 
 #about
   text-align: center
@@ -234,8 +235,13 @@ nav ul
     margin: 40px auto
     max-width: 800px
 
+    &:first-of-type.active
+      animation: list-fadein-right 0.25s ease-out both
+
+    & + article.active
+      animation: list-fadein-left 0.25s ease-out both
+
     &.active
-      animation: list-fadein 0.25s ease-out both
       display: block
 
     ul.links
@@ -261,7 +267,7 @@ nav ul
       position: relative
 
     h3
-      border-bottom: solid 1px $main-color
+      border-bottom: solid 2px $main-color
       padding: 0.25em 15px 0.75em
 
   ul
@@ -365,7 +371,7 @@ nav ul
         text-align: center
         top: calc(50% - 10px)
         position: absolute
-        left: -35px
+        left: -38px
 
       @each $name in develop, expertise, loyal, satisfaction, accompaniment, cost
         &##{$name}
@@ -447,6 +453,7 @@ nav ul
 
     &::before
       @include content(block, 20px, 20px)
+      @include transition(all, 0.3s)
       @include transform(rotate(135deg))
       border-top: solid 1px $grey-1
       border-left: solid 1px $grey-1
@@ -462,8 +469,16 @@ nav ul
         left: calc(50% - 7px)
         opacity: 0.5
 
-    &:hover
-      background-color: $grey-2
+    &:hover::before
+      border-top: solid 1px $main-color
+      border-left: solid 1px $main-color
+      opacity: 1
+
+    &.right:hover::before
+      left: calc(50% - 7px)
+
+    &.left:hover::before
+      left: calc(50% - 15px)
 
   #stats
     @include flexbox(row, space-between)
@@ -617,7 +632,7 @@ nav ul
     text-transform: uppercase
 
     &:hover
-      padding: 1.5em 2em
+      padding: 1em 1.5em
 
   &::after
     @include content(block, 250px, 125%)
@@ -740,6 +755,7 @@ form
     box-sizing: border-box
     display: block
     font-family: inherit
+    font-size: 1.1em
     margin: 0
     max-width: 100%
     padding: 0.75em
@@ -758,6 +774,7 @@ form
     border: solid 1px $grey-1
     border-radius: 0
     cursor: pointer
+    font-size: 1.1em
     margin: 20px 0 0
     padding: 0.75em 2em
     text-transform: uppercase
@@ -817,18 +834,25 @@ form
 footer
   background-color: $grey-1
   margin-top: auto
-  padding: 20px 10%
+  padding: 10px 10%
 
   #social li
+    @include transition(all)
+    background: white
+    border-radius: 50%
     display: inline-block
     font-size: 0
     margin: 0 5px
+    padding: 5px
     vertical-align: top
 
     a
       display: block
       height: 23px
       width: 23px
+
+    &:hover
+      opacity: 0.5
 
     @each $name in facebook, twitter, google, linkedin, scoopit
       &##{$name} a
@@ -846,7 +870,10 @@ footer
         text-decoration: none
 
 aside#flash
+  background: white
   padding: 0 10%
+  position: relative
+  z-index: 99
 
 /* Style for annexes */
 #subscribe, #whitepaper
@@ -858,6 +885,8 @@ aside#flash
   > section::before
     @include content(block, 290px, 125%)
     margin: -130px 0 0 -12.5%
+    position: relative
+    z-index: -1
 
   input:not(:last-of-type)
         font-size: 1.125em
@@ -900,7 +929,7 @@ aside#flash
         min-height: 20px
         min-width: 20px
 
-#news-content
+#news-content, #legal-content
   box-sizing: border-box
   padding: 0 10% 60px
   width: 100%
@@ -925,3 +954,15 @@ aside#flash
 
       &:hover
         background-color: $grey-4
+
+#legal
+  dl
+    margin: 0 auto
+    max-width: 800px
+
+    dt
+      font-weight: bold
+      margin-top: 20px
+
+    dd
+      margin-left: 0
