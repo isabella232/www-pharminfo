@@ -539,14 +539,13 @@ nav ul {
     box-sizing: border-box;
     font-size: 1em;
     padding: 20px;
-    text-align: center;
-    text-transform: uppercase; }
+    text-align: center; }
     #guarantees ul li::before {
       border: solid 3px #00a071;
       border-radius: 50%;
       display: block;
       height: 50%;
-      margin: 20px auto 10px;
+      margin: 5px auto 10px;
       max-height: 100px;
       max-width: 100px;
       width: 50%; }
@@ -916,7 +915,7 @@ nav ul {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    height: 850px; }
+    height: 780px; }
     #customize dl dt {
       margin-top: 3em;
       position: relative; }
