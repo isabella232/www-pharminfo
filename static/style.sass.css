@@ -1205,8 +1205,35 @@ aside#flash {
 #whitepaper > section::before {
   background: url("images/photos/whitepaper-bkgd.jpg") center/cover no-repeat; }
 
+#whitepaper > section > ul {
+  margin: 60px 0 20px;
+  text-align: center; }
+  #whitepaper > section > ul li {
+    display: inline-block; }
+    #whitepaper > section > ul li + li::before {
+      content: "";
+      display: inline-block;
+      height: 15px;
+      width: 1px;
+      background-color: #d3d3d3;
+      margin: 0 20px 0; }
+    #whitepaper > section > ul li a {
+      color: #d3d3d3;
+      font-size: 1.3em;
+      font-weight: 400;
+      text-decoration: none; }
+      #whitepaper > section > ul li a.active {
+        color: #00a071; }
+
 #whitepaper > section article {
-  padding-top: 50px; }
+  display: none;
+  margin: 0 auto; }
+  #whitepaper > section article.active {
+    display: block; }
+  #whitepaper > section article:first-of-type.active {
+    animation: list-fadein-right 0.25s ease-out both; }
+  #whitepaper > section article + article.active {
+    animation: list-fadein-left 0.25s ease-out both; }
 
 #whitepaper > section form > p:first-of-type {
   color: #515151;

@@ -909,8 +909,39 @@ aside#flash
   &::before
     background: url('images/photos/whitepaper-bkgd.jpg') center / cover no-repeat
 
+  > ul
+    margin: 60px 0 20px
+    text-align: center
+
+    li
+      display: inline-block
+
+      & + li::before
+        @include content(inline-block, 15px, 1px)
+        background-color: $grey-2
+        margin: 0 20px 0
+
+      a
+        color: $grey-2
+        font-size: $subtitle
+        font-weight: 400
+        text-decoration: none
+
+        &.active
+          color: $main-color
+
   article
-    padding-top: 50px
+    display: none
+    margin: 0 auto
+
+    &.active
+      display: block
+
+    &:first-of-type.active
+      animation: list-fadein-right 0.25s ease-out both
+
+    & + article.active
+      animation: list-fadein-left 0.25s ease-out both
 
   form
     > p:first-of-type
