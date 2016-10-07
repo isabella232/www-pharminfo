@@ -216,18 +216,17 @@ nav ul
   ul li
     display: inline-block
 
-    & + li::before
-      @include content(inline-block, 15px, 1px)
-      background-color: $grey-2
-      margin: 0 20px 0
-
     a
-      color: $grey-2
+      border: solid 1px $grey-1
+      color: $grey-1
+      display: block
       font-weight: 400
+      padding: 0.5em 0.75em
       text-decoration: none
       text-transform: uppercase
 
       &.active
+        border: none
         color: $main-color
 
   article
@@ -916,18 +915,17 @@ aside#flash
     li
       display: inline-block
 
-      & + li::before
-        @include content(inline-block, 15px, 1px)
-        background-color: $grey-2
-        margin: 0 20px 0
-
       a
-        color: $grey-2
+        border: solid 1px $grey-1
+        color: $grey-1
+        display: block
         font-size: $subtitle
         font-weight: 400
+        padding: 0.5em 0.75em
         text-decoration: none
 
         &.active
+          border: none
           color: $main-color
 
   article

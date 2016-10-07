@@ -426,19 +426,16 @@ nav ul {
       width: 20px; }
   #about ul li {
     display: inline-block; }
-    #about ul li + li::before {
-      content: "";
-      display: inline-block;
-      height: 15px;
-      width: 1px;
-      background-color: #d3d3d3;
-      margin: 0 20px 0; }
     #about ul li a {
-      color: #d3d3d3;
+      border: solid 1px #515151;
+      color: #515151;
+      display: block;
       font-weight: 400;
+      padding: 0.5em 0.75em;
       text-decoration: none;
       text-transform: uppercase; }
       #about ul li a.active {
+        border: none;
         color: #00a071; }
   #about article {
     display: none;
@@ -1210,19 +1207,16 @@ aside#flash {
   text-align: center; }
   #whitepaper > section > ul li {
     display: inline-block; }
-    #whitepaper > section > ul li + li::before {
-      content: "";
-      display: inline-block;
-      height: 15px;
-      width: 1px;
-      background-color: #d3d3d3;
-      margin: 0 20px 0; }
     #whitepaper > section > ul li a {
-      color: #d3d3d3;
+      border: solid 1px #515151;
+      color: #515151;
+      display: block;
       font-size: 1.3em;
       font-weight: 400;
+      padding: 0.5em 0.75em;
       text-decoration: none; }
       #whitepaper > section > ul li a.active {
+        border: none;
         color: #00a071; }
 
 #whitepaper > section article {
