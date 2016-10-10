@@ -427,15 +427,23 @@ nav ul {
   #about ul li {
     display: inline-block; }
     #about ul li a {
-      border: solid 1px #515151;
-      color: #515151;
+      -webkit-transition: all 0.25s 0s;
+      transition: all 0.25s 0s;
+      background-color: #00a071;
+      box-sizing: border-box;
+      color: #FFFFFF;
       display: block;
       font-weight: 400;
       padding: 0.5em 0.75em;
       text-decoration: none;
       text-transform: uppercase; }
+      #about ul li a:not(.active):hover {
+        background: transparent;
+        border: solid 1px #00a071;
+        color: #00a071; }
       #about ul li a.active {
-        border: none;
+        background-color: transparent;
+        border: solid 1px transparent;
         color: #00a071; }
   #about article {
     display: none;
