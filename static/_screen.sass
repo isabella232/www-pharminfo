@@ -924,16 +924,24 @@ aside#flash
       display: inline-block
 
       a
-        border: solid 1px $grey-1
-        color: $grey-1
+        @include transition(all)
+        background-color: $main-color
+        box-sizing: border-box
+        color: $white
         display: block
-        font-size: $subtitle
         font-weight: 400
         padding: 0.5em 0.75em
         text-decoration: none
+        text-transform: uppercase
+
+        &:not(.active):hover
+          background: transparent
+          border: solid 1px $main-color
+          color: $main-color
 
         &.active
-          border: none
+          background-color: transparent
+          border: solid 1px transparent
           color: $main-color
 
   article
