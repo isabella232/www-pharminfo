@@ -218,24 +218,26 @@ nav ul
 
     a
       @include transition(all)
-      background-color: $main-color
       box-sizing: border-box
-      color: $white
       display: block
       font-weight: 400
       padding: 0.5em 0.75em
       text-decoration: none
       text-transform: uppercase
 
-      &:not(.active):hover
-        background: transparent
-        border: solid 1px $main-color
-        color: $main-color
-
-      &.active
+      &:not(.active)
         background-color: transparent
         border: solid 1px transparent
         color: $main-color
+
+        &:hover
+          background: transparent
+          border: solid 1px $main-color
+          color: $main-color
+
+      &.active
+        background-color: $main-color
+        color: $white
 
   article
     display: none
@@ -925,24 +927,26 @@ aside#flash
 
       a
         @include transition(all)
-        background-color: $main-color
         box-sizing: border-box
-        color: $white
         display: block
         font-weight: 400
         padding: 0.5em 0.75em
         text-decoration: none
         text-transform: uppercase
 
-        &:not(.active):hover
-          background: transparent
-          border: solid 1px $main-color
-          color: $main-color
-
-        &.active
+        &:not(.active)
           background-color: transparent
           border: solid 1px transparent
           color: $main-color
+
+          &:hover
+            background: transparent
+            border: solid 1px $main-color
+            color: $main-color
+
+        &.active
+          background-color: $main-color
+          color: $white
 
   article
     display: none

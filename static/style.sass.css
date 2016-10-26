@@ -429,22 +429,23 @@ nav ul {
     #about ul li a {
       -webkit-transition: all 0.25s 0s;
       transition: all 0.25s 0s;
-      background-color: #00a071;
       box-sizing: border-box;
-      color: #FFFFFF;
       display: block;
       font-weight: 400;
       padding: 0.5em 0.75em;
       text-decoration: none;
       text-transform: uppercase; }
-      #about ul li a:not(.active):hover {
-        background: transparent;
-        border: solid 1px #00a071;
-        color: #00a071; }
-      #about ul li a.active {
+      #about ul li a:not(.active) {
         background-color: transparent;
         border: solid 1px transparent;
         color: #00a071; }
+        #about ul li a:not(.active):hover {
+          background: transparent;
+          border: solid 1px #00a071;
+          color: #00a071; }
+      #about ul li a.active {
+        background-color: #00a071;
+        color: #FFFFFF; }
   #about article {
     display: none;
     margin: 40px auto;
@@ -1218,22 +1219,23 @@ aside#flash {
     #whitepaper > section > ul li a {
       -webkit-transition: all 0.25s 0s;
       transition: all 0.25s 0s;
-      background-color: #00a071;
       box-sizing: border-box;
-      color: #FFFFFF;
       display: block;
       font-weight: 400;
       padding: 0.5em 0.75em;
       text-decoration: none;
       text-transform: uppercase; }
-      #whitepaper > section > ul li a:not(.active):hover {
-        background: transparent;
-        border: solid 1px #00a071;
-        color: #00a071; }
-      #whitepaper > section > ul li a.active {
+      #whitepaper > section > ul li a:not(.active) {
         background-color: transparent;
         border: solid 1px transparent;
         color: #00a071; }
+        #whitepaper > section > ul li a:not(.active):hover {
+          background: transparent;
+          border: solid 1px #00a071;
+          color: #00a071; }
+      #whitepaper > section > ul li a.active {
+        background-color: #00a071;
+        color: #FFFFFF; }
 
 #whitepaper > section article {
   display: none;
