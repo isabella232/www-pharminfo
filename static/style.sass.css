@@ -325,7 +325,7 @@ nav ul {
   box-sizing: border-box;
   height: 70px;
   position: absolute;
-  width: 80%; }
+  width: 100%; }
   nav ul li a {
     -webkit-transition: all 0.25s 0s;
     transition: all 0.25s 0s;
@@ -1359,8 +1359,13 @@ aside#flash {
     opacity: 1; } }
 
 @media screen and (max-width: 840px) {
+  body {
+    border-top: transparent; }
   nav {
-    position: relative; }
+    border-top: 4px solid #00a071;
+    position: fixed;
+    width: 100%;
+    z-index: 9999; }
     nav div {
       cursor: pointer;
       height: 70px;
@@ -1472,9 +1477,7 @@ aside#flash {
     .close ul li, .click-to-call ul li {
       -webkit-transition: opacity 0.25s 0s;
       transition: opacity 0.25s 0s;
-      opacity: 0; }
-  #sales {
-    margin-top: -70px; } }
+      opacity: 0; } }
 
 @media screen and (min-width: 480px) {
   #customize dl {
@@ -1622,7 +1625,7 @@ aside#flash {
     #news-content article {
       width: 49%; } }
 
-@media screen and (min-width: 840px) {
+@media screen and (min-width: 841px) {
   #news nav ul::before, #legal nav ul::before {
     content: url("images/logo-bicolor.svg"); }
   #news nav ul li a, #legal nav ul li a {
@@ -1635,9 +1638,26 @@ aside#flash {
       background: #515151;
       color: white; }
   nav ul {
-    right: 10%;
+    left: 0;
+    padding: 20px 10%;
     top: 20px;
     z-index: 50; }
+  nav.sticky ul {
+    background-color: #FFF;
+    border-bottom: solid 2px #00a071;
+    margin: 0;
+    position: fixed;
+    top: 0; }
+    nav.sticky ul li a {
+      color: #515151; }
+      nav.sticky ul li a:hover {
+        color: #00a071; }
+    nav.sticky ul li:last-of-type a {
+      border: solid 1px #515151; }
+      nav.sticky ul li:last-of-type a:hover {
+        background-color: #00a071;
+        border: solid 1px #00a071;
+        color: #FFF; }
   #index #news article h3, #index #news article time {
     -webkit-transition: bottom 0.5s 0s;
     transition: bottom 0.5s 0s;
@@ -1767,10 +1787,14 @@ aside#flash {
     justify-content: flex-end; }
     nav ul::before {
       content: url("images/logo-white.svg");
-      left: 0;
+      left: 10%;
       position: absolute;
       top: calc(50% - 24px);
       width: 180px; }
+    nav ul.sticky nav ul::before {
+      content: url("images/logo-bicolor.svg");
+      top: calc(50% - 19px);
+      width: 150px; }
     nav ul li {
       margin: 0 0.6em; }
   #goals ul li {

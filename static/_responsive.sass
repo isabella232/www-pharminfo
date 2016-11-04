@@ -61,8 +61,14 @@
           opacity: 1
 
 @media screen and (max-width: 840px)
+  body
+    border-top: transparent
+
   nav
-    position: relative
+    border-top: 4px solid $main-color
+    position: fixed
+    width: 100%
+    z-index: 9999
 
     div
       cursor: pointer
@@ -166,9 +172,6 @@
     li
       @include transition(opacity)
       opacity: 0
-
-  #sales
-    margin-top: -70px
 
 @media screen and (min-width: 480px)
   #customize dl
@@ -311,7 +314,7 @@
     article
       width: 49%
 
-@media screen and (min-width: 840px)
+@media screen and (min-width: 841px)
   #news nav ul, #legal nav ul
     &::before
       content: url("images/logo-bicolor.svg")
@@ -330,10 +333,34 @@
           background: $grey-1
           color: white
 
-  nav ul
-    right: 10%
-    top: 20px
-    z-index: 50
+  nav
+    ul
+      left: 0
+      padding: 20px 10%
+      top: 20px
+      z-index: 50
+
+    &.sticky ul
+      background-color: #FFF
+      border-bottom: solid 2px $main-color
+      margin: 0
+      position: fixed
+      top: 0
+
+      li
+        a
+          color: $grey-1
+
+          &:hover
+            color: $main-color
+
+        &:last-of-type a
+          border: solid 1px $grey-1
+
+          &:hover
+            background-color: $main-color
+            border: solid 1px $main-color
+            color: #FFF
 
   #index #news article
     h3, time
@@ -427,10 +454,15 @@
 
     &::before
       content: url('images/logo-white.svg')
-      left: 0
+      left: 10%
       position: absolute
       top: calc(50% - 24px)
       width: 180px
+
+    &.sticky &::before
+      content: url('images/logo-bicolor.svg')
+      top: calc(50% - 19px)
+      width: 150px
 
     li
       margin: 0 0.6em
