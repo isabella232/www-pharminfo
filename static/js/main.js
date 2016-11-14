@@ -232,6 +232,12 @@
     });
     window.addEventListener('scroll', function() {
       var scrollY = window.scrollY || document.documentElement.scrollTop;
+      if (scrollY === 0) {
+        document.body.querySelector('nav').classList.remove('sticky');
+      }
+      else {
+        document.body.querySelector('nav').classList.add('sticky');
+      }
       if (scrollY > window.innerHeight) {
         if (!arrow.classList.contains('fade')) { arrow.classList.add('fade'); }
         /* Down */
