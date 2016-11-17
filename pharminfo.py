@@ -103,7 +103,7 @@ def get_clients_latlng():
         if 'ecommerce' in modules:
             offer = 'ecommerce'
         elif 'patient_order' in modules:
-            offer = 'prescription'
+            offer = 'patientorder'
         else:
             offer = 'eco'
         json_client.append(

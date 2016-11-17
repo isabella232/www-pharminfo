@@ -512,7 +512,36 @@ function initMaps() {
       scrollwheel: scroll
     }
   );
-  add_client_marker = function(position, map, title, icon, url) {
+
+  client_info_marker = function(client) {
+    let container = document.createElement('div');
+    let url = client[3];
+    let info = (
+      '<div><strong><a href="' + url + '">' + client[1] + '</a></strong>');
+    if (client[2] === 'ecommerce') {
+      info += (
+        '<a class="patientorder-client" href="' + url + '/patientorder' +
+        '">Réserver votre ordonnance en ligne.</a>' +
+        '<a class="ecommerce-client" href="' + url + '/catalog' +
+        '">Accéder à la vente en ligne.</a>')
+    }
+    else if (client[2] === 'patientorder') {
+      info += (
+        '<a class="ecommerce-client" href="' + url + '/catalog' +
+        '">Accéder à la vente en ligne.</a>')
+    }
+    container.innerHTML = info + '</div>';
+    return container.firstChild;
+  }
+
+  open_marker = function(marker) {
+    for (let index = 0; index < markers.length; index++) {
+      markers[index].info.close()
+    }
+    marker.info.open(testimonials_map, marker);
+  }
+
+  add_client_marker = function(position, map, title, icon, info) {
     if (position instanceof Array) {
       var latlng = new google.maps.LatLng(position[0], position[1]);
     }
@@ -522,10 +551,19 @@ function initMaps() {
     let client_marker = new google.maps.Marker({
       position: latlng, map: map, title: title, icon: icon
     });
+    if (info) {
+      client_marker.info = new google.maps.InfoWindow({content: info});
+
+      google.maps.event.addListener(client_marker, 'click', function() {
+        open_marker(this);
+      });
+      markers.push(client_marker);
+    }
   };
   add_client_marker(
     [45.776999, 4.859773], contact_map, 'Pharminfo - Kozea',
     '/static/images/map-cursor/mark-platform.png', null);
+  var markers = [];
   var request = new XMLHttpRequest();
   request.open('get', '/clients/latlng', true);
   request.onload = function() {
@@ -536,7 +574,8 @@ function initMaps() {
         let icon = (
           '/static/images/map-cursor/mark-platform_' + client[2] + '.png');
         add_client_marker(
-          client[0], testimonials_map, client[1], icon, client[3]);
+          client[0], testimonials_map, client[1], icon,
+          client_info_marker(client));
       }
     }
   };
