@@ -517,18 +517,22 @@ function initMaps() {
     let container = document.createElement('div');
     let url = client[3];
     let info = (
-      '<div><strong><a href="' + url + '">' + client[1] + '</a></strong>');
+      '<div><strong><a href="' + url + '">' + client[1] + '</a></strong><br/>');
     if (client[2] === 'ecommerce') {
       info += (
         '<a class="patientorder-client" href="' + url + '/patientorder' +
-        '">Réserver votre ordonnance en ligne.</a>' +
+        '">Réserver votre ordonnance en ligne.</a><br/>' +
         '<a class="ecommerce-client" href="' + url + '/catalog' +
         '">Accéder à la vente en ligne.</a>')
     }
     else if (client[2] === 'patientorder') {
       info += (
-        '<a class="ecommerce-client" href="' + url + '/catalog' +
-        '">Accéder à la vente en ligne.</a>')
+        '<a class="ecommerce-client" href="' + url + '/patientorder' +
+        '">Réserver votre ordonnance en ligne.</a>')
+    }
+    info += '<br/>' + client[4];
+    if (client[5]) {
+        info += '<br/>' + '<img class="image" src="' + client[5] + '" />'
     }
     container.innerHTML = info + '</div>';
     return container.firstChild;
@@ -560,10 +564,12 @@ function initMaps() {
       markers.push(client_marker);
     }
   };
+
   add_client_marker(
     [45.776999, 4.859773], contact_map, 'Pharminfo - Kozea',
     '/static/images/map-cursor/mark-platform.png', null);
   var markers = [];
+
   var request = new XMLHttpRequest();
   request.open('get', '/clients/latlng', true);
   request.onload = function() {
@@ -579,6 +585,7 @@ function initMaps() {
       }
     }
   };
+
   window.addEventListener('resize', function() {
     var scroll = window.innerWidth > 780 ? true : false;
     contact_map.setOptions({scrollwheel: scroll});

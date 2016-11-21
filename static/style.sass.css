@@ -1307,6 +1307,9 @@ aside#flash {
   #legal dl dd {
     margin-left: 0; }
 
+.image {
+  max-height: 200px; }
+
 @media screen and (max-width: 399px) {
   #guarantees ul li {
     height: calc(65vw);
