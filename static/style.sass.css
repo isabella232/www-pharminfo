@@ -665,6 +665,16 @@ nav ul {
   #clients #testimonials-map {
     order: -2;
     width: 100%; }
+    #clients #testimonials-map div.gm-style-iw strong a {
+      display: inline-block;
+      font-weight: bold;
+      padding-bottom: 1em;
+      text-decoration: none; }
+    #clients #testimonials-map div.gm-style-iw a {
+      color: #515151; }
+    #clients #testimonials-map div.gm-style-iw img {
+      margin-top: 10px;
+      max-height: 200px; }
   #clients h2 {
     background: #e6e6e6;
     margin: 0;
