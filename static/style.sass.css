@@ -665,6 +665,16 @@ nav ul {
   #clients #testimonials-map {
     order: -2;
     width: 100%; }
+    #clients #testimonials-map div.gm-style-iw strong a {
+      display: inline-block;
+      font-weight: bold;
+      padding-bottom: 1em;
+      text-decoration: none; }
+    #clients #testimonials-map div.gm-style-iw a {
+      color: #515151; }
+    #clients #testimonials-map div.gm-style-iw img {
+      margin-top: 10px;
+      max-height: 200px; }
   #clients h2 {
     background: #e6e6e6;
     margin: 0;
@@ -805,6 +815,7 @@ nav ul {
     padding: 2em 1.5em; }
     #offers section h3 {
       font-weight: 400;
+      font-size: 1.7em;
       margin: 0;
       text-transform: uppercase; }
     #offers section p:first-of-type {
@@ -1306,6 +1317,9 @@ aside#flash {
     margin-top: 20px; }
   #legal dl dd {
     margin-left: 0; }
+
+.image {
+  max-height: 200px; }
 
 @media screen and (max-width: 399px) {
   #guarantees ul li {
