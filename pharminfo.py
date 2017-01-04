@@ -169,15 +169,15 @@ def whitepaper():
 
 @app.route('/contact', methods=('POST',))
 def contact():
-    if 'phone' in request.form:
-        html = 'Rappeler le numéro {}'.format(request.form['phone'])
-    else:
+    if 'name' in request.form:
         html = '<br>'.join((
             'Nom : %s' % request.form['name'],
             'Email : %s' % request.form['email'],
             'Société : %s' % request.form['company'],
             'Téléphone : %s' % request.form['phone'],
             'Message : %s ' % request.form['message']))
+    else:
+        html = 'Rappeler le numéro {}'.format(request.form['phone'])
     send_mail('Prise de contact sur le site de Pharminfo.fr', html)
     flash(
         'Merci de nous avoir contacté, nos équipes vous recontacteront '
