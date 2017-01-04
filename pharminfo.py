@@ -133,6 +133,7 @@ def subscribe():
             return redirect(url_for('subscribe'))
         html = '<br>'.join((
             'SIRET : %s' % request.form['siret'],
+            'Code promo : %s' % request.form.get('code', 'Aucun'),
             'Téléphone : %s' % request.form['phone'],
             'Fax : %s' % request.form['fax'],
             'Email : %s' % request.form['email']))
