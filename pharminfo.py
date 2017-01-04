@@ -169,7 +169,10 @@ def contact():
         html = 'Rappeler le numéro {}'.format(request.form['phone'])
     else:
         html = '<br>'.join((
+            'Nom : %s' % request.form['name'],
             'Email : %s' % request.form['email'],
+            'Société : %s' % request.form['company'],
+            'Téléphone : %s' % request.form['phone'],
             'Message : %s ' % request.form['message']))
     send_mail('Prise de contact sur le site de Pharminfo.fr', html)
     flash(
