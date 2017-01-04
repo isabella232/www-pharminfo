@@ -175,6 +175,7 @@ def contact():
             'Email : %s' % request.form['email'],
             'Société : %s' % request.form['company'],
             'Téléphone : %s' % request.form['phone'],
+            'Code promo : %s' % request.form.get('code', 'Aucun'),
             'Message : %s ' % request.form['message']))
     else:
         html = 'Rappeler le numéro {}'.format(request.form['phone'])
