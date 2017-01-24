@@ -533,9 +533,6 @@ function initMaps() {
     if (client[4]) {
       info += '<br/>' + client[4];
     }
-    if (client[5]) {
-      info += '<br/>' + '<img class="image" src="' + client[5] + '" />'
-    }
     container.innerHTML = info + '</div>';
     return container.firstChild;
   }

@@ -106,13 +106,9 @@ def get_clients_latlng():
             offer = 'patientorder'
         else:
             offer = 'eco'
-        url = ''
-        if client.home_content and client.home_content.images:
-            filename = client.home_content.images[0].filename
-            url = client.full_domain + '.l:5001/' + filename
         json_client.append(
             (client.latlng(not current_app.debug), client.title, offer,
-             client.full_domain, client.address, url))
+             client.full_domain, client.address))
     return jsonify(json_client)
 
 
