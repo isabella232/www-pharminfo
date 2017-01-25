@@ -157,7 +157,6 @@ def subscribe():
             'SIRET : %s' % request.form['siret'],
             'Code promo : %s' % request.form.get('code', 'Aucun'),
             'Téléphone : %s' % request.form['phone'],
-            'Fax : %s' % request.form['fax'],
             'Email : %s' % request.form['email']))
         send_mail('Nouvelle inscription sur le site de Pharminfo.fr', html)
         return redirect(url_for('page'), code=303)
