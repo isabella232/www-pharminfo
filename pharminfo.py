@@ -65,9 +65,10 @@ def check_recaptcha(request):
         data = urlencode({
             'secret': app.config['RECAPTCHA_KEY'],
             'response': request.form['g-recaptcha-response'],
-            'remoteip': request.remote_addr})
+            'remoteip': request.remote_addr}).encode('ascii')
         with urlopen(RECAPTCHA_URL, data=data) as response:
-            success = json.loads(response.read())['success']
+            data = response.read()
+            success = json.loads(data.decode('ascii'))['success']
         return success
     except:
         return False
@@ -145,11 +146,13 @@ def subscribe():
             flash(
                 'Veuillez cocher la case '
                 'signifiant que vous n\'êtes pas un robot', 'error')
-            return redirect(url_for('subscribe'))
+            return render_template(
+                'subscribe.html', page='subscribe', data=request.form)
         if not all(request.form[key] for key in ('siret', 'phone')) and (
                 not request.form['email']):
             flash('Veuillez remplir au moins un des deux formulaires', 'error')
-            return redirect(url_for('subscribe'))
+            return render_template(
+                'subscribe.html', page='subscribe', data=request.form)
         html = '<br>'.join((
             'SIRET : %s' % request.form['siret'],
             'Code promo : %s' % request.form.get('code', 'Aucun'),
@@ -187,28 +190,30 @@ def whitepaper():
     return redirect(url_for('static', filename='%s.pdf' % whitepaper))
 
 
-@app.route('/contact', methods=['POST'])
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    if not check_recaptcha(request):
+    if request.method == 'POST':
+        if not check_recaptcha(request):
+            flash(
+                'Veuillez cocher la case '
+                'signifiant que vous n\'êtes pas un robot', 'error')
+            return render_template(
+                'index.html', page='index', data=request.form)
+        if 'name' in request.form:
+            html = '<br>'.join((
+                'Nom : %s' % request.form['name'],
+                'Email : %s' % request.form['email'],
+                'Société : %s' % request.form['company'],
+                'Téléphone : %s' % request.form['phone'],
+                'Code promo : %s' % request.form.get('code', 'Aucun'),
+                'Message : %s ' % request.form['message']))
+        else:
+            html = 'Rappeler le numéro {}'.format(request.form['phone'])
+        send_mail('Prise de contact sur le site de Pharminfo.fr', html)
         flash(
-            'Veuillez cocher la case '
-            'signifiant que vous n\'êtes pas un robot', 'error')
-        return redirect(url_for('page'))
-    if 'name' in request.form:
-        html = '<br>'.join((
-            'Nom : %s' % request.form['name'],
-            'Email : %s' % request.form['email'],
-            'Société : %s' % request.form['company'],
-            'Téléphone : %s' % request.form['phone'],
-            'Code promo : %s' % request.form.get('code', 'Aucun'),
-            'Message : %s ' % request.form['message']))
-    else:
-        html = 'Rappeler le numéro {}'.format(request.form['phone'])
-    send_mail('Prise de contact sur le site de Pharminfo.fr', html)
-    flash(
-        'Merci de nous avoir contacté, nos équipes vous recontacteront '
-        'dans les plus brefs délais.', 'info')
-    return redirect(url_for('page'))
+            'Merci de nous avoir contactés, nos équipes vous recontacteront '
+            'dans les plus brefs délais.', 'info')
+    return redirect(url_for('page') + '#contact')
 
 
 @app.errorhandler(404)

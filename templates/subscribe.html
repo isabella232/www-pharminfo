@@ -13,16 +13,16 @@
     </p>
     <form action="{{ url_for('subscribe') }}" method="POST">
       <label for="siret">SIRET</label>
-      <input id="siret" name="siret" placeholder="Numéro SIRET (obligatoire)" />
+      <input id="siret" name="siret" placeholder="Numéro SIRET (obligatoire)" value="{{ data and data.siret }}" />
       <label for="code">Code promo</label>
-      <input id="code" name="code" placeholder="Votre code promotionnel" />
+      <input id="code" name="code" placeholder="Votre code promotionnel" value="{{ data and data.code }}" />
       <label for="phone">Téléphone</label>
-      <input id="phone" type="tel" name="phone" placeholder="Numéro de téléphone (obligatoire)" />
+      <input id="phone" type="tel" name="phone" placeholder="Numéro de téléphone (obligatoire)" value="{{ data and data.phone }}" />
       <label for="fax">Fax</label>
-      <input id="fax" type="tel" name="fax" placeholder="Numéro de fax" />
+      <input id="fax" type="tel" name="fax" placeholder="Numéro de fax" value="{{ data and data.fax }}" />
       <p>ou</p>
       <label for="email">Email</label>
-      <input id="email" type="email" name="email" placeholder="Adresse email" />
+      <input id="email" type="email" name="email" placeholder="Adresse email" value="{{ data and data.email }}" />
       <div class="g-recaptcha" data-sitekey="6LdPHhMUAAAAAKK2m0QKxrc5Muu9fuSScUpQJ8Ns"></div>
       <input type="submit" value="Valider" />
     </form>

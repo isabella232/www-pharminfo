@@ -412,52 +412,6 @@
       });
     }
 
-    /* Contact AJAX post */
-    if (document.body.querySelector('.contact-form')) {
-      let contact_forms = document.body.querySelectorAll('.contact-form');
-      for (let index = 0; index < contact_forms.length; index++) {
-        let contact_form = contact_forms[index];
-        contact_form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var request = new XMLHttpRequest();
-          let post_popup = document.createElement('div');
-          post_popup.classList.add('popup');
-          request.open('post', '/contact', true);
-          request.onload = function() {
-            if (request.status >= 200 && request.status < 400) {
-              var success = document.createElement('p');
-              success.innerHTML = (
-                'Merci de nous avoir contacté, nos équipes vous ' +
-                'recontacteront dans les plus brefs délais.');
-              post_popup.appendChild(success);
-            } else {
-              var error = document.createElement('p');
-              error.innerHTML = (
-                '<p>une erreur sʼest produite, ' +
-                'essayer de recharger la page</p>');
-              post_popup.appendChild(error);
-            }
-            document.body.querySelector('#contact').appendChild(post_popup);
-            setTimeout(
-              function(el) {
-                el.parentElement.removeChild(el);
-              }, 2500, post_popup);
-          };
-          request.setRequestHeader(
-            'content-type',
-            'application/x-www-form-urlencoded; charset=utf-8');
-          data = []
-          inputs = contact_form.querySelectorAll(
-            'textarea, input:not([type="submit"])');
-          for (let input_index = 0; input_index < inputs.length; input_index++) {
-            let input = inputs[input_index];
-            data.push(input.getAttribute('name') + '=' + input.value)
-          }
-          request.send(data.join('&'));
-        });
-      }
-    }
-
     /* Add class to remove popup */
     hide_popup = function(el) {
       el.classList.add('hide-popup');
