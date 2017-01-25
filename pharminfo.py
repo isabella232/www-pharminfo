@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
+import json
 from email.utils import parsedate_to_datetime
 from locale import LC_ALL, setlocale
+from urllib.parse import urlencode
 from urllib.request import urlopen
 from xml.etree import ElementTree
 
@@ -18,9 +20,12 @@ from top_model.public import Client, ClientType, Contract, Offer
 app = Flask(__name__)
 app.config['DB'] = 'pgfdw://hydra@localhost/hydra'
 app.config['SECRET_KEY'] = 'default secret key'
+app.config['RECAPTCHA_KEY'] = 'default recaptcha key'
 app.config.from_envvar('WWW_PHARMINFO_CONFIG', silent=True)
 
 setlocale(LC_ALL, 'fr_FR')
+
+RECAPTCHA_URL = 'https://www.google.com/recaptcha/api/siteverify'
 
 
 def send_mail(title, html):
@@ -53,6 +58,19 @@ def get_news():
             entry['image'] = image.attrib['url']
         news.append(entry)
     return news
+
+
+def check_recaptcha(request):
+    try:
+        data = urlencode({
+            'secret': app.config['RECAPTCHA_KEY'],
+            'response': request.form['g-recaptcha-response'],
+            'remoteip': request.remote_addr})
+        with urlopen(RECAPTCHA_URL, data=data) as response:
+            success = json.loads(response.read())['success']
+        return success
+    except:
+        return False
 
 
 @app.route('/')
@@ -123,6 +141,11 @@ def newsletter():
 @app.route('/subscribe', methods=['GET', 'POST'])
 def subscribe():
     if request.method == 'POST':
+        if not check_recaptcha(request):
+            flash(
+                'Veuillez cocher la case '
+                'signifiant que vous n\'êtes pas un robot', 'error')
+            return redirect(url_for('subscribe'))
         if not all(request.form[key] for key in ('siret', 'phone')) and (
                 not request.form['email']):
             flash('Veuillez remplir au moins un des deux formulaires', 'error')
@@ -164,8 +187,13 @@ def whitepaper():
     return redirect(url_for('static', filename='%s.pdf' % whitepaper))
 
 
-@app.route('/contact', methods=('POST',))
+@app.route('/contact', methods=['POST'])
 def contact():
+    if not check_recaptcha(request):
+        flash(
+            'Veuillez cocher la case '
+            'signifiant que vous n\'êtes pas un robot', 'error')
+        return redirect(url_for('page'))
     if 'name' in request.form:
         html = '<br>'.join((
             'Nom : %s' % request.form['name'],
