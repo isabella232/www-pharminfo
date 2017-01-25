@@ -159,6 +159,9 @@ def subscribe():
             'Téléphone : %s' % request.form['phone'],
             'Email : %s' % request.form['email']))
         send_mail('Nouvelle inscription sur le site de Pharminfo.fr', html)
+        flash(
+            'Merci de vous être inscrit, nos équipes vous recontacteront '
+            'dans les plus brefs délais.', 'info')
         return redirect(url_for('page'), code=303)
     return render_template('subscribe.html', page='subscribe')
 
