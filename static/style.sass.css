@@ -305,9 +305,9 @@ div.popup {
       transform: rotate(-45deg); }
   div.popup.static-popup {
     animation: popup-static-fadein 0.25s ease-in both; }
+  div.popup.hide-popup {
+    animation: popup-static-fadeout 0.25s ease-in-out both; }
 
-/*  &.hide-popup
-    animation: popup-static-fadeout 0.25s ease-in-out both*/
 /* Styles menu */
 header h1 {
   display: none; }
