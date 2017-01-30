@@ -223,13 +223,6 @@
 
     /* Used for detecting scroll direction */
     var scrollTop = 0;
-    var ctc = document.querySelector('.click-to-call');
-    ctc.addEventListener('click', function() {
-      if (!ctc.classList.contains('from-right')) {
-        ctc.classList.remove('from-left');
-        ctc.classList.add('from-right');
-      }
-    });
     window.addEventListener('scroll', function() {
       var scrollY = window.scrollY || document.documentElement.scrollTop;
       if (scrollY === 0) {
@@ -240,45 +233,11 @@
       }
       if (scrollY > window.innerHeight) {
         if (!arrow.classList.contains('fade')) { arrow.classList.add('fade'); }
-        /* Down */
-        if (scrollTop < scrollY) {
-          if (ctc.classList.contains('fade')) { ctc.classList.remove('fade'); }
-        }
-        /* Up */
-        else {
-          if (!ctc.classList.contains('fade')) { ctc.classList.add('fade'); }
-        }
         scrollTop = scrollY;
       }
       else {
         arrow.classList.remove('fade');
-        if (!ctc.classList.contains('fade')) { ctc.classList.add('fade'); }
       }
-    });
-    /* Show/hide ctc */
-    window.addEventListener('click', function(e) {
-      let ctc_display = ctc.classList.contains('from-right');
-      if (!ctc_display) {
-        return
-      }
-      let el = e.target;
-      if (el.classList.contains('click-to-call')) {
-        return
-      }
-
-      get_parent = function(el) {
-        return el.parentElement
-      }
-
-      while (get_parent(el).tagName !== 'BODY') {
-        parent = get_parent(el);
-        if (parent.classList.contains('click-to-call')) {
-          return
-        }
-        el = parent;
-      }
-      ctc.classList.remove('from-right');
-      ctc.classList.add('from-left');
     });
 
     /* Testimonial slider */
