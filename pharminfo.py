@@ -8,8 +8,8 @@ from urllib.request import urlopen
 from xml.etree import ElementTree
 
 from flask import (
-    abort, current_app, flash, Flask, jsonify, redirect, render_template,
-    request, url_for)
+    abort, current_app, flash, Flask, jsonify, make_response, redirect,
+    render_template, request, url_for)
 from jinja2.exceptions import TemplateNotFound
 from mandrill import Mandrill
 from sqlalchemy.orm import joinedload, undefer
@@ -82,6 +82,13 @@ def page(page='index'):
         return render_template('{}.html'.format(page), page=page, **extra)
     except TemplateNotFound:
         abort(404)
+
+
+@app.route('/robots.txt')
+def robots():
+    response = make_response(render_template('robots.txt'))
+    response.headers['Content-type'] = 'text/plain'
+    return response
 
 
 @app.route('/news')
