@@ -75,7 +75,7 @@ def check_recaptcha(request):
 
 
 @app.route('/')
-@app.route('/<page>')
+@app.route('/<path:page>')
 def page(page='index'):
     extra = {'news': get_news()[:2]} if page == 'index' else {}
     try:
