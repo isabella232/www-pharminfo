@@ -1,4 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
 body {
-  background: green; }
+  font-family: 'Montserrat', sans-serif;
+  margin: 0; }
+  body > * {
+    padding: 1em; }
+  body header {
+    border-bottom: 2px solid #000;
+    border-top: 1px solid #000;
+    margin: 2em 1em; }
+    body header h1 {
+      font-size: 1em;
+      text-align: center;
+      text-transform: uppercase; }
+      body header h1::before {
+        background: #fff;
+        content: url("../images/landing/logomaege.svg");
+        display: inline-block;
+        padding: 1em 2em;
+        vertical-align: middle;
+        width: 150px; }
+  body #presentation {
+    background: url("../images/landing/wallpaper.png");
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    body #presentation section {
+      box-sizing: border-box;
+      padding: .5em;
+      width: 33%; }
+      body #presentation section:first-of-type {
+        border-right: 1px solid #fff; }
+      body #presentation section h4 {
+        font-size: .9em;
+        line-height: 2em;
+        text-transform: uppercase; }
+    body #presentation h2, body #presentation h3 {
+      flex: 1 100%;
+      text-align: center; }
+    body #presentation h2 {
+      font-size: 2em; }
+    body #presentation h3 {
+      font-size: 1.5em;
+      margin-top: 0;
+      text-decoration: underline; }
 
 /*# sourceMappingURL=maege.sass.css.map */
