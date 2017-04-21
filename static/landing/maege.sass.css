@@ -26,12 +26,38 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; }
+    body #presentation p strong {
+      flex: 1 100%;
+      text-align: center;
+      width: 100%; }
     body #presentation section {
       box-sizing: border-box;
-      padding: .5em;
-      width: 33%; }
-      body #presentation section:first-of-type {
-        border-right: 1px solid #fff; }
+      padding: .5em; }
+      body #presentation section#advantages {
+        width: 50%; }
+      body #presentation section#introduction {
+        border-right: 1px solid #fff;
+        width: 25%; }
+      body #presentation section#offer {
+        border: 1px solid #00a071;
+        color: #00a071;
+        width: 25%; }
+      body #presentation section#documents {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center; }
+        body #presentation section#documents a {
+          color: #fff;
+          background: #00a071;
+          font-size: .9em;
+          font-weight: 500;
+          padding: 1em;
+          text-decoration: none;
+          text-transform: uppercase;
+          transition: background .3s; }
+          body #presentation section#documents a:hover {
+            background: #00aa78; }
       body #presentation section h4 {
         font-size: .9em;
         line-height: 2em;

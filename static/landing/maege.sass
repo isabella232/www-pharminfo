@@ -33,13 +33,46 @@ body
     flex-wrap: wrap
     justify-content: center
 
+    p
+      strong
+        flex: 1 100%
+        text-align: center
+        width: 100%
+
     section
       box-sizing: border-box
       padding: .5em
-      width: 33%
 
-      &:first-of-type
+      &#advantages
+        width: 50%
+
+      &#introduction
         border-right: 1px solid #fff
+        width: 25%
+
+      &#offer
+        border: 1px solid #00a071
+        color: #00a071
+        width: 25%
+
+      &#documents
+        display: flex
+        flex-wrap: wrap
+        flex-direction: column
+        align-items: center
+
+        a
+          background: #00a071
+          color: #fff
+          font-size: .9em
+          font-weight: 500
+          padding: 1em
+          text-decoration: none
+          text-transform: uppercase
+          transition: background .3s
+
+          &:hover
+            background: lighten(#00a071, 2%)
 
       h4
         font-size: .9em
