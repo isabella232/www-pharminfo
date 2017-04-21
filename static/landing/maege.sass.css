@@ -48,8 +48,8 @@ body {
         flex-direction: column;
         align-items: center; }
         body #presentation section#documents a {
-          color: #fff;
           background: #00a071;
+          color: #fff;
           font-size: .9em;
           font-weight: 500;
           padding: 1em;
@@ -71,5 +71,51 @@ body {
       font-size: 1.5em;
       margin-top: 0;
       text-decoration: underline; }
+  body #range, body #identity {
+    padding: 1em 5em; }
+    body #range h4, body #identity h4 {
+      color: #fff;
+      border-bottom: 1px solid #000;
+      letter-spacing: .2em;
+      flex: 1 100%;
+      font-size: .9em;
+      font-weight: 400;
+      padding-bottom: .5em;
+      text-transform: uppercase; }
+      body #range h4 span, body #identity h4 span {
+        background: #000;
+        padding: .5em; }
+  body #range {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap; }
+    body #range p {
+      flex: 1 100%; }
+    body #range section {
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1 50%;
+      margin: 1em 0; }
+      body #range section:nth-child(even) {
+        align-items: flex-end;
+        flex-direction: row-reverse; }
+      body #range section img {
+        height: 100%;
+        margin-right: 1em;
+        width: 25%; }
+      body #range section dl dt {
+        font-size: 1.1em;
+        font-weight: 700;
+        margin-bottom: .5em; }
+      body #range section dl dd {
+        margin-left: 0; }
+  body footer {
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap; }
+    body footer section {
+      width: 33%; }
 
 /*# sourceMappingURL=maege.sass.css.map */
