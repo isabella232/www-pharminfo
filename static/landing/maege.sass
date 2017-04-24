@@ -26,6 +26,7 @@ body
         width: 150px
 
   #presentation
+    align-items: center
     background: url('../images/landing/wallpaper.png')
     box-sizing: border-box
     color: #fff
@@ -33,33 +34,51 @@ body
     flex-wrap: wrap
     justify-content: center
 
-    p
-      strong
-        flex: 1 100%
-        text-align: center
-        width: 100%
-
     section
       box-sizing: border-box
-      padding: .5em
+      line-height: 2em
+      padding: 1em
 
       &#advantages
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
         width: 50%
+
+        ul
+          padding-left: 0
+          li
+            list-style: none
+
+            &:before
+              content: "-"
+              margin-right: .5em
+
+            &:first-of-type
+              color: #00a071
+              font-weight: 700
 
       &#introduction
         border-right: 1px solid #fff
         width: 25%
 
       &#offer
+        align-self: center
         border: 1px solid #00a071
         color: #00a071
         width: 25%
 
       &#documents
+        align-items: center
+        border-top: 1px solid #fff
         display: flex
         flex-wrap: wrap
         flex-direction: column
-        align-items: center
+        margin-top: 1em
+
+        p
+          font-size: 1.3em
+          margin: .5em 0
 
         a
           background: #00a071
@@ -75,7 +94,6 @@ body
             background: lighten(#00a071, 2%)
 
       h4
-        font-size: .9em
         line-height: 2em
         text-transform: uppercase
 
@@ -84,10 +102,12 @@ body
       text-align: center
 
     h2
-      font-size: 2em
+      font-size: 2.2em
+      margin-bottom: .5em
 
     h3
-      font-size: 1.5em
+      font-size: 1.8em
+      font-weight: 400
       margin-top: 0
       text-decoration: underline
 

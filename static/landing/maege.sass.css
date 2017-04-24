@@ -20,33 +20,50 @@ body {
         vertical-align: middle;
         width: 150px; }
   body #presentation {
+    align-items: center;
     background: url("../images/landing/wallpaper.png");
     box-sizing: border-box;
     color: #fff;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; }
-    body #presentation p strong {
-      flex: 1 100%;
-      text-align: center;
-      width: 100%; }
     body #presentation section {
       box-sizing: border-box;
-      padding: .5em; }
+      line-height: 2em;
+      padding: 1em; }
       body #presentation section#advantages {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         width: 50%; }
+        body #presentation section#advantages ul {
+          padding-left: 0; }
+          body #presentation section#advantages ul li {
+            list-style: none; }
+            body #presentation section#advantages ul li:before {
+              content: "-";
+              margin-right: .5em; }
+            body #presentation section#advantages ul li:first-of-type {
+              color: #00a071;
+              font-weight: 700; }
       body #presentation section#introduction {
         border-right: 1px solid #fff;
         width: 25%; }
       body #presentation section#offer {
+        align-self: center;
         border: 1px solid #00a071;
         color: #00a071;
         width: 25%; }
       body #presentation section#documents {
+        align-items: center;
+        border-top: 1px solid #fff;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        align-items: center; }
+        margin-top: 1em; }
+        body #presentation section#documents p {
+          font-size: 1.3em;
+          margin: .5em 0; }
         body #presentation section#documents a {
           background: #00a071;
           color: #fff;
@@ -59,16 +76,17 @@ body {
           body #presentation section#documents a:hover {
             background: #00aa78; }
       body #presentation section h4 {
-        font-size: .9em;
         line-height: 2em;
         text-transform: uppercase; }
     body #presentation h2, body #presentation h3 {
       flex: 1 100%;
       text-align: center; }
     body #presentation h2 {
-      font-size: 2em; }
+      font-size: 2.2em;
+      margin-bottom: .5em; }
     body #presentation h3 {
-      font-size: 1.5em;
+      font-size: 1.8em;
+      font-weight: 400;
       margin-top: 0;
       text-decoration: underline; }
   body #range, body #identity {
