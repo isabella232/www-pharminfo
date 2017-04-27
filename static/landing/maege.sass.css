@@ -180,5 +180,38 @@ body {
     width: 100%; }
     body footer section {
       width: 33%; }
+      body footer section #newspapers {
+        display: flex;
+        flex-wrap: wrap; }
+        body footer section #newspapers li#versionfemina {
+          background: url(../images/landing/versionfemina.png) no-repeat 0 center;
+          height: 25px;
+          font-size: 0;
+          width: 33%; }
+        body footer section #newspapers li#elle {
+          background: url(../images/landing/elle.png) no-repeat 0 center;
+          height: 25px;
+          font-size: 0;
+          width: 33%; }
+        body footer section #newspapers li#journaldesfemmes {
+          background: url(../images/landing/journaldesfemmes.png) no-repeat 0 center;
+          height: 25px;
+          font-size: 0;
+          width: 33%; }
+        body footer section #newspapers li#femina {
+          background: url(../images/landing/femina.png) no-repeat 0 center;
+          height: 25px;
+          font-size: 0;
+          width: 33%; }
+        body footer section #newspapers li#bienetre {
+          background: url(../images/landing/bienetre.png) no-repeat 0 center;
+          height: 25px;
+          font-size: 0;
+          width: 33%; }
+        body footer section #newspapers li#femmeactuelle {
+          background: url(../images/landing/femmeactuelle.png) no-repeat 0 center;
+          height: 25px;
+          font-size: 0;
+          width: 33%; }
 
 /*# sourceMappingURL=maege.sass.css.map */

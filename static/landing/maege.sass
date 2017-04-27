@@ -217,7 +217,6 @@ body
       &:hover
         background: lighten(#00a071, 2%)
 
-
   footer
     background: #000
     color: #fff
@@ -227,3 +226,14 @@ body
 
     section
       width: 33%
+
+      #newspapers
+        display: flex
+        flex-wrap: wrap
+        li
+          @each $name in versionfemina, elle, journaldesfemmes, femina, bienetre, femmeactuelle
+            &##{$name}
+              background: url(../images/landing/#{$name}.png) no-repeat 0 center
+              height: 25px
+              font-size: 0
+              width: 33%
