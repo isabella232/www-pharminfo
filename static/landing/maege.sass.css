@@ -234,8 +234,8 @@ body {
             height: 25px;
             width: 100px; }
       body footer section#find a {
-        flex: 1 100%;
         color: #fff;
+        flex: 1 100%;
         text-decoration: none; }
       body footer section#follow ul li#facebook a {
         content: url(../images/landing/facebook.svg);
