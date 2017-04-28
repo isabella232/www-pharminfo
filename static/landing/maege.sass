@@ -29,7 +29,6 @@ body
       text-transform: uppercase
 
   #presentation
-    align-items: center
     background: url('../images/landing/wallpaper.png')
     background-size: cover
     box-sizing: border-box
@@ -37,9 +36,11 @@ body
     display: flex
     flex-wrap: wrap
     justify-content: center
+    max-width: 1200px
 
     section
       box-sizing: border-box
+      font-weight: 500
       line-height: 2em
       padding: 1em
 
@@ -48,6 +49,9 @@ body
         flex-wrap: wrap
         justify-content: center
         width: 50%
+
+        h4
+          text-align: center
 
         ul
           padding-left: 0
@@ -65,13 +69,13 @@ body
 
       &#introduction
         border-right: 1px solid #fff
-        width: 25%
+        width: 30%
 
       &#offer
         align-self: center
         border: 1px solid #00a071
         color: #00a071
-        width: 25%
+        width: 20%
 
       &#documents
         align-items: center
@@ -83,14 +87,15 @@ body
 
         p
           font-size: 1.3em
-          margin: .5em 0
+          margin: 0
 
         a
           background: #00a071
           color: #fff
           font-size: .9em
           font-weight: 500
-          padding: 1em
+          margin-top: 1em
+          padding: 1em 1.5em
           text-decoration: none
           text-transform: uppercase
           transition: background .3s
@@ -99,7 +104,9 @@ body
             background: lighten(#00a071, 2%)
 
       h4
+        flex: 1 100%
         line-height: 2em
+        margin: 0
         text-transform: uppercase
 
     h2,h3
@@ -131,12 +138,13 @@ body
       flex: 1 100%
       font-size: .9em
       font-weight: 400
-      padding-bottom: .5em
+      padding-bottom: 1em
       text-transform: uppercase
 
       span
         background: #000
-        padding: .5em 1em
+        font-weight: 500
+        padding: 1em
 
   #range
     p
@@ -183,12 +191,16 @@ body
     line-height: 2em
 
     p, iframe
+      align-items: flex-start
+      display: flex
       flex: 1 50%
+      flex-wrap: wrap
 
     p a
       background: #000
       color: #fff
       font-size: .8em
+      font-weight: 500
       padding: .5em 1em
       text-decoration: none
       text-transform: uppercase
@@ -196,20 +208,23 @@ body
   #message
     border: 2px solid #00a071
     color: #00a071
-    padding: 2em
+    padding: 2em 3em
     margin: 1em 2em
     text-align: center
 
     p
-      font-size: 1.5em
+      font-size: 1.3em
       font-weight: 500
-      margin-top: 0
+      margin: 0
 
     a
       background: #00a071
       color: #fff
+      display: inline-block
       font-size: .9em
-      padding: .5em 1em
+      font-weight: 500
+      margin: 2em 0 0
+      padding: 1em 2em
       text-decoration: none
       text-transform: uppercase
       transition: background .3s
