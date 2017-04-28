@@ -177,41 +177,77 @@ body {
     color: #fff;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     width: 100%; }
+    body footer::before {
+      content: url("../images/landing/logomaege.svg");
+      margin: 0 2em 0;
+      width: 100px; }
     body footer section {
-      width: 33%; }
-      body footer section #newspapers {
+      margin: 0 2em; }
+      body footer section h4 {
+        text-transform: uppercase; }
+        body footer section h4::after {
+          background: #fff;
+          content: "";
+          display: block;
+          height: 1px;
+          margin-top: .2em;
+          width: 100%; }
+      body footer section ul {
         display: flex;
-        flex-wrap: wrap; }
-        body footer section #newspapers li#versionfemina {
-          background: url(../images/landing/versionfemina.png) no-repeat 0 center;
-          height: 25px;
-          font-size: 0;
-          width: 33%; }
-        body footer section #newspapers li#elle {
-          background: url(../images/landing/elle.png) no-repeat 0 center;
-          height: 25px;
-          font-size: 0;
-          width: 33%; }
-        body footer section #newspapers li#journaldesfemmes {
-          background: url(../images/landing/journaldesfemmes.png) no-repeat 0 center;
-          height: 25px;
-          font-size: 0;
-          width: 33%; }
-        body footer section #newspapers li#femina {
-          background: url(../images/landing/femina.png) no-repeat 0 center;
-          height: 25px;
-          font-size: 0;
-          width: 33%; }
-        body footer section #newspapers li#bienetre {
-          background: url(../images/landing/bienetre.png) no-repeat 0 center;
-          height: 25px;
-          font-size: 0;
-          width: 33%; }
-        body footer section #newspapers li#femmeactuelle {
-          background: url(../images/landing/femmeactuelle.png) no-repeat 0 center;
-          height: 25px;
-          font-size: 0;
-          width: 33%; }
+        flex-wrap: wrap;
+        list-style: none;
+        padding-left: 0; }
+      body footer section#newspapers ul {
+        max-width: 300px; }
+        body footer section#newspapers ul li {
+          font-size: 0; }
+          body footer section#newspapers ul li#versionfemina a {
+            background: url(../images/landing/versionfemina.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#elle a {
+            background: url(../images/landing/elle.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#journaldesfemmes a {
+            background: url(../images/landing/journaldesfemmes.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#femina a {
+            background: url(../images/landing/femina.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#bienetre a {
+            background: url(../images/landing/bienetre.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#femmeactuelle a {
+            background: url(../images/landing/femmeactuelle.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+      body footer section#find a {
+        flex: 1 100%;
+        color: #fff;
+        text-decoration: none; }
+      body footer section#follow ul li#facebook a {
+        content: url(../images/landing/facebook.svg);
+        height: 35px;
+        margin: 0 1em; }
+      body footer section#follow ul li#twitter a {
+        content: url(../images/landing/twitter.svg);
+        height: 35px;
+        margin: 0 1em; }
+      body footer section#follow ul li#instagram a {
+        content: url(../images/landing/instagram.svg);
+        height: 35px;
+        margin: 0 1em; }
 
 /*# sourceMappingURL=maege.sass.css.map */
