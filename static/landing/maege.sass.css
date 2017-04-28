@@ -155,6 +155,8 @@ body {
       display: flex;
       flex: 1 50%;
       flex-wrap: wrap; }
+    body #description iframe {
+      width: auto; }
     body #description p a {
       background: #000;
       color: #fff;
@@ -263,5 +265,19 @@ body {
         content: url(../images/landing/instagram.svg);
         height: 35px;
         margin: 0 1em; }
+
+@media screen and (max-width: 900px) {
+  body #presentation section#introduction, body #presentation section#advantages, body #presentation section#offer {
+    flex: 1 100%;
+    text-align: center;
+    width: 100%; }
+  body #presentation section#introduction {
+    border-right: none; }
+  body #range, body #identity {
+    padding: 1em; }
+  body #description p, body #description iframe {
+    flex: 1 100%; }
+  body footer {
+    justify-content: flex-start; } }
 
 /*# sourceMappingURL=maege.sass.css.map */

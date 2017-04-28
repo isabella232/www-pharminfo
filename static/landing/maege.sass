@@ -196,6 +196,9 @@ body
       flex: 1 50%
       flex-wrap: wrap
 
+    iframe
+      width: auto
+
     p a
       background: #000
       color: #fff
@@ -292,3 +295,24 @@ body
               content: url(../images/landing/#{$name}.svg)
               height: 35px
               margin: 0 1em
+
+@media screen and (max-width: 900px)
+  body
+    #presentation section
+      &#introduction, &#advantages, &#offer
+        flex: 1 100%
+        text-align: center
+        width: 100%
+
+      &#introduction
+        border-right: none
+
+    #range, #identity
+      padding: 1em
+
+    #description
+      p, iframe
+        flex: 1 100%
+
+    footer
+      justify-content: flex-start
