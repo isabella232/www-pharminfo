@@ -38,6 +38,6 @@ env:
 	$(RUN)
 
 run:
-	$(VENV)/bin/medsite.py
+	$(VENV)/bin/pharminfo.py
 
 serve: run
