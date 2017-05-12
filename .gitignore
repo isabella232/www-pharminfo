@@ -1,4 +1,5 @@
 *.map
+.cache
 .env
 *.egg-info
 __pycache__

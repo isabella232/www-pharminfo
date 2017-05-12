@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import json
 from email.utils import parsedate_to_datetime
@@ -8,14 +8,13 @@ from urllib.request import urlopen
 from xml.etree import ElementTree
 
 from flask import (
-    abort, current_app, flash, Flask, jsonify, make_response, redirect,
+    Flask, abort, current_app, flash, jsonify, make_response, redirect,
     render_template, request, url_for)
 from jinja2.exceptions import TemplateNotFound
 from mandrill import Mandrill
 from sqlalchemy.orm import joinedload, undefer
 from top_model import db
 from top_model.public import Client, ClientType, Contract, Offer
-
 
 app = Flask(__name__)
 app.config['DB'] = 'pgfdw://hydra@localhost/hydra'
@@ -104,7 +103,8 @@ def clients(department=None):
         filter(
             (ClientType.domain == 'pharminfo') &
             (Client.current_contract != None) &
-            (Client.domain != None)))
+            (Client.domain.isnot(None))))  # noqa
+    print('lol')
     if department:
         clients = clients.filter(Client.zip.like('%s%%' % department))
     clients = clients.all()
@@ -121,7 +121,7 @@ def get_clients_latlng():
         .filter(
             (Contract.clienttype_domain == 'pharminfo') &
             (Client.current_contract != None) &
-            (Offer.offer_for_test == current_app.debug))
+            (Offer.offer_for_test == current_app.debug))  # noqa
         .all())
     json_client = []
     for client in clients:
