@@ -15,12 +15,14 @@ stages:
 install:
   stage: install
   script:
+    - "apt update && apt install make"
     - make install
   <<: *artifacts
 
 test:
   stage: test
   script:
+    - "apt update && apt install make"
     - make check
   dependencies:
     - install
