@@ -7,6 +7,8 @@ stages:
 .image: &image_deploy_jobs
   image: debian:latest
 
+image: paradoxxxzero/python-node-yarn-postgresql:latest
+
 .artifacts: &artifacts
   artifacts:
     paths:
@@ -15,14 +17,13 @@ stages:
 install:
   stage: install
   script:
-    - "apt update && apt install make"
+    - sed -i '/git/d' Makefile
     - make install
   <<: *artifacts
 
 test:
   stage: test
   script:
-    - "apt update && apt install make"
     - make check
   dependencies:
     - install
