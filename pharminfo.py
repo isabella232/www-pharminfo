@@ -10,8 +10,8 @@ from xml.etree import ElementTree
 from flask import (Flask, abort, current_app, flash, jsonify, make_response,
                    redirect, render_template, request, url_for)
 from jinja2.exceptions import TemplateNotFound
-
 from mandrill import Mandrill
+
 from sqlalchemy.orm import joinedload, undefer
 from top_model import db
 from top_model.public import Client, ClientType, Contract, Offer
