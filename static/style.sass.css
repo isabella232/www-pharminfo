@@ -928,16 +928,18 @@ nav ul {
         background: url("images/timeline-mobile-app/sms.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
       #main-offer ol li#reception {
         background: url("images/timeline-mobile-app/reception.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
-  #main-offer ul.links li a {
-    -webkit-transition: padding 0.25s 0s;
-    transition: padding 0.25s 0s;
-    background-color: #00a071;
-    color: #FFFFFF;
-    padding: 0.75em 1em;
-    text-decoration: none;
-    text-transform: uppercase; }
-    #main-offer ul.links li a:hover {
-      padding: 1em 1.5em; }
+  #main-offer ul.links li {
+    display: inline-block; }
+    #main-offer ul.links li a {
+      -webkit-transition: padding 0.25s 0s;
+      transition: padding 0.25s 0s;
+      background-color: #00a071;
+      color: #FFFFFF;
+      padding: 0.75em 1em;
+      text-decoration: none;
+      text-transform: uppercase; }
+      #main-offer ul.links li a:hover {
+        padding: 1em 1.5em; }
   #main-offer::after {
     content: "";
     display: block;

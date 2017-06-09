@@ -647,16 +647,19 @@ nav ul
         &##{$name}
           background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-3
 
-  ul.links li a
-    @include transition(padding)
-    background-color: $main-color
-    color: $white
-    padding: 0.75em 1em
-    text-decoration: none
-    text-transform: uppercase
+  ul.links li
+    display: inline-block
 
-    &:hover
-      padding: 1em 1.5em
+    a
+      @include transition(padding)
+      background-color: $main-color
+      color: $white
+      padding: 0.75em 1em
+      text-decoration: none
+      text-transform: uppercase
+
+      &:hover
+        padding: 1em 1.5em
 
   &::after
     @include content(block, 250px, 125%)
