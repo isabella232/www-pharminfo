@@ -935,6 +935,8 @@ nav ul {
       transition: padding 0.25s 0s;
       background-color: #00a071;
       color: #FFFFFF;
+      display: inline-block;
+      margin-top: 1em;
       padding: 0.75em 1em;
       text-decoration: none;
       text-transform: uppercase; }
