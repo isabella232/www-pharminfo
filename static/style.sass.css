@@ -245,6 +245,7 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     left: 50%;
+    max-width: 120%;
     min-height: 100%;
     min-width: 100%;
     position: absolute;
@@ -305,9 +306,9 @@ div.popup {
       transform: rotate(-45deg); }
   div.popup.static-popup {
     animation: popup-static-fadein 0.25s ease-in both; }
+  div.popup.hide-popup {
+    animation: popup-static-fadeout 0.25s ease-in-out both; }
 
-/*  &.hide-popup
-    animation: popup-static-fadeout 0.25s ease-in-out both*/
 /* Styles menu */
 header h1 {
   display: none; }
@@ -927,16 +928,20 @@ nav ul {
         background: url("images/timeline-mobile-app/sms.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
       #main-offer ol li#reception {
         background: url("images/timeline-mobile-app/reception.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
-  #main-offer ul.links li a {
-    -webkit-transition: padding 0.25s 0s;
-    transition: padding 0.25s 0s;
-    background-color: #00a071;
-    color: #FFFFFF;
-    padding: 0.75em 1em;
-    text-decoration: none;
-    text-transform: uppercase; }
-    #main-offer ul.links li a:hover {
-      padding: 1em 1.5em; }
+  #main-offer ul.links li {
+    display: inline-block; }
+    #main-offer ul.links li a {
+      -webkit-transition: padding 0.25s 0s;
+      transition: padding 0.25s 0s;
+      background-color: #00a071;
+      color: #FFFFFF;
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.75em 1em;
+      text-decoration: none;
+      text-transform: uppercase; }
+      #main-offer ul.links li a:hover {
+        padding: 1em 1.5em; }
   #main-offer::after {
     content: "";
     display: block;
@@ -1180,11 +1185,23 @@ footer {
         color: inherit;
         text-decoration: none; }
 
-aside#flash {
+@keyframes popup {
+  to {
+    opacity: 0;
+    z-index: -1; } }
+
+aside#flash ul {
+  animation: popup 0s ease-in 5s forwards;
   background: white;
-  padding: 0 10%;
-  position: relative;
-  z-index: 99; }
+  border-radius: 2px;
+  bottom: 2em;
+  box-shadow: 0 0 1em black;
+  left: 2em;
+  margin: 0;
+  max-width: 20em;
+  padding: 2em;
+  position: fixed;
+  z-index: 10000000; }
 
 /* Style for annexes */
 #subscribe header::before, #whitepaper header::before {
@@ -1213,8 +1230,6 @@ aside#flash {
 #subscribe #subscribe-form form, #whitepaper #subscribe-form form {
   margin: 40px auto;
   max-width: 600px; }
-  #subscribe #subscribe-form form #email, #whitepaper #subscribe-form form #email {
-    border-top: solid 1px; }
 
 #subscribe > section::before {
   background: url("images/photos/bdc-bkgd.jpg") center/cover no-repeat; }

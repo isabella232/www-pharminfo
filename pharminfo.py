@@ -1,26 +1,30 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
+import json
 from email.utils import parsedate_to_datetime
 from locale import LC_ALL, setlocale
+from urllib.parse import urlencode
 from urllib.request import urlopen
 from xml.etree import ElementTree
 
-from flask import (
-    abort, current_app, flash, Flask, jsonify, redirect, render_template,
-    request, url_for)
+from flask import (Flask, abort, current_app, flash, jsonify, make_response,
+                   redirect, render_template, request, url_for)
 from jinja2.exceptions import TemplateNotFound
 from mandrill import Mandrill
+
 from sqlalchemy.orm import joinedload, undefer
 from top_model import db
 from top_model.public import Client, ClientType, Contract, Offer
 
-
 app = Flask(__name__)
 app.config['DB'] = 'pgfdw://hydra@localhost/hydra'
 app.config['SECRET_KEY'] = 'default secret key'
+app.config['RECAPTCHA_KEY'] = 'default recaptcha key'
 app.config.from_envvar('WWW_PHARMINFO_CONFIG', silent=True)
 
 setlocale(LC_ALL, 'fr_FR')
+
+RECAPTCHA_URL = 'https://www.google.com/recaptcha/api/siteverify'
 
 
 def send_mail(title, html):
@@ -55,14 +59,35 @@ def get_news():
     return news
 
 
+def check_recaptcha(request):
+    try:
+        data = urlencode({
+            'secret': app.config['RECAPTCHA_KEY'],
+            'response': request.form['g-recaptcha-response'],
+            'remoteip': request.remote_addr}).encode('ascii')
+        with urlopen(RECAPTCHA_URL, data=data) as response:
+            data = response.read()
+            success = json.loads(data.decode('ascii'))['success']
+        return success
+    except:
+        return False
+
+
 @app.route('/')
-@app.route('/<page>')
+@app.route('/<path:page>')
 def page(page='index'):
     extra = {'news': get_news()[:2]} if page == 'index' else {}
     try:
         return render_template('{}.html'.format(page), page=page, **extra)
     except TemplateNotFound:
         abort(404)
+
+
+@app.route('/robots.txt')
+def robots():
+    response = make_response(render_template('robots.txt'))
+    response.headers['Content-type'] = 'text/plain'
+    return response
 
 
 @app.route('/news')
@@ -78,7 +103,8 @@ def clients(department=None):
         filter(
             (ClientType.domain == 'pharminfo') &
             (Client.current_contract != None) &
-            (Client.domain != None)))
+            (Client.domain.isnot(None))))  # noqa
+    print('lol')
     if department:
         clients = clients.filter(Client.zip.like('%s%%' % department))
     clients = clients.all()
@@ -95,7 +121,7 @@ def get_clients_latlng():
         .filter(
             (Contract.clienttype_domain == 'pharminfo') &
             (Client.current_contract != None) &
-            (Offer.offer_for_test == current_app.debug))
+            (Offer.offer_for_test == current_app.debug))  # noqa
         .all())
     json_client = []
     for client in clients:
@@ -106,13 +132,9 @@ def get_clients_latlng():
             offer = 'patientorder'
         else:
             offer = 'eco'
-        url = ''
-        if client.home_content and client.home_content.images:
-            filename = client.home_content.images[0].filename
-            url = client.full_domain + '.l:5001/' + filename
         json_client.append(
             (client.latlng(not current_app.debug), client.title, offer,
-             client.full_domain, client.address, url))
+             client.full_domain, client.address))
     return jsonify(json_client)
 
 
@@ -127,16 +149,26 @@ def newsletter():
 @app.route('/subscribe', methods=['GET', 'POST'])
 def subscribe():
     if request.method == 'POST':
+        if not check_recaptcha(request):
+            flash(
+                'Veuillez cocher la case '
+                'signifiant que vous n\'êtes pas un robot', 'error')
+            return render_template(
+                'subscribe.html', page='subscribe', data=request.form)
         if not all(request.form[key] for key in ('siret', 'phone')) and (
                 not request.form['email']):
             flash('Veuillez remplir au moins un des deux formulaires', 'error')
-            return redirect(url_for('subscribe'))
+            return render_template(
+                'subscribe.html', page='subscribe', data=request.form)
         html = '<br>'.join((
             'SIRET : %s' % request.form['siret'],
+            'Code promo : %s' % request.form.get('code', 'Aucun'),
             'Téléphone : %s' % request.form['phone'],
-            'Fax : %s' % request.form['fax'],
             'Email : %s' % request.form['email']))
         send_mail('Nouvelle inscription sur le site de Pharminfo.fr', html)
+        flash(
+            'Merci de vous être inscrit, nos équipes vous recontacteront '
+            'dans les plus brefs délais.', 'info')
         return redirect(url_for('page'), code=303)
     return render_template('subscribe.html', page='subscribe')
 
@@ -167,19 +199,30 @@ def whitepaper():
     return redirect(url_for('static', filename='%s.pdf' % whitepaper))
 
 
-@app.route('/contact', methods=('POST',))
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    if 'phone' in request.form:
-        html = 'Rappeler le numéro {}'.format(request.form['phone'])
-    else:
-        html = '<br>'.join((
-            'Email : %s' % request.form['email'],
-            'Message : %s ' % request.form['message']))
-    send_mail('Prise de contact sur le site de Pharminfo.fr', html)
-    flash(
-        'Merci de nous avoir contacté, nos équipes vous recontacteront '
-        'dans les plus brefs délais.', 'info')
-    return redirect(url_for('page'))
+    if request.method == 'POST':
+        if not check_recaptcha(request):
+            flash(
+                'Veuillez cocher la case '
+                'signifiant que vous n\'êtes pas un robot', 'error')
+            return render_template(
+                'index.html', page='index', data=request.form)
+        if 'name' in request.form:
+            html = '<br>'.join((
+                'Nom : %s' % request.form['name'],
+                'Email : %s' % request.form['email'],
+                'Société : %s' % request.form['company'],
+                'Téléphone : %s' % request.form['phone'],
+                'Code promo : %s' % request.form.get('code', 'Aucun'),
+                'Message : %s ' % request.form['message']))
+        else:
+            html = 'Rappeler le numéro {}'.format(request.form['phone'])
+        send_mail('Prise de contact sur le site de Pharminfo.fr', html)
+        flash(
+            'Merci de nous avoir contactés, nos équipes vous recontacteront '
+            'dans les plus brefs délais.', 'info')
+    return redirect(url_for('page') + '#contact')
 
 
 @app.errorhandler(404)

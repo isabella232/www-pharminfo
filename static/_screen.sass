@@ -53,6 +53,7 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
   img
     @include transform(translate(-50%, -50%))
     left: 50%
+    max-width: 120%
     min-height: 100%
     min-width: 100%
     position: absolute
@@ -108,8 +109,8 @@ div.popup
   &.static-popup
     animation: popup-static-fadein 0.25s ease-in both
 
-/*  &.hide-popup
-    animation: popup-static-fadeout 0.25s ease-in-out both*/
+  &.hide-popup
+    animation: popup-static-fadeout 0.25s ease-in-out both
 
 /* Styles menu */
 header h1
@@ -646,16 +647,21 @@ nav ul
         &##{$name}
           background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-3
 
-  ul.links li a
-    @include transition(padding)
-    background-color: $main-color
-    color: $white
-    padding: 0.75em 1em
-    text-decoration: none
-    text-transform: uppercase
+  ul.links li
+    display: inline-block
 
-    &:hover
-      padding: 1em 1.5em
+    a
+      @include transition(padding)
+      background-color: $main-color
+      color: $white
+      display: inline-block
+      margin-top: 1em
+      padding: 0.75em 1em
+      text-decoration: none
+      text-transform: uppercase
+
+      &:hover
+        padding: 1em 1.5em
 
   &::after
     @include content(block, 250px, 125%)
@@ -892,11 +898,23 @@ footer
         color: inherit
         text-decoration: none
 
-aside#flash
+@keyframes popup
+  to
+    opacity: 0
+    z-index: -1
+
+aside#flash ul
+  animation: popup 0s ease-in 5s forwards
   background: white
-  padding: 0 10%
-  position: relative
-  z-index: 99
+  border-radius: 2px
+  bottom: 2em
+  box-shadow: 0 0 1em black
+  left: 2em
+  margin: 0
+  max-width: 20em
+  padding: 2em
+  position: fixed
+  z-index: 10000000
 
 /* Style for annexes */
 #subscribe, #whitepaper
@@ -921,9 +939,6 @@ aside#flash
     form
       margin: 40px auto
       max-width: 600px
-
-      #email
-        border-top: solid 1px
 
 #subscribe > section::before
     background: url('images/photos/bdc-bkgd.jpg') center / cover no-repeat

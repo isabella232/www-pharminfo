@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  body > * {
+    padding: 1em; }
+  body header {
+    border-bottom: 2px solid #000;
+    border-top: 1px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em 1em; }
+    body header::before {
+      content: url("../images/landing/logomaege.png");
+      margin-top: -45px; }
+    body header h1 {
+      flex: 1;
+      font-size: 1.2em;
+      font-weight: 500;
+      text-align: center;
+      text-transform: uppercase; }
+  body #presentation {
+    background: url("../images/landing/wallpaper.png");
+    background-size: cover;
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px; }
+    body #presentation section {
+      box-sizing: border-box;
+      font-weight: 500;
+      line-height: 2em;
+      padding: 1em; }
+      body #presentation section#advantages {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 50%; }
+        body #presentation section#advantages h4 {
+          text-align: center; }
+        body #presentation section#advantages ul {
+          padding-left: 0; }
+          body #presentation section#advantages ul li {
+            list-style: none; }
+            body #presentation section#advantages ul li:before {
+              content: "-";
+              margin-right: .5em; }
+            body #presentation section#advantages ul li:first-of-type {
+              color: #00a071;
+              font-weight: 700; }
+      body #presentation section#introduction {
+        border-right: 1px solid #fff;
+        width: 30%; }
+      body #presentation section#offer {
+        align-self: center;
+        border: 1px solid #00a071;
+        color: #00a071;
+        width: 20%; }
+      body #presentation section#documents {
+        align-items: center;
+        border-top: 1px solid #fff;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: 1em; }
+        body #presentation section#documents p {
+          font-size: 1.3em;
+          margin: 0; }
+        body #presentation section#documents a {
+          background: #00a071;
+          color: #fff;
+          font-size: .9em;
+          font-weight: 500;
+          margin-top: 1em;
+          padding: 1em 1.5em;
+          text-decoration: none;
+          text-transform: uppercase;
+          transition: background .3s; }
+          body #presentation section#documents a:hover {
+            background: #00aa78; }
+      body #presentation section h4 {
+        flex: 1 100%;
+        line-height: 2em;
+        margin: 0;
+        text-transform: uppercase; }
+    body #presentation h2, body #presentation h3 {
+      flex: 1 100%;
+      text-align: center; }
+    body #presentation h2 {
+      font-size: 2.2em;
+      margin-bottom: .5em; }
+    body #presentation h3 {
+      font-size: 1.8em;
+      font-weight: 400;
+      margin-top: 0;
+      text-decoration: underline; }
+  body #range, body #identity {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1em 5em;
+    max-width: 1200px; }
+    body #range h4, body #identity h4 {
+      color: #fff;
+      border-bottom: 1px solid #000;
+      letter-spacing: .2em;
+      flex: 1 100%;
+      font-size: .9em;
+      font-weight: 400;
+      padding-bottom: 1em;
+      text-transform: uppercase; }
+      body #range h4 span, body #identity h4 span {
+        background: #000;
+        font-weight: 500;
+        padding: 1em; }
+  body #range p {
+    flex: 1 100%; }
+  body #range section {
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 50%;
+    flex-wrap: wrap;
+    margin: 1em 0; }
+    body #range section dl dt {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin-bottom: .5em; }
+    body #range section dl dd {
+      margin-left: 0; }
+    body #range section img {
+      margin-right: 1em; }
+    body #range section:nth-child(even) {
+      align-items: flex-end;
+      flex-direction: row-reverse; }
+    body #range section:last-child {
+      flex: 1 100%; }
+      body #range section:last-child dl dt {
+        font-size: 1em;
+        font-weight: 400; }
+      body #range section:last-child dl dd {
+        font-size: 1.3em;
+        font-weight: 600; }
+  body #description {
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 2em; }
+    body #description p, body #description iframe {
+      align-items: flex-start;
+      display: flex;
+      flex: 1 50%;
+      flex-wrap: wrap; }
+    body #description iframe {
+      width: auto; }
+    body #description p a {
+      background: #000;
+      color: #fff;
+      font-size: .8em;
+      font-weight: 500;
+      padding: .5em 1em;
+      text-decoration: none;
+      text-transform: uppercase; }
+  body #message {
+    border: 2px solid #00a071;
+    color: #00a071;
+    padding: 2em 3em;
+    margin: 1em 2em;
+    text-align: center; }
+    body #message p {
+      font-size: 1.3em;
+      font-weight: 500;
+      margin: 0; }
+    body #message a {
+      background: #00a071;
+      color: #fff;
+      display: inline-block;
+      font-size: .9em;
+      font-weight: 500;
+      margin: 2em 0 0;
+      padding: 1em 2em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background .3s; }
+      body #message a:hover {
+        background: #00aa78; }
+  body footer {
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%; }
+    body footer::before {
+      content: url("../images/landing/logomaege.svg");
+      margin: 0 2em 0;
+      width: 100px; }
+    body footer section {
+      margin: 0 2em; }
+      body footer section h4 {
+        text-transform: uppercase; }
+        body footer section h4::after {
+          background: #fff;
+          content: "";
+          display: block;
+          height: 1px;
+          margin-top: .2em;
+          width: 100%; }
+      body footer section ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding-left: 0; }
+      body footer section#newspapers ul {
+        max-width: 300px; }
+        body footer section#newspapers ul li {
+          font-size: 0; }
+          body footer section#newspapers ul li#versionfemina a {
+            background: url(../images/landing/versionfemina.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#elle a {
+            background: url(../images/landing/elle.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#journaldesfemmes a {
+            background: url(../images/landing/journaldesfemmes.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#femina a {
+            background: url(../images/landing/femina.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#bienetre a {
+            background: url(../images/landing/bienetre.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+          body footer section#newspapers ul li#femmeactuelle a {
+            background: url(../images/landing/femmeactuelle.png) no-repeat 0 center;
+            display: block;
+            height: 25px;
+            width: 100px; }
+      body footer section#find a {
+        color: #fff;
+        flex: 1 100%;
+        text-decoration: none; }
+      body footer section#follow ul li#facebook a {
+        content: url(../images/landing/facebook.svg);
+        height: 35px;
+        margin: 0 1em; }
+      body footer section#follow ul li#twitter a {
+        content: url(../images/landing/twitter.svg);
+        height: 35px;
+        margin: 0 1em; }
+      body footer section#follow ul li#instagram a {
+        content: url(../images/landing/instagram.svg);
+        height: 35px;
+        margin: 0 1em; }
+
+@media screen and (max-width: 900px) {
+  body #presentation section#introduction, body #presentation section#advantages, body #presentation section#offer {
+    flex: 1 100%;
+    text-align: center;
+    width: 100%; }
+  body #presentation section#introduction {
+    border-right: none; }
+  body #range, body #identity {
+    padding: 1em; }
+  body #description p, body #description iframe {
+    flex: 1 100%; }
+  body footer {
+    justify-content: flex-start; } }
+
+/*# sourceMappingURL=maege.sass.css.map */
