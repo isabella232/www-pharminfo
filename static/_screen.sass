@@ -73,45 +73,6 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
   p
     margin: 0
 
-div.popup
-  @include transform(translateY(-50%))
-  animation: popup-animation 2s ease-in-out both
-  background: white
-  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2)
-  box-sizing: border-box
-  left: calc(50% - 150px)
-  padding: 1.5em 2.5em
-  position: fixed
-  text-align: center
-  top: 50%
-  width: 300px
-
-  span
-    display: block
-    cursor: pointer
-    height: 20px
-    position: absolute
-    right: 10px
-    top: 10px
-    width: 20px
-
-    &::before, &::after
-      @include content(block, 1px, 20px)
-      @include transform(rotate(45deg))
-      background-color: $grey-1
-      position: absolute
-      right: 0
-      top: 10px
-
-    &::after
-      @include transform(rotate(-45deg))
-
-  &.static-popup
-    animation: popup-static-fadein 0.25s ease-in both
-
-  &.hide-popup
-    animation: popup-static-fadeout 0.25s ease-in-out both
-
 /* Styles menu */
 header h1
   display: none
@@ -766,9 +727,6 @@ nav ul
 
   a
     cursor: pointer
-
-  div.popup-remove form
-    display: none
 
 form
   margin-top: 40px

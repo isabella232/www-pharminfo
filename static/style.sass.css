@@ -123,61 +123,6 @@
     color: #515151;
     font-size: 1em; } }
 
-/* Pop-up animation */
-@keyframes popup-animation {
-  0% {
-    -webkit-transform: scaleY(0) translateY(-100%);
-    -moz-transform: scaleY(0) translateY(-100%);
-    -o-transform: scaleY(0) translateY(-100%);
-    transform: scaleY(0) translateY(-100%);
-    color: white; }
-  20% {
-    -webkit-transform: scaleY(1) translateY(-50%);
-    -moz-transform: scaleY(1) translateY(-50%);
-    -o-transform: scaleY(1) translateY(-50%);
-    transform: scaleY(1) translateY(-50%);
-    color: #515151; }
-  85% {
-    -webkit-transform: scaleY(1) translateY(-50%);
-    -moz-transform: scaleY(1) translateY(-50%);
-    -o-transform: scaleY(1) translateY(-50%);
-    transform: scaleY(1) translateY(-50%);
-    color: #515151; }
-  100% {
-    -webkit-transform: scaleY(0) translateY(-100%);
-    -moz-transform: scaleY(0) translateY(-100%);
-    -o-transform: scaleY(0) translateY(-100%);
-    transform: scaleY(0) translateY(-100%);
-    color: white; } }
-
-@keyframes popup-static-fadein {
-  0% {
-    -webkit-transform: scaleY(0) translateY(-100%);
-    -moz-transform: scaleY(0) translateY(-100%);
-    -o-transform: scaleY(0) translateY(-100%);
-    transform: scaleY(0) translateY(-100%);
-    color: white; }
-  100% {
-    -webkit-transform: scaleY(1) translateY(-50%);
-    -moz-transform: scaleY(1) translateY(-50%);
-    -o-transform: scaleY(1) translateY(-50%);
-    transform: scaleY(1) translateY(-50%);
-    color: #515151; } }
-
-@keyframes popup-static-fadeout {
-  0% {
-    -webkit-transform: scaleY(1) translateY(-50%);
-    -moz-transform: scaleY(1) translateY(-50%);
-    -o-transform: scaleY(1) translateY(-50%);
-    transform: scaleY(1) translateY(-50%);
-    color: #515151; }
-  100% {
-    -webkit-transform: scaleY(0) translateY(-100%);
-    -moz-transform: scaleY(0) translateY(-100%);
-    -o-transform: scaleY(0) translateY(-100%);
-    transform: scaleY(0) translateY(-100%);
-    color: white; } }
-
 html {
   height: 100%; }
 
@@ -262,52 +207,6 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
     z-index: 20; }
   #news article p {
     margin: 0; }
-
-div.popup {
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  animation: popup-animation 2s ease-in-out both;
-  background: white;
-  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  left: calc(50% - 150px);
-  padding: 1.5em 2.5em;
-  position: fixed;
-  text-align: center;
-  top: 50%;
-  width: 300px; }
-  div.popup span {
-    display: block;
-    cursor: pointer;
-    height: 20px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    width: 20px; }
-    div.popup span::before, div.popup span::after {
-      content: "";
-      display: block;
-      height: 1px;
-      width: 20px;
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      transform: rotate(45deg);
-      background-color: #515151;
-      position: absolute;
-      right: 0;
-      top: 10px; }
-    div.popup span::after {
-      -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      -o-transform: rotate(-45deg);
-      transform: rotate(-45deg); }
-  div.popup.static-popup {
-    animation: popup-static-fadein 0.25s ease-in both; }
-  div.popup.hide-popup {
-    animation: popup-static-fadeout 0.25s ease-in-out both; }
 
 /* Styles menu */
 header h1 {
@@ -1065,9 +964,6 @@ nav ul {
 
 #contact a {
   cursor: pointer; }
-
-#contact div.popup-remove form {
-  display: none; }
 
 form {
   margin-top: 40px; }

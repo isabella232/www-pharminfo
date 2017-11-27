@@ -139,14 +139,6 @@ def get_clients_latlng():
     return jsonify(json_client)
 
 
-@app.route('/newsletter', methods=['POST'])
-def newsletter():
-    html = 'Inscription à la newsletter www pharminfo<br>Email : %s' % (
-        request.form['newsletter-email'])
-    send_mail('Inscription à la newsletter www pharminfo', html)
-    return 'Ok'
-
-
 @app.route('/subscribe', methods=['GET', 'POST'])
 def subscribe():
     if request.method == 'POST':
