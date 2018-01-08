@@ -167,36 +167,27 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
     margin: 20px auto 0;
     width: 20px; }
 
-#news article {
-  display: flex;
+/* Style des articles */
+article {
+  display: inline-flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  height: 270px;
-  overflow: hidden;
-  position: relative;
-  width: 100%; }
-  #news article time {
-    font-style: italic;
-    order: -1;
-    padding-top: 0.75em; }
-  #news article h3 {
-    font-size: 1.3em;
+  position: relative; }
+  article h3, article time {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative; }
+  article h3 {
+    border-bottom: solid 2px #00a071;
+    order: 2;
     margin: 0;
-    padding: 0.25em 0 0.75em; }
-  #news article img {
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    left: 50%;
-    max-width: 120%;
-    min-height: 100%;
-    min-width: 100%;
-    position: absolute;
-    top: 50%;
-    z-index: -1; }
-  #news article a {
+    padding: .5em 1rem; }
+  article time {
+    order: 1;
+    padding: .5em  1rem 0; }
+  article img {
+    max-width: 100%; }
+  article a {
     bottom: 0;
     font-size: 0;
     left: 0;
@@ -205,8 +196,42 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
     right: 0;
     top: 0;
     z-index: 20; }
-  #news article p {
+  article p {
     margin: 0; }
+
+#index #news {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start; }
+  #index #news h2 {
+    display: none; }
+  #index #news ul {
+    background: #e6e6e6;
+    margin: 0;
+    min-height: 150px;
+    position: relative; }
+    #index #news ul li {
+      left: 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      top: 50%; }
+      #index #news ul li a {
+        -webkit-transition: all 0.25s 0s;
+        transition: all 0.25s 0s;
+        border: solid 1px;
+        color: inherit;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-color: #515151; }
+        #index #news ul li a:hover {
+          padding: 1em 2em; }
 
 /* Styles menu */
 header h1 {
@@ -368,50 +393,6 @@ nav ul {
         text-transform: uppercase;
         border-color: #515151; }
         #about article ul.links a:hover {
-          padding: 1em 2em; }
-
-#index #news {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start; }
-  #index #news h2 {
-    display: none; }
-  #index #news article {
-    flex: auto; }
-    #index #news article h3, #index #news article time {
-      background-color: rgba(255, 255, 255, 0.9);
-      padding-left: 15px;
-      padding-right: 15px;
-      position: relative; }
-    #index #news article h3 {
-      border-bottom: solid 2px #00a071;
-      padding: 0.25em 15px 0.75em; }
-  #index #news ul {
-    background: #e6e6e6;
-    margin: 0;
-    min-height: 150px;
-    position: relative; }
-    #index #news ul li {
-      left: 0;
-      position: absolute;
-      right: 0;
-      text-align: center;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);
-      top: 50%; }
-      #index #news ul li a {
-        -webkit-transition: all 0.25s 0s;
-        transition: all 0.25s 0s;
-        border: solid 1px;
-        color: inherit;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        text-transform: uppercase;
-        border-color: #515151; }
-        #index #news ul li a:hover {
           padding: 1em 2em; }
 
 #goals {
@@ -1583,12 +1564,6 @@ aside#flash ul {
         background-color: #00a071;
         border: solid 1px #00a071;
         color: #FFF; }
-  #index #news article h3, #index #news article time {
-    -webkit-transition: bottom 0.5s 0s;
-    transition: bottom 0.5s 0s;
-    bottom: -300px; }
-  #index #news article:hover h3, #index #news article:hover time {
-    bottom: 0; }
   #guarantees ul li {
     -webkit-transition: font-size 0.25s 0s;
     transition: font-size 0.25s 0s;

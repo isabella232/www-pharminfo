@@ -33,32 +33,31 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
   h2
     @include h2_source_sans
 
-#news article
-  @include flexbox(column, flex-end)
-  height: 270px
-  overflow: hidden
-  position: relative
-  width: 100%
 
-  time
-    font-style: italic
-    order: -1
-    padding-top: 0.75em
+/* Style des articles */
+article
+  display: inline-flex
+  flex-direction: column
+  position: relative
+
+  h3, time
+    background-color: rgba(255, 255, 255, 0.9)
+    padding-left: 15px
+    padding-right: 15px
+    position: relative
 
   h3
-    font-size: $subtitle
+    border-bottom: solid 2px $main-color
+    order: 2
     margin: 0
-    padding: 0.25em 0 0.75em
+    padding: .5em 1rem
+
+  time
+    order: 1
+    padding: .5em  1rem 0
 
   img
-    @include transform(translate(-50%, -50%))
-    left: 50%
-    max-width: 120%
-    min-height: 100%
-    min-width: 100%
-    position: absolute
-    top: 50%
-    z-index: -1
+    max-width: 100%
 
   a
     bottom: 0
@@ -72,6 +71,34 @@ body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-co
 
   p
     margin: 0
+
+#index #news
+  @include flexbox(column, flex-start, nowrap)
+
+  h2
+    display: none
+
+  ul
+    background: $grey-3
+    margin: 0
+    min-height: 150px
+    position: relative
+
+    li
+      left: 0
+      position: absolute
+      right: 0
+      text-align: center
+      @include transform(translateY(-50%))
+      top: 50%
+
+      a
+        @include cta
+        border-color: $grey-1
+
+
+
+// #index
 
 /* Styles menu */
 header h1
@@ -216,43 +243,6 @@ nav ul
 
     ul.links
       margin-top: 60px
-
-      a
-        @include cta
-        border-color: $grey-1
-
-#index #news
-  @include flexbox(column, flex-start, nowrap)
-
-  h2
-    display: none
-
-  article
-    flex: auto
-
-    h3, time
-      background-color: rgba(255, 255, 255, 0.9)
-      padding-left: 15px
-      padding-right: 15px
-      position: relative
-
-    h3
-      border-bottom: solid 2px $main-color
-      padding: 0.25em 15px 0.75em
-
-  ul
-    background: $grey-3
-    margin: 0
-    min-height: 150px
-    position: relative
-
-    li
-      left: 0
-      position: absolute
-      right: 0
-      text-align: center
-      @include transform(translateY(-50%))
-      top: 50%
 
       a
         @include cta
