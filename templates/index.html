@@ -295,6 +295,18 @@
       <input id="code" name="code" placeholder="Votre code promotionnel" value="{{ data and data.code }}" />
       <label for="message">Message</label>
       <textarea id="message" name="message" placeholder="Votre message*" required>{{ data and data.message }}</textarea>
+      <input id="data" name="data" type="checkbox" required="required" />
+      <label for="data">
+        J'accepte que les informations saisies soient exploitées par Kozea dans
+        le cadre de demande d'informations ou de devis et de la relation
+        commerciale qui peut en découler. Je suis informé(e) que je peux
+        facilement et à tout moment, modifier mes préférences d'abonnement.
+      </label>
+      <p>
+        <a href="{{ url_for('page', page='legal') }}">
+          Voir notre politique de confidentialité dans les mentions légales.
+        </a>
+      </p>
       <div class="g-recaptcha" data-sitekey="6LdPHhMUAAAAAKK2m0QKxrc5Muu9fuSScUpQJ8Ns"></div>
       <input type="submit" value="Valider" />
     </form>
