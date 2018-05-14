@@ -874,8 +874,6 @@ nav ul {
         top: 60px; }
       #customize dl dt#image::before {
         background: url("images/personnalisation/icon-image.svg") center 0 no-repeat; }
-      #customize dl dt#colors::before {
-        background: url("images/personnalisation/icon-colors.svg") center 0 no-repeat; }
       #customize dl dt#logo::before {
         background: url("images/personnalisation/icon-logo.svg") center 0 no-repeat; }
       #customize dl dt#theme::before {
