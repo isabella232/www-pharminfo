@@ -946,6 +946,16 @@ nav ul {
 #contact a {
   cursor: pointer; }
 
+#contact .contact-form label[for="data"] {
+  display: block;
+  font-size: .9em;
+  margin: 1em 0; }
+
+#contact .contact-form p a {
+  color: #00a071;
+  font-size: .9em;
+  text-decoration: none; }
+
 form {
   margin-top: 40px; }
   form label:not(.checkbox) {
