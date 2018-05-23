@@ -7,7 +7,7 @@
       reveals[page_list[index]] = {}
     }
     reveals.index = {
-      'basic': ['#sales h2, #sales ul.links, #goals li, ' +
+      'basic': ['#sales h2, #sales ul.links, #sales ul, #goals li, ' +
                 '#main-offer p, #main-offer ol, #stats li'],
       'asc': ['#news article, #news .links',
               '#cloud, #payment, #ars, #security',

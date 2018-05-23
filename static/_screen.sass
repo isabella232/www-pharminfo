@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400)
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,700)
 
 html
   height: 100%
@@ -22,6 +22,7 @@ ul, ol
 
 p
   font-size: 1.1em
+  line-height: 1.5em
 
 *:not(strong)
   font-weight: 300
@@ -173,8 +174,7 @@ nav ul
     font-size: $big-title
     font-weight: 400
     margin: 0.7em auto
-    max-width: 15em
-    text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.4)
+    max-width: 17em
     width: 100%
 
     &::before
@@ -182,18 +182,24 @@ nav ul
       margin: 0 auto 20px
       max-width: 100%
 
-  ul li a
-    @include transition(all)
-    background-color: $white
-    color: inherit
+  ul li
+    color: #fff
+    font-size: 1.5em
     font-weight: 400
-    text-decoration: none
-    padding: 0.5em 1em
 
-    &:hover
-      background-color: $main-color
-      color: $white
-      padding: 0.75em 1.5em
+    a
+      @include transition(all)
+      background-color: $white
+      color: $main-color
+      font-size: .75em
+      font-weight: 400
+      text-decoration: none
+      padding: 0.5em 1em
+
+      &:hover
+        background-color: $main-color
+        color: $white
+        padding: 0.75em 1.5em
 
 #about
   text-align: center
@@ -248,26 +254,9 @@ nav ul
         @include cta
         border-color: $grey-1
 
-#goals
-  background-color: $grey-4
-
-  ul
-    @include flexbox(row, space-between)
-
-    li
-      @include basic-font-size
-      margin: 1.5em 0
-      min-height: 56px
-      padding-left: calc(56px + 2em)
-
-      @each $name in help, connect, innovate, simplify, save, raise
-        &##{$name}
-          background: url(images/objectifs/icon-#{$name}.svg) top left / 56px 56px no-repeat
-
+    p
       strong
         color: $main-color
-        display: block
-        font-size: $subtitle
 
 #guarantees
   ul
@@ -294,7 +283,7 @@ nav ul
         max-width: 100px
         width: 50%
 
-      @each $name in cloud, payment, ars, security, order, sav, seo, responsive
+      @each $name in cloud, payment, ars, order
         &##{$name}::before
           content: url(images/warranties/icon-#{$name}.svg)
 
@@ -316,6 +305,7 @@ nav ul
     li
       @include triangle(-7px, inherit, calc(50% - 10px), 0)
       counter-increment: reasons
+      color: $main-color
       @include basic-font-size
       margin: 1.2em 0 1.2em 1.5em
       padding: 1.5em 1.5em 1.5em calc(1.5em + 50px)
@@ -323,10 +313,9 @@ nav ul
 
       &::after
         @include content(initial, 1.2em, 1.2em, counter(reasons))
-        background-color: $white
-        border: solid 1px $grey-2
+        background-color: $main-color
         border-radius: 50%
-        color: $grey-2
+        color: #fff
         font-weight: 400
         text-align: center
         top: calc(50% - 10px)
@@ -335,7 +324,8 @@ nav ul
 
       @each $name in develop, expertise, loyal, satisfaction, accompaniment, cost
         &##{$name}
-          background: url('images/choose/icon-#{$name}.svg') 0.75em center / 50px 50px no-repeat, $grey-3
+          background: url('images/choose/icon-#{$name}.svg') 0.75em center / 50px 50px no-repeat, #fff
+          border: 2px solid $grey-3
 
 #clients
   @include flexbox(row, flex-start)
@@ -503,24 +493,22 @@ nav ul
     padding: 2em 1.5em
 
     h3
-      font-weight: 400
-      font-size: 1.7em;
+      font-weight: 700
+      font-size: 1.8em
       margin: 0
-      text-transform: uppercase
 
     p:first-of-type
-      margin: 0
+      font-weight: 400
 
     p.price
-      border-bottom: solid 1px $grey-3
-      border-top: solid 1px $grey-3
+      border-bottom: solid 1px $main-color
+      border-top: solid 1px $main-color
       font-size: 0.75em
-      margin: 2em 0
-      padding: 0.7em
+      padding: 1.5em
 
       strong
         font-size: $big-title
-        font-weight: 400
+        font-weight: 700
 
     ul li
       @include basic-font-size
@@ -540,12 +528,15 @@ nav ul
       background-color: $white
       border: solid 3px $grey-4
 
+      .price strong
+        color: $main-color
+
       &:hover
         border: solid 3px $grey-3
 
     &#flexiweb-plus
       background-color: $main-color
-      border: solid 3px $main-color-light
+      border: solid 3px $main-color
       color: $white
 
       p.price, ul.links li a
