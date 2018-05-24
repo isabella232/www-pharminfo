@@ -98,7 +98,6 @@ article
         border-color: $grey-1
 
 
-
 // #index
 
 /* Styles menu */
@@ -173,7 +172,7 @@ nav ul
     color: $white
     font-size: $big-title
     font-weight: 400
-    margin: 0.7em auto
+    margin: 0.7em auto 0
     max-width: 17em
     width: 100%
 
@@ -182,30 +181,33 @@ nav ul
       margin: 0 auto 20px
       max-width: 100%
 
-  ul li
-    color: #fff
-    font-size: 1.5em
-    font-weight: 400
-
-    a
-      @include transition(all)
-      background-color: $white
-      color: $main-color
-      font-size: .75em
+  ul
+    li
+      color: #fff
+      font-size: 1.5em
       font-weight: 400
-      text-decoration: none
-      padding: 0.5em 1em
 
-      &:hover
-        background-color: $main-color
-        color: $white
-        padding: 0.75em 1.5em
+      a
+        @include transition(all)
+        background-color: $white
+        color: $main-color
+        display: inline-block
+        font-size: .7em
+        font-weight: 400
+        margin: 1em 0
+        padding: .75em 1.5em
+        text-decoration: none
+
+        &:hover
+          background-color: $main-color
+          color: $white
 
 #about
   text-align: center
 
   h2
-    @include h2_source_sans($main-color, italic)
+    @include h2_source_sans
+    color: $main-color
 
   ul li
     display: inline-block
@@ -214,10 +216,9 @@ nav ul
       @include transition(all)
       box-sizing: border-box
       display: block
-      font-weight: 400
-      padding: 0.5em 0.75em
+      font-weight: 700
+      padding: 1em
       text-decoration: none
-      text-transform: uppercase
 
       &:not(.active)
         background-color: transparent
@@ -259,6 +260,9 @@ nav ul
         color: $main-color
 
 #guarantees
+  h2
+    color: $main-color
+
   ul
     @include flexbox(row, center)
 
@@ -288,12 +292,17 @@ nav ul
           content: url(images/warranties/icon-#{$name}.svg)
 
 #reasons
+  h2
+    color: $main-color
+
   h2, p
     padding: 0 10%
 
   p
-    font-style: italic
     text-align: center
+
+    strong
+      color: $main-color
 
   ol
     counter-reset: reasons
@@ -306,17 +315,18 @@ nav ul
       @include triangle(-7px, inherit, calc(50% - 10px), 0)
       counter-increment: reasons
       color: $main-color
-      @include basic-font-size
+      font-weight: 700
       margin: 1.2em 0 1.2em 1.5em
       padding: 1.5em 1.5em 1.5em calc(1.5em + 50px)
       position: relative
 
       &::after
-        @include content(initial, 1.2em, 1.2em, counter(reasons))
+        @include content(initial, 1.5em, 1.5em, counter(reasons))
         background-color: $main-color
         border-radius: 50%
         color: #fff
         font-weight: 400
+        line-height: 1.5em
         text-align: center
         top: calc(50% - 10px)
         position: absolute
@@ -476,14 +486,15 @@ nav ul
 #offers
   background-color: $grey-4
 
+  h2
+    color: $main-color
+
   h2, > p
+    margin-top: 0
     width: 100%
 
   h2, > p, section
     text-align: center
-
-  > p
-    font-style: italic
 
   section
     @include transition(all)
@@ -547,14 +558,12 @@ nav ul
 
 #main-offer
   background-color: $grey-4
-  padding: 60px 10% 0 10%
+  padding: 0 10%
   text-align: center
 
   h2
-    font-size: 1.875em
-
-  p
-    font-style: italic
+    color: $main-color
+    font-size: 2em
 
   ol
     @include flexbox(row, flex-start)
@@ -573,10 +582,9 @@ nav ul
 
       &::after
         @include content(block, 20px, 20px, counter(offer_count))
-        background-color: $grey-4
-        border: solid 1px $grey-2
+        background-color: $main-color
         border-radius: 50%
-        color: $grey-2
+        color: #fff
         font-weight: 400
         left: calc(50% - 0.7em)
         margin: 0 auto
@@ -598,10 +606,10 @@ nav ul
       @include transition(padding)
       background-color: $main-color
       color: $white
+      font-weight: 700
       display: inline-block
-      padding: 0.75em 1em
+      padding: 1em
       text-decoration: none
-      text-transform: uppercase
 
       &:hover
         padding: 1em 1.5em
@@ -626,12 +634,15 @@ nav ul
 
 #essential-offer
   background-color: $grey-4
-  //padding-bottom: 60px
   padding: 60px 0
   text-align: center
 
+  > p
+    color: red
+
   h2
-    font-size: 1.875em
+    color: $main-color
+    font-size: 1.9em
     margin: 0
 
   h3
@@ -670,8 +681,6 @@ nav ul
 
     &:hover
       padding: 1em 1.5em
-
-
 
 #contact
   #contact-map
