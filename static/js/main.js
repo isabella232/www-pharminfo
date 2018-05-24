@@ -8,11 +8,11 @@
     }
     reveals.index = {
       'basic': ['#sales h2, #sales ul.links, #sales ul, #goals li, ' +
-                '#main-offer p, #main-offer ol, #stats li'],
+                '#main-offer p, #main-offer ol, #main-offer #innovation, #stats li'],
       'asc': ['#news article, #news .links',
               '#cloud, #payment, #ars, #security',
               '#order, #sav, #seo, #responsive',
-              '#customize dt', '#customize dd'],
+              '#essential-offer li'],
       'desc': ['#optiweb, #flexiweb-plus, #flexiweb, #ecoweb'],
       'left': ['#develop, #loyal, #accompaniment'],
       'right': ['#expertise, #satisfaction, #cost']}

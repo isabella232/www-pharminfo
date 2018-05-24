@@ -153,7 +153,7 @@ p {
 *:not(strong) {
   font-weight: 300; }
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content) {
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#essential-offer):not(#main-offer) {
   padding: 60px 10%; }
 
 #goals h2, #guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2, #legal-content h2 {
@@ -720,7 +720,7 @@ nav ul {
 
 #main-offer {
   background-color: #f5f5f5;
-  padding-top: 3em;
+  padding: 60px 10% 0 10%;
   text-align: center; }
   #main-offer h2 {
     font-size: 1.875em; }
@@ -733,12 +733,11 @@ nav ul {
     justify-content: flex-start;
     align-items: flex-start;
     counter-reset: offer_count;
-    margin: 2em 0; }
+    margin: 2em 0 0 0; }
     #main-offer ol li {
       border-top: solid 220px transparent;
       counter-increment: offer_count;
       font-size: 1em;
-      margin-bottom: 3em;
       padding: 0.7em;
       position: relative;
       width: 100%; }
@@ -779,19 +778,20 @@ nav ul {
         background: url("images/timeline-mobile-app/sms.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
       #main-offer ol li#reception {
         background: url("images/timeline-mobile-app/reception.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
-  #main-offer ul.links li {
-    display: inline-block; }
-    #main-offer ul.links li a {
+  #main-offer ul.links {
+    margin: 0; }
+    #main-offer ul.links li {
+      display: inline-block; }
+    #main-offer ul.links a {
       -webkit-transition: padding 0.25s 0s;
       transition: padding 0.25s 0s;
       background-color: #00a071;
       color: #FFFFFF;
       display: inline-block;
-      margin-top: 1em;
       padding: 0.75em 1em;
       text-decoration: none;
       text-transform: uppercase; }
-      #main-offer ul.links li a:hover {
+      #main-offer ul.links a:hover {
         padding: 1em 1.5em; }
   #main-offer::after {
     content: "";
@@ -802,58 +802,52 @@ nav ul {
     left: -12.5%;
     margin-top: 50px;
     position: relative; }
+  #main-offer #innovation {
+    background: #fff;
+    margin: 2em 0;
+    padding: 1em 0; }
+    #main-offer #innovation h3 {
+      color: #00a071;
+      font-size: 1.5em;
+      font-weight: 700;
+      margin-bottom: 0; }
 
-#customize {
+#essential-offer {
   background-color: #f5f5f5;
+  padding: 60px 0;
   text-align: center; }
-  #customize h2 {
-    font-size: 1.875em; }
-  #customize p {
-    font-style: italic; }
-  #customize dl {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    height: 780px; }
-    #customize dl dt {
-      margin-top: 3em;
-      position: relative; }
-      #customize dl dt::after {
-        background-color: #00a071;
-        content: '';
-        display: block;
-        height: 2px;
-        margin: 0 auto;
-        width: 18px; }
-      @media screen and (max-width: 529px) {
-        #customize dl dt {
-          font-size: 0.95em; } }
-      @media screen and (min-width: 530px) {
-        #customize dl dt {
-          font-size: 1.1em; } }
-      #customize dl dt::before {
-        content: "";
-        display: block;
-        height: 60px;
-        width: 60px;
-        margin: 0 auto 15px; }
-      #customize dl dt::after {
-        left: calc( 50% - 9px);
-        position: absolute;
-        top: 60px; }
-      #customize dl dt#image::before {
-        background: url("images/personnalisation/icon-image.svg") center 0 no-repeat; }
-      #customize dl dt#logo::before {
-        background: url("images/personnalisation/icon-logo.svg") center 0 no-repeat; }
-      #customize dl dt#theme::before {
-        background: url("images/personnalisation/icon-theme.svg") center 0 no-repeat; }
-    #customize dl dd {
-      font-size: 1.3em;
-      margin: 0.5em 0 0; }
-    #customize dl dt, #customize dl dd {
-      max-width: 200px; }
+  #essential-offer h2 {
+    font-size: 1.875em;
+    margin: 0; }
+  #essential-offer h3 {
+    font-weight: 700;
+    margin-bottom: 0; }
+    #essential-offer h3:first-of-type {
+      font-size: .75em; }
+    #essential-offer h3 strong {
+      color: #00a071;
+      font-size: 1.75em; }
+    #essential-offer h3 + p {
+      border-bottom: 1px solid #00a071;
+      display: inline-block;
+      font-weight: 400;
+      margin-top: 0; }
+  #essential-offer ul {
+    margin-top: 0;
+    line-height: 2em; }
+    #essential-offer ul li strong {
+      color: #00a071; }
+  #essential-offer a {
+    -webkit-transition: padding 0.25s 0s;
+    transition: padding 0.25s 0s;
+    background-color: #00a071;
+    color: #FFFFFF;
+    display: inline-block;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    text-transform: uppercase; }
+    #essential-offer a:hover {
+      padding: 1em 1.5em; }
 
 #contact #contact-map {
   height: 400px;

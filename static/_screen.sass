@@ -27,7 +27,7 @@ p
 *:not(strong)
   font-weight: 300
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content)
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#essential-offer):not(#main-offer)
   padding: 60px 10%
 
 #goals, #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients, #websites, #legal-content
@@ -547,7 +547,7 @@ nav ul
 
 #main-offer
   background-color: $grey-4
-  padding-top: 3em
+  padding: 60px 10% 0 10%
   text-align: center
 
   h2
@@ -560,14 +560,13 @@ nav ul
     @include flexbox(row, flex-start)
     align-items: flex-start
     counter-reset: offer_count
-    margin: 2em 0
+    margin: 2em 0 0 0
 
     li
       @include triangle(calc(50% - 4px), inherit, -13px, 90deg)
       border-top: solid 220px transparent
       counter-increment: offer_count
       font-size: 1em
-      margin-bottom: 3em
       padding: 0.7em
       position: relative
       width: 100%
@@ -589,15 +588,17 @@ nav ul
         &##{$name}
           background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-3
 
-  ul.links li
-    display: inline-block
+  ul.links
+    margin: 0
+
+    li
+      display: inline-block
 
     a
       @include transition(padding)
       background-color: $main-color
       color: $white
       display: inline-block
-      margin-top: 1em
       padding: 0.75em 1em
       text-decoration: none
       text-transform: uppercase
@@ -612,46 +613,65 @@ nav ul
     margin-top: 50px
     position: relative
 
-#customize
+  #innovation
+    background: #fff
+    margin: 2em 0
+    padding: 1em 0
+
+    h3
+      color: $main-color
+      font-size: 1.5em
+      font-weight: 700
+      margin-bottom: 0
+
+#essential-offer
   background-color: $grey-4
+  //padding-bottom: 60px
+  padding: 60px 0
   text-align: center
 
   h2
     font-size: 1.875em
+    margin: 0
 
-  p
-    font-style: italic
+  h3
+    font-weight: 700
+    margin-bottom: 0
 
-  dl
-    @include flexbox(column, flex-start)
-    align-items: center
-    height: 780px
+    &:first-of-type
+      font-size: .75em
 
-    dt
-      @include bottom_stroke(2px, 0 auto, 18px)
-      @include basic-font-size
-      margin-top: 3em
-      position: relative
+    strong
+      color: $main-color
+      font-size: 1.75em
 
-      &::before
-        @include content(block, 60px, 60px)
-        margin: 0 auto 15px
+    &+ p
+      border-bottom: 1px solid $main-color
+      display: inline-block
+      font-weight: 400
+      margin-top: 0
 
-      &::after
-        left: calc( 50% - 9px )
-        position: absolute
-        top: 60px
+  ul
+    margin-top: 0
+    line-height: 2em
 
-      @each $name in image, logo, theme
-        &##{$name}::before
-          background: url('images/personnalisation/icon-#{$name}.svg') center 0 no-repeat
+    li
+      strong
+        color: $main-color
 
-    dd
-      font-size: $subtitle
-      margin: 0.5em 0 0
+  a
+    @include transition(padding)
+    background-color: $main-color
+    color: $white
+    display: inline-block
+    padding: 0.75em 1em
+    text-decoration: none
+    text-transform: uppercase
 
-    dt, dd
-      max-width: 200px
+    &:hover
+      padding: 1em 1.5em
+
+
 
 #contact
   #contact-map
