@@ -101,7 +101,7 @@ article
 // #index
 
 /* Styles menu */
-header h1
+header p
   display: none
 
 #testimonials-map, #contact-map
@@ -167,7 +167,7 @@ nav ul
   min-height: 100vh
   text-align: center
 
-  h2
+  h1
     @include bottom_stroke(4px, 30px auto 0, 28px)
     color: $white
     font-size: $big-title
@@ -637,9 +637,6 @@ nav ul
   padding: 60px 0
   text-align: center
 
-  > p
-    color: red
-
   h2
     color: $main-color
     font-size: 1.9em
@@ -663,8 +660,9 @@ nav ul
       margin-top: 0
 
   ul
-    margin-top: 0
+    font-size: 1.1em
     line-height: 2em
+    margin-top: 0
 
     li
       strong
@@ -674,10 +672,10 @@ nav ul
     @include transition(padding)
     background-color: $main-color
     color: $white
+    font-weight: 700
     display: inline-block
     padding: 0.75em 1em
     text-decoration: none
-    text-transform: uppercase
 
     &:hover
       padding: 1em 1.5em
@@ -694,6 +692,7 @@ nav ul
   h2
     @include bottom_stroke(2px, 15px 0 0, 16px)
     font-size: $title
+    color: $main-color
     margin: 50px 10% 0
 
   dl
@@ -727,10 +726,10 @@ nav ul
     background-color: $main-color
     color: $white
     display: inline-block
+    font-weight: 700
     padding: 0.75em 1em
     text-align: center
     text-decoration: none
-    text-transform: uppercase
 
     &:hover
       padding: 0.75em 2em
@@ -768,13 +767,14 @@ form
   > input:last-of-type
     @include transition(all)
     background: transparent
-    border: solid 1px $grey-1
+    border: solid 2px $grey-1
     border-radius: 0
+    color: $grey-1
     cursor: pointer
-    font-size: 1.1em
+    font-size: 1em
+    font-weight: 700
     margin: 20px 0 0
     padding: 0.75em 2em
-    text-transform: uppercase
 
     &:hover
       background: $grey-1
@@ -926,10 +926,9 @@ aside#flash ul
         @include transition(all)
         box-sizing: border-box
         display: block
-        font-weight: 400
-        padding: 0.5em 0.75em
+        font-weight: 700
+        padding: 1em
         text-decoration: none
-        text-transform: uppercase
 
         &:not(.active)
           background-color: transparent
@@ -961,6 +960,7 @@ aside#flash ul
   form
     > p:first-of-type
       @include h2_source_sans
+      color: $main-color
 
     .checkbox
       @include flexbox(row, flex-start, nowrap)
