@@ -832,7 +832,7 @@ nav ul {
 #essential-offer {
   background: #00a071;
   color: #fff;
-  padding: 60px 0;
+  padding: 60px 0 0 0;
   text-align: center; }
   #essential-offer h2 {
     font-size: 1.9em;
@@ -842,18 +842,26 @@ nav ul {
     margin-bottom: 0; }
     #essential-offer h3:first-of-type {
       font-size: .75em; }
-    #essential-offer h3 strong {
-      color: #fff;
-      font-size: 1.75em; }
+      #essential-offer h3:first-of-type strong {
+        font-size: 1.8em; }
+    #essential-offer h3:last-of-type {
+      background: #fff;
+      color: #515151;
+      font-size: 1.5em;
+      margin-top: 0;
+      padding: 2em 0; }
+      #essential-offer h3:last-of-type strong {
+        display: block; }
     #essential-offer h3 + p {
-      border-bottom: 1px solid #fff;
       display: inline-block;
-      font-weight: 400;
+      font-weight: 700;
       margin-top: 0; }
   #essential-offer ul {
     font-size: 1.1em;
     line-height: 2em;
     margin-top: 0; }
+    #essential-offer ul li {
+      font-weight: 400; }
   #essential-offer a {
     -webkit-transition: padding 0.25s 0s;
     transition: padding 0.25s 0s;
@@ -861,6 +869,7 @@ nav ul {
     color: #00a071;
     font-weight: 700;
     display: inline-block;
+    margin-bottom: 60px;
     padding: 0.75em 1em;
     text-decoration: none; }
     #essential-offer a:hover {
