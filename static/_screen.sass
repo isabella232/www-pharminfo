@@ -312,7 +312,6 @@ nav ul
     padding: 0 10% 3em
 
     li
-      @include triangle(-7px, inherit, calc(50% - 10px), 0)
       counter-increment: reasons
       color: $main-color
       font-weight: 700
@@ -335,7 +334,6 @@ nav ul
       @each $name in develop, expertise, loyal, satisfaction, accompaniment, cost
         &##{$name}
           background: url('images/choose/icon-#{$name}.svg') 0.75em center / 50px 50px no-repeat, #fff
-          border: 2px solid $grey-3
 
 #clients
   @include flexbox(row, flex-start)
@@ -550,11 +548,22 @@ nav ul
       border: solid 3px $main-color
       color: $white
 
+      ul
+        li:nth-child(6), li:nth-child(7), li:nth-child(11)
+          font-weight: 700
+
       p.price, ul.links li a
         border-color: $white
 
+    &#optiweb
+      ul
+        li:nth-child(12)
+          font-weight: 700
+
   ul.notes
     font-size: 0.75em
+    margin-left: 5em
+    width: 100%
 
 #main-offer
   background-color: $grey-4
@@ -655,6 +664,7 @@ nav ul
 
   h2
     font-size: 1.9em
+    font-weight: 700
     margin: 0
 
   h3
@@ -670,9 +680,9 @@ nav ul
     &:last-of-type
       background: #fff
       color: $grey-1
-      font-size: 1.5em
+      font-size: 1.9em
       margin-top: 0
-      padding: 2em 0
+      padding: 3em 0
 
       strong
         display: block
@@ -704,6 +714,8 @@ nav ul
       padding: 1em 1.5em
 
 #contact
+  border-top: 1px solid $grey-4
+
   #contact-map
     height: 400px
     width: 100%

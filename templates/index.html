@@ -14,7 +14,7 @@
       'Suivi de santé (carnet de vaccination, pharmacovigilance…)',
       'Newsletter client',
       'Application mobile',
-      'Solution de vente en ligne intégrée') %}
+      'Solution de vente en ligne intégrée**') %}
       <li{% if loop.index > count %} class="disabled"{% endif %}>{{ title }}</li>
     {% endfor %}
   </ul>
@@ -29,7 +29,6 @@
   <section id="sales">
     <h1>Site internet pour pharmacie d'officine</h1>
     <ul>
-      <li>Site vitrine</li>
       <li>Envoi d'ordonnance</li>
       <li>Click & collect</li>
       <li>Vente en ligne</li>
@@ -177,7 +176,7 @@
     </section>
 
     <section id="optiweb">
-      <h3>Optiweb**</h3>
+      <h3>Optiweb*</h3>
       <p>Vendre ses produits en ligne</p>
       <p class="price"><strong>139,90 €</strong> HT/mois</p>
       {{ features(12) }}
@@ -188,10 +187,7 @@
         * 199 € HT de frais de mise en ligne.
       </li>
       <li>
-        ** 249 € HT de frais de mise en ligne. Ce prix comprend la constitution
-        du dossier ARS, la mise en ligne du site internet, le coût de
-        l'interface de paiement et du TPE virtuel multi-banques. Commission de
-        paiement 0,9 % du panier HT.
+        ** Commission de paiement 0,9 % du panier HT.
       </li>
     </ul>
   </section>
@@ -251,7 +247,7 @@
       <li>4 bannières en page d'accueil par an<li>
       <li><strong>et bien d'autres services !</strong><li>
     </ul>
-    <a href="mailto:contact@pharminfo.fr">En savoir plus</a>
+    <a href="{{ url_for('page', page='subscribe') }}">Je m'inscris</a>
     <h3>Vous êtes un groupement ?<strong>Contactez-nous pour un devis personnalisé.</strong></h3>
   </section>
 

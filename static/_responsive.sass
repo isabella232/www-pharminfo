@@ -60,6 +60,10 @@
           display: block
           opacity: 1
 
+    ul.notes
+      margin-left: 0
+      width: auto
+
 @media screen and (max-width: 840px)
   body
     border-top: transparent
@@ -207,14 +211,13 @@
       width: calc(50% - 1.5em)
 
       &#develop, &#loyal, &#accompaniment
-        @include triangle( inherit, -7px, calc(50% - 10px), 180deg)
         background-position: right 10px center
         margin: 1.2em 1.5em 1.2em 0
         padding: 1.5em calc(1.5em + 50px) 1.5em 1.5em
         text-align: right
 
         &::after
-          right: -38px
+          right: -35px
           left: initial
 
       &#expertise, &#satisfaction, &#cost
