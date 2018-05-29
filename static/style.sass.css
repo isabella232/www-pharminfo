@@ -830,7 +830,7 @@ nav ul {
     #essential-offer h3:first-of-type {
       font-size: .75em; }
       #essential-offer h3:first-of-type strong {
-        font-size: 1.8em; }
+        font-size: 2.2em; }
     #essential-offer h3:last-of-type {
       background: #fff;
       color: #515151;
@@ -841,6 +841,7 @@ nav ul {
         display: block; }
     #essential-offer h3 + p {
       display: inline-block;
+      font-size: 1.4em;
       font-weight: 700;
       margin-top: 0; }
   #essential-offer ul {
