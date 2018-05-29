@@ -1114,9 +1114,15 @@ aside#flash ul {
 #subscribe #subscribe-form p, #whitepaper #subscribe-form p {
   text-align: center; }
 
+#subscribe #subscribe-form a, #whitepaper #subscribe-form a {
+  color: #515151; }
+
 #subscribe #subscribe-form form, #whitepaper #subscribe-form form {
   margin: 40px auto;
   max-width: 600px; }
+  #subscribe #subscribe-form form .checkbox, #whitepaper #subscribe-form form .checkbox {
+    display: block;
+    margin: 1em 0; }
 
 #subscribe > section::before {
   background: url("images/photos/bdc-bkgd.jpg") center/cover no-repeat; }
