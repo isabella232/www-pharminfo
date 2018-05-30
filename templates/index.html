@@ -8,11 +8,13 @@
       'Présentation des produits',
       'Affichage promotionnel',
       'Fiches conseils',
-      'Click and collect Ordo',
+      "Envoi d'ordonnance",
+      'Click & Collect',
       'Base de données patients',
       'Suivi de santé (carnet de vaccination, pharmacovigilance…)',
+      'Newsletter client',
       'Application mobile',
-      'Solution e-commerce intégrée') %}
+      'Solution de vente en ligne intégrée**') %}
       <li{% if loop.index > count %} class="disabled"{% endif %}>{{ title }}</li>
     {% endfor %}
   </ul>
@@ -25,39 +27,37 @@
 
 {% block body %}
   <section id="sales">
-    <h2>Comment développer votre activité grâce à votre site internet ?</h2>
-    <ul class="links">
+    <h2>Site internet pour pharmacie d'officine</h2>
+    <ul>
+      <li>Envoi d'ordonnance</li>
+      <li>Click &amp; collect</li>
+      <li>Vente en ligne</li>
       <li>
         <a href="{{ url_for('page', page='whitepaper') }}">
           Télécharger les livres blancs
         </a>
       </li>
     </ul>
+
   </section>
 
   <section id="about">
-    <h2>De nouveaux leviers de croissance avec votre pharmacie en ligne</h2>
+    <h2>De nouveaux leviers de croissance avec le site internet de votre pharmacie</h2>
     <ul>
       <li><a class="tab-link active" href="#about-pharminfo">À propos de Pharminfo.fr</a></li>
       <li><a class="tab-link" href="#made-by-kozea">Made by Kozea</a></li>
     </ul>
     <article id="about-pharminfo" class="active">
       <p>
-        Les premiers sites Internet Pharminfo.fr ont été créés en 2007 par la
-        société <strong>Kozea</strong> pour répondre à une demande spécifique des
-        pharmaciens : <strong>améliorer la relation avec les patients en
-        prolongeant la pharmacie sur le web</strong>.
+        <strong>Depuis plus de 10 ans, Pharminfo.fr propose des sites internet aux pharmaciens d'officine.</strong>
       </p>
       <p>
-        À l'écoute de tous ses clients, Pharminfo.fr a su faire évoluer les sites
-        Internet à leur demande pour arriver à des plateformes digitales
-        performantes.
+        C'est en 2007 que Kozea group a créé les premiers sites internet Pharminfo.fr pour prolonger sur le web
+        la relation entre pharmaciens et patients. Depuis plus de 10 ans, Kozea group s'engage à réaliser des sites internet
+        dans le respect des règles juridiques et déontologiques de l'univers officinal.
       </p>
       <p>
-        <strong>
-          Toutes les plateformes sont réalisées dans le respect des règles
-          juridiques et déontologiques que requiert l'univers officinal.
-        </strong>
+        <strong>Aujourd'hui, plus de 2500 pharmacies font confiance à Pharminfo.fr.</strong>
       </p>
       <!--
       <ul class="links">
@@ -74,7 +74,7 @@
         Kozea group a été fondée en 2007 avec la volonté de se positionner comme un <strong>expert du web pour les acteurs de santé</strong> (pharmaciens, médecins généralistes et spécialistes, cliniques, hôpitaux, laboratoires pharmaceutiques…).
       </p>
       <p>
-        À l’origine, <strong>Guillaume Ayoub</strong> (ingénieur INSA) et <strong>Philippe Donadieu</strong> (docteur en pharmacie) ont associé leurs compétences pour créer les premiers sites Internet pour les pharmaciens d’officine.
+        À l’origine, <strong>Guillaume Ayoub</strong> (ingénieur INSA) et <strong>Philippe Donadieu</strong> (docteur en pharmacie) ont associé leurs compétences pour créer les premiers sites internet pour les pharmaciens d’officine.
       </p>
     </article>
   </section>
@@ -96,47 +96,31 @@
     </ul>
   </section>
 
-  <section id="goals">
-    <h2>Les objectifs de Pharminfo.fr</h2>
-    <ul>
-      <li id="innovate"><strong>Innover</strong> en proposant des services web spécifiques</li>
-      <li id="simplify"><strong>Simplifier</strong> la rencontre entre le pharmacien et le patient</li>
-      <li id="connect"><strong>Connecter</strong> les patients à la pharmacie 7j/7 et 24h/24</li>
-      <li id="help"><strong>Aider</strong> à l’organisation administrative et logistique de l'officine</li>
-      <li id="save"><strong>Gagner</strong> plus de temps pour l'équipe officinale afin de mieux accompagner les patients au comptoir</li>
-      <li id="raise"><strong>Augmenter</strong> le chiffre d'affaires de la pharmacie</li>
-    </ul>
-  </section>
-
   <section id="guarantees">
     <h2>Les garanties Pharminfo.fr</h2>
     <ul>
       {# TODO #}
+      <li id="order">Respect de la déontologie de l'ordre des pharmaciens</li>
       <li id="cloud">Hébergement de données de santé</li>
       <li id="payment">Module de paiement en ligne intégré</li>
       <li id="ars">Constitution du dossier ARS</li>
-      <li id="security">Données cryptées (https)</li>
-      <li id="order">Respect de la charte de l'ordre des pharmaciens</li>
-      <li id="sav">Support technique et support client</li>
-      <li id="seo">Référencement Internet naturel optimisé</li>
-      <li id="responsive">Responsive Design</li>
     </ul>
   </section>
 
   <section id="reasons">
     <h2>6 bonnes raisons de choisir Pharminfo.fr</h2>
     <p>
-      Déjà <strong>2300</strong> pharmacies ont fait confiance à Pharminfo.fr,
+      Déjà <strong>2500 pharmacies</strong> ont fait confiance à Pharminfo.fr,
       pourquoi pas vous ?
     </p>
     <ol>
       {# TODO #}
-      <li id="develop">Développement de nouveaux services de proximité</li>
-      <li id="expertise">Expertise de services démontrée</li>
-      <li id="loyal">Fidélisation de votre patientèle</li>
-      <li id="satisfaction">Satisfaction et recommandation de nos clients</li>
-      <li id="accompaniment">Accompagnement personnalisé</li>
-      <li id="cost">Coût maîtrisé</li>
+      <li id="develop">Augmentez le chiffre d'affaires de votre pharmacie</li>
+      <li id="expertise">Fidélisez votre clientèle</li>
+      <li id="loyal">Votre pharmacie disponible 24h/24 et 7j/7</li>
+      <li id="satisfaction">Une application mobile Pharminfo.fr pour l'envoi d'ordonnance</li>
+      <li id="accompaniment">Un service client à votre écoute</li>
+      <li id="cost">Pharminfo.fr, un service de proximité</li>
     </ol>
   </section>
 
@@ -163,7 +147,7 @@
       {% endfor %}
     </ul>
     <ul id="stats">
-      <li id="interne"><strong>85%</strong> des patients apprécient que leur pharmacien ait un site Internet.</li>
+      <li id="interne"><strong>85%</strong> des patients apprécient que leur pharmacien ait un site internet.</li>
       <li id="symplify"><strong>72%</strong> des patients seraient intéressés par la mise en place d'un service click and collect qui simplifie la réservation d'ordonnances.</li>
       <li id="special-order"><strong>73%</strong> des patients souhaitent la mise en place d'un comptoir uniquement dédié au click and collect (retraits des ordonnances réservées en ligne).</li>
       <li id="delivery"><strong>50%</strong> des patients souhaitent être livrés à leur domicile.</li>
@@ -172,47 +156,38 @@
   </section>
 
   <section id="offers">
-    <h2>Les offres Pharminfo.fr</h2>
+    <h2>Des offres adaptées à vos besoins</h2>
     <p>
-      Les solutions digitales de Pharminfo.fr vous permettront d'accélérer
-      votre performance, votre visibilité et vos ventes.
-    </p>
-    <p>
-      En utilisant un nouveau canal de communication, vous simplifiez la
-      gestion de votre <em>back-office</em> et améliorez votre présence au
-      comptoir.
+      Les sites internet Pharminfo.fr vous permettront d'accélérer vos ventes et votre visibilité.
     </p>
 
     <section id="ecoweb">
       <h3>Ecoweb</h3>
-      <p>Visibilité</p>
-      <p class="price"><strong>14,90 €</strong> HT/mois</p>
+      <p>Aller à l'essentiel</p>
+      <p class="price"><strong>14,90 €</strong> HT/mois</p>
       {{ features(2) }}
     </section>
 
     <section id="flexiweb-plus">
       <h3>Flexiweb Plus*</h3>
-      <p>Services +</p>
-      <p class="price"><strong>59,90 €</strong> HT/mois</p>
-      {{ features(9) }}
+      <p>Des services optimisés à moindre coût</p>
+      <p class="price"><strong>59,90 €</strong> HT/mois</p>
+      {{ features(11) }}
     </section>
 
     <section id="optiweb">
-      <h3>Optiweb**</h3>
-      <p>E-commerce</p>
-      <p class="price"><strong>139,90 €</strong> HT/mois</p>
-      {{ features(10) }}
+      <h3>Optiweb*</h3>
+      <p>Vendre ses produits en ligne</p>
+      <p class="price"><strong>139,90 €</strong> HT/mois</p>
+      {{ features(12) }}
     </section>
 
     <ul class="notes">
       <li>
-        * 199 € HT de frais de mise en ligne.
+        * 199 € HT de frais de mise en ligne.
       </li>
       <li>
-        ** 249 € HT de frais de mise en ligne. Ce prix comprend la constitution
-        du dossier ARS, la mise en ligne du site Internet, le coût de
-        l'interface de paiement et du TPE virtuel multi-banques. Commission de
-        paiement 0,9 % du panier HT.
+        ** Commission de paiement 0,9 % du panier HT.
       </li>
     </ul>
   </section>
@@ -220,12 +195,13 @@
   <section id="main-offer">
     <h2>Laissez-vous tenter par l'offre Flexiweb plus</h2>
     <p>
-      Proposez un service innovant et gratuit à vos patients : le click and
-      collect ! Simple d'utilisation, vous recevrez les ordonnances de vos
-      patients en quelques clics.
+      Proposez un service innovant et gratuit à vos patients : <strong>l'envoi d'ordonnance avec l'application mobile Pharminfo !</strong>
     </p>
     <p>
-      Plus qu'une application mobile, un vrai service de proximité !
+      Simple d'utilisation, vous recevrez les ordonnances de vos patients en quelques clics.
+    </p>
+    <p>
+      <strong>Plus qu'une application mobile, un vrai service de proximité !</strong>
     </p>
     {# TODO #}
     <ol>
@@ -246,22 +222,33 @@
         </a>
       </li>
     </ul>
+    <section id="innovation">
+      <h3>Nouveau !</h3>
+      <p>
+        <strong>Flexiweb+ fait peau neuve !</strong> Découvrez les nouveaux sites internet : nouveaux design, nouveaux thèmes graphiques...
+      </p>
+    </section>
   </section>
 
-  <section id="customize">
-    <h2>Personnalisez votre site Internet</h2>
+  <section id="essential-offer">
+    <h2>Manque de temps ? Manque de ressources ?</h2>
     <p>
-      Pour un service sur mesure, nous vous proposons d'avoir une visibilité
-      unique et de vous démarquer encore plus de vos concurrents.
+      Confiez-nous la gestion quotidienne de votre site internet Pharminfo.fr !
     </p>
-    <dl>
-      <dt id="image">Personnalisation de l'image de la bannière</dt>
-      <dd>149 € HT</dd>
-      <dt id="logo">Création d'un logo</dt>
-      <dd>1500 € HT</dd>
-      <dt id="theme">Création d'un thème complet personnalisé</dt>
-      <dd>599 € HT</dd>
-    </dl>
+    <h3><strong>Avec l'offre Les Essentiels à 50 €</strong> HT/mois.</h3>
+    <p>
+      Pharminfo.fr s'occupe de la gestion quotidienne de votre site Internet.
+    </p>
+    <ul>
+      <li>Réalisation du contenu de la présentation de votre pharmacie<li>
+      <li>Création d'un compte Google My Business<li>
+      <li>1 publication/mois sur votre site<li>
+      <li>Jusqu'à 5 promotions produits/mois<li>
+      <li>4 bannières en page d'accueil par an<li>
+      <li><strong>et bien d'autres services !</strong><li>
+    </ul>
+    <a href="{{ url_for('page', page='subscribe') }}">Je m'inscris</a>
+    <h3>Vous êtes un groupement ?<strong>Contactez-nous pour un devis personnalisé.</strong></h3>
   </section>
 
   <section id="contact">
