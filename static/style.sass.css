@@ -698,11 +698,11 @@ nav ul {
       background-color: #00a071;
       border: solid 3px #00a071;
       color: #FFFFFF; }
-      #offers section#flexiweb-plus ul li:nth-child(6), #offers section#flexiweb-plus ul li:nth-child(7), #offers section#flexiweb-plus ul li:nth-child(11) {
+      #offers section#flexiweb-plus ul li:nth-child(6), #offers section#flexiweb-plus ul li:nth-child(7) {
         font-weight: 700; }
       #offers section#flexiweb-plus p.price, #offers section#flexiweb-plus ul.links li a {
         border-color: #FFFFFF; }
-    #offers section#optiweb ul li:nth-child(12) {
+    #offers section#optiweb ul li:nth-child(11), #offers section#optiweb ul li:nth-child(12) {
       font-weight: 700; }
   #offers ul.notes {
     font-size: 0.75em;
