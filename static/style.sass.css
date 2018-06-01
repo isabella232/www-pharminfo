@@ -919,16 +919,14 @@ nav ul {
       padding: 0.75em 2em; }
   #contact a {
     cursor: pointer; }
-
-#contact .contact-form label[for="data"] {
-  display: block;
-  font-size: .9em;
-  margin: 1em 0; }
-
-#contact .contact-form p a {
-  color: #00a071;
-  font-size: .9em;
-  text-decoration: none; }
+  #contact .contact-form label[for="data"] {
+    display: block;
+    font-size: .9em;
+    margin: 1em 0; }
+  #contact .contact-form p a {
+    color: #00a071;
+    font-size: .9em;
+    text-decoration: none; }
 
 form {
   margin-top: 40px; }
@@ -1032,12 +1030,14 @@ footer {
       background: url("images/social-medias/icon-facebook.svg") center 0 no-repeat; }
     footer #social li#twitter a {
       background: url("images/social-medias/icon-twitter.svg") center 0 no-repeat; }
-    footer #social li#google a {
-      background: url("images/social-medias/icon-google.svg") center 0 no-repeat; }
+    footer #social li#instagram a {
+      background: url("images/social-medias/icon-instagram.svg") center 0 no-repeat; }
     footer #social li#linkedin a {
       background: url("images/social-medias/icon-linkedin.svg") center 0 no-repeat; }
-    footer #social li#scoopit a {
-      background: url("images/social-medias/icon-scoopit.svg") center 0 no-repeat; }
+    footer #social li#youtube a {
+      background: url("images/social-medias/icon-youtube.svg") center 0 no-repeat; }
+    footer #social li#github a {
+      background: url("images/social-medias/icon-github.svg") center 0 no-repeat; }
   footer #links {
     color: #FFFFFF;
     text-align: right; }
