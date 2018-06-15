@@ -156,11 +156,11 @@ p {
 body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#essential-offer):not(#main-offer) {
   padding: 60px 10%; }
 
-#goals h2, #guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2, #legal-content h2 {
+#guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2, #legal-content h2 {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center; }
-  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #subscribe h2::after, #whitepaper h2::after, #news-content h2::after, #clients h2::after, #websites h2::after, #legal-content h2::after {
+  #guarantees h2::after, #reasons h2::after, #offers h2::after, #subscribe h2::after, #whitepaper h2::after, #news-content h2::after, #clients h2::after, #websites h2::after, #legal-content h2::after {
     background-color: #00a071;
     content: '';
     display: block;
