@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="description" content="Prolongez votre pharmacie sur le web grâce à un site internet. Click and collect, vente en ligne, découvrez nos offres adaptées à votre métier.">
-    <title>{% block title %}Offres de sites internet pour pharmacies (Click & collect, Vente en ligne){% endblock title %}</title>
+    <title>{% block title %}Offres de sites internet pour pharmacies (Click &amp; collect, Vente en ligne){% endblock title %}</title>
     <link type="image/png" rel="icon" href="{{ url_for('static', filename='favicon.png') }}" />
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.sass.css') }}" />
     <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
@@ -13,13 +13,12 @@
 
   <body id="{{ page }}">
     <header>
-      <h1>Pharminfo.fr</h1>
+      <h1>Pharminfo.fr, site internet pour pharmacie d'officine</h1>
     </header>
 
     <nav>
       <ul>
         <li><a href="{{ url_for('page', page='index') }}">Accueil</a></li>
-        <li><a href="{{ url_for('page', page='index') }}#goals">Objectifs</a></li>
         <li><a href="{{ url_for('page', page='index') }}#guarantees">Garanties</a></li>
         <li><a href="{{ url_for('page', page='index') }}#clients">Clients</a></li>
         <li><a href="{{ url_for('page', page='index') }}#offers">Offres</a></li>
@@ -56,9 +55,10 @@
       <ul id="social">
         <li id="facebook"><a href="https://www.facebook.com/pharminfo.fr">Facebook</a></li>
         <li id="twitter"><a href="https://twitter.com/pharminfofr">Twitter</a></li>
-        <li id="google"><a href="https://plus.google.com/u/0/101769964954896551326/posts">Google+</a></li>
+        <li id="youtube"><a href="https://www.youtube.com/channel/UCx5VGRSsjpRWhc55EpI_gEw">Youtube</a></li>
         <li id="linkedin"><a href="https://www.linkedin.com/company/pharminfo-fr">LinkedIn</a></li>
-        <li id="scoopit"><a href="http://www.scoop.it/u/www-pharminfo-fr">Scoop.it</a></li>
+        <li id="instagram"><a href="https://www.instagram.com/kozea/">Instagram</a></li>
+        <li id="github"><a href="https://github.com/Kozea">Github</a></li>
       </ul>
       <ul id="links">
         <li><a href="https://static.pharminfo.fr/documents/CGU.pdf">Conditions Générales d'Utilisation</a></li>
@@ -71,22 +71,5 @@
       <script src="https://maps.googleapis.com/maps/api/js?callback=initMaps" async defer></script>
     {% endif %}
     <script type="text/javascript" src="{{ url_for('static', filename='js/scrollReveal.min.js') }}"></script>
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-_gaq.push(["_setAccount", "UA-62616971-1"]);
-_gaq.push(["_setDomainName", "pharminfo.fr"]);
-_gaq.push(["_setAllowLinker", true]);
-_gaq.push(["_trackPageview"]);
-
-(function() {
-  var ga = document.createElement("script");
-  ga.type = "text/javascript";
-  ga.async = true;
-  ga.src =
-    ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
-    ".google-analytics.com/ga.js";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(ga, s);
-})();
-</script>  </body>
+  </body>
 </html>

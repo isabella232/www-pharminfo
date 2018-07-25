@@ -20,8 +20,18 @@
       <input id="phone" type="tel" name="phone" placeholder="Numéro de téléphone*" value="{{ data and data.phone }}" required />
       <label for="email">Email</label>
       <input id="email" type="email" name="email" placeholder="Adresse email*" value="{{ data and data.email }}" required />
+      <label class="checkbox">
+        <input type="checkbox" required />
+        J'accepte que les informations saisies soient exploitées par l'équipe
+        commerciale de Kozea group en échange du téléchargement du livre blanc.*
+      </label>
       <div class="g-recaptcha" data-sitekey="6LdPHhMUAAAAAKK2m0QKxrc5Muu9fuSScUpQJ8Ns"></div>
       <input type="submit" value="Valider" />
     </form>
+    <p>
+      <a href="{{ url_for('page', page='legal') }}">
+        Voir notre politique de confidentialité dans les mentions légales.
+      </a>
+    </p>
   </section>
 {% endblock body %}

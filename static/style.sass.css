@@ -13,7 +13,7 @@
 /* Mixin transitions */
 /* Mixin triangle */
 /* Menu animation */
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,700);
 @keyframes nav-opening {
   0% {
     height: 70px;
@@ -147,19 +147,20 @@ ul, ol {
   padding-left: 0; }
 
 p {
-  font-size: 1.1em; }
+  font-size: 1.1em;
+  line-height: 1.5em; }
 
 *:not(strong) {
   font-weight: 300; }
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content) {
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#essential-offer):not(#main-offer) {
   padding: 60px 10%; }
 
-#goals h2, #guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2, #legal-content h2 {
+#guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2, #legal-content h2 {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center; }
-  #goals h2::after, #guarantees h2::after, #reasons h2::after, #offers h2::after, #subscribe h2::after, #whitepaper h2::after, #news-content h2::after, #clients h2::after, #websites h2::after, #legal-content h2::after {
+  #guarantees h2::after, #reasons h2::after, #offers h2::after, #subscribe h2::after, #whitepaper h2::after, #news-content h2::after, #clients h2::after, #websites h2::after, #legal-content h2::after {
     background-color: #00a071;
     content: '';
     display: block;
@@ -224,11 +225,11 @@ article {
       #index #news ul li a {
         -webkit-transition: all 0.25s 0s;
         transition: all 0.25s 0s;
-        border: solid 1px;
+        border: solid 2px;
         color: inherit;
+        font-weight: 700;
         padding: 0.5em 1em;
         text-decoration: none;
-        text-transform: uppercase;
         border-color: #515151; }
         #index #news ul li a:hover {
           padding: 1em 2em; }
@@ -305,9 +306,8 @@ nav ul {
     color: #FFFFFF;
     font-size: 2.8em;
     font-weight: 400;
-    margin: 0.7em auto;
-    max-width: 15em;
-    text-shadow: 2px 2px 7px rgba(150, 150, 150, 0.4);
+    margin: 0.7em auto 0;
+    max-width: 17em;
     width: 100%; }
     #sales h2::after {
       background-color: #00a071;
@@ -323,25 +323,32 @@ nav ul {
       width: 280px;
       margin: 0 auto 20px;
       max-width: 100%; }
-  #sales ul li a {
-    -webkit-transition: all 0.25s 0s;
-    transition: all 0.25s 0s;
-    background-color: #FFFFFF;
-    color: inherit;
-    font-weight: 400;
-    text-decoration: none;
-    padding: 0.5em 1em; }
-    #sales ul li a:hover {
-      background-color: #00a071;
-      color: #FFFFFF;
-      padding: 0.75em 1.5em; }
+  #sales ul li {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 400; }
+    #sales ul li a {
+      -webkit-transition: all 0.25s 0s;
+      transition: all 0.25s 0s;
+      background-color: #FFFFFF;
+      color: #00a071;
+      display: inline-block;
+      font-size: .7em;
+      font-weight: 400;
+      margin: 1em 0;
+      padding: .75em 1.5em;
+      text-decoration: none; }
+      #sales ul li a:hover {
+        background-color: #00a071;
+        color: #FFFFFF; }
 
 #about {
   text-align: center; }
   #about h2 {
-    color: italic;
+    color: #515151;
     font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
-    text-align: center; }
+    text-align: center;
+    color: #00a071; }
     #about h2::after {
       background-color: #00a071;
       content: '';
@@ -356,10 +363,9 @@ nav ul {
       transition: all 0.25s 0s;
       box-sizing: border-box;
       display: block;
-      font-weight: 400;
-      padding: 0.5em 0.75em;
-      text-decoration: none;
-      text-transform: uppercase; }
+      font-weight: 700;
+      padding: 1em;
+      text-decoration: none; }
       #about ul li a:not(.active) {
         background-color: transparent;
         border: solid 1px transparent;
@@ -386,48 +392,19 @@ nav ul {
       #about article ul.links a {
         -webkit-transition: all 0.25s 0s;
         transition: all 0.25s 0s;
-        border: solid 1px;
+        border: solid 2px;
         color: inherit;
+        font-weight: 700;
         padding: 0.5em 1em;
         text-decoration: none;
-        text-transform: uppercase;
         border-color: #515151; }
         #about article ul.links a:hover {
           padding: 1em 2em; }
+    #about article p strong {
+      color: #00a071; }
 
-#goals {
-  background-color: #f5f5f5; }
-  #goals ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between; }
-    #goals ul li {
-      margin: 1.5em 0;
-      min-height: 56px;
-      padding-left: calc(56px + 2em); }
-      @media screen and (max-width: 529px) {
-        #goals ul li {
-          font-size: 0.95em; } }
-      @media screen and (min-width: 530px) {
-        #goals ul li {
-          font-size: 1.1em; } }
-      #goals ul li#help {
-        background: url(images/objectifs/icon-help.svg) top left/56px 56px no-repeat; }
-      #goals ul li#connect {
-        background: url(images/objectifs/icon-connect.svg) top left/56px 56px no-repeat; }
-      #goals ul li#innovate {
-        background: url(images/objectifs/icon-innovate.svg) top left/56px 56px no-repeat; }
-      #goals ul li#simplify {
-        background: url(images/objectifs/icon-simplify.svg) top left/56px 56px no-repeat; }
-      #goals ul li#save {
-        background: url(images/objectifs/icon-save.svg) top left/56px 56px no-repeat; }
-      #goals ul li#raise {
-        background: url(images/objectifs/icon-raise.svg) top left/56px 56px no-repeat; }
-      #goals ul li strong {
-        color: #00a071;
-        display: block;
-        font-size: 1.3em; }
+#guarantees h2 {
+  color: #00a071; }
 
 #guarantees ul {
   display: flex;
@@ -462,23 +439,19 @@ nav ul {
       content: url(images/warranties/icon-payment.svg); }
     #guarantees ul li#ars::before {
       content: url(images/warranties/icon-ars.svg); }
-    #guarantees ul li#security::before {
-      content: url(images/warranties/icon-security.svg); }
     #guarantees ul li#order::before {
       content: url(images/warranties/icon-order.svg); }
-    #guarantees ul li#sav::before {
-      content: url(images/warranties/icon-sav.svg); }
-    #guarantees ul li#seo::before {
-      content: url(images/warranties/icon-seo.svg); }
-    #guarantees ul li#responsive::before {
-      content: url(images/warranties/icon-responsive.svg); }
+
+#reasons h2 {
+  color: #00a071; }
 
 #reasons h2, #reasons p {
   padding: 0 10%; }
 
 #reasons p {
-  font-style: italic;
   text-align: center; }
+  #reasons p strong {
+    color: #00a071; }
 
 #reasons ol {
   counter-reset: reasons;
@@ -488,55 +461,37 @@ nav ul {
   padding: 0 10% 3em; }
   #reasons ol li {
     counter-increment: reasons;
+    color: #00a071;
+    font-weight: 700;
     margin: 1.2em 0 1.2em 1.5em;
     padding: 1.5em 1.5em 1.5em calc(1.5em + 50px);
     position: relative; }
-    #reasons ol li::before {
-      content: "";
-      display: block;
-      height: 0;
-      width: 0;
-      border-color: transparent #e6e6e6 transparent transparent;
-      border-style: solid;
-      border-width: 10px 7px 10px 0;
-      left: -7px;
-      position: absolute;
-      right: inherit;
-      top: calc(50% - 10px);
-      transform: rotate(0);
-      -ms-transform: rotate(0); }
-    @media screen and (max-width: 529px) {
-      #reasons ol li {
-        font-size: 0.95em; } }
-    @media screen and (min-width: 530px) {
-      #reasons ol li {
-        font-size: 1.1em; } }
     #reasons ol li::after {
       content: counter(reasons);
       display: initial;
-      height: 1.2em;
-      width: 1.2em;
-      background-color: #FFFFFF;
-      border: solid 1px #d3d3d3;
+      height: 1.5em;
+      width: 1.5em;
+      background-color: #00a071;
       border-radius: 50%;
-      color: #d3d3d3;
+      color: #fff;
       font-weight: 400;
+      line-height: 1.5em;
       text-align: center;
       top: calc(50% - 10px);
       position: absolute;
       left: -38px; }
     #reasons ol li#develop {
-      background: url("images/choose/icon-develop.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-develop.svg") 0.75em center/50px 50px no-repeat, #fff; }
     #reasons ol li#expertise {
-      background: url("images/choose/icon-expertise.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-expertise.svg") 0.75em center/50px 50px no-repeat, #fff; }
     #reasons ol li#loyal {
-      background: url("images/choose/icon-loyal.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-loyal.svg") 0.75em center/50px 50px no-repeat, #fff; }
     #reasons ol li#satisfaction {
-      background: url("images/choose/icon-satisfaction.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-satisfaction.svg") 0.75em center/50px 50px no-repeat, #fff; }
     #reasons ol li#accompaniment {
-      background: url("images/choose/icon-accompaniment.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-accompaniment.svg") 0.75em center/50px 50px no-repeat, #fff; }
     #reasons ol li#cost {
-      background: url("images/choose/icon-cost.svg") 0.75em center/50px 50px no-repeat, #e6e6e6; }
+      background: url("images/choose/icon-cost.svg") 0.75em center/50px 50px no-repeat, #fff; }
 
 #clients {
   display: flex;
@@ -681,12 +636,13 @@ nav ul {
 
 #offers {
   background-color: #f5f5f5; }
+  #offers h2 {
+    color: #00a071; }
   #offers h2, #offers > p {
+    margin-top: 0;
     width: 100%; }
   #offers h2, #offers > p, #offers section {
     text-align: center; }
-  #offers > p {
-    font-style: italic; }
   #offers section {
     -webkit-transition: all 0.25s 0s;
     transition: all 0.25s 0s;
@@ -695,21 +651,19 @@ nav ul {
     margin: 1.2em 0;
     padding: 2em 1.5em; }
     #offers section h3 {
-      font-weight: 400;
-      font-size: 1.7em;
-      margin: 0;
-      text-transform: uppercase; }
-    #offers section p:first-of-type {
+      font-weight: 700;
+      font-size: 1.8em;
       margin: 0; }
+    #offers section p:first-of-type {
+      font-weight: 400; }
     #offers section p.price {
-      border-bottom: solid 1px #e6e6e6;
-      border-top: solid 1px #e6e6e6;
+      border-bottom: solid 1px #00a071;
+      border-top: solid 1px #00a071;
       font-size: 0.75em;
-      margin: 2em 0;
-      padding: 0.7em; }
+      padding: 1.5em; }
       #offers section p.price strong {
         font-size: 2.8em;
-        font-weight: 400; }
+        font-weight: 700; }
     #offers section ul li {
       margin: 1em; }
       @media screen and (max-width: 529px) {
@@ -725,36 +679,43 @@ nav ul {
       #offers section ul.links li a {
         -webkit-transition: all 0.25s 0s;
         transition: all 0.25s 0s;
-        border: solid 1px;
+        border: solid 2px;
         color: inherit;
+        font-weight: 700;
         padding: 0.5em 1em;
         text-decoration: none;
-        text-transform: uppercase;
         border-color: #515151; }
         #offers section ul.links li a:hover {
           padding: 1em 2em; }
     #offers section:not(#flexiweb-plus) {
       background-color: #FFFFFF;
       border: solid 3px #f5f5f5; }
+      #offers section:not(#flexiweb-plus) .price strong {
+        color: #00a071; }
       #offers section:not(#flexiweb-plus):hover {
         border: solid 3px #e6e6e6; }
     #offers section#flexiweb-plus {
       background-color: #00a071;
-      border: solid 3px #2fc17b;
+      border: solid 3px #00a071;
       color: #FFFFFF; }
+      #offers section#flexiweb-plus ul li:nth-child(6), #offers section#flexiweb-plus ul li:nth-child(7) {
+        font-weight: 700; }
       #offers section#flexiweb-plus p.price, #offers section#flexiweb-plus ul.links li a {
         border-color: #FFFFFF; }
+    #offers section#optiweb ul li:nth-child(11), #offers section#optiweb ul li:nth-child(12) {
+      font-weight: 700; }
   #offers ul.notes {
-    font-size: 0.75em; }
+    font-size: 0.75em;
+    margin-left: 5em;
+    width: 100%; }
 
 #main-offer {
   background-color: #f5f5f5;
-  padding-top: 3em;
+  padding: 0 10%;
   text-align: center; }
   #main-offer h2 {
-    font-size: 1.875em; }
-  #main-offer p {
-    font-style: italic; }
+    color: #00a071;
+    font-size: 2em; }
   #main-offer ol {
     display: flex;
     flex-direction: row;
@@ -762,12 +723,11 @@ nav ul {
     justify-content: flex-start;
     align-items: flex-start;
     counter-reset: offer_count;
-    margin: 2em 0; }
+    margin: 2em 0 0 0; }
     #main-offer ol li {
       border-top: solid 220px transparent;
       counter-increment: offer_count;
       font-size: 1em;
-      margin-bottom: 3em;
       padding: 0.7em;
       position: relative;
       width: 100%; }
@@ -790,10 +750,9 @@ nav ul {
         display: block;
         height: 20px;
         width: 20px;
-        background-color: #f5f5f5;
-        border: solid 1px #d3d3d3;
+        background-color: #00a071;
         border-radius: 50%;
-        color: #d3d3d3;
+        color: #fff;
         font-weight: 400;
         left: calc(50% - 0.7em);
         margin: 0 auto;
@@ -808,19 +767,20 @@ nav ul {
         background: url("images/timeline-mobile-app/sms.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
       #main-offer ol li#reception {
         background: url("images/timeline-mobile-app/reception.svg") border-box center 0/146px auto no-repeat, padding-box #e6e6e6; }
-  #main-offer ul.links li {
-    display: inline-block; }
-    #main-offer ul.links li a {
+  #main-offer ul.links {
+    margin: 0; }
+    #main-offer ul.links li {
+      display: inline-block; }
+    #main-offer ul.links a {
       -webkit-transition: padding 0.25s 0s;
       transition: padding 0.25s 0s;
       background-color: #00a071;
       color: #FFFFFF;
+      font-weight: 700;
       display: inline-block;
-      margin-top: 1em;
-      padding: 0.75em 1em;
-      text-decoration: none;
-      text-transform: uppercase; }
-      #main-offer ul.links li a:hover {
+      padding: 1em;
+      text-decoration: none; }
+      #main-offer ul.links a:hover {
         padding: 1em 1.5em; }
   #main-offer::after {
     content: "";
@@ -831,120 +791,142 @@ nav ul {
     left: -12.5%;
     margin-top: 50px;
     position: relative; }
-
-#customize {
-  background-color: #f5f5f5;
-  text-align: center; }
-  #customize h2 {
-    font-size: 1.875em; }
-  #customize p {
-    font-style: italic; }
-  #customize dl {
+  #main-offer #innovation {
+    align-content: flex-end;
+    background: url("images/photos/innovation.jpg") no-repeat center/cover;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    height: 780px; }
-    #customize dl dt {
-      margin-top: 3em;
-      position: relative; }
-      #customize dl dt::after {
-        background-color: #00a071;
-        content: '';
-        display: block;
-        height: 2px;
-        margin: 0 auto;
-        width: 18px; }
-      @media screen and (max-width: 529px) {
-        #customize dl dt {
-          font-size: 0.95em; } }
-      @media screen and (min-width: 530px) {
-        #customize dl dt {
-          font-size: 1.1em; } }
-      #customize dl dt::before {
-        content: "";
-        display: block;
-        height: 60px;
-        width: 60px;
-        margin: 0 auto 15px; }
-      #customize dl dt::after {
-        left: calc( 50% - 9px);
-        position: absolute;
-        top: 60px; }
-      #customize dl dt#image::before {
-        background: url("images/personnalisation/icon-image.svg") center 0 no-repeat; }
-      #customize dl dt#colors::before {
-        background: url("images/personnalisation/icon-colors.svg") center 0 no-repeat; }
-      #customize dl dt#logo::before {
-        background: url("images/personnalisation/icon-logo.svg") center 0 no-repeat; }
-      #customize dl dt#theme::before {
-        background: url("images/personnalisation/icon-theme.svg") center 0 no-repeat; }
-    #customize dl dd {
-      font-size: 1.3em;
-      margin: 0.5em 0 0; }
-    #customize dl dt, #customize dl dd {
-      max-width: 200px; }
+    margin: 2em 0;
+    min-height: 450px;
+    padding: 0; }
+    #main-offer #innovation h3 {
+      background: #fff;
+      color: #00a071;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0 auto;
+      padding: .5em;
+      text-transform: uppercase; }
+    #main-offer #innovation p {
+      background: #00a071;
+      color: #fff;
+      flex: 1 100%;
+      font-weight: 400;
+      margin: 0;
+      padding: 1em 0; }
 
-#contact #contact-map {
-  height: 400px;
-  width: 100%; }
-
-#contact > dl, #contact > form, #contact > p {
-  margin: 50px 10%; }
-  @media screen and (max-width: 529px) {
-    #contact > dl, #contact > form, #contact > p {
-      font-size: 0.95em; } }
-  @media screen and (min-width: 530px) {
-    #contact > dl, #contact > form, #contact > p {
-      font-size: 1.1em; } }
-
-#contact h2 {
-  font-size: 2.25em;
-  margin: 50px 10% 0; }
-  #contact h2::after {
-    background-color: #00a071;
-    content: '';
-    display: block;
-    height: 2px;
-    margin: 15px 0 0;
-    width: 16px; }
-
-#contact dl dt {
-  color: #00a071;
-  float: left;
-  margin-right: 10px; }
-  #contact dl dt::after {
-    content: ' :'; }
-  #contact dl dt:first-of-type {
-    display: none; }
-
-#contact dl dd {
-  margin-left: 0; }
-  #contact dl dd a {
-    color: inherit;
+#essential-offer {
+  background: #00a071;
+  color: #fff;
+  padding: 60px 0 0 0;
+  text-align: center; }
+  #essential-offer h2 {
+    font-size: 1.9em;
+    font-weight: 700;
+    margin: 0; }
+  #essential-offer h3 {
+    font-weight: 700;
+    margin-bottom: 0; }
+    #essential-offer h3:first-of-type {
+      font-size: .75em; }
+      #essential-offer h3:first-of-type strong {
+        font-size: 2.2em; }
+    #essential-offer h3:last-of-type {
+      background: #fff;
+      color: #515151;
+      font-size: 1.9em;
+      margin-top: 0;
+      padding: 3em 0; }
+      #essential-offer h3:last-of-type strong {
+        display: block; }
+    #essential-offer h3 + p {
+      display: inline-block;
+      font-size: 1.4em;
+      font-weight: 700;
+      margin-top: 0; }
+  #essential-offer ul {
+    font-size: 1.1em;
+    line-height: 2em;
+    margin-top: 0; }
+    #essential-offer ul li {
+      font-weight: 400; }
+  #essential-offer a {
+    -webkit-transition: padding 0.25s 0s;
+    transition: padding 0.25s 0s;
+    background-color: #fff;
+    color: #00a071;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 60px;
+    padding: 0.75em 1em;
     text-decoration: none; }
-  #contact dl dd:first-of-type {
+    #essential-offer a:hover {
+      padding: 1em 1.5em; }
+
+#contact {
+  border-top: 1px solid #f5f5f5; }
+  #contact #contact-map {
+    height: 400px;
+    width: 100%; }
+  #contact > dl, #contact > form, #contact > p {
+    margin: 50px 10%; }
+    @media screen and (max-width: 529px) {
+      #contact > dl, #contact > form, #contact > p {
+        font-size: 0.95em; } }
+    @media screen and (min-width: 530px) {
+      #contact > dl, #contact > form, #contact > p {
+        font-size: 1.1em; } }
+  #contact h2 {
+    font-size: 2.25em;
+    color: #00a071;
+    margin: 50px 10% 0; }
+    #contact h2::after {
+      background-color: #00a071;
+      content: '';
+      display: block;
+      height: 2px;
+      margin: 15px 0 0;
+      width: 16px; }
+  #contact dl dt {
+    color: #00a071;
+    float: left;
+    margin-right: 10px; }
+    #contact dl dt::after {
+      content: ' :'; }
+    #contact dl dt:first-of-type {
+      display: none; }
+  #contact dl dd {
+    margin-left: 0; }
+    #contact dl dd a {
+      color: inherit;
+      text-decoration: none; }
+    #contact dl dd:first-of-type {
+      display: block;
+      margin-bottom: 40px; }
+    #contact dl dd strong {
+      font-weight: 400; }
+  #contact > p a {
+    -webkit-transition: padding 0.25s 0s;
+    transition: padding 0.25s 0s;
+    background-color: #00a071;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.75em 1em;
+    text-align: center;
+    text-decoration: none; }
+    #contact > p a:hover {
+      padding: 0.75em 2em; }
+  #contact a {
+    cursor: pointer; }
+  #contact .contact-form label[for="data"] {
     display: block;
-    margin-bottom: 40px; }
-  #contact dl dd strong {
-    font-weight: 400; }
-
-#contact > p a {
-  -webkit-transition: padding 0.25s 0s;
-  transition: padding 0.25s 0s;
-  background-color: #00a071;
-  color: #FFFFFF;
-  display: inline-block;
-  padding: 0.75em 1em;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase; }
-  #contact > p a:hover {
-    padding: 0.75em 2em; }
-
-#contact a {
-  cursor: pointer; }
+    font-size: .9em;
+    margin: 1em 0; }
+  #contact .contact-form p a {
+    color: #00a071;
+    font-size: .9em;
+    text-decoration: none; }
 
 form {
   margin-top: 40px; }
@@ -972,13 +954,14 @@ form {
     -webkit-transition: all 0.25s 0s;
     transition: all 0.25s 0s;
     background: transparent;
-    border: solid 1px #515151;
+    border: solid 2px #515151;
     border-radius: 0;
+    color: #515151;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1em;
+    font-weight: 700;
     margin: 20px 0 0;
-    padding: 0.75em 2em;
-    text-transform: uppercase; }
+    padding: 0.75em 2em; }
     form > input:last-of-type:hover {
       background: #515151;
       color: #f5f5f5; }
@@ -1047,12 +1030,14 @@ footer {
       background: url("images/social-medias/icon-facebook.svg") center 0 no-repeat; }
     footer #social li#twitter a {
       background: url("images/social-medias/icon-twitter.svg") center 0 no-repeat; }
-    footer #social li#google a {
-      background: url("images/social-medias/icon-google.svg") center 0 no-repeat; }
+    footer #social li#instagram a {
+      background: url("images/social-medias/icon-instagram.svg") center 0 no-repeat; }
     footer #social li#linkedin a {
       background: url("images/social-medias/icon-linkedin.svg") center 0 no-repeat; }
-    footer #social li#scoopit a {
-      background: url("images/social-medias/icon-scoopit.svg") center 0 no-repeat; }
+    footer #social li#youtube a {
+      background: url("images/social-medias/icon-youtube.svg") center 0 no-repeat; }
+    footer #social li#github a {
+      background: url("images/social-medias/icon-github.svg") center 0 no-repeat; }
   footer #links {
     color: #FFFFFF;
     text-align: right; }
@@ -1104,9 +1089,15 @@ aside#flash ul {
 #subscribe #subscribe-form p, #whitepaper #subscribe-form p {
   text-align: center; }
 
+#subscribe #subscribe-form a, #whitepaper #subscribe-form a {
+  color: #515151; }
+
 #subscribe #subscribe-form form, #whitepaper #subscribe-form form {
   margin: 40px auto;
   max-width: 600px; }
+  #subscribe #subscribe-form form .checkbox, #whitepaper #subscribe-form form .checkbox {
+    display: block;
+    margin: 1em 0; }
 
 #subscribe > section::before {
   background: url("images/photos/bdc-bkgd.jpg") center/cover no-repeat; }
@@ -1124,10 +1115,9 @@ aside#flash ul {
       transition: all 0.25s 0s;
       box-sizing: border-box;
       display: block;
-      font-weight: 400;
-      padding: 0.5em 0.75em;
-      text-decoration: none;
-      text-transform: uppercase; }
+      font-weight: 700;
+      padding: 1em;
+      text-decoration: none; }
       #whitepaper > section > ul li a:not(.active) {
         background-color: transparent;
         border: solid 1px transparent;
@@ -1153,7 +1143,8 @@ aside#flash ul {
 #whitepaper > section form > p:first-of-type {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
-  text-align: center; }
+  text-align: center;
+  color: #00a071; }
   #whitepaper > section form > p:first-of-type::after {
     background-color: #00a071;
     content: '';
@@ -1175,6 +1166,18 @@ aside#flash ul {
     margin-right: 10px;
     min-height: 20px;
     min-width: 20px; }
+
+#whitepaper > section .legal {
+  background: #f5f5f5;
+  font-size: .9em;
+  margin-top: 2em;
+  padding: 2em;
+  text-align: center; }
+  #whitepaper > section .legal h2 {
+    margin: 0; }
+  #whitepaper > section .legal a {
+    color: #00a071;
+    text-decoration: none; }
 
 #news-content, #legal-content {
   box-sizing: border-box;
@@ -1201,6 +1204,12 @@ aside#flash ul {
     #websites ul li a:hover {
       background-color: #f5f5f5; }
 
+#legal h2 {
+  margin-top: 2em; }
+
+#legal h3 {
+  font-weight: bold; }
+
 #legal dl {
   margin: 0 auto;
   max-width: 800px; }
@@ -1209,6 +1218,11 @@ aside#flash ul {
     margin-top: 20px; }
   #legal dl dd {
     margin-left: 0; }
+
+#legal section {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100rem; }
 
 .image {
   max-height: 200px; }
@@ -1262,7 +1276,10 @@ aside#flash ul {
     display: none; }
   #offers section.more:not(#flexiweb-plus) span.less {
     display: block;
-    opacity: 1; } }
+    opacity: 1; }
+  #offers ul.notes {
+    margin-left: 0;
+    width: auto; } }
 
 @media screen and (max-width: 840px) {
   body {
@@ -1413,7 +1430,7 @@ aside#flash ul {
       display: block;
       height: 92%;
       width: 1px;
-      background-color: #d3d3d3;
+      background-color: #00a071;
       left: 50%;
       position: absolute;
       top: 8%; }
@@ -1425,22 +1442,8 @@ aside#flash ul {
         margin: 1.2em 1.5em 1.2em 0;
         padding: 1.5em calc(1.5em + 50px) 1.5em 1.5em;
         text-align: right; }
-        #reasons ol li#develop::before, #reasons ol li#loyal::before, #reasons ol li#accompaniment::before {
-          content: "";
-          display: block;
-          height: 0;
-          width: 0;
-          border-color: transparent #e6e6e6 transparent transparent;
-          border-style: solid;
-          border-width: 10px 7px 10px 0;
-          left: inherit;
-          position: absolute;
-          right: -7px;
-          top: calc(50% - 10px);
-          transform: rotate(180deg);
-          -ms-transform: rotate(180deg); }
         #reasons ol li#develop::after, #reasons ol li#loyal::after, #reasons ol li#accompaniment::after {
-          right: -38px;
+          right: -35px;
           left: initial; }
       #reasons ol li#expertise, #reasons ol li#satisfaction, #reasons ol li#cost {
         align-self: flex-end; }
