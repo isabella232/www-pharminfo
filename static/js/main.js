@@ -180,12 +180,14 @@
         }
         if (!has_event) {
           nav.querySelector('div').addEventListener('click', click_fn);
+          nav.querySelector('ul').addEventListener('click', click_fn);
           has_event = true;
         }
       }
       else {
         if (has_event) {
           nav.querySelector('div').removeEventListener('click', click_fn);
+          nav.querySelector('ul').removeEventListener('click', click_fn);
         }
         if (nav.querySelector('div')) {
           nav.querySelector('div').style.display = 'none';
