@@ -153,7 +153,7 @@ p {
 *:not(strong) {
   font-weight: 300; }
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#essential-offer):not(#main-offer) {
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#main-offer) {
   padding: 60px 10%; }
 
 #guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2, #legal-content h2 {
@@ -643,40 +643,40 @@ nav ul {
     width: 100%; }
   #offers h2, #offers > p, #offers section {
     text-align: center; }
-  #offers section {
+  #offers section:not(#grouping) {
     -webkit-transition: all 0.25s 0s;
     transition: all 0.25s 0s;
     border: solid 3px;
     box-sizing: border-box;
     margin: 1.2em 0;
     padding: 2em 1.5em; }
-    #offers section h3 {
+    #offers section:not(#grouping) h3 {
       font-weight: 700;
       font-size: 1.8em;
       margin: 0; }
-    #offers section p:first-of-type {
+    #offers section:not(#grouping) p:first-of-type {
       font-weight: 400; }
-    #offers section p.price {
+    #offers section:not(#grouping) p.price {
       border-bottom: solid 1px #00a071;
       border-top: solid 1px #00a071;
       font-size: 0.75em;
       padding: 1.5em; }
-      #offers section p.price strong {
+      #offers section:not(#grouping) p.price strong {
         font-size: 2.8em;
         font-weight: 700; }
-    #offers section ul li {
+    #offers section:not(#grouping) ul li {
       margin: 1em; }
       @media screen and (max-width: 529px) {
-        #offers section ul li {
+        #offers section:not(#grouping) ul li {
           font-size: 0.95em; } }
       @media screen and (min-width: 530px) {
-        #offers section ul li {
+        #offers section:not(#grouping) ul li {
           font-size: 1.1em; } }
-      #offers section ul li.disabled {
+      #offers section:not(#grouping) ul li.disabled {
         opacity: 0.35; }
-    #offers section ul.links {
+    #offers section:not(#grouping) ul.links {
       margin: 3em 0 2em; }
-      #offers section ul.links li a {
+      #offers section:not(#grouping) ul.links li a {
         -webkit-transition: all 0.25s 0s;
         transition: all 0.25s 0s;
         border: solid 2px;
@@ -685,29 +685,37 @@ nav ul {
         padding: 0.5em 1em;
         text-decoration: none;
         border-color: #515151; }
-        #offers section ul.links li a:hover {
+        #offers section:not(#grouping) ul.links li a:hover {
           padding: 1em 2em; }
-    #offers section:not(#flexiweb-plus) {
+    #offers section:not(#grouping):not(#flexiweb-plus) {
       background-color: #FFFFFF;
       border: solid 3px #f5f5f5; }
-      #offers section:not(#flexiweb-plus) .price strong {
+      #offers section:not(#grouping):not(#flexiweb-plus) .price strong {
         color: #00a071; }
-      #offers section:not(#flexiweb-plus):hover {
+      #offers section:not(#grouping):not(#flexiweb-plus):hover {
         border: solid 3px #e6e6e6; }
-    #offers section#flexiweb-plus {
+    #offers section:not(#grouping)#flexiweb-plus {
       background-color: #00a071;
       border: solid 3px #00a071;
       color: #FFFFFF; }
-      #offers section#flexiweb-plus ul li:nth-child(6), #offers section#flexiweb-plus ul li:nth-child(7) {
+      #offers section:not(#grouping)#flexiweb-plus ul li:nth-child(6), #offers section:not(#grouping)#flexiweb-plus ul li:nth-child(7) {
         font-weight: 700; }
-      #offers section#flexiweb-plus p.price, #offers section#flexiweb-plus ul.links li a {
+      #offers section:not(#grouping)#flexiweb-plus p.price, #offers section:not(#grouping)#flexiweb-plus ul.links li a {
         border-color: #FFFFFF; }
-    #offers section#optiweb ul li:nth-child(11), #offers section#optiweb ul li:nth-child(12) {
+    #offers section:not(#grouping)#optiweb ul li:nth-child(11), #offers section:not(#grouping)#optiweb ul li:nth-child(12) {
       font-weight: 700; }
   #offers ul.notes {
     font-size: 0.75em;
     margin-left: 5em;
     width: 100%; }
+  #offers #grouping {
+    background: #FFFFFF;
+    font-weight: 300;
+    padding: 2em;
+    text-align: center;
+    width: 100%; }
+    #offers #grouping p:last-of-type {
+      font-weight: 700; }
 
 #main-offer {
   background-color: #f5f5f5;
@@ -814,54 +822,6 @@ nav ul {
       font-weight: 400;
       margin: 0;
       padding: 1em 0; }
-
-#essential-offer {
-  background: #00a071;
-  color: #fff;
-  padding: 60px 0 0 0;
-  text-align: center; }
-  #essential-offer h2 {
-    font-size: 1.9em;
-    font-weight: 700;
-    margin: 0; }
-  #essential-offer h3 {
-    font-weight: 700;
-    margin-bottom: 0; }
-    #essential-offer h3:first-of-type {
-      font-size: .75em; }
-      #essential-offer h3:first-of-type strong {
-        font-size: 2.2em; }
-    #essential-offer h3:last-of-type {
-      background: #fff;
-      color: #515151;
-      font-size: 1.9em;
-      margin-top: 0;
-      padding: 3em 0; }
-      #essential-offer h3:last-of-type strong {
-        display: block; }
-    #essential-offer h3 + p {
-      display: inline-block;
-      font-size: 1.4em;
-      font-weight: 700;
-      margin-top: 0; }
-  #essential-offer ul {
-    font-size: 1.1em;
-    line-height: 2em;
-    margin-top: 0; }
-    #essential-offer ul li {
-      font-weight: 400; }
-  #essential-offer a {
-    -webkit-transition: padding 0.25s 0s;
-    transition: padding 0.25s 0s;
-    background-color: #fff;
-    color: #00a071;
-    font-weight: 700;
-    display: inline-block;
-    margin-bottom: 60px;
-    padding: 0.75em 1em;
-    text-decoration: none; }
-    #essential-offer a:hover {
-      padding: 1em 1.5em; }
 
 #contact {
   border-top: 1px solid #f5f5f5; }
@@ -1279,6 +1239,9 @@ aside#flash ul {
     opacity: 1; }
   #offers ul.notes {
     margin-left: 0;
+    width: auto; }
+  #offers #grouping {
+    padding: 1em;
     width: auto; } }
 
 @media screen and (max-width: 840px) {
@@ -1704,7 +1667,7 @@ aside#flash ul {
     width: 30%; } }
 
 @media screen and (min-width: 1215px) {
-  #offers section {
+  #offers section:not(#grouping) {
     width: 30%; }
   #main-offer::after {
     height: 320px; } }

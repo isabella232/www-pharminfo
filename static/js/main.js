@@ -11,9 +11,8 @@
                 '#main-offer p, #main-offer ol, #main-offer #innovation, #stats li'],
       'asc': ['#news article, #news .links',
               '#cloud, #payment, #ars, #security',
-              '#order, #sav, #seo, #responsive',
-              '#essential-offer li'],
-      'desc': ['#optiweb, #flexiweb-plus, #flexiweb, #ecoweb'],
+              '#order, #sav, #seo, #responsive'],
+      'desc': ['#optiweb, #flexiweb-plus, #flexiweb, #ecoweb, #grouping'],
       'left': ['#develop, #loyal, #accompaniment'],
       'right': ['#expertise, #satisfaction, #cost']}
     reveals.subscribe = {'basic': ['#subscribe-form']}
