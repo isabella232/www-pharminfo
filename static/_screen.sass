@@ -494,7 +494,7 @@ nav ul
   h2, > p, section
     text-align: center
 
-  section
+  section:not(#grouping)
     @include transition(all)
     border: solid 3px
     box-sizing: border-box
@@ -565,20 +565,15 @@ nav ul
     margin-left: 5em
     width: 100%
 
-  > h3
+  #grouping
     background: $white
-    color: $main-color
-    font-size: 1.9em
     font-weight: 300
-    padding: 2em 5em
+    padding: 2em
     text-align: center
+    width: 100%
 
-    strong
-      color: $grey-1
-      display: block
-      font-size: .8em
-      font-weight: 400
-      margin: .5em 0
+    p:last-of-type
+      font-weight: 700
 
 #main-offer
   background-color: $grey-4
