@@ -153,7 +153,7 @@ p {
 *:not(strong) {
   font-weight: 300; }
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#essential-offer):not(#main-offer) {
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#main-offer) {
   padding: 60px 10%; }
 
 #guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2, #legal-content h2 {
@@ -708,6 +708,16 @@ nav ul {
     font-size: 0.75em;
     margin-left: 5em;
     width: 100%; }
+  #offers > h3 {
+    background: #FFFFFF;
+    font-size: 1.5em;
+    padding: 2em 5em;
+    text-align: center; }
+    #offers > h3 strong {
+      color: #00a071;
+      display: block;
+      font-size: 1.5em;
+      margin: .5em 0; }
 
 #main-offer {
   background-color: #f5f5f5;
@@ -814,54 +824,6 @@ nav ul {
       font-weight: 400;
       margin: 0;
       padding: 1em 0; }
-
-#essential-offer {
-  background: #00a071;
-  color: #fff;
-  padding: 60px 0 0 0;
-  text-align: center; }
-  #essential-offer h2 {
-    font-size: 1.9em;
-    font-weight: 700;
-    margin: 0; }
-  #essential-offer h3 {
-    font-weight: 700;
-    margin-bottom: 0; }
-    #essential-offer h3:first-of-type {
-      font-size: .75em; }
-      #essential-offer h3:first-of-type strong {
-        font-size: 2.2em; }
-    #essential-offer h3:last-of-type {
-      background: #fff;
-      color: #515151;
-      font-size: 1.9em;
-      margin-top: 0;
-      padding: 3em 0; }
-      #essential-offer h3:last-of-type strong {
-        display: block; }
-    #essential-offer h3 + p {
-      display: inline-block;
-      font-size: 1.4em;
-      font-weight: 700;
-      margin-top: 0; }
-  #essential-offer ul {
-    font-size: 1.1em;
-    line-height: 2em;
-    margin-top: 0; }
-    #essential-offer ul li {
-      font-weight: 400; }
-  #essential-offer a {
-    -webkit-transition: padding 0.25s 0s;
-    transition: padding 0.25s 0s;
-    background-color: #fff;
-    color: #00a071;
-    font-weight: 700;
-    display: inline-block;
-    margin-bottom: 60px;
-    padding: 0.75em 1em;
-    text-decoration: none; }
-    #essential-offer a:hover {
-      padding: 1em 1.5em; }
 
 #contact {
   border-top: 1px solid #f5f5f5; }
@@ -1279,7 +1241,9 @@ aside#flash ul {
     opacity: 1; }
   #offers ul.notes {
     margin-left: 0;
-    width: auto; } }
+    width: auto; }
+  #offers > h3 {
+    padding: 2em; } }
 
 @media screen and (max-width: 840px) {
   body {

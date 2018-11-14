@@ -27,7 +27,7 @@ p
 *:not(strong)
   font-weight: 300
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#essential-offer):not(#main-offer)
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#main-offer)
   padding: 60px 10%
 
 #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients, #websites, #legal-content
@@ -565,6 +565,18 @@ nav ul
     margin-left: 5em
     width: 100%
 
+  > h3
+    background: $white
+    font-size: 1.5em
+    padding: 2em 5em
+    text-align: center
+
+    strong
+      color: $main-color
+      display: block
+      font-size: 1.5em
+      margin: .5em 0
+
 #main-offer
   background-color: $grey-4
   padding: 0 10%
@@ -655,64 +667,6 @@ nav ul
       font-weight: 400
       margin: 0
       padding: 1em 0
-
-#essential-offer
-  background: $main-color
-  color: #fff
-  padding: 60px 0 0 0
-  text-align: center
-
-  h2
-    font-size: 1.9em
-    font-weight: 700
-    margin: 0
-
-  h3
-    font-weight: 700
-    margin-bottom: 0
-
-    &:first-of-type
-      font-size: .75em
-
-      strong
-        font-size: 2.2em
-
-    &:last-of-type
-      background: #fff
-      color: $grey-1
-      font-size: 1.9em
-      margin-top: 0
-      padding: 3em 0
-
-      strong
-        display: block
-
-    &+ p
-      display: inline-block
-      font-size: 1.4em
-      font-weight: 700
-      margin-top: 0
-
-  ul
-    font-size: 1.1em
-    line-height: 2em
-    margin-top: 0
-
-    li
-      font-weight: 400
-
-  a
-    @include transition(padding)
-    background-color: #fff
-    color: $main-color
-    font-weight: 700
-    display: inline-block
-    margin-bottom: 60px
-    padding: 0.75em 1em
-    text-decoration: none
-
-    &:hover
-      padding: 1em 1.5em
 
 #contact
   border-top: 1px solid $grey-4
