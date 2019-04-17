@@ -13,7 +13,8 @@
       'Suivi de santé (carnet de vaccination, pharmacovigilance…)',
       'Newsletter client',
       'Application mobile',
-      'Click & Collect',
+      'Réservation de produits en ligne, paiement et retrait en pharmacie',
+      'Module de livraison Colissimo et points relais',
       'Solution de vente en ligne intégrée**') %}
       <li{% if loop.index > count %} class="disabled"{% endif %}>{{ title }}</li>
     {% endfor %}
@@ -178,23 +179,30 @@
 
     <section id="ecoweb">
       <h3>Ecoweb</h3>
-      <p>Aller à l'essentiel</p>
       <p class="price"><strong>14,90 €</strong> HT/mois</p>
+      <p>Aller à l'essentiel</p>
       {{ features(2) }}
     </section>
 
     <section id="flexiweb-plus">
       <h3>Flexiweb Plus*</h3>
-      <p>Des services optimisés à moindre coût</p>
       <p class="price"><strong>59,90 €</strong> HT/mois</p>
+      <p>Des services optimisés à moindre coût</p>
       {{ features(10) }}
+    </section>
+
+    <section id="clickcollect">
+      <h3>Click & Collect</h3>
+      <p class="price"><strong>94,90 €</strong> HT/mois</p>
+      <p>Commande en ligne et retrait en pharmacie</p>
+      {{ features(11) }}
     </section>
 
     <section id="optiweb">
       <h3>Optiweb*</h3>
-      <p>Vendre ses produits en ligne</p>
       <p class="price"><strong>139,90 €</strong> HT/mois</p>
-      {{ features(12) }}
+      <p>Vendre ses produits en ligne</p>
+      {{ features(13) }}
     </section>
 
     <ul class="notes">
@@ -205,6 +213,19 @@
         ** Commission de paiement 0,9 % du panier HT.
       </li>
     </ul>
+
+    <section id='advantages'>
+      <h2>Les plus Pharminfo.fr</h2>
+      <ul>
+        <li>Solution Ingénico de paiement en ligne intégrée</li>
+        <li>Base de données de plus de 8500 produits</li>
+        <li>Connexion possible avec votre LGO*</li>
+        <li>*Mise à jour des stocks et des prix, 15€ HT/mois.</li>
+      </ul>
+
+
+    </section>
+
     <section id="grouping">
       <h2>Vous êtes un groupement ?</h2>
       <p>Pharminfo.fr propose des solutions de sites internet pour votre groupement et vos adhérents.</p>
@@ -242,12 +263,6 @@
         </a>
       </li>
     </ul>
-    <section id="innovation">
-      <h3>Nouveau !</h3>
-      <p>
-        <strong>Flexiweb+ fait peau neuve !</strong> Découvrez les nouveaux sites internet pour pharmacie : nouveaux design, nouveaux thèmes graphiques…
-      </p>
-    </section>
   </section>
 
   <section id="contact">
