@@ -140,7 +140,7 @@
       /* Offers toggle slide */
       if (window.innerWidth <= 650) {
         if (!document.body.querySelector(".more")) {
-          var more_ul_ids = "#ecoweb, #optiweb";
+          var more_ul_ids = "#ecoweb, #flexiweb-plus, #optiweb";
           offers = document.body.querySelectorAll(more_ul_ids);
           for (let index = 0; index < offers.length; index++) {
             let more = document.createElement("span");

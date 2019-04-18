@@ -1206,32 +1206,41 @@ aside#flash ul {
     background-size: auto 50%; } }
 
 @media screen and (max-width: 650px) {
-  #offers section:not(#flexiweb-plus) ul {
+  #offers section:not(#clickcollect) ul {
     -webkit-transition: all 0.5s 0s;
     transition: all 0.5s 0s;
     margin: 0;
     max-height: 0;
     overflow-y: hidden; }
-    #offers section:not(#flexiweb-plus) ul li {
+    #offers section:not(#clickcollect) ul li {
       animation: list-fadeout 0.5s ease-in-out both;
       opacity: 0; }
-  #offers section:not(#flexiweb-plus) span {
+  #offers section:not(#clickcollect):not(#grouping):not(#advantages) ul.links {
+    margin: 0; }
+  #offers section:not(#clickcollect)#advantages {
+    padding: 1em 0; }
+    #offers section:not(#clickcollect)#advantages ul {
+      max-height: inherit; }
+      #offers section:not(#clickcollect)#advantages ul li {
+        animation: none;
+        opacity: 1; }
+  #offers section:not(#clickcollect) span {
     cursor: pointer;
     text-decoration: underline; }
-    #offers section:not(#flexiweb-plus) span.less {
+    #offers section:not(#clickcollect) span.less {
       display: none;
       opacity: 0; }
-  #offers section.more:not(#flexiweb-plus) ul {
+  #offers section.more:not(#clickcollect) ul {
     margin: 2em 0;
     max-height: 500px; }
-    #offers section.more:not(#flexiweb-plus) ul li {
+    #offers section.more:not(#clickcollect) ul li {
       animation: list-fadein 0.5s ease-in-out backwards;
       opacity: 1; }
-      #offers section.more:not(#flexiweb-plus) ul li.disabled {
+      #offers section.more:not(#clickcollect) ul li.disabled {
         opacity: 0.35; }
-  #offers section.more:not(#flexiweb-plus) span.more {
+  #offers section.more:not(#clickcollect) span.more {
     display: none; }
-  #offers section.more:not(#flexiweb-plus) span.less {
+  #offers section.more:not(#clickcollect) span.less {
     display: block;
     opacity: 1; }
   #offers ul.notes {
