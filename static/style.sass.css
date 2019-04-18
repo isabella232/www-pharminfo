@@ -643,42 +643,42 @@ nav ul {
     width: 100%; }
   #offers h2, #offers > p, #offers section {
     text-align: center; }
-  #offers section:not(#grouping) {
+  #offers section:not(#grouping):not(#advantages) {
     -webkit-transition: all 0.25s 0s;
     transition: all 0.25s 0s;
     border-right: 1px solid #f5f5f5;
     box-sizing: border-box;
     margin: 1.2em 0;
     padding: 2em 1.5em; }
-    #offers section:not(#grouping) h3 {
+    #offers section:not(#grouping):not(#advantages) h3 {
       font-weight: 700;
       font-size: 1.8em;
       margin: 0; }
-    #offers section:not(#grouping) p:first-of-type {
+    #offers section:not(#grouping):not(#advantages) p:first-of-type {
       font-weight: 400; }
-    #offers section:not(#grouping) p:last-of-type {
+    #offers section:not(#grouping):not(#advantages) p:last-of-type {
       font-weight: 400;
       padding-bottom: .5em; }
-      #offers section:not(#grouping) p:last-of-type::after {
+      #offers section:not(#grouping):not(#advantages) p:last-of-type::after {
         background: #fff;
         content: '';
         display: block;
         height: 2px;
         margin: .5em auto 0;
         width: 20px; }
-    #offers section:not(#grouping) p.price {
+    #offers section:not(#grouping):not(#advantages) p.price {
       font-size: 0.75em; }
-      #offers section:not(#grouping) p.price strong {
+      #offers section:not(#grouping):not(#advantages) p.price strong {
         font-size: 2.8em;
         font-weight: 700; }
-    #offers section:not(#grouping) ul li {
+    #offers section:not(#grouping):not(#advantages) ul li {
       font-weight: 400;
       margin: .5em; }
-      #offers section:not(#grouping) ul li.disabled {
+      #offers section:not(#grouping):not(#advantages) ul li.disabled {
         opacity: 0.35; }
-    #offers section:not(#grouping) ul.links {
+    #offers section:not(#grouping):not(#advantages) ul.links {
       margin: 3em 0 2em; }
-      #offers section:not(#grouping) ul.links li a {
+      #offers section:not(#grouping):not(#advantages) ul.links li a {
         -webkit-transition: all 0.25s 0s;
         transition: all 0.25s 0s;
         border: solid 2px;
@@ -687,30 +687,47 @@ nav ul {
         padding: 0.5em 1em;
         text-decoration: none;
         border-color: #515151; }
-        #offers section:not(#grouping) ul.links li a:hover {
+        #offers section:not(#grouping):not(#advantages) ul.links li a:hover {
           padding: 1em 2em; }
-    #offers section:not(#grouping):not(#clickcollect) {
+    #offers section:not(#grouping):not(#advantages):not(#clickcollect) {
       background-color: #FFFFFF; }
-      #offers section:not(#grouping):not(#clickcollect) p:last-of-type {
+      #offers section:not(#grouping):not(#advantages):not(#clickcollect) p:last-of-type {
         color: #00a071; }
-        #offers section:not(#grouping):not(#clickcollect) p:last-of-type::after {
+        #offers section:not(#grouping):not(#advantages):not(#clickcollect) p:last-of-type::after {
           background: #00a071; }
-      #offers section:not(#grouping):not(#clickcollect) .price strong {
+      #offers section:not(#grouping):not(#advantages):not(#clickcollect) .price strong {
         color: #00a071; }
-    #offers section:not(#grouping)#clickcollect {
+    #offers section:not(#grouping):not(#advantages)#clickcollect {
       background-color: #00a071;
       border: solid 3px #00a071;
       color: #FFFFFF; }
-      #offers section:not(#grouping)#clickcollect ul li:nth-child(11) {
+      #offers section:not(#grouping):not(#advantages)#clickcollect ul li:nth-child(11) {
         font-weight: 700; }
-      #offers section:not(#grouping)#clickcollect p.price, #offers section:not(#grouping)#clickcollect ul.links li a {
+      #offers section:not(#grouping):not(#advantages)#clickcollect p.price, #offers section:not(#grouping):not(#advantages)#clickcollect ul.links li a {
         border-color: #FFFFFF; }
-    #offers section:not(#grouping)#optiweb ul li:nth-child(12), #offers section:not(#grouping)#optiweb ul li:nth-child(13) {
+    #offers section:not(#grouping):not(#advantages)#optiweb ul li:nth-child(12), #offers section:not(#grouping):not(#advantages)#optiweb ul li:nth-child(13) {
       font-weight: 700; }
   #offers ul.notes {
     font-size: 0.75em;
-    margin-left: 5em;
+    text-align: center;
     width: 100%; }
+  #offers #advantages {
+    padding: 2em;
+    width: 100%; }
+    #offers #advantages li {
+      margin: .5em 0; }
+      #offers #advantages li::before {
+        content: url("images/check.svg");
+        display: inline-block;
+        height: .75em;
+        margin-right: .5em;
+        width: .75em; }
+      #offers #advantages li:last-of-type {
+        font-size: 0.75em;
+        margin-top: 2em;
+        text-align: center; }
+        #offers #advantages li:last-of-type::before {
+          content: none; }
   #offers #grouping {
     background: #FFFFFF;
     font-weight: 300;
@@ -1647,7 +1664,7 @@ aside#flash ul {
     width: 30%; } }
 
 @media screen and (min-width: 1215px) {
-  #offers section:not(#grouping) {
+  #offers section:not(#grouping):not(#advantages) {
     width: 25%; }
   #main-offer::after {
     height: 320px; } }
