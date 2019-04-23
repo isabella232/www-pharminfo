@@ -494,9 +494,9 @@ nav ul
   h2, > p, section
     text-align: center
 
-  section:not(#grouping)
+  section:not(#grouping):not(#advantages)
     @include transition(all)
-    border: solid 3px
+    border-right: 1px solid $grey-4
     box-sizing: border-box
     margin: 1.2em 0
     padding: 2em 1.5em
@@ -509,19 +509,28 @@ nav ul
     p:first-of-type
       font-weight: 400
 
+    p:last-of-type
+      font-weight: 400
+      padding-bottom: .5em
+
+      &::after
+        background: #fff
+        content: ''
+        display: block
+        height: 2px
+        margin: .5em auto 0
+        width: 20px
+
     p.price
-      border-bottom: solid 1px $main-color
-      border-top: solid 1px $main-color
       font-size: 0.75em
-      padding: 1.5em
 
       strong
         font-size: $big-title
         font-weight: 700
 
     ul li
-      @include basic-font-size
-      margin: 1em
+      font-weight: 400
+      margin: .5em
 
       &.disabled
         opacity: 0.35
@@ -533,23 +542,25 @@ nav ul
         @include cta
         border-color: $grey-1
 
-    &:not(#flexiweb-plus)
+    &:not(#clickcollect)
       background-color: $white
-      border: solid 3px $grey-4
+
+      p:last-of-type
+        color: $main-color
+
+        &::after
+          background: $main-color
 
       .price strong
         color: $main-color
 
-      &:hover
-        border: solid 3px $grey-3
-
-    &#flexiweb-plus
+    &#clickcollect
       background-color: $main-color
       border: solid 3px $main-color
       color: $white
 
       ul
-        li:nth-child(6), li:nth-child(7)
+        li:nth-child(11)
           font-weight: 700
 
       p.price, ul.links li a
@@ -557,13 +568,35 @@ nav ul
 
     &#optiweb
       ul
-        li:nth-child(11), li:nth-child(12)
+        li:nth-child(12), li:nth-child(13)
           font-weight: 700
 
   ul.notes
     font-size: 0.75em
-    margin-left: 5em
+    text-align: center
     width: 100%
+
+  #advantages
+    padding: 2em
+    width: 100%
+
+    li
+      margin: .5em 0
+
+      &::before
+        content: url('images/check.svg')
+        display: inline-block
+        height: .75em
+        margin-right: .5em
+        width: .75em
+
+      &:last-of-type
+        font-size: 0.75em
+        margin-top: 2em
+        text-align: center
+
+        &::before
+          content: none
 
   #grouping
     background: $white
@@ -639,32 +672,6 @@ nav ul
     left: -12.5%
     margin-top: 50px
     position: relative
-
-  #innovation
-    align-content: flex-end
-    background: url('images/photos/innovation.jpg') no-repeat center/cover
-    display: flex
-    flex-wrap: wrap
-    margin: 2em 0
-    min-height: 450px
-    padding: 0
-
-    h3
-      background: #fff
-      color: $main-color
-      font-size: 2em
-      font-weight: 700
-      margin: 0 auto
-      padding: .5em
-      text-transform: uppercase
-
-    p
-      background: $main-color
-      color: #fff
-      flex: 1 100%
-      font-weight: 400
-      margin: 0
-      padding: 1em 0
 
 #contact
   border-top: 1px solid $grey-4

@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 650px)
   #offers
-    section:not(#flexiweb-plus)
+    section:not(#clickcollect)
       ul
         @include transition(all, 0.5s)
         margin: 0
@@ -32,6 +32,19 @@
           animation: list-fadeout 0.5s ease-in-out both
           opacity: 0
 
+      &:not(#grouping):not(#advantages) ul.links
+        margin: 0
+
+      &#advantages
+        padding: 1em 0
+
+        ul
+          max-height: inherit
+
+          li
+            animation: none
+            opacity: 1
+
       span
         cursor: pointer
         text-decoration: underline
@@ -40,7 +53,7 @@
           display: none
           opacity: 0
 
-    section.more:not(#flexiweb-plus)
+    section.more:not(#clickcollect)
       ul
         margin: 2em 0
         max-height: 500px
@@ -236,7 +249,7 @@
     section
       box-sizing: border-box
       margin: 10px 1%
-      width: 48%
+      width: 50%
 
   #contact
     display: table
@@ -478,8 +491,8 @@
     width: 30%
 
 @media screen and (min-width: 1215px)
-  #offers section:not(#grouping)
-      width: 30%
+  #offers section:not(#grouping):not(#advantages)
+      width: 25%
 
   #main-offer::after
     height: 320px
