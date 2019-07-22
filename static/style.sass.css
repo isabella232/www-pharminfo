@@ -676,8 +676,8 @@ nav ul {
       margin: .5em; }
       #offers section:not(#grouping):not(#advantages) ul li.disabled {
         opacity: 0.35; }
-    #offers section:not(#grouping):not(#advantages) ul.links {
-      margin: 3em 0 2em; }
+    #offers section:not(#grouping):not(#advantages) ul.links li {
+      margin: 3em 0 0; }
       #offers section:not(#grouping):not(#advantages) ul.links li a {
         -webkit-transition: all 0.25s 0s;
         transition: all 0.25s 0s;
