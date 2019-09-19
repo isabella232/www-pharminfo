@@ -411,17 +411,17 @@ function initMaps() {
       info +=
         '<a class="patientorder-client" href="' +
         url +
-        "/patientorder" +
+        "/prescription" +
         '">Réserver votre ordonnance en ligne.</a><br/>' +
         '<a class="ecommerce-client" href="' +
         url +
-        "/catalog" +
+        "/product" +
         '">Accéder à la vente en ligne.</a>';
     } else if (client[2] === "patientorder") {
       info +=
         '<a class="ecommerce-client" href="' +
         url +
-        "/patientorder" +
+        "/prescription" +
         '">Réserver votre ordonnance en ligne.</a>';
     }
     if (client[4]) {
