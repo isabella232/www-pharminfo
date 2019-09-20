@@ -4,7 +4,7 @@ stages:
   - deploy_test
   - deploy_prod
 
-image: paradoxxxzero/python-node-yarn-postgresql:latest
+image: kozea/python-node-yarn-postgresql:latest
 
 .artifacts: &artifacts
   artifacts:
@@ -27,7 +27,7 @@ test:
 
 
 .image: &image_deploy_jobs
-  image: grewn0uille/deploy-tools:latest
+  image: kozea/deploy-tools:latest
 
 deploy_test:
   <<: *image_deploy_jobs
