@@ -37,7 +37,9 @@ def send_mail(title, html):
         'subject': title,
         'html': html
     }
-    if not current_app.debug:
+    if current_app.debug:
+        print(message)
+    else:
         mandrill_client = Mandrill(app.config.get('MANDRILL_KEY'))
         mandrill_client.messages.send(message=message)
 
@@ -172,6 +174,9 @@ def subscribe():
 
 @app.route('/whitepaper', methods=['POST'])
 def whitepaper():
+    titles = {
+        'increase_sale': 'Développer vos ventes',
+        'why_website': 'Pour quoi faire'}
     if not all(request.form[key]
                for key in ('name', 'email', 'function', 'white_paper_choice')):
         if not request.form['name']:
@@ -184,12 +189,16 @@ def whitepaper():
         if not request.form['white_paper_choice']:
             flash('Merci de choisir le livre blanc à télécharger.', 'error')
         return redirect(url_for('page', page='whitepaper'))
+    downloaded = ' + '.join(
+        titles[white_paper] for white_paper in
+        request.form.getlist('white_paper_choice'))
     html = '<br>'.join(('Nom : %s' % request.form['name'],
                         'Email : %s' % request.form['email'],
                         'Fonction : %s' % request.form['function'],
                         'Téléphone : %s' % request.form['phone'],
-                        'Société : %s' % request.form['company']))
-    send_mail('Téléchargement du livre blanc Pharminfo.fr', html)
+                        'Société : %s' % request.form['company'],
+                        'Livre blanc : %s' % downloaded))
+    send_mail('Téléchargement d’un livre blanc Pharminfo.fr', html)
     whitepaper = '_'.join(request.form.getlist('white_paper_choice'))
     return redirect(url_for('static', filename='%s.pdf' % whitepaper))
 
