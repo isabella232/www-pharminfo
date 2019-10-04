@@ -164,7 +164,8 @@ def subscribe():
             ('SIRET : %s' % request.form['siret'],
              'Code promo : %s' % request.form.get('code', 'Aucun'),
              'Téléphone : %s' % request.form['phone'],
-             'Email : %s' % request.form['email']))
+             'Email : %s' % request.form['email'],
+             'Message : %s' % request.form['message'],))
         send_mail('Nouvelle inscription sur le site de Pharminfo.fr', html)
         flash('Merci de vous être inscrit, nos équipes vous recontacteront '
               'dans les plus brefs délais.', 'info')
