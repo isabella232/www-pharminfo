@@ -6,10 +6,10 @@
   <section id="subscribe-form">
     <h2>Souscrivez à l'offre Pharminfo.fr</h2>
     <p>
-      Préinscrivez-vous sur notre plateforme en remplissant un des deux
-      formulaires ci-dessous, nous vous renverrons le bordereau
-      d'inscription par fax ou par mail. Vous n'aurez plus qu'à finaliser
-      l'inscription et signer avant de nous le renvoyer.
+      Préinscrivez-vous sur notre plateforme en remplissant le formulaire
+      ci-dessous, nous vous renverrons le bordereau d'inscription par
+      mail. Vous n'aurez plus qu'à finaliser l'inscription et signer avant de
+      nous le renvoyer.
     </p>
     <form action="{{ url_for('subscribe') }}" method="POST">
       <label for="siret">SIRET</label>
@@ -23,9 +23,10 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" placeholder="Message" value="{{ data and data.message }}"></textarea>
       <label class="checkbox">
-        <input type="checkbox" required />
-        J'accepte que les informations saisies soient exploitées par l'équipe
-        commerciale de Kozea.*
+        <input type="checkbox" required /> J'accepte que les informations
+        saisies soient exploitées par Kozea group dans le cadre de demande
+        d'informations ou de devis et de la relation commerciale qui peut en
+        découler.
       </label>
       <div class="g-recaptcha" data-sitekey="6LdPHhMUAAAAAKK2m0QKxrc5Muu9fuSScUpQJ8Ns"></div>
       <input type="submit" value="Valider" />
