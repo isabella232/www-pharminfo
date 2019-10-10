@@ -4,44 +4,60 @@
 
 {% block body %}
   <section id="content-whitepaper">
-    <ul>
-      <li><a class="tab-link active" href="#increase-sales">Comment développer vos ventes grâce à votre site Internet ?</a></li>
-      <li><a class="tab-link" href="#why-website">Le site Internet de ma pharmacie, pour quoi faire ?</a></li>
-    </ul>
-    <article id="increase-sales" class="active">
-      <p>
-        Ce document est à destination des pharmaciens d'officine propriétaires
-        d'un site Internet de vente en ligne de médicaments et de produits de
-        parapharmacie.
-      </p>
-      <p>
-        Il vous permettra d'identifier les solutions à mettre en œuvre pour
-        accélérer les ventes sur votre site Internet.
-      </p>
-      <p>
-        Informez-vous sur :
-      </p>
-      <ul>
-        <li>la réglementation en vigueur,</li>
-        <li>des astuces pour bien vendre,</li>
-        <li>des opérations marketing à mettre en place.</li>
-      </ul>
-    </article>
-    <article id="why-website">
-      <p>
-        Ce document est à destination des pharmaciens d’officine désirant un
-        site Internet. Il vous permettra d’être guidé dans votre démarche de
-        digitalisation.
-      </p>
-      <p>Informez-vous sur :</p>
-      <ul>
-        <li>Le développement du e-commerce et de la e-santé</li>
-        <li>Les attentes de vos patients à l’ère du digital</li>
-        <li>Les solutions pour digitaliser votre officine et s’y adapter</li>
-      </ul>
-    </article>
+    <h2>Choix du livre blanc</h2>
+    <section id="whitepapers">
+      <article>
+        <h3>Comment développer vos ventes grâce à votre site Internet ?</h3>
+        <p>
+          Ce document est à destination des pharmaciens d'officine propriétaires
+          d'un site Internet de vente en ligne de médicaments et de produits de
+          parapharmacie.
+        </p>
+        <p>
+          Il vous permettra d'identifier les solutions à mettre en œuvre pour
+          accélérer les ventes sur votre site Internet.
+        </p>
+        <p>
+          Informez-vous sur :
+        </p>
+        <ul>
+          <li>la réglementation en vigueur,</li>
+          <li>des astuces pour bien vendre,</li>
+          <li>des opérations marketing à mettre en place.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Le site Internet de ma pharmacie, pour quoi faire ?</h3>
+        <p>
+          Ce document est à destination des pharmaciens d’officine désirant un
+          site Internet. Il vous permettra d’être guidé dans votre démarche de
+          digitalisation.
+        </p>
+        <p>Informez-vous sur :</p>
+        <ul>
+          <li>Le développement du e-commerce et de la e-santé</li>
+          <li>Les attentes de vos patients à l’ère du digital</li>
+          <li>Les solutions pour digitaliser votre officine et s’y adapter</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Comment optimiser le référencement de votre site Internet ?</h3>
+        <p>
+          Ce document est à destination des pharmaciens d'officine
+          propriétaires d'un site internet Pharminfo.fr. Il vous permettra
+          d'identifier les solutions à mettre en oeuvre à la fois sur votre
+          site et en pharmacie, pour optimiser son référencement sur les
+          moteurs de recherche.
+        </p>
+        <p>Informez-vous sur :</p>
+        <ul>
+          <li>le référencement naturel et payant,</li>
+          <li>la communication avec vos patients,</li>
+          <li>les astuces pour optimiser votre site et son référencement.</li>
+        </ul>
+      </article>
+    </section>
     <form action="{{ url_for('whitepaper') }}" method="POST">
-      <p>Choix du livre blanc</p>
       <p>
         Vous pouvez télécharger le ou les livres blancs gratuitement en remplissant le
         formulaire.
@@ -49,8 +65,9 @@
       <p>
         Les champs marqués d'un astérisque (*) sont obligatoires.
       </p>
-      <label class="checkbox"><input id="increase_sale" value="increase_sale" type="checkbox" name="white_paper_choice" />Comment développer vos ventes grâce à votre site Internet ?</label>
-      <label class="checkbox"><input id="why_website" value="why_website" type="checkbox" name="white_paper_choice" />Le site Internet de ma pharmacie, pour quoi faire ?</label>
+      <label class="checkbox"><input value="increase_sale" type="radio" name="white_paper_choice" />Comment développer vos ventes grâce à votre site Internet ?</label>
+      <label class="checkbox"><input value="why_website" type="radio" name="white_paper_choice" />Le site Internet de ma pharmacie, pour quoi faire ?</label>
+      <label class="checkbox"><input value="seo" type="radio" name="white_paper_choice" />Comment optimiser le référencement de votre site Internet ?</label>
       <label for="name">Nom</label>
       <input id="name" name="name" placeholder="Nom*" required="required" />
       <label for="email">Email</label>

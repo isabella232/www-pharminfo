@@ -194,6 +194,21 @@
       @include transition(opacity)
       opacity: 0
 
+  #whitepaper > section
+    #whitepapers
+      flex-wrap: wrap
+      justify-content: center
+
+      article
+        width: 100%
+
+        h3
+          order: 0
+
+        &:nth-of-type(n+2)
+          border-left: 1px solid $grey-4
+          border-top: none
+
 @media screen and (min-width: 480px)
   #customize dl
     height: 420px

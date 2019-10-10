@@ -1059,56 +1059,46 @@ aside#flash ul {
 #subscribe > section::before {
   background: url("images/photos/bdc-bkgd.jpg") center/cover no-repeat; }
 
-#whitepaper > section::before {
-  background: url("images/photos/whitepaper-bkgd.jpg") center/cover no-repeat; }
-
-#whitepaper > section > ul {
-  margin: 60px 0 20px;
-  text-align: center; }
-  #whitepaper > section > ul li {
-    display: inline-block; }
-    #whitepaper > section > ul li a {
-      -webkit-transition: all 0.25s 0s;
-      transition: all 0.25s 0s;
-      box-sizing: border-box;
-      display: block;
-      font-weight: 700;
-      padding: 1em;
-      text-decoration: none; }
-      #whitepaper > section > ul li a:not(.active) {
-        background-color: transparent;
-        border: solid 1px transparent;
-        color: #00a071; }
-        #whitepaper > section > ul li a:not(.active):hover {
-          background: transparent;
-          border: solid 1px #00a071;
-          color: #00a071; }
-      #whitepaper > section > ul li a.active {
-        background-color: #00a071;
-        color: #FFFFFF; }
-
-#whitepaper > section article {
-  display: none;
-  margin: 0 auto; }
-  #whitepaper > section article.active {
-    display: block; }
-  #whitepaper > section article:first-of-type.active {
-    animation: list-fadein-right 0.25s ease-out both; }
-  #whitepaper > section article + article.active {
-    animation: list-fadein-left 0.25s ease-out both; }
-
-#whitepaper > section form > p:first-of-type {
+#whitepaper > section h2 {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center;
   color: #00a071; }
-  #whitepaper > section form > p:first-of-type::after {
+  #whitepaper > section h2::after {
     background-color: #00a071;
     content: '';
     display: block;
     height: 2px;
     margin: 20px auto 0;
     width: 20px; }
+
+#whitepaper > section::before {
+  background: url("images/photos/whitepaper-bkgd.jpg") center/cover no-repeat; }
+
+#whitepaper > section #whitepapers {
+  display: flex; }
+  #whitepaper > section #whitepapers article {
+    border: 1px solid #f5f5f5;
+    text-align: left;
+    padding: 1.5em; }
+    #whitepaper > section #whitepapers article ul {
+      list-style-type: square;
+      padding-left: 1.5em; }
+      #whitepaper > section #whitepapers article ul li {
+        font-size: initial; }
+    #whitepaper > section #whitepapers article:nth-of-type(n+2) {
+      border-left: none; }
+    #whitepaper > section #whitepapers article h3 {
+      border: none;
+      color: #00a071;
+      font-weight: bold;
+      padding: 0; }
+      #whitepaper > section #whitepapers article h3::after {
+        content: '';
+        border-left: 1.5em solid #00a071;
+        display: block;
+        height: 2px;
+        margin: 1em 0; }
 
 #whitepaper > section form .checkbox {
   display: flex;
@@ -1369,7 +1359,17 @@ aside#flash ul {
     .close ul li, .click-to-call ul li {
       -webkit-transition: opacity 0.25s 0s;
       transition: opacity 0.25s 0s;
-      opacity: 0; } }
+      opacity: 0; }
+  #whitepaper > section #whitepapers {
+    flex-wrap: wrap;
+    justify-content: center; }
+    #whitepaper > section #whitepapers article {
+      width: 100%; }
+      #whitepaper > section #whitepapers article h3 {
+        order: 0; }
+      #whitepaper > section #whitepapers article:nth-of-type(n+2) {
+        border-left: 1px solid #f5f5f5;
+        border-top: none; } }
 
 @media screen and (min-width: 480px) {
   #customize dl {

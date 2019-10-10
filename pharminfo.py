@@ -175,9 +175,13 @@ def subscribe():
 
 @app.route('/whitepaper', methods=['POST'])
 def whitepaper():
+    if 'white_paper_choice' not in request.form:
+        flash('Veuillez sélectionner le livre blanc à télécharger', 'warning')
+        return redirect(url_for('whitepaper'))
     titles = {
         'increase_sale': 'Développer vos ventes',
-        'why_website': 'Pour quoi faire'}
+        'why_website': 'Pour quoi faire',
+        'seo': 'Référencement'}
     if not all(request.form[key]
                for key in ('name', 'email', 'function', 'white_paper_choice')):
         if not request.form['name']:
@@ -190,9 +194,7 @@ def whitepaper():
         if not request.form['white_paper_choice']:
             flash('Merci de choisir le livre blanc à télécharger.', 'error')
         return redirect(url_for('page', page='whitepaper'))
-    downloaded = ' + '.join(
-        titles[white_paper] for white_paper in
-        request.form.getlist('white_paper_choice'))
+    downloaded = titles[request.form['white_paper_choice']]
     html = '<br>'.join(('Nom : %s' % request.form['name'],
                         'Email : %s' % request.form['email'],
                         'Fonction : %s' % request.form['function'],

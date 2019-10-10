@@ -925,56 +925,45 @@ aside#flash ul
     background: url('images/photos/bdc-bkgd.jpg') center / cover no-repeat
 
 #whitepaper > section
+  h2
+    @include h2_source_sans
+    color: $main-color
+
   &::before
     background: url('images/photos/whitepaper-bkgd.jpg') center / cover no-repeat
 
-  > ul
-    margin: 60px 0 20px
-    text-align: center
+  #whitepapers
+    display: flex
 
-    li
-      display: inline-block
+    article
+      border: 1px solid $grey-4
+      text-align: left
+      padding: 1.5em
 
-      a
-        @include transition(all)
-        box-sizing: border-box
-        display: block
-        font-weight: 700
-        padding: 1em
-        text-decoration: none
+      ul
+        list-style-type: square
+        padding-left: 1.5em
 
-        &:not(.active)
-          background-color: transparent
-          border: solid 1px transparent
-          color: $main-color
+        li
+          font-size: initial
 
-          &:hover
-            background: transparent
-            border: solid 1px $main-color
-            color: $main-color
+      &:nth-of-type(n+2)
+        border-left: none
 
-        &.active
-          background-color: $main-color
-          color: $white
+      h3
+        border: none
+        color: $main-color
+        font-weight: bold
+        padding: 0
 
-  article
-    display: none
-    margin: 0 auto
-
-    &.active
-      display: block
-
-    &:first-of-type.active
-      animation: list-fadein-right 0.25s ease-out both
-
-    & + article.active
-      animation: list-fadein-left 0.25s ease-out both
+        &::after
+          content: ''
+          border-left: 1.5em solid $main-color
+          display: block
+          height: 2px
+          margin: 1em 0
 
   form
-    > p:first-of-type
-      @include h2_source_sans
-      color: $main-color
-
     .checkbox
       @include flexbox(row, flex-start, nowrap)
       font-size:  1.125em
