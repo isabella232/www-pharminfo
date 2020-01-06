@@ -21,7 +21,7 @@ all: install serve
 	$(LOG)
 
 install:
-	test -d $(VENV) || virtualenv $(VENV)
+	test -d $(VENV) || python -m venv $(VENV)
 	# Top model
 	$(PIP) install --upgrade --no-cache git+ssh://git@github.com/Kozea/top_model.git#egg=top_model
 	# Deps
