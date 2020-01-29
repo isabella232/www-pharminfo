@@ -141,7 +141,7 @@
       li
         display: none
 
-  &.open
+  .open
     span:nth-child(1)
       @include transform(rotate(45deg))
       right: calc(20px + 15px)
@@ -187,7 +187,7 @@
         li:nth-child(#{$i})
           animation-delay: 0.3s+$i/10
 
-  &.close ul
+  .close ul
     animation: nav-closing 0.5s both
 
     li
