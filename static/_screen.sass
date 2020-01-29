@@ -27,7 +27,7 @@ p
 *:not(strong)
   font-weight: 300
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#main-offer)
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content)
   padding: 60px 10%
 
 #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients, #websites, #legal-content
@@ -607,71 +607,6 @@ nav ul
 
     p:last-of-type
       font-weight: 700
-
-#main-offer
-  background-color: $grey-4
-  padding: 0 10%
-  text-align: center
-
-  h2
-    color: $main-color
-    font-size: 2em
-
-  ol
-    @include flexbox(row, flex-start)
-    align-items: flex-start
-    counter-reset: offer_count
-    margin: 2em 0 0 0
-
-    li
-      @include triangle(calc(50% - 4px), inherit, -13px, 90deg)
-      border-top: solid 220px transparent
-      counter-increment: offer_count
-      font-size: 1em
-      padding: 0.7em
-      position: relative
-      width: 100%
-
-      &::after
-        @include content(block, 20px, 20px, counter(offer_count))
-        background-color: $main-color
-        border-radius: 50%
-        color: #fff
-        font-weight: 400
-        left: calc(50% - 0.7em)
-        margin: 0 auto
-        position: absolute
-        top: -2.5em
-        z-index: 2
-
-      @each $name in app, computer, sms, reception
-        &##{$name}
-          background: url('images/timeline-mobile-app/#{$name}.svg') border-box center 0 / 146px auto no-repeat, padding-box $grey-3
-
-  ul.links
-    margin: 0
-
-    li
-      display: inline-block
-
-    a
-      @include transition(padding)
-      background-color: $main-color
-      color: $white
-      font-weight: 700
-      display: inline-block
-      padding: 1em
-      text-decoration: none
-
-      &:hover
-        padding: 1em 1.5em
-
-  &::after
-    @include content(block, 250px, 125%)
-    background: url('images/city-bkgd.svg') center / auto 100% no-repeat
-    left: -12.5%
-    margin-top: 50px
-    position: relative
 
 #contact
   border-top: 1px solid $grey-4

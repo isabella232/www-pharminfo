@@ -213,14 +213,6 @@
   #customize dl
     height: 420px
 
-@media screen and (min-width: 530px)
-  #main-offer ol
-    justify-content: space-around
-
-    li
-      box-sizing: border-box
-      width: 45%
-
 @media screen and (min-width: 560px)
   #goals ul li
     box-sizing: border-box
@@ -450,36 +442,6 @@
     margin-top: 100px
 
 @media screen and (min-width: 1000px)
-  #main-offer ol
-    margin-top: 4em
-    position: relative
-
-    &::after
-      @include content(block, 1px, 75%)
-      background-color: $grey-2
-      left: 12%
-      position: absolute
-      right: 10%
-      top: calc(170px - 1.8em)
-
-    @each $name in medicine, app, computer, sms, reception
-      li##{$name}
-        background-color: transparent
-        background-size: auto 120px
-        border-top: solid 170px transparent
-        color: $grey-4
-        width: 18%
-
-        &::before
-          border-width: 0
-
-        &:hover
-          background-color: $grey-3
-          color: $grey-1
-
-          &::before
-            border-width: 10px 7px 10px 0
-
   #customize dl
     height: 250px
 
@@ -508,6 +470,3 @@
 @media screen and (min-width: 1215px)
   #offers section:not(#grouping):not(#advantages)
       width: 25%
-
-  #main-offer::after
-    height: 320px

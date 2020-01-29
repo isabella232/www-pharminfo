@@ -8,8 +8,7 @@
     }
     reveals.index = {
       basic: [
-        "#sales h2, #sales ul.links, #sales ul, #goals li, " +
-          "#main-offer p, #main-offer ol, #main-offer #innovation, #stats li"
+        "#sales h2, #sales ul.links, #sales ul, #goals li, #stats li"
       ],
       asc: [
         "#news article, #news .links",
