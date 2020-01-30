@@ -1316,15 +1316,15 @@ aside#flash ul {
     #reasons ol li {
       box-sizing: border-box;
       width: calc(50% - 1.5em); }
-      #reasons ol li#develop, #reasons ol li#loyal, #reasons ol li#accompaniment {
+      #reasons ol li#develop, #reasons ol li#loyal, #reasons ol li#cost {
         background-position: right 10px center;
         margin: 1.2em 1.5em 1.2em 0;
         padding: 1.5em calc(1.5em + 50px) 1.5em 1.5em;
         text-align: right; }
-        #reasons ol li#develop::after, #reasons ol li#loyal::after, #reasons ol li#accompaniment::after {
+        #reasons ol li#develop::after, #reasons ol li#loyal::after, #reasons ol li#cost::after {
           right: -35px;
           left: initial; }
-      #reasons ol li#expertise, #reasons ol li#satisfaction, #reasons ol li#cost {
+      #reasons ol li#expertise, #reasons ol li#accompaniment {
         align-self: flex-end; }
   #offers {
     display: flex;

@@ -16,8 +16,8 @@
         "#order, #sav, #seo, #responsive"
       ],
       desc: ["#optiweb, #flexiweb-plus, #clickcollect, #ecoweb, #grouping"],
-      left: ["#develop, #loyal, #accompaniment"],
-      right: ["#expertise, #satisfaction, #cost"]
+      left: ["#develop, #loyal, #cost"],
+      right: ["#expertise, #accompaniment"]
     };
     reveals.subscribe = { basic: ["#subscribe-form"] };
 
