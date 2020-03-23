@@ -153,7 +153,7 @@ p {
 *:not(strong) {
   font-weight: 300; }
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content) {
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#announce) {
   padding: 60px 10%; }
 
 #guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2, #legal-content h2 {
@@ -234,6 +234,20 @@ article {
         #index #news ul li a:hover {
           padding: 1em 2em; }
 
+#announce {
+  background-color: #00a071;
+  color: #FFFFFF;
+  padding: 0px 10%;
+  text-align: center; }
+  #announce a {
+    border: solid 1px #FFFFFF;
+    color: #FFFFFF;
+    padding: 0.4em 0.6em;
+    text-decoration: none; }
+    #announce a:hover {
+      background-color: #FFFFFF;
+      color: #515151; }
+
 /* Styles menu */
 header h1 {
   display: none; }
@@ -248,9 +262,10 @@ nav ul {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  background-color: #00a071;
   box-sizing: border-box;
   height: 70px;
-  position: absolute;
+  margin: 0;
   width: 100%; }
   nav ul li a {
     -webkit-transition: all 0.25s 0s;
@@ -1493,7 +1508,6 @@ aside#flash ul {
       content: url("images/logo-white.svg");
       left: 10%;
       position: absolute;
-      top: calc(50% - 24px);
       width: 180px; }
     nav ul.sticky nav ul::before {
       content: url("images/logo-bicolor.svg");

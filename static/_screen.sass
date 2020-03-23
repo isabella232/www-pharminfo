@@ -27,7 +27,7 @@ p
 *:not(strong)
   font-weight: 300
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content)
+body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#announce)
   padding: 60px 10%
 
 #guarantees, #reasons, #offers, #subscribe, #whitepaper, #news-content, #clients, #websites, #legal-content
@@ -100,6 +100,23 @@ article
 
 // #index
 
+#announce
+  background-color: $main-color
+  color: $white
+  padding: 0px 10%
+  text-align: center
+
+  a
+    border: solid 1px $white
+    color: $white
+    padding: 0.4em 0.6em
+    text-decoration: none
+
+    &:hover
+      background-color: $white
+      color: $grey-1
+
+
 /* Styles menu */
 header h1
   display: none
@@ -111,9 +128,10 @@ header h1
 nav ul
   @include flexbox(row, space-between)
   align-items: center
+  background-color: $main-color
   box-sizing: border-box
   height: 70px
-  position: absolute
+  margin: 0
   width: 100%
 
   li
