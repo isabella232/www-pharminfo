@@ -240,5 +240,13 @@ db.configure(app.config['DB']).assign_flask_app(app)
 if __name__ == '__main__':
     from sassutils.wsgi import SassMiddleware
     app.wsgi_app = SassMiddleware(
-        app.wsgi_app, {'pharminfo': ('static', 'static', '/static')})
+        app.wsgi_app,
+        {
+            'pharminfo': {
+                'sass_path': 'static',
+                'css_path': 'static',
+                'wsgi_path': '/static'
+            }
+        }
+    )
     app.run(debug=True, host='0.0.0.0')
