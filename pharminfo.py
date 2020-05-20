@@ -12,7 +12,6 @@ from flask import (Flask, abort, current_app, flash, jsonify, make_response,
                    redirect, render_template, request, url_for)
 from jinja2.exceptions import TemplateNotFound
 from mandrill import Mandrill
-
 from sqlalchemy.orm import joinedload, undefer
 from top_model import db
 from top_model.public import Client, ClientType, Contract, Offer
@@ -112,7 +111,8 @@ def news():
 @app.route('/clients/<int:department>')
 def clients(department=None):
     clients = (Client.query.join(ClientType).filter(
-        (ClientType.domain == 'pharminfo') & (Client.current_contract != None)
+        (ClientType.domain == 'pharminfo')
+        & (Client.current_contract != None)  # noqa
         & (Client.domain.isnot(None))))  # noqa
     print('lol')
     if department:
@@ -129,7 +129,7 @@ def get_clients_latlng():
         .join(Offer).options(undefer('full_domain'))
         .options(joinedload('current_offer')).filter(
             (Contract.clienttype_domain == 'pharminfo') &
-            (Client.current_contract != None) &
+            (Client.current_contract != None) & # noqa
             (Offer.offer_for_test == current_app.debug))  # noqa
         .all())
     json_client = []
