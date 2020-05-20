@@ -245,7 +245,8 @@ if __name__ == '__main__':
             'pharminfo': {
                 'sass_path': 'static',
                 'css_path': 'static',
-                'wsgi_path': '/static'
+                'wsgi_path': '/static',
+                'strip_extension': False,
             }
         }
     )
