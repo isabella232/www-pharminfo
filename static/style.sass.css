@@ -270,10 +270,9 @@ nav ul {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  background-color: #00a071;
   box-sizing: border-box;
   height: 70px;
-  margin: 0;
+  position: absolute;
   width: 100%; }
   nav ul li a {
     -webkit-transition: all 0.25s 0s;
