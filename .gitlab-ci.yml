@@ -4,7 +4,7 @@ include:
   - remote: 'https://gitlab.com/Kozea/ci-master/raw/master/.ci-test.yml'
   - remote: 'https://gitlab.com/Kozea/ci-master/raw/master/.ci-deploy-test.yml'
   - remote: 'https://gitlab.com/Kozea/ci-master/raw/master/.ci-deploy-prod.yml'
-  
+
 stages:
   - install
   - test
@@ -17,7 +17,4 @@ stages:
       - .env/
 
 install:
-  script:
-    - sed -i '/git+/d' Makefile
-    - make install
   <<: *artifacts
