@@ -4,11 +4,7 @@ tests_requirements = [
     'pytest',
     'pytest-cov',
     'pytest-flake8',
-    # pytest-isort >=1 triggers test failures because `top_model` is not
-    # installed as dependency.
-    # Installing `top_model` would require adding private key to the CI
-    # process (TODO).
-    'pytest-isort<1',
+    'pytest-isort',
 ]
 
 setup(
