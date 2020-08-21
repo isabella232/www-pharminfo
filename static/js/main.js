@@ -266,35 +266,27 @@
         .getElementById("clients")
         .insertBefore(right_arrow, document.getElementById("stats"));
 
-      update_active = function(current, index_active) {
+      update_active = function(current, target_index) {
         current.classList.remove("active");
         let new_active = testimonials.querySelector(
-          '[data-index="' + index_active + '"]'
+          `#testimonials > li[data-index="${target_index}"]`
         );
         new_active.classList.add("active");
       };
 
       slide_arrows = document.querySelectorAll(".left,.right");
+      let testimonials_count =
+        document.querySelectorAll("#testimonials > li").length;
       for (let index = 0; index < slide_arrows.length; index++) {
         let slide_arrow = slide_arrows[index];
         slide_arrow.addEventListener("click", function() {
           let way = slide_arrow.getAttribute("class");
           let current = document.querySelector("#testimonials .active");
-          if (way === "left") {
-            if (current.getAttribute("data-index") === "1") {
-              update_active(current, "4");
-            } else {
-              let active_index = parseInt(current.getAttribute("data-index"));
-              update_active(current, String(active_index - 1));
-            }
-          } else {
-            if (current.getAttribute("data-index") === "4") {
-              update_active(current, "1");
-            } else {
-              let active_index = parseInt(current.getAttribute("data-index"));
-              update_active(current, String(active_index + 1));
-            }
-          }
+          let active_index = Number.parseInt(current.dataset.index);
+          let next_active_index = active_index + (way === "left" ? -1 : 1);
+          // Cycle index between 1 and the total number of testimonials
+          next_active_index = (next_active_index - 1) % testimonials_count + 1;
+          update_active(current, next_active_index);
         });
       }
     }
