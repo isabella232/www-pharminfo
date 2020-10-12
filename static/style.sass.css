@@ -688,11 +688,6 @@ nav ul {
         height: 2px;
         margin: .5em auto 0;
         width: 20px; }
-    #offers section:not(#grouping):not(#advantages) p.price {
-      font-size: 0.75em; }
-      #offers section:not(#grouping):not(#advantages) p.price strong {
-        font-size: 2.8em;
-        font-weight: 700; }
     #offers section:not(#grouping):not(#advantages) ul li {
       font-weight: 400;
       margin: .5em; }
@@ -717,8 +712,6 @@ nav ul {
         color: #00a071; }
         #offers section:not(#grouping):not(#advantages):not(#clickcollect) p:last-of-type::after {
           background: #00a071; }
-      #offers section:not(#grouping):not(#advantages):not(#clickcollect) .price strong {
-        color: #00a071; }
     #offers section#clickcollect:not(#grouping):not(#advantages) {
       background-color: #00a071;
       border: solid 3px #00a071;
@@ -729,10 +722,6 @@ nav ul {
         border-color: #FFFFFF; }
     #offers section#optiweb:not(#grouping):not(#advantages) ul li:nth-child(13), #offers section#optiweb:not(#grouping):not(#advantages) ul li:nth-child(14) {
       font-weight: 700; }
-  #offers ul.notes {
-    font-size: 0.75em;
-    text-align: center;
-    width: 100%; }
   #offers #advantages {
     padding: 2em;
     width: 100%; }
