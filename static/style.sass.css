@@ -718,7 +718,7 @@ nav ul {
       color: #FFFFFF; }
       #offers section#clickcollect:not(#grouping):not(#advantages) ul li:nth-child(12) {
         font-weight: 700; }
-      #offers section#clickcollect:not(#grouping):not(#advantages) p.price, #offers section#clickcollect:not(#grouping):not(#advantages) ul.links li a {
+      #offers section#clickcollect:not(#grouping):not(#advantages) ul.links li a {
         border-color: #FFFFFF; }
     #offers section#optiweb:not(#grouping):not(#advantages) ul li:nth-child(13), #offers section#optiweb:not(#grouping):not(#advantages) ul li:nth-child(14) {
       font-weight: 700; }
