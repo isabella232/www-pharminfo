@@ -23,6 +23,11 @@ install: install-super
 	$(PIP) install --upgrade --no-cache git+ssh://git@github.com/Kozea/top_model.git#egg=top_model
 
 
+install-prod: install-prod-super
+	$(LOG)
+	# Top model
+	$(PIP) install --upgrade --no-cache git+ssh://git@github.com/Kozea/top_model.git#egg=top_model
+
 deploy-test:
 	$(LOG)
 	@echo "Communicating with Junkrat..."
