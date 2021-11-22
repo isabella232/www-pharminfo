@@ -2,7 +2,7 @@
   document.addEventListener("DOMContentLoaded", function() {
     /* scrollReveal for on-scroll elements animation */
     var reveals = {};
-    var page_list = ["index", "news", "subscribe"];
+    var page_list = ["index", "subscribe"];
     for (let index = 0; index < page_list.length; index++) {
       reveals[page_list[index]] = {};
     }
@@ -11,7 +11,6 @@
         "#sales h2, #sales ul.links, #sales ul, #goals li, #stats li"
       ],
       asc: [
-        "#news article, #news .links",
         "#cloud, #payment, #ars, #security",
         "#order, #sav, #seo, #responsive"
       ],

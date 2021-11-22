@@ -277,13 +277,6 @@
       margin: 50px 20% 50px 10%
 
 @media screen and (min-width: 780px)
-  #index #news
-    flex-direction: row
-
-    article, ul
-      flex: auto
-      width: 25%
-
   #clients
     @include flexbox(row, flex-start)
 
@@ -331,18 +324,8 @@
         margin-right: 5px
         vertical-align: middle
 
-  #news-content
-    @include flexbox(row, space-between)
-
-    h2
-      text-align: center
-      width: 100%
-
-    article
-      width: 49%
-
 @media screen and (min-width: 841px)
-  #news nav ul, #legal nav ul
+  #clients2 nav ul, #legal nav ul
     &::before
       content: url("images/logo-bicolor.svg")
 
@@ -389,14 +372,6 @@
             border: solid 1px $main-color
             color: #FFF
 
-  // #index #news article
-  //   h3, time
-  //     @include transition(bottom, 0.5s)
-  //     bottom: -300px
-  //
-  //   &:hover h3, &:hover time
-  //     bottom: 0
-
   #guarantees ul li
     @include transition(font-size)
     background-color: transparent
@@ -438,7 +413,7 @@
       margin: 60px auto 0
       max-width: 700px
 
-  #news-content, #websites, #legal-content
+  #websites, #legal-content
     margin-top: 100px
 
 @media screen and (min-width: 1000px)

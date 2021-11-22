@@ -153,14 +153,14 @@ p {
 *:not(strong) {
   font-weight: 300; }
 
-body > section:not(#news):not(#reasons):not(#clients):not(#contact):not(#news-content):not(#legal-content):not(#announce) {
+body > section:not(#reasons):not(#clients):not(#contact):not(#legal-content):not(#announce) {
   padding: 60px 10%; }
 
-#guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #news-content h2, #clients h2, #websites h2, #legal-content h2 {
+#guarantees h2, #reasons h2, #offers h2, #subscribe h2, #whitepaper h2, #clients h2, #websites h2, #legal-content h2 {
   color: #515151;
   font: normal 300 2.25em/normal "Source Sans Pro", sans-serif;
   text-align: center; }
-  #guarantees h2::after, #reasons h2::after, #offers h2::after, #subscribe h2::after, #whitepaper h2::after, #news-content h2::after, #clients h2::after, #websites h2::after, #legal-content h2::after {
+  #guarantees h2::after, #reasons h2::after, #offers h2::after, #subscribe h2::after, #whitepaper h2::after, #clients h2::after, #websites h2::after, #legal-content h2::after {
     background-color: #00a071;
     content: '';
     display: block;
@@ -199,40 +199,6 @@ article {
     z-index: 20; }
   article p {
     margin: 0; }
-
-#index #news {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start; }
-  #index #news h2 {
-    display: none; }
-  #index #news ul {
-    background: #e6e6e6;
-    margin: 0;
-    min-height: 150px;
-    position: relative; }
-    #index #news ul li {
-      left: 0;
-      position: absolute;
-      right: 0;
-      text-align: center;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);
-      top: 50%; }
-      #index #news ul li a {
-        -webkit-transition: all 0.25s 0s;
-        transition: all 0.25s 0s;
-        border: solid 2px;
-        color: inherit;
-        font-weight: 700;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        border-color: #515151; }
-        #index #news ul li a:hover {
-          padding: 1em 2em; }
 
 #announce {
   background-color: #00a071;
@@ -1054,13 +1020,13 @@ aside#flash ul {
     color: #00a071;
     text-decoration: none; }
 
-#news-content, #legal-content {
+#legal-content {
   box-sizing: border-box;
   padding: 0 10% 60px;
   width: 100%; }
-  #news-content article, #legal-content article {
+  #legal-content article {
     margin: 20px 0; }
-    #news-content article time, #news-content article h3, #legal-content article time, #legal-content article h3 {
+    #legal-content article time, #legal-content article h3 {
       background: white; }
 
 #websites ul {
@@ -1363,11 +1329,6 @@ aside#flash ul {
       margin: 50px 20% 50px 10%; } }
 
 @media screen and (min-width: 780px) {
-  #index #news {
-    flex-direction: row; }
-    #index #news article, #index #news ul {
-      flex: auto;
-      width: 25%; }
   #clients {
     display: flex;
     flex-direction: row;
@@ -1412,28 +1373,18 @@ aside#flash ul {
         width: 4px;
         background-color: #FFFFFF;
         margin-right: 5px;
-        vertical-align: middle; }
-  #news-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between; }
-    #news-content h2 {
-      text-align: center;
-      width: 100%; }
-    #news-content article {
-      width: 49%; } }
+        vertical-align: middle; } }
 
 @media screen and (min-width: 841px) {
-  #news nav ul::before, #legal nav ul::before {
+  #clients2 nav ul::before, #legal nav ul::before {
     content: url("images/logo-bicolor.svg"); }
-  #news nav ul li a, #legal nav ul li a {
+  #clients2 nav ul li a, #legal nav ul li a {
     color: #515151; }
-    #news nav ul li a:hover, #legal nav ul li a:hover {
+    #clients2 nav ul li a:hover, #legal nav ul li a:hover {
       border-bottom: solid 1px #515151; }
-  #news nav ul li:last-of-type a, #legal nav ul li:last-of-type a {
+  #clients2 nav ul li:last-of-type a, #legal nav ul li:last-of-type a {
     border-color: #515151; }
-    #news nav ul li:last-of-type a:hover, #legal nav ul li:last-of-type a:hover {
+    #clients2 nav ul li:last-of-type a:hover, #legal nav ul li:last-of-type a:hover {
       background: #515151;
       color: white; }
   nav ul {
@@ -1490,7 +1441,7 @@ aside#flash ul {
     #content-whitepaper form {
       margin: 60px auto 0;
       max-width: 700px; }
-  #news-content, #websites, #legal-content {
+  #websites, #legal-content {
     margin-top: 100px; } }
 
 @media screen and (min-width: 1000px) {

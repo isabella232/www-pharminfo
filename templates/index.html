@@ -98,23 +98,6 @@
     </article>
   </section>
 
-  <section id="news">
-    <h2>Actualités</h2>
-    {% for entry in news %}
-      <article>
-        <h3>{{ entry.title }}</h3>
-        <time pubdate datetime="{{ entry.iso_date }}">{{ entry.date }}</time>
-        <img src="{{ entry.image or url_for('static', filename='news.svg') }}" alt="{{ entry.title }}" />
-        <p><a href="{{ entry.link }}">Lire la suite…</a></p>
-      </article>
-    {% endfor %}
-    <ul class="links">
-      <li>
-        <a href="{{ url_for('page', page='news') }}">Voir toutes les actualités</a>
-      </li>
-    </ul>
-  </section>
-
   <section id="guarantees">
     <h2>Les garanties Pharminfo.fr</h2>
     <ul>
